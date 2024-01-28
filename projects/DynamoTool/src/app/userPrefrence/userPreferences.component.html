@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Material Design Bootstrap</title>
+</head>
+
+<body class="gu-color">
+    <!-- New Code start here............................................................................... -->
+    <div class="main-block preference-page">
+        <div [style.display]="loader" id="loader" class="loading"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    <div class="custom-page">
+                        <div class="center  mb-r">
+                            <span id="compName014" class="text-lg">{{companyName}}</span> <br> <span class="text-sm">{{title}}</span>
+                        </div>
+                        <!--details-->
+                        <div id="filter_div" class="gui-tbl-col">
+                            <app-displaygrid [greetresponse]="childresponse" [sendPrm]="sendParameter" staticdata="userprfrence"
+                                (selectedIndex)="getselectedIndex($event)"></app-displaygrid>
+                            <br />
+                            <div class="top-head">
+                                <div class="col s6 color-col">
+                                    <form #inquiryForm="ngForm" (ngSubmit)="saveUserPreference(inquiryForm.value)"
+                                        class="search-block">
+                                        <!--Grid column-->
+                                        <div class="input-field table-search">
+                                            <table class="colors">
+                                                <tr>
+                                                    <td class="radiocolor">
+                                                        <input type="radio" class="filled-in" id="filled-in-box" value="red"
+                                                            [(ngModel)]="color" (click)="getColor($event)" name="color"
+                                                            tabindex="1" />
+                                                        <label class="customeCss" for="filled-in-box">red</label>
+                                                    </td>
+                                                    <td class="radiocolor">
+                                                        <input type="radio" class="filled-in" id="filled-in-box1" value="pink"
+                                                            [(ngModel)]="color" (click)="getColor($event)" name="color"
+                                                            tabindex="2" />
+                                                        <label class="customeCss" for="filled-in-box1">pink</label>
+                                                    </td>
+                                                    <td class="radiocolor">
+                                                        <input type="radio" class="filled-in" id="filled-in-box3" value="purple"
+                                                            [(ngModel)]="color" (click)="getColor($event)" name="color"
+                                                            tabindex="2" />
+                                                        <label class="customeCss" for="filled-in-box3">purple</label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="radiocolor">
+                                                        <input type="radio" class="filled-in" id="filled-in-box4" value="deep-purple"
+                                                            [(ngModel)]="color" (click)="getColor($event)" name="color"
+                                                            tabindex="1" />
+                                                        <label class="customeCss" for="filled-in-box4">deep purple</label>
+                                                    </td>
+                                                    <td class="radiocolor">
+                                                        <input type="radio" class="filled-in" id="filled-in-box5" value="indigo"
+                                                            [(ngModel)]="color" (click)="getColor($event)" name="color"
+                                                            tabindex="2" />
+                                                        <label class="customeCss" for="filled-in-box5">indigo</label>
+                                                    </td>
+                                                    <td class="radiocolor">
+                                                        <input type="radio" class="filled-in" id="filled-in-box6" value="blue"
+                                                            [(ngModel)]="color" (click)="getColor($event)" name="color"
+                                                            tabindex="2" />
+                                                        <label class="customeCss" for="filled-in-box6">blue</label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="radiocolor">
+                                                        <input type="radio" class="filled-in" id="filled-in-box7" value="light-blue"
+                                                            [(ngModel)]="color" (click)="getColor($event)" name="color"
+                                                            tabindex="1" />
+                                                        <label class="customeCss" for="filled-in-box7">light blue</label>
+                                                    </td>
+                                                    <td class="radiocolor">
+                                                        <input type="radio" class="filled-in" id="filled-in-box8" value="cyan"
+                                                            [(ngModel)]="color" (click)="getColor($event)" name="color"
+                                                            tabindex="2" />
+                                                        <label class="customeCss" for="filled-in-box8">cyan</label>
+                                                    </td>
+                                                    <td class="radiocolor">
+                                                        <input type="radio" class="filled-in" id="filled-in-box9" value="teal"
+                                                            [(ngModel)]="color" (click)="getColor($event)" name="color"
+                                                            tabindex="2" />
+                                                        <label class="customeCss" for="filled-in-box9">teal</label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="radiocolor">
+                                                        <input type="radio" class="filled-in" id="filled-in-box10"
+                                                            value="green" (click)="getColor($event)" [(ngModel)]="color"
+                                                            name="color" tabindex="1" />
+                                                        <label class="customeCss" for="filled-in-box10">green</label>
+                                                    </td>
+                                                    <td class="radiocolor">
+                                                        <input type="radio" class="filled-in" id="filled-in-box11"
+                                                            value="light-green" (click)="getColor($event)" [(ngModel)]="color"
+                                                            name="color" tabindex="2" />
+                                                        <label class="customeCss" for="filled-in-box11">light green</label>
+                                                    </td>
+                                                    <td class="radiocolor">
+                                                        <input type="radio" class="filled-in" id="filled-in-box12"
+                                                            value="lime" (click)="getColor($event)" [(ngModel)]="color"
+                                                            name="color" tabindex="2" />
+                                                        <label class="customeCss" for="filled-in-box12">lime</label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="radiocolor">
+                                                        <input type="radio" class="filled-in" id="filled-in-box13"
+                                                            value="yellow" (click)="getColor($event)" [(ngModel)]="color"
+                                                            name="color" tabindex="1" />
+                                                        <label class="customeCss" for="filled-in-box13">yellow</label>
+                                                    </td>
+                                                    <td class="radiocolor">
+                                                        <input type="radio" class="filled-in" id="filled-in-box14"
+                                                            value="amber" (click)="getColor($event)" [(ngModel)]="color"
+                                                            name="color" tabindex="2" />
+                                                        <label class="customeCss" for="filled-in-box14">amber</label>
+                                                    </td>
+                                                    <td class="radiocolor">
+                                                        <input type="radio" class="filled-in" id="filled-in-box15"
+                                                            value="orange" (click)="getColor($event)" [(ngModel)]="color"
+                                                            name="color" tabindex="2" />
+                                                        <label class="customeCss" for="filled-in-box15">orange</label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="radiocolor">
+                                                        <input type="radio" class="filled-in" id="filled-in-box16"
+                                                            value="deep-orange" (click)="getColor($event)" [(ngModel)]="color"
+                                                            name="color" tabindex="1" />
+                                                        <label class="customeCss" for="filled-in-box16">deep orange</label>
+                                                    </td>
+                                                    <td class="radiocolor">
+                                                        <input type="radio" class="filled-in" id="filled-in-box17"
+                                                            value="brown" (click)="getColor($event)" [(ngModel)]="color"
+                                                            name="color" tabindex="2" />
+                                                        <label class="customeCss" for="filled-in-box17">brown</label>
+                                                    </td>
+                                                    <td class="radiocolor">
+                                                        <input type="radio" class="filled-in" id="filled-in-box18"
+                                                            value="grey" (click)="getColor($event)" [(ngModel)]="color"
+                                                            name="color" tabindex="2" />
+                                                        <label class="customeCss" for="filled-in-box18">grey</label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="radiocolor">
+                                                        <input type="radio" class="filled-in" id="filled-in-box19"
+                                                            value="blue grey" (click)="getColor($event)" [(ngModel)]="color"
+                                                            name="color" tabindex="1" />
+                                                        <label class="customeCss" for="filled-in-box19">blue-grey</label>
+                                                    </td>
+                                                    <td class="radiocolor">
+                                                        <input type="radio" class="filled-in" id="filled-in-box20"
+                                                            value="random" (click)="getColor($event)" [(ngModel)]="color"
+                                                            name="color" tabindex="2" />
+                                                        <label class="customeCss" for="filled-in-box20">random</label>
+                                                    </td>
+                                                </tr>
+
+                                            </table>
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <div class="col s6 custom-table mrgT15">
+                                    <!-- {{warehouse}} -->
+                                    <div class="row">
+                                        <table class="DTgrid DTstripe DT-{{ color }} tl1 tl2 tr3">
+                                            <thead>
+                                                <tr>
+                                                    <th class="top" colspan="99">Quantities</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>Item#</th>
+                                                    <th>Description</th>
+                                                    <th>Available</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><a>14HHCSS</a></td>
+                                                    <td>1"X4" HEX BOLT STAINLESS STEEL</td>
+                                                    <td>12,000</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a>14HN</a></td>
+                                                    <td>1/4-20 STANDARD HEX NUT</td>
+                                                    <td>180,000</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a>14HN5</a></td>
+                                                    <td>1/4-20 HEX NUTS GRADE 5</td>
+                                                    <td>100</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a>14HNG</a></td>
+                                                    <td>1/4-20 HEX NUT GALVANIZED</td>
+                                                    <td>1,750</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a>14HNS</a></td>
+                                                    <td>1/4-20 STAINLESS STEEL HEX NUT</td>
+                                                    <td>800</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><a>14HNSQ</a></td>
+                                                    <td>1/4-20 SQUARE HEX NUT</td>
+                                                    <td>0</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Table-->
+
+                        <div class="col s12 center-align m-b-15">
+                            <a class="waves-light btn btn-mini" id='saveButton' (click)="saveUserPreference(inquiryForm.value)">Save</a>
+                        </div>
+                        <!--Table-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

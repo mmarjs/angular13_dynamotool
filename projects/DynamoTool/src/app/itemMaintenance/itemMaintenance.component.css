@@ -1,0 +1,447 @@
+
+.modal-overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow-x: auto;
+    overflow-y: auto;
+    left: 0;
+    top: 0;
+    background: rgba(0,0,0,.5);
+}
+body.custom-body {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+}
+div#modal11 {
+    width: 750px;
+    top: 30px;
+    /* bottom: inherit; */
+    position: absolute;
+    overflow: hidden;
+    max-height: inherit;
+    margin-bottom: 50px;
+}
+a {
+    cursor: pointer;
+}
+.pagination li i {
+    font-size: 20px;
+}
+#searchtList{
+ 
+    float: right;
+}
+.custom-page .table-search label {
+    left: 0;
+}
+.custom-page .search-block input#last_name {
+    position: relative;
+}
+.custom-page .search-block span {
+    position: absolute;
+    top: 13px;
+    right: 6px;
+    color: #a7a7a7;
+    cursor: pointer;
+}
+.custom-page .count-search {
+    margin-top: 10px;
+}
+.checkbox-blue[type="checkbox"].filled-in:checked + label:after{
+    border: 2px solid #01579b;
+    background-color: #01579b;
+}
+.checkbox-col {
+    margin-left: 18px;
+}
+#itemNotepad_css {
+    width: 94% !important;
+}
+#filled-in-box, #filled-in-box2, #filled-in-box3 {
+    visibility: visible;
+  }
+  
+input[type="checkbox"]:focus + label{
+    background-color: rgba(0,0,0,.05);
+}
+input[type=text]:focus:not([readonly])+label+span {
+    color:teal;
+}
+#inquirySearch {
+    padding:4px;
+}
+#inquirySearch:focus {
+    color:white;
+    background:teal;
+}
+.mid-col {
+    margin: 20px 0px;
+}
+#compName014{
+    font-size: 23px;
+}
+#modal11 {
+    z-index: 1;
+}
+[type=checkbox]+label {
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    display: inline-block;
+    height: 17px;
+    line-height: 17px;
+    font-size: 1rem;
+}
+[type=checkbox].filled-in:not(:checked)+label:after {
+    height: 13px;
+    width: 13px;
+}
+[type="checkbox"].filled-in:checked + label:after {
+    height: 13px;
+    width: 13px;
+}
+[type=checkbox].filled-in.customize:not(:checked) + label:after {
+    border: 2px solid #fff;
+    height: 17px;
+    width: 18px;
+    left: -3px;
+}
+[type=checkbox].filled-in.customize:checked + label:after {
+    height: 17px;
+    width: 18px;
+    left: -3px;
+}
+[type="checkbox"].filled-in:checked + label:before {
+    width: 3px;
+    height: 9px;
+}
+[type=checkbox].filled-in.customize:checked + label:before {
+    left: 0;
+    width: 5px;
+    height: 11px
+}
+span.align-check {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    left: 20px;
+    top: 3px;
+}
+span.align-checkcode {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    left: 12px;
+    top: 3px;
+}
+label.delete_checkbox {
+    margin-left: 24px;
+    margin-bottom: -2px;
+    width: 14px;
+    height: 14px;
+}
+.top-th-row.delete_Heading {
+    display: block;
+    float: none;
+    text-align: center;
+}
+.delete_button.fa.fa-trash-o {
+    float: none;
+    display: block;
+    margin-bottom: 6px;
+    margin-top: 8px;
+    text-align: center;
+    cursor: pointer;
+}
+#search{
+    width: 19%;
+}
+.container{
+    min-height: 600px;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+#nodata_s8e{
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+}
+.itemtitle{
+    font-weight: bold;
+    font-size: 15px;
+}
+#bkbtn_id{
+    float: right;
+    display: block;
+    padding: 10px;
+}
+#tokenItem_63{
+    display: none;
+}
+#filter_div{
+    width: 100%;
+    margin-bottom: 10px;
+}
+#countList, #countList select{
+    height: 35px;
+    float: right;
+    display: block;
+    margin-top: 15px;
+}
+#compName014{
+    font-size: 23px;
+}
+#searchtList{
+ 
+    float: right;
+}
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #3870a1;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    top:15px;
+    z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+.custom-page table td, .custom-page table th {
+    border-radius:0px; 
+}
+
+.custom-page .table-search label {
+    left: 0;
+}
+.custom-page .search-block input#last_name {
+    position: relative;
+}
+.custom-page .search-block span {
+    position: absolute;
+    top: 13px;
+    right: 6px;
+    color: #a7a7a7;
+    cursor: pointer;
+}
+.data-tbl thead tr th {
+    color: #fff;
+}
+.custom-page .count-search {
+    margin-top: 10px;
+}
+.container {
+    background: #fff;
+    display: block;
+    width: 99%;
+    max-width: 100%;
+}
+.heading-size h4{
+    font-size: 24px;
+    margin: 0px;
+    font-weight: 300;
+}
+.heading-size span{
+    margin-top: 20px;
+}
+.top-details ul li p{  margin: 0px;}
+.top-details li{ font-size: 13px;}
+.details{ 
+    width: 100%; 
+    clear: both;
+}
+
+.details {
+    clear: both;
+    float: left;
+    margin-left: 5px;
+}
+.sidebar {
+   left: 0;
+}
+.sidebar {
+    background: #1C2A48;
+    min-width: 200px;
+    max-width: 210px;
+    margin-left: 0px;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    position: relative;
+    height: 600px;
+    cursor: pointer;
+}
+
+.side-nav li {
+    float: none;
+    padding: 1px 0px;
+}
+.side-nav {
+    overflow: visible;
+    z-index: 1;
+}
+.side-nav a{
+    font-size: 13px;
+}
+.sidebar li a {
+    color: #fff;
+    display: block;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    line-height:20px;
+    height:auto;
+}
+.sidebar li:hover, .sidebar li a.active{
+	background:#7986cb;
+	text-decoration:none;
+}
+.wrapper{
+    overflow: hidden;
+}
+#loader{
+    display: none;
+}
+td{
+    border: 1px solid #369;
+    /* padding: 5px */
+}
+th{
+    border: 1px solid #396;
+}
+.top-head {
+    margin: 40px 0px 10px;
+    overflow: hidden;
+}
+.search-width {
+    width:300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.fontweigh {
+    font-weight: 400;
+}
+.tooltiptext {
+    width: 193px !important;
+    margin-left: 126px;
+    z-index: 999 !important;
+}
+.waves-effect waves-light btn a {
+    height: 30px;
+    width: 81px;
+    line-height: 31px;
+    padding: 0px 1rem;
+}
+.top-details ul:last-child {
+    float: right;
+}
+#tinysave_btn {
+    margin-top: 5px;
+}
+.itemNotepad {
+    height: 5px;
+    text-align: center;
+    padding: 2px 5px;
+    font-weight: 200;
+    border: 1px solid #cacaca;
+}
+.checkbox-blue[type="checkbox"].filled-in:checked + label:after{
+    border: 2px solid #01579b;
+    background-color: #01579b;
+}
+.checkbox-col {
+    margin-left: 18px;
+}
+#itemNotepad_css {
+    width: 94% !important;
+}
+#filled-in-box, #filled-in-box2, #filled-in-box3 {
+    visibility: visible;
+  }
+  
+input[type="checkbox"]:focus + label{
+    background-color: rgba(0,0,0,.05);
+}
+input[type=text]:focus:not([readonly])+label+span {
+    color:teal;
+}
+#inquirySearch {
+    padding:4px;
+}
+#inquirySearch:focus {
+    color:white;
+    background:teal;
+}
+form.custom-width {
+    width: 100%;
+    display: table;
+}
+.custom-table, .tree-custome {
+    margin: 10px;
+}
+.tree-custome {
+    float: left;
+}
+.custom-table {
+    float: right;
+}
+.custom-table>div>div {
+    float: right;
+    width: 100%;
+}
+.custom-table>div>div>div {
+    float: left;
+    margin: 10px;
+}
+.custom-table>div>div>div>div {
+    float: right;
+    margin: 10px;
+}
+.custome-leftMenubutton {
+    margin-bottom: 10px;
+}
+.custome-leftMenu>table {
+    margin-top: 10px;
+}
+.custome-rightMenu>table {
+    margin-top: 10px;
+}
+.recycle_button {
+    float:right;
+    margin-left: 50px; 
+    max-height: 21px;
+    overflow: hidden;
+}
+/* .remove_class {
+    width: 230px;
+} */
+@media(max-width:767px) {
+    
+    .custom-table table {
+        display: inline-block;
+        overflow: hidden;
+        overflow-x: auto;
+    }
+    .search-width { 
+        width: 100%;
+    }
+    .top-head {
+        margin: 20px 0px;
+    }
+    #countList, #countList select{
+        height: auto;
+        margin-top: 5px
+    }
+}

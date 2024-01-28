@@ -1,0 +1,67 @@
+<!-- <table class="{{tableclass}}" *ngIf="displayView">
+    <tr>
+        <th class="top" colspan="99">{{ inquiryTitle }}</th>
+    </tr>
+    <tr *ngFor="let itemInquiryrow of displayView">
+        <td>{{itemInquiryrow.description}}</td>
+        <td *ngIf="itemInquiryrow.type !='switch'">{{itemInquiryrow.value}}</td>
+        <td *ngIf="itemInquiryrow.type =='switch'">
+            <div class="switch">
+                <label>
+                    <input disabled="{{itemInquiryrow.readonly ? 'disabled' : ''}}" checked="{{itemInquiryrow.value ? 'checked' : ''}}"
+                        type="checkbox">
+                    <span class="lever"></span>
+                </label>
+            </div>
+        </td>
+    </tr>
+</table> -->
+ 
+   <span *ngIf="displayViewRow2 !== null && displayViewRow2 !== ''" class="headClass" [innerHTML]="inquiryTitle" [ngStyle]="{'background-color': bgColor}" [ngClass]="bgColor"></span>
+   <div style="margin-top: 5px" [ngClass]="displayViewRow2 !== null ? 'textRight' : 'textCenter'">
+   
+<table class="{{ inventoryViewrow.tableclass }}  {{displayViewRow2 !== null && displayViewRow2 !== '' ? 'setFloat' : 'noclass'}}"  *ngFor="let inventoryViewrow of displayView">
+   <tr *ngIf="displayViewRow2 == null">
+        <th class="top" colspan="99"> <div [innerHTML]=inventoryViewrow.title></div></th>
+    </tr>
+    <tr *ngFor="let inventoryrow of inventoryViewrow.items">
+        <td *ngIf="inventoryrow.type !='heading'">{{inventoryrow.description}}</td>
+      
+            <td class="heading" colspan="2" *ngIf="inventoryrow.type =='heading'">{{inventoryrow.description}}</td> 
+       
+    
+      <td *ngIf="inventoryrow.type !='switch' && inventoryrow.type !='heading'" [ngStyle]="{'text-align': inventoryrow.texalign}" [innerHTML]="inventoryrow.value"></td>
+      <td *ngIf="inventoryrow.type =='switch'">
+            <div class="switch">
+                <label>
+                    <input disabled="{{inventoryrow.readonly ? 'disabled' : ''}}" checked="{{inventoryrow.value ? 'checked' : ''}}"
+                        type="checkbox">
+                    <span class="lever"></span>
+                </label>
+            </div>
+        </td>
+    </tr>
+</table>
+
+<!--- TABLE FOR ROW2 -->
+<table class="{{ inventoryViewrow.tableclass }}" [ngStyle]="{'margin': '3px', 'margin-bottom': '10px'}" *ngFor="let inventoryViewrow of displayViewRow2">
+  
+    <tr *ngFor="let inventoryrow of inventoryViewrow.items">
+        <td *ngIf="inventoryrow.type !='heading'">{{inventoryrow.description}}</td>
+        <td class="heading" colspan="2" *ngIf="inventoryrow.type =='heading'">{{inventoryrow.description}}</td>
+       
+     
+      <td *ngIf="inventoryrow.type !='switch' && inventoryrow.type !='heading'" [ngStyle]="{'text-align': inventoryrow.texalign}" [innerHTML]="inventoryrow.value"></td>
+      <td *ngIf="inventoryrow.type =='switch'">
+            <div class="switch">
+                <label>
+                    <input disabled="{{inventoryrow.readonly ? 'disabled' : ''}}" checked="{{inventoryrow.value ? 'checked' : ''}}"
+                        type="checkbox">
+                    <span class="lever"></span>
+                </label>
+            </div>
+        </td>
+    </tr>
+</table> 
+</div>
+

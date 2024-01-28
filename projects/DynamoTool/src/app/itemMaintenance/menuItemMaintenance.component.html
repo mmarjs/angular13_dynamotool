@@ -1,0 +1,172 @@
+<app-message [messageResponse]="setmessage"></app-message>
+<div class="{{modalPop}}">
+    <div class="container">
+        <div class="modal-overlay" [ngStyle]="{'display': showMenuPopup}">
+            <div [ngStyle]="{'display': showMenuPopup}" class="modal modal_maintenance" id="modal11">
+                <app-displaydtForm *ngIf="responseDtForm" [getdtForm]="responseDtForm" (message)="responseMessage($event)"
+                    (sendDtForm)="receiveDtForm($event)"></app-displaydtForm>
+            </div>
+        </div>
+        <div [style.display]="loader" id="loader" class="loading"></div>
+        <div style="width: 100%;">
+            <div class="tree-custome">
+                <tree-root #tvChk (moveNode)="onMoveNode($event)" (nodeActivate)="onSelect($event, 'menutree')" [nodes]="nodeTree"
+                    [options]="treeoptions">
+                </tree-root>
+                <br />
+                <app-displayButton *ngIf="menutreeButton" [getButtonResponse]="menutreeButton" (click)="saveTreeNode(tvChk)"></app-displayButton>
+                <!-- <div class="recycle_button fa fa-trash-o">
+                    <tree-root [nodes]="removenodesgrid" [options]="removegridoptions">
+                    </tree-root>
+                </div> -->
+            </div>
+            <div class="col s12 custom-table">
+                <!-- {{warehouse}} -->
+                <div class="row">
+                    <div>
+                        <!-- <div class="remove_class">
+                            <table class="{{maintableclass}}" *ngIf="removenodesgrid">
+                                <tr>
+                                    <th>
+                                        Drag & Drop the tree nodes below section
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <tree-root [nodes]="removenodesgrid" [options]="removegridoptions">
+                                        </tree-root>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div> -->
+                        <div class="custome-leftMenu">
+                            <app-displayButton *ngIf="menuButton" [getButtonResponse]="menuButton" (sendData)="getButtonReceipt($event)"></app-displayButton>
+                            <table class="{{maintableclass}}" *ngIf="nodesgrid">
+                                <tr>
+                                    <th class="top" colspan="99">
+                                        <div [innerHTML]="mainTitle"></div>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <ng-container *ngFor="let mnuheader of headergridmenu let i = index;">
+                                        <th *ngIf="mnuheader.type != 'checkbox' && mnuheader.type != 'hidden'">
+                                            <div [innerHTML]=mnuheader.title></div>
+                                        </th>
+                                        <th *ngIf="mnuheader.type == 'checkbox' ">
+                                            <div class="top-th-row delete_Heading" [innerHTML]=mnuheader.title></div>
+                                            <label>
+                                                <input type="checkbox" [checked]="isCheckAll" [(ngModel)]="isCheckAll"
+                                                    (change)="checkAll($event, 'menuCodes')" id="filled-in-box" class="filled-in customize" />
+                                                <label for="filled-in-box" class="delete_checkbox"></label>
+                                            </label>
+
+                                            <div (click)="deleteCheckedData(mnuheader.checkBoxApi, 'menuCodes')" class="delete_button {{mnuheader.buttonIcon}}"></div>
+                                        </th>
+                                    </ng-container>
+
+                                </tr>
+                                <tr style="border: 1px solid black;">
+                                    <td>
+                                        <tree-root (moveNode)="onMoveNode($event)" (nodeActivate)="onSelect($event, 'menuCodes')"
+                                            [nodes]="nodesgrid" [options]="gridoptions">
+                                        </tree-root>
+                                    </td>
+                                    <td>
+                                        <table class="{{maintableclass}}">
+                                            <tr *ngFor="let grid of nodesgrid">
+                                                <td style="border: 0;text-align: left;">{{grid.title}}</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table>
+                                            <tr *ngFor="let grid of nodesgrid ">
+                                                <td style="border: 0;" *ngIf="grid.type == 'checkbox'">
+                                                    <span class="align-checkcode">
+                                                        <input disabled="{{grid.readonly ? 'disabled' : ''}}" type="checkbox"
+                                                            checked="{{grid.checked ? 'checked' : ''}}" value="{{grid.id}}"
+                                                            (change)="onCheckboxChange(grid,$event, 'menuCodes')" class="filled-in"
+                                                            id="filled-in-box{{grid.id}}" />
+                                                        <label class="" for="filled-in-box{{grid.id}}"></label>
+                                                    </span>
+                                                </td>
+                                                <td style="border: 0" *ngIf="grid.type == 'radio'">
+                                                    <span *ngIf="grid.radioButtonValue != ''" class="align-check align-radio">
+                                                        <input type="radio" class="filled-in" [(ngModel)]="practiceCode"
+                                                            id="{{grid.radioButtonValue}}" value="{{grid.radioButtonValue}}"
+                                                            name="practiceCode" (change)="onRadioChange(grid)" />
+                                                        <label class="customeCss" for="{{grid.radioButtonValue}}"></label>
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="custome-rightMenu">
+                            <app-displayButton *ngIf="menuSelectionButton" [getButtonResponse]="menuSelectionButton"
+                                (sendData)="getButtonReceipt($event)"></app-displayButton>
+                            <table class="{{selectiontableclass}}" *ngIf="nodesgridselection">
+                                <tr>
+                                    <th class="top" colspan="99">
+                                        <div [innerHTML]="selectionTitle"></div>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <ng-container *ngFor="let mnuSelectionheader of headergridselection; let i = index;">
+                                        <th *ngIf="mnuSelectionheader.type != 'checkbox' && mnuSelectionheader.type != 'hidden'">
+                                            <div [innerHTML]=mnuSelectionheader.title></div>
+                                        </th>
+                                        <th *ngIf="mnuSelectionheader.type == 'checkbox'">
+                                            <div class="top-th-row delete_Heading" [innerHTML]=mnuSelectionheader.title></div>
+                                            <label>
+                                                <input type="checkbox" [checked]="isCheckAllSelecttion" [(ngModel)]="isCheckAllSelecttion"
+                                                    (change)="checkAll($event, 'menuItems')" id="filled-in-box1" class="filled-in customize" />
+                                                <label for="filled-in-box1" class="delete_checkbox"></label>
+                                            </label>
+
+                                            <div (click)="deleteCheckedData(mnuSelectionheader.checkBoxApi, 'menuItems')"
+                                                class="delete_button {{mnuSelectionheader.buttonIcon}}"></div>
+                                        </th>
+                                    </ng-container>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <tree-root id="nodesgridselection" (moveNode)="onMoveNode($event)"
+                                            (nodeActivate)="onSelect($event, 'menuItems')" [nodes]="nodesgridselection"
+                                            [options]="gridselectionoptions">
+                                        </tree-root>
+                                    </td>
+                                    <td>
+                                        <table>
+                                            <tr *ngFor="let gridSelection of nodesgridselection">
+                                                <td style="border: 0" *ngIf="gridSelection.type == 'checkbox'">
+                                                    <span class="align-check">
+                                                        <input disabled="{{gridSelection.readonly ? 'disabled' : ''}}"
+                                                            type="checkbox" checked="{{gridSelection.checked ? 'checked' : ''}}"
+                                                            value="{{gridSelection.id}}" (change)="onCheckboxChange(gridSelection,$event, 'menuItems')"
+                                                            class="filled-in" id="filled-in-box{{gridSelection.id}}" />
+                                                        <label class="" for="filled-in-box{{gridSelection.id}}"></label>
+                                                    </span>
+                                                </td>
+                                                <td style="border: 0" *ngIf="gridSelection.type == 'radio'">
+                                                    <span *ngIf="gridSelection.radioButtonValue != ''" class="align-check align-radio">
+                                                        <input type="radio" class="filled-in" [(ngModel)]="practiceCode"
+                                                            id="{{gridSelection.radioButtonValue}}" value="{{gridSelection.radioButtonValue}}"
+                                                            name="practiceCode" (change)="onRadioChange(gridSelection)" />
+                                                        <label class="customeCss" for="{{gridSelection.radioButtonValue}}"></label>
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

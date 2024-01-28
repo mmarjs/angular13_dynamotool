@@ -1,0 +1,48 @@
+<div *ngIf="showBusyText?.length > 0" class="setbusyText">{{showBusyText}}</div>
+ <div [style.display]="loader" class="loading"></div>
+<app-message [messageResponse]="setmessage"></app-message>
+ <div class="row">
+   <div *ngIf="columnWidth !== '100%'" class="columnset1">
+  <!-- CODE TO COLLAPSE AND UNCOLLPASE TREE NODE START-->
+
+<span class="setCollUncoll"><span (click)="tree.treeControl.collapseAll()">Collapse All </span>| <span (click)="tree.treeControl.expandAll()">Expand All</span></span>
+<!-- CODE TO COLLAPSE AND UNCOLLPASE TREE NODE END -->
+    <span style="color:red;"></span>
+    <input type="text" id="searchnode"  [autofocus]="true" tabindex="32751" value="" name="searchNode" style="width: 200px;margin-left: 90px;" placeholder="Search Menus for" size="30" (keydown)="callGetInputEnter($event)"/><i class="fa-search fas" tabindex="32752" (click)="getInputValue()" (keydown)="callGetInput($event)"></i>
+   <mat-tree #tree [dataSource]="dataSource" [treeControl]="treeControl" cdkDropList (cdkDropListDropped)="drop($event,dragDropApi)" class="matStyle">
+ <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle matTreeNodePadding cdkDrag [cdkDragData]="node" (cdkDragStarted)="dragStart()" (cdkDragReleased)="dragEnd()" (click)="handleClick($event,'hasChild',node)" [ngClass]="[node.level == 0 ? '' : 'setPaddingChild'+node.level]" [class.setSelected]="(parseIndex(node.filename) == selectedIndex)">
+    <button mat-icon-button disabled setCursor id="{{node.filename}}"></button>
+    {{parseValue(node.filename)}}
+  </mat-tree-node>
+
+  <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding cdkDrag [cdkDragData]="node" (cdkDragStarted)="dragStart()" (cdkDragReleased)="dragEnd()" (click)="handleClick($event,'',node)" [ngClass]="[node.level == 0 ? '' : 'setPaddingChild'+node.level]" [class.setSelected]="(parseIndex(node.filename) == selectedIndex)">
+    <button mat-icon-button matTreeNodeToggle
+            [attr.aria-label]="'toggle ' + node.filename" id="{{node.filename}}">
+      <mat-icon class="mat-icon-rtl-mirror">
+        {{treeControl.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
+      </mat-icon>
+    </button>
+    {{parseValue(node.filename) }}
+  </mat-tree-node>
+</mat-tree>
+ </div>
+ <div class="columnset2" [ngStyle]="{'width': columnWidth}">
+  <app-displaydtForm *ngIf="isForm" [getdtForm]="isForm"></app-displaydtForm>
+
+<br/>
+  <!-- RENDER MENU SUBMENU FROM RESPONSE -->
+    <div *ngIf="buttonsMenuSubMenu.length!=0" class="cst-report-page modal-footer">
+
+      <div *ngFor="let item of buttonsMenuSubMenu;" class="footer-btn-col {{item?.isEnabled ? '' : 'setDisableBtn'}}">
+
+          <app-displayButton *ngIf="item.buttonType=='button'" [getButtonResponse]="item" (click)="addMenuItemRes(item.onPush,item.showMenu,item.action)"></app-displayButton>
+          <app-displayButton *ngIf="item.buttonType=='print'" [getButtonResponse]="item" (click)="print()"></app-displayButton>
+
+
+      </div>
+  </div>
+
+
+</div>
+</div>
+

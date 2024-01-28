@@ -1,0 +1,93 @@
+<table class="custom-top-gridsub  {{ tableclass }}" popup="table">
+  <!--Table head-->
+  <thead class="mdb-color darken-3">
+    <tr>
+      <th class="top" colspan="99">{{ inquiryTitle }}</th>
+    </tr>
+    <tr class="text-white">
+      <ng-container *ngFor="let itemInquiryhead of itemInquiryHead">
+        <th [ngStyle]="{ 'background-color': cssColor }" *ngIf="itemInquiryhead.type != 'checkbox' && itemInquiryhead.type != 'hidden'">
+          <div [innerHTML]="itemInquiryhead.title"></div>
+        </th>
+        <th *ngIf="itemInquiryhead.type == 'checkbox'">
+          <div class="top-th-row delete_Heading" [innerHTML]="itemInquiryhead.title"></div>
+
+          <label *ngIf="pageName == 'generic'" class="align-check">
+            <input
+              type="checkbox"
+              [checked]="isCheckAll"
+              [(ngModel)]="isCheckAll"
+              (change)="checkAllFilter($event)"
+              id="filled-in-box1"
+              class="filled-in customize"
+            />
+            <span for="filled-in-box1" class="delete_checkbox setcolor"></span>
+          </label>
+
+          <span *ngIf="pageName !== 'generic'" class="align-check">
+            <input
+              type="checkbox"
+              [checked]="isCheckAll"
+              [(ngModel)]="isCheckAll"
+              (change)="checkAllFilter($event)"
+              id="filled-in-box1"
+              class="filled-in customize"
+            />
+            <label for="filled-in-box1" class="delete_checkbox"></label>
+          </span>
+          <div (click)="reportFilterdData(itemInquiryhead.checkBoxApi)" class="delete_button {{ itemInquiryhead.buttonIcon }}"></div>
+        </th>
+      </ng-container>
+    </tr>
+  </thead>
+  <!--Table head-->
+  <!--Table body-->
+  <tbody>
+    <tr *ngFor="let mitemInq of itemInquiryBody | filter : filterText; let myIndex = index">
+      <ng-container *ngFor="let item of mitemInq.items">
+        <td
+          *ngIf="item.name.type != 'checkbox'"
+          [ngStyle]="{ 'background-color': item.cellIndex == selectedName ? setcolor : '', cursor: 'pointer' }"
+          (click)="getSelectedColor(mitemInq, item, myIndex, $event, itemInquiryBody)"
+          class="{{ item.cellclass }}"
+        >
+          <a *ngIf="item.apicollink != undefined" (click)="navigatePage(item.hexkey, item.apicollink)">
+            <div [innerHTML]="item.name.value"></div>
+          </a>
+          <div *ngIf="item.apicollink == undefined" [innerHTML]="item.name.value"></div>
+        </td>
+        <td *ngIf="item.name.type == 'checkbox'">
+          <label *ngIf="pageName == 'generic'" class="align-check">
+            <input
+              type="checkbox"
+              disabled="{{ item.name.readonly ? 'disabled' : '' }}"
+              checked="{{ item.name.checked ? 'checked' : '' }}"
+              value="{{ item.hexkey }}"
+              (change)="onCheckboxFilterChange(item, $event)"
+              class="filled-in"
+              id="filled-in-box{{ item.hexkey }}"
+            />
+            <span></span>
+          </label>
+
+          <span *ngIf="pageName !== 'generic'" class="align-check">
+            <input
+              disabled="{{ item.name.readonly ? 'disabled' : '' }}"
+              type="checkbox"
+              checked="{{ item.name.checked ? 'checked' : '' }}"
+              value="{{ item.hexkey }}"
+              (change)="onCheckboxFilterChange(item, $event)"
+              class="filled-in"
+              id="filled-in-box{{ item.hexkey }}"
+            />
+            <label for="filled-in-box{{ item.hexkey }}"></label>
+          </span>
+        </td>
+      </ng-container>
+    </tr>
+    <tr *ngIf="itemInquiryBody && itemInquiryBody.length == 0">
+      <td id="nodata_s8e" colspan="9">No record found</td>
+    </tr>
+  </tbody>
+  <!--Table body-->
+</table>

@@ -1,0 +1,210 @@
+.preference-page {
+    font-weight: 400;
+}
+.preference-page .table-search {
+    margin-bottom: 15px;
+    margin-top: 0;
+}
+.preference-page .table-search a.btn-mini {
+    margin-top: 10px;
+}
+.preference-page .text-lg {
+    font-size: 18px;
+    color: rgba(0,0,0,.87);
+    font-weight: 400;
+}
+.preference-page .text-sm {
+    color: rgba(0,0,0,.87);
+    font-size: 16px;
+    font-weight: 400;
+}
+.preference-page .heading {
+    text-align: center;
+    color: rgba(0,0,0,.87);
+}
+
+
+#table-center{
+    margin: 0px auto;
+}
+.m-b-15{
+    margin-bottom: 15px;
+}
+
+.gu-color .custom-table table {
+    float:right;
+    margin-right: 10px;
+}
+.gu-color .top-head {
+    margin-top: 10px;
+}
+.filled-in {
+    cursor: pointer;
+}
+.customeCss {
+    pointer-events: visible !important;
+}
+.generic-col {
+    overflow: hidden;
+}
+.filter-tbl {
+    overflow-y: auto;
+}
+.print-btn{
+position: absolute;
+bottom: 100px;
+}
+#btnpp {
+    margin-right: 5px;
+}
+.container {
+    background: #fff;
+    display: block;
+    width: 99%;
+    max-width: 100%;
+}
+body#custom-body {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+}
+.custom-page.generic-col{
+    overflow: inherit;
+}
+#filter_div{
+    overflow: inherit;
+}
+@media (max-width:767px) {
+    .gu-color .color-col, .gu-color .custom-table {
+        width: 100%;
+    }
+    .gu-color .custom-table table {
+        float: none;
+        margin: 0 auto;
+    }
+}
+@media (max-width:480px) {
+    .preference-page .table-search tr td {
+        width: 100%;
+        display: block;
+    }
+}
+.buttonAlign {
+	
+    display: flex;
+    justify-content: flex-end;
+}
+.buttonAlign .footer-btn-col + .footer-btn-col{
+    margin-left:1rem;
+}
+
+.dyn-custom-align{
+	display: table;
+	margin: 3px auto; /* 4 may 10px auto*/
+	}
+
+/* ADDED 25 AUG */
+a.close-icon {
+    color: #ff0000 !important;
+    text-decoration: none;
+    float: right;
+    position: relative;
+    top: -10px;
+}
+.top-heading {
+    padding: 2px 15px; /*4 may 10px 15px*/
+    font-size: 18px;
+    color: #fff;
+    background: #2d91c5;
+    text-transform: uppercase;
+    border-radius: 6px 6px 0 0;
+    -webkit-border-radius: 6px 6px 0 0;
+}
+.buy_orders.top-heading {
+    position: relative;
+    padding-right: 35px !important;
+    text-align: center;
+}
+
+.buy_orders a.close-icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    background: rgba(0,0,0,0.1);
+    /* padding: 10px 12px; 4 may */
+    padding: 2px 12px !important;
+    color: red !important;
+    /*opacity: .8;*/
+}
+.buy_orders a.close-icon:hover{
+    opacity: 1;
+    background: rgba(0,0,0,0.2);
+}
+
+.cst-order-modal {
+	border-radius: 10px;
+	background: transparent;
+}
+.cst-order-modal .top-heading {
+    border-radius: 8px 8px 0 0;
+}
+.cst-order-modal .modal-content{
+    background: #fff;
+}
+
+.cst-order-modal .buy_orders a.close-icon {
+	color: #fff !important;
+}
+
+.top-heading {
+    background: #2cc1d9;
+}
+.setDisableBtn {
+    pointer-events: none !important;
+} 
+
+div.filter-tbl textarea.materialize-textarea {
+    margin-top: 20px;
+} 
+
+.setTitleColor {
+    color: #2cc1d9;
+}
+
+/* .row .col {
+  
+    padding: 0 0 !important;
+} */
+
+.form-padding
+{
+margin-top: 16px!important;
+padding-left: 78px!important;
+padding-right: 13px!important;
+}
+
+
+.row .col.s5 {
+    width: 41.66667%;
+    margin-left: 8px;
+}
+
+
+::ng-deep .col.input-field{
+    margin-left: 0px!important;
+}
+::ng-deep  .main-block .container .row {
+    margin-left: 0px!important;
+    margin-right: 0px!important;
+}
+
+
+@media only screen and (max-width: 600px)
+{
+
+::ng-deep .generic-col {
+    overflow: inherit;
+    margin: 10px!important;
+}
+}

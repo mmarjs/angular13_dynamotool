@@ -1,0 +1,14 @@
+<ul id="slide-out" class="cst-left-list side-nav sidebar {{navclass}}">
+    <li *ngFor="let editItem of lefappMenu; let i=index"  [ngStyle]="{'pointer-events': editItem.enabledisable,'opacity': editItem.opct}">
+  <!-- CODE TO HANDLE CHECKBOX ON INITIAL PAGE LOAD-->
+ <!-- {{ editItem.isPrint!=='' }}-->
+        <input *ngIf="editItem.isPrint == 'Y'" type="checkbox"  value="{{editItem.seq}}"
+            class="filled-in" id="filled-in-box{{editItem.seq}}"  (change)="onCheckboxChange(editItem,$event)" />
+        <a [ngClass]="{'active': selectedIndex === i, '': true}" [ngStyle]="{'color': editItem.color}" >
+            <div class="tooltip cst-font appfontSize" (click)="getSelectedItemInquiry(i,editItem)">
+                {{editItem.title}}
+                <span class="tooltiptext" *ngIf="editItem.titleTooltip.length>=40">{{editItem.titleTooltip}}</span>
+            </div>
+        </a>
+    </li>
+</ul>

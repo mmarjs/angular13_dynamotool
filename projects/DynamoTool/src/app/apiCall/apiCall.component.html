@@ -1,0 +1,188 @@
+<app-message [messageResponse]="setmessage"></app-message>
+<div class="gu-color" id="{{ dyForm }}">
+    <div class="main-block preference-page">
+        <div *ngIf="showBusyText?.length > 0" class="setbusyText">{{ showBusyText }}</div>
+        <div [style.display]="loader" id="loader" class="loading"></div>
+        <div class="container">
+            <div
+                *ngIf="setAllData?.length"
+                [ngStyle]="{
+                    display: showPopUp,
+                    width: setAllData[setAllData.length - 1].popup_width,
+                    height: setAllData[setAllData.length - 1].popup_height,
+                    top: setAllData[setAllData.length - 1].popup_top,
+                    'z-index': setAllData[setAllData.length - 1].popup_zindex
+                }"
+                id="modal1"
+                class="modal"
+                style="max-height: fit-content"
+            >
+                <div class="top-heading buy_orders">
+                    <span [innerHTML]="setAllData[setAllData.length - 1].mainPopuptitle"></span
+                    ><a
+                        *ngIf="setAllData[setAllData.length - 1].showClose"
+                        class="close-icon"
+                        (click)="
+                            cancel(
+                                setAllData[setAllData.length - 1].setparam,
+                                setAllData[setAllData.length - 1].onCloseRedirect !== undefined ? setAllData[setAllData.length - 1].onCloseRedirect : setAllData[setAllData.length - 1].onCloseApi,
+                                setAllData[setAllData.length - 1].setHexkey,
+                                setAllData[setAllData.length - 1].popup_zindex
+                            )
+                        "
+                        ><i class="fa fa-times"></i
+                    ></a>
+                </div>
+
+                <div class="modal-content start_new_receipt" [ngStyle]="{ width: setAllData[setAllData.length - 1].dialogWidth }">
+                    <div *ngIf="setAllData[setAllData.length - 1].showDialog" class="col s12 m12">
+                        <span id="{{ 'emailadd' + setAllData.length - 1 }}" class="validate" [innerHTML]="setAllData[setAllData.length - 1].showText"></span>
+                    </div>
+                    <div *ngIf="setAllData[setAllData.length - 1].showDialogHtml" class="col s12 m12">
+                        <div id="{{ 'emailaddd' + setAllData.length - 1 }}" class="validate" [innerHTML]="setAllData[setAllData.length - 1].showTextHtml | safeHtml"></div>
+                    </div>
+                    <ng-container *ngIf="!setAllData[setAllData.length - 1].showDialog">
+                        <div class="setWidth cst-enquiry">
+                            <app-appmenu
+                                *ngIf="setAllData[setAllData.length - 1].appMenuresponse !== undefined"
+                                [setAppMenu]="setAllData[setAllData.length - 1].appMenuresponse"
+                                (menuChange)="getSelectedAppMenu($event)"
+                                (getCheckBoxValue)="sendDataToPrint($event)"
+                                class="left-sidebar"
+                            ></app-appmenu>
+
+                            <div class="tbl-col" *ngFor="let view of setAllData[setAllData.length - 1].displayView">
+                                <app-displayview *ngIf="view" [setDisplayView]="view"></app-displayview>
+                            </div>
+                        </div>
+                        <div *ngFor="let grid of setAllData[setAllData.length - 1].displayGrid">
+                            <app-displaysubgrid *ngIf="grid" [greetSubresponse]="grid" (sendData)="getData($event)"></app-displaysubgrid>
+                        </div>
+                        <div *ngFor="let navicss of setAllData[setAllData.length - 1].navigationcssArr">
+                            <div *ngFor="let naviRes of setAllData[setAllData.length - 1].navigationresponseAr" [style.display]="navicss">
+                                <app-naviagtion id="dyn_home" *ngIf="naviRes" [naviresponse]="naviRes" (navChanged)="navChangedHandlerPopUp($event)"></app-naviagtion>
+                            </div>
+                        </div>
+                        <app-displaydtForm
+                            *ngIf="setAllData[setAllData.length - 1].responseDtForm"
+                            [getdtForm]="setAllData[setAllData.length - 1].responseDtForm"
+                            (sendDtForm)="receiveDtForm($event)"
+                            (message)="redirectTo($event)"
+                            (sendApiCall)="getNewOutputApi($event)"
+                            [enableButton]="enableButton"
+                            [setBtnProperty]="setBtnProperty"
+                        ></app-displaydtForm>
+                        <div class="top-details details clearfix" style.display="{{ ckeditorview }}">
+                            <form #f="ngForm" (ngSubmit)="saveItemNotepad(f)" class="custom-width">
+                                <table id="itemNotepad_css" class="{{ setAllData[setAllData.length - 1].tableclass }}">
+                                    <tr>
+                                        <th class="top" colspan="99">{{ setAllData[setAllData.length - 1].inquiryTitle }}</th>
+                                    </tr>
+                                    <tr>
+                                        <td class="notepad" colspan="99">
+                                            <div class="form-group">
+                                                <simple-tiny [(ngModel)]="setAllData[setAllData.length - 1].pageContent" name="content"></simple-tiny>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th class="top" colspan="99">{{ setAllData[setAllData.length - 1].lastrevised }}</th>
+                                    </tr>
+                                </table>
+                            </form>
+                        </div>
+                    </ng-container>
+                    <div *ngIf="setAllData[setAllData.length - 1].buttonresponse.length != 0" class="cst-report-page modal-footer">
+                        <div *ngFor="let item of setAllData[setAllData.length - 1].buttonresponse" class="footer-btn-col {{ item?.isEnabled ? '' : 'setDisableBtn' }}">
+                            <app-displayButton
+                                *ngIf="item.buttonType == 'button'"
+                                [getButtonResponse]="item"
+                                (click)="buttonAPICall(item.onPush, item.showMenu, item.action)"
+                                (keydown.space)="buttonAPICall(item.onPush, item.showMenu, item.action)"
+                            ></app-displayButton>
+                            <app-displayButton *ngIf="item.buttonType == 'print'" [getButtonResponse]="item" (click)="print()"></app-displayButton>
+                            <app-displayButton
+                                *ngIf="item.buttonType == 'cancel'"
+                                [getButtonResponse]="item"
+                                (click)="cancel(item.action, item.onPush, item.showMenu, setAllData[setAllData.length - 1].popup_zindex)"
+                                (keydown.space)="cancel(item.action, item.onPush, item.showMenu, setAllData[setAllData.length - 1].popup_zindex)"
+                            ></app-displayButton>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <div class="custom-page generic-col">
+                        <div class="{{ companyName !== undefined && companyName ? 'center' : 'center1' }}  mb-r">
+                            <span id="compName014" class="text-lg">{{ companyName }}</span> <br />
+                            <span class="text-sm">{{ title }}</span>
+                        </div>
+
+                        <div id="filter_div" [ngStyle]="{ width: formWidth }" class="gui-tbl-col filter-tbl">
+                            <app-displayview *ngIf="displayViewresponse" [setDisplayView]="displayViewresponse"></app-displayview>
+                            <app-displaysubgrid *ngIf="displaySubGridresp" [greetSubresponse]="displaySubGridresp" (sendData)="getData($event)"></app-displaysubgrid>
+
+                            <div [style.display]="navigationcss">
+                                <app-naviagtion id="dynamo_home" *ngIf="navigatinresponse" [naviresponse]="navigatinresponse" (navChanged)="navChangedHandler($event)"></app-naviagtion>
+                            </div>
+                            <display-edit-grid *ngIf="responseEditGrid" [editGridResponse]="responseEditGrid" (sendDtEditGrid)="receiveDtEditGrid($event)"></display-edit-grid>
+                            <div *ngIf="responseDtFormPage && displaySubGridresp" style="padding-top: 10px"></div>
+
+                            <app-displaydtForm
+                                *ngIf="responseDtFormPage"
+                                [getdtForm]="responseDtFormPage"
+                                (sendDtForm)="receiveDtForm($event)"
+                                (message)="redirectTo($event)"
+                                (hideEntryGridInparent)="hideEntryGrid($event)"
+                                (showCustomerName)="setCustomerInHeader($event)"
+                                [enableButton]="enableButton"
+                                [setBtnProperty]="setBtnProperty"
+                            ></app-displaydtForm>
+
+                            <div *ngIf="showTextUpload !== '' && showTextUpload !== undefined" class="row">
+                                <div class="top-heading">
+                                    {{ showTitleUpload }}
+                                </div>
+                                <div class="file-field input-field">
+                                    <div>
+                                        {{ showTextUpload }}
+                                    </div>
+                                    <div class="btn fa fa-folder-open DTButton">
+                                        <span>BROWSE</span>
+                                        <input [multiple]="isMultiple" #fileInput accept="{{ fileExtensions }}" (change)="onSelectFile($event)" id="files" name="files" type="file" />
+                                    </div>
+
+                                    <div class="file-path-wrapper">
+                                        <span style="color: red">* {{ extensionText }}</span>
+                                        <input class="file-path validate" #inputFile [(ngModel)]="filetextinput" name="filetextinput" id="filetextinput" type="text" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <ng-container *ngIf="showMainContent">
+                                <div *ngIf="buttonresponsePage.length != 0 && !showMenu" class="cst-report-page modal-footer buttonAlign">
+                                    <div *ngFor="let item of buttonresponsePage" class="footer-btn-col {{ item?.isEnabled ? '' : 'setDisableBtn' }}">
+                                        <app-displayButton
+                                            *ngIf="item.buttonType == 'button'"
+                                            [getButtonResponse]="item"
+                                            (click)="buttonAPICall(item.onPush, item.showMenu, item.action, item)"
+                                            (keydown.space)="buttonAPICall(item.onPush, item.showMenu, item.action, item)"
+                                        ></app-displayButton>
+                                        <app-displayButton *ngIf="item.buttonType == 'print'" [getButtonResponse]="item" (click)="print()"></app-displayButton>
+                                        <app-displayButton
+                                            *ngIf="item.buttonType == 'cancel'"
+                                            [getButtonResponse]="item"
+                                            (click)="cancel(item.action, item.onPush, item.showMenu)"
+                                            (keydown.space)="cancel(item.action, item.onPush, item.showMenu)"
+                                        ></app-displayButton>
+                                    </div>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

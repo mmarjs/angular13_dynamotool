@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    </head>
+
+<body>
+    <!-- New Code start here............................................................................... -->
+    <div class="main-block">
+        <div [style.display]="loader" id="loader" class="loading"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    <div class="custom-page">
+                            <div class="center  mb-r">
+                                    <span id="compName014">{{companyName}}</span> <br> <span>{{title}}</span>
+                                </div>   
+                        <!--details-->
+                        <form class="mid-col" #maintenanceForm="ngForm" (ngSubmit)="saveItemMaintenance(maintenanceForm.value)">
+                            <div class="col s12">
+                                <div class="row">
+                                    <div class="col m6 s12" *ngFor="let itemInquiryrow of editViewData.rows">
+                                        <div class="name-col" *ngIf="itemInquiryrow.type == 'text' || itemInquiryrow.type == 'number'">
+                                            <div class="input-field table-search">
+                                                <input type="{{itemInquiryrow.type}}" name="text-box"  value="{{itemInquiryrow.description}}"/>
+                                                <label for="text-box">{{itemInquiryrow.fieldName}}</label>
+                                            </div>
+                                        </div>
+                                        <div class="name-col" *ngIf="itemInquiryrow.type == 'date'">
+                                            <div class="input-field table-search">
+                                                 <input id="itemInquiryrow.DATE_C8_D" name="itemInquiryrow.DATE_C8_D" [(ngModel)]="itemInquiryrow.fieldName"
+                                                    materialize="pickadate"
+                                                    [materializeActions]="birthDateActions"
+                                                    [materializeParams]="[{format: 'dd/mm/yyyy'}]"
+                                                    type="text" />
+                                                    <label for="text-box">{{itemInquiryrow.fieldName}}</label>
+                                            </div>
+                                        </div>
+                                        <div class="name-col" *ngIf="itemInquiryrow.type == 'time'">
+                                            <div class="input-field table-search">
+                                                <input type="time" id="timepicker" class="timepicker"  name="text-box" value="{{itemInquiryrow.value}}"/>
+                                                <!-- <label for="text-box">{{itemInquiryrow.fieldName}}</label> -->
+                                            </div>
+                                        </div>
+                                        <div class="name-col" *ngIf="itemInquiryrow.type == 'select'">
+                                            <div class="input-field table-search">
+                                                <select materialize="material_select" [materializeSelectOptions]="itemInquiryoption">
+                                                        <option *ngFor="let itemInquiryoption of itemInquiryrow.options" selected="{{itemInquiryoption.selected}}" value="{{itemInquiryoption.value}}">{{itemInquiryoption.show}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="name-col" *ngIf="itemInquiryrow.type == 'switch'">
+                                        <div class="switch">
+                                            <label>
+                                                Off
+                                                <input type="checkbox" checked="{{itemInquiryrow.value ? 'checked' : ''}}">
+                                                <span class="lever"></span>
+                                                On
+                                            </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="col m6 s12">
+
+                                        <div class="input-field col s12">
+                                            <select>
+                                                <option value="" disabled selected>Choose your option</option>
+                                                <option value="1">Option 1</option>
+                                                <option value="2">Option 2</option>
+                                                <option value="3">Option 3</option>
+                                            </select>
+                                            <label>Materialize Select</label>
+                                        </div>
+                                    </div> -->
+                                </div>
+                                <div class="row">
+                                    <div class="col m4 s4">
+                                    <a (click)="saveItemMaintenance(maintenanceForm.value)" class="waves-effect waves-light btn btn-mini">save</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="col s12">
+                                <div class="row">
+                                    <div class="col m6 s12">
+
+                                        <p>
+                                            <input type="checkbox" class="filled-in" id="filled-in-box" (change)="setChecked(this)" [(ngModel)]="noinvco" name="noinvco" tabindex="3" />
+                                            <label for="filled-in-box">Include Items not available in {{warehouse}}</label>
+                                        </p>
+
+                                    </div>
+                                    <div class="col m6 s12">
+
+                                            <div class="switch">
+                                                    <label>
+                                                      Off
+                                                      <input type="checkbox">
+                                                      <span class="lever"></span>
+                                                      On
+                                                    </label>
+                                                  </div>
+                                    </div>
+                                </div>
+                            </div> -->
+
+
+                            <!-- <div class="col s12">
+                                    <div class="row">
+                                        <div class="col m6 s12">
+    
+                                                <input type="date" class="datepicker">
+    
+                                        </div>
+                                        <div class="col m6 s12">
+    
+                                                <div class="switch">
+                                                        <label>
+                                                          Off
+                                                          <input type="checkbox">
+                                                          <span class="lever"></span>
+                                                          On
+                                                        </label>
+                                                      </div>
+                                        </div>
+                                    </div>
+                                </div> -->
+                                
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <!-- <script>
+        $(document).ready(function() {
+            $('select').material_select();
+        });
+
+          $('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15 // Creates a dropdown of 15 years to control year
+  });
+    </script> -->
+</body>
+
+</html>

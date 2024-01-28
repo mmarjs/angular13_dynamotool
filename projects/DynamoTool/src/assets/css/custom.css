@@ -1,0 +1,133 @@
+
+/** custom css start **/
+
+body {
+	font-family: "Roboto", "Helvetica", "Arial", sans-serif !important;
+	font-weight: 400;
+	color: #222;
+	font-size: 15px;
+	background: #fff;
+	position: relative;
+}
+a.back-text {
+	color:#8c4131;
+	font-weight:600;
+	font-size:14px;
+	width:100%;
+	text-align:center;
+	display:block;
+	text-decoration:none;
+}
+a.back-text i {
+	margin-right:6px;
+}
+.picker--opened .picker__frame {
+	top:15px;
+}
+.modal {
+	max-height: 95%;
+	top: 5%;
+	bottom:2%;
+	width: 750px;
+}
+.modal .modal-content {	
+	padding: 15px 20px 5px !important;
+}
+.modal .input-field {
+	margin-top: 0px;
+}
+.modal input[type=text] {
+	margin-bottom: 0px;
+}
+.patient-home .modal .invalid {
+	font-size: 10.8px;
+}
+.modal {
+	bottom: inherit;
+	position: absolute;
+	overflow: hidden;
+	max-height: inherit;
+}
+/* body.custom-body {
+    overflow: hidden;
+    position: fixed;
+     width: 100%;
+} */
+
+body.custom-body .modal-overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow-x: auto;
+    overflow-y: auto;
+    left: 0;
+	top: 0;
+	background: rgba(0,0,0,0.5);
+}
+.modal-overlay .modal {
+	max-height: inherit;
+	margin-bottom: 50px;
+}
+.time-report .cst-report-page {
+    border-top: 1px solid #969696 !important;
+	padding: 6px 0 6px;
+    overflow: hidden;
+    margin-top: 54px;
+    height: auto;
+}
+.time-report .row .col {
+    padding: 0px;
+}
+.time-report .row {
+    margin:0px !important;
+}
+
+
+.time-report .modal .modal-content {
+    display: table !important;
+    width: 100% !important;
+    
+}
+
+@media (min-width:1800px) {
+	.modal {
+		width: 42%;
+	}
+
+}
+
+@media (max-width:992px) {
+	.modal, .patient-home .patientmidel {
+		width: 90%;
+		top: 4%;
+	}
+	.patient-home .pro .row:last-child>div:nth-child(16)>div.input-field, .patient-home .pro .row:last-child>div:nth-child(17)>div.input-field, .patient-home .pro .row:last-child>div:nth-child(16)>div.input-field, .patient-home .pro .row:last-child>div:nth-child(17)>div.input-field, .patient-home .sec .row:first-child>div:nth-child(4)>div.input-field, .patient-home .sec .row:first-child>div:nth-child(5)>div.input-field, .patient-home .sec .row:last-child>div:nth-child(9)>div.input-field, .patient-home .sec .row:last-child>div:nth-child(10)>div.input-field, .patient-home .sec .row:last-child>div:nth-child(11)>div.input-field {
+		height: 80px;
+	}
+	.patient-home ul.user-info li {
+		font-size: 14px;
+	}
+	
+}
+@media (max-width:767px) {
+	.modal {
+		width: 90%;
+	}
+	.receipt-field .input-field {
+		width: 100% !important;
+		display: block !important;
+	}  
+}
+
+@media (max-width:640px) {
+	.modal {
+		width: 90%;
+	}
+	.modal {
+		top: 2%;
+	}
+	
+}
+
+
+

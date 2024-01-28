@@ -1,0 +1,2753 @@
+html,
+body,
+table td {
+	font-family:Roboto,Verdana,Tahoma,"sans serif";
+}
+
+.tl1 td:nth-child(1),.tl1 th:nth-child(1),
+.tl2 td:nth-child(2),.tl2 th:nth-child(2),
+.tl3 td:nth-child(3),.tl3 th:nth-child(3),
+.tl4 td:nth-child(4),.tl4 th:nth-child(4),
+.tl5 td:nth-child(5),.tl5 th:nth-child(5),
+.tl6 td:nth-child(6),.tl6 th:nth-child(6),
+.tl7 td:nth-child(7),.tl7 th:nth-child(7),
+.tl8 td:nth-child(8),.tl8 th:nth-child(8),
+.tl9 td:nth-child(9),.tl9 th:nth-child(9),
+.tl10 td:nth-child(10),.tl10 th:nth-child(10),
+.tl11 td:nth-child(11),.tl11 th:nth-child(11),
+.tl12 td:nth-child(12),.tl12 th:nth-child(12),
+.tl13 td:nth-child(13),.tl13 th:nth-child(13),
+.tl14 td:nth-child(14),.tl14 th:nth-child(14),
+.tl15 td:nth-child(15),.tl15 th:nth-child(15),
+.tl16 td:nth-child(16),.tl16 th:nth-child(16),
+.tl17 td:nth-child(17),.tl17 th:nth-child(17),
+.tl18 td:nth-child(18),.tl18 th:nth-child(18),
+.tl19 td:nth-child(19),.tl19 th:nth-child(19),
+.tl20 td:nth-child(20),.tl20 th:nth-child(20),
+.tl21 td:nth-child(21),.tl21 th:nth-child(21),
+.tl22 td:nth-child(22),.tl22 th:nth-child(22),
+.tl23 td:nth-child(23),.tl23 th:nth-child(23),
+.tl24 td:nth-child(24),.tl24 th:nth-child(24),
+.tl25 td:nth-child(25),.tl25 th:nth-child(25),
+.tl26 td:nth-child(26),.tl26 th:nth-child(26),
+.tl27 td:nth-child(27),.tl27 th:nth-child(27),
+.tl28 td:nth-child(28),.tl28 th:nth-child(28),
+.tl29 td:nth-child(29),.tl29 th:nth-child(29),
+.tl30 td:nth-child(30),.tl30 th:nth-child(30),
+.tl31 td:nth-child(31),.tl31 th:nth-child(31),
+.tl32 td:nth-child(32),.tl32 th:nth-child(32),
+.tl33 td:nth-child(33),.tl33 th:nth-child(33),
+.tl34 td:nth-child(34),.tl34 th:nth-child(34),
+.tl35 td:nth-child(35),.tl35 th:nth-child(35),
+.tl36 td:nth-child(36),.tl36 th:nth-child(36),
+.tl37 td:nth-child(37),.tl37 th:nth-child(37),
+.tl38 td:nth-child(38),.tl38 th:nth-child(38),
+.tl39 td:nth-child(39),.tl39 th:nth-child(39),
+.tl40 td:nth-child(40),.tl40 th:nth-child(40),
+.tl41 td:nth-child(41),.tl41 th:nth-child(41),
+.tl42 td:nth-child(42),.tl42 th:nth-child(42),
+.tl43 td:nth-child(43),.tl43 th:nth-child(43),
+.tl44 td:nth-child(44),.tl44 th:nth-child(44),
+.tl45 td:nth-child(45),.tl45 th:nth-child(45),
+.tl46 td:nth-child(46),.tl46 th:nth-child(46),
+.tl47 td:nth-child(47),.tl47 th:nth-child(47),
+.tl48 td:nth-child(48),.tl48 th:nth-child(48),
+.tl49 td:nth-child(49),.tl49 th:nth-child(49) {text-align: left}
+
+.tr1 td:nth-child(1),.tr1 th:nth-child(1),
+.tr2 td:nth-child(2),.tr2 th:nth-child(2),
+.tr3 td:nth-child(3),.tr3 th:nth-child(3),
+.tr4 td:nth-child(4),.tr4 th:nth-child(4),
+.tr5 td:nth-child(5),.tr5 th:nth-child(5),
+.tr6 td:nth-child(6),.tr6 th:nth-child(6),
+.tr7 td:nth-child(7),.tr7 th:nth-child(7),
+.tr8 td:nth-child(8),.tr8 th:nth-child(8),
+.tr9 td:nth-child(9),.tr9 th:nth-child(9),
+.tr10 td:nth-child(10),.tr10 th:nth-child(10),
+.tr11 td:nth-child(11),.tr11 th:nth-child(11),
+.tr12 td:nth-child(12),.tr12 th:nth-child(12),
+.tr13 td:nth-child(13),.tr13 th:nth-child(13),
+.tr14 td:nth-child(14),.tr14 th:nth-child(14),
+.tr15 td:nth-child(15),.tr15 th:nth-child(15),
+.tr16 td:nth-child(16),.tr16 th:nth-child(16),
+.tr17 td:nth-child(17),.tr17 th:nth-child(17),
+.tr18 td:nth-child(18),.tr18 th:nth-child(18),
+.tr19 td:nth-child(19),.tr19 th:nth-child(19),
+.tr20 td:nth-child(20),.tr20 th:nth-child(20),
+.tr21 td:nth-child(21),.tr21 th:nth-child(21),
+.tr22 td:nth-child(22),.tr22 th:nth-child(22),
+.tr23 td:nth-child(23),.tr23 th:nth-child(23),
+.tr24 td:nth-child(24),.tr24 th:nth-child(24),
+.tr25 td:nth-child(25),.tr25 th:nth-child(25),
+.tr26 td:nth-child(26),.tr26 th:nth-child(26),
+.tr27 td:nth-child(27),.tr27 th:nth-child(27),
+.tr28 td:nth-child(28),.tr28 th:nth-child(28),
+.tr29 td:nth-child(29),.tr29 th:nth-child(29),
+.tr30 td:nth-child(30),.tr30 th:nth-child(30),
+.tr31 td:nth-child(31),.tr31 th:nth-child(31),
+.tr32 td:nth-child(32),.tr32 th:nth-child(32),
+.tr33 td:nth-child(33),.tr33 th:nth-child(33),
+.tr34 td:nth-child(34),.tr34 th:nth-child(34),
+.tr35 td:nth-child(35),.tr35 th:nth-child(35),
+.tr36 td:nth-child(36),.tr36 th:nth-child(36),
+.tr37 td:nth-child(37),.tr37 th:nth-child(37),
+.tr38 td:nth-child(38),.tr38 th:nth-child(38),
+.tr39 td:nth-child(39),.tr39 th:nth-child(39),
+.tr40 td:nth-child(40),.tr40 th:nth-child(40),
+.tr41 td:nth-child(41),.tr41 th:nth-child(41),
+.tr42 td:nth-child(42),.tr42 th:nth-child(42),
+.tr43 td:nth-child(43),.tr43 th:nth-child(43),
+.tr44 td:nth-child(44),.tr44 th:nth-child(44),
+.tr45 td:nth-child(45),.tr45 th:nth-child(45),
+.tr46 td:nth-child(46),.tr46 th:nth-child(46),
+.tr47 td:nth-child(47),.tr47 th:nth-child(47),
+.tr48 td:nth-child(48),.tr48 th:nth-child(48),
+.tr49 td:nth-child(49),.tr49 th:nth-child(49) {text-align: right}
+
+.tc1 td:nth-child(1),.tc1 th:nth-child(1),
+.tc2 td:nth-child(2),.tc2 th:nth-child(2),
+.tc3 td:nth-child(3),.tc3 th:nth-child(3),
+.tc4 td:nth-child(4),.tc4 th:nth-child(4),
+.tc5 td:nth-child(5),.tc5 th:nth-child(5),
+.tc6 td:nth-child(6),.tc6 th:nth-child(6),
+.tc7 td:nth-child(7),.tc7 th:nth-child(7),
+.tc8 td:nth-child(8),.tc8 th:nth-child(8),
+.tc9 td:nth-child(9),.tc9 th:nth-child(9),
+.tc10 td:nth-child(10),.tc10 th:nth-child(10),
+.tc11 td:nth-child(11),.tc11 th:nth-child(11),
+.tc12 td:nth-child(12),.tc12 th:nth-child(12),
+.tc13 td:nth-child(13),.tc13 th:nth-child(13),
+.tc14 td:nth-child(14),.tc14 th:nth-child(14),
+.tc15 td:nth-child(15),.tc15 th:nth-child(15),
+.tc16 td:nth-child(16),.tc16 th:nth-child(16),
+.tc17 td:nth-child(17),.tc17 th:nth-child(17),
+.tc18 td:nth-child(18),.tc18 th:nth-child(18),
+.tc19 td:nth-child(19),.tc19 th:nth-child(19),
+.tc20 td:nth-child(20),.tc20 th:nth-child(20)
+.tc21 td:nth-child(21),.tc21 th:nth-child(21),
+.tc22 td:nth-child(22),.tc22 th:nth-child(22),
+.tc23 td:nth-child(23),.tc23 th:nth-child(23),
+.tc24 td:nth-child(24),.tc24 th:nth-child(24),
+.tc25 td:nth-child(25),.tc25 th:nth-child(25),
+.tc26 td:nth-child(26),.tc26 th:nth-child(26),
+.tc27 td:nth-child(27),.tc27 th:nth-child(27),
+.tc28 td:nth-child(28),.tc28 th:nth-child(28),
+.tc29 td:nth-child(29),.tc29 th:nth-child(29),
+.tc30 td:nth-child(30),.tc30 th:nth-child(30),
+.tc31 td:nth-child(31),.tc31 th:nth-child(31),
+.tc32 td:nth-child(32),.tc32 th:nth-child(32),
+.tc33 td:nth-child(33),.tc33 th:nth-child(33),
+.tc34 td:nth-child(34),.tc34 th:nth-child(34),
+.tc35 td:nth-child(35),.tc35 th:nth-child(35),
+.tc36 td:nth-child(36),.tc36 th:nth-child(36),
+.tc37 td:nth-child(37),.tc37 th:nth-child(37),
+.tc38 td:nth-child(38),.tc38 th:nth-child(38),
+.tc39 td:nth-child(39),.tc39 th:nth-child(39),
+.tc40 td:nth-child(40),.tc40 th:nth-child(40),
+.tc41 td:nth-child(41),.tc41 th:nth-child(41),
+.tc42 td:nth-child(42),.tc42 th:nth-child(42),
+.tc43 td:nth-child(43),.tc43 th:nth-child(43),
+.tc44 td:nth-child(44),.tc44 th:nth-child(44),
+.tc45 td:nth-child(45),.tc45 th:nth-child(45),
+.tc46 td:nth-child(46),.tc46 th:nth-child(46),
+.tc47 td:nth-child(47),.tc47 th:nth-child(47),
+.tc48 td:nth-child(48),.tc48 th:nth-child(48),
+.tc49 td:nth-child(49),.tc49 th:nth-child(49) {text-align: center}
+
+table.DTView,
+table.DTGrid {
+  width: auto;
+  border-collapse:collapse;
+  font-size: 15px;  
+  margin-bottom: 15px;
+}
+
+table.DTNotepad {
+  width:100%;
+  border-collapse:collapse;
+  font-size: 15px;  
+}
+
+table.DTView tr.rowodd td,
+table.DTGrid tr.rowodd td {
+  background-color: #f0f0f0;
+}
+
+table.DTView th,
+table.DTView td,
+table.DTGrid th,
+table.DTGrid td,
+table.DTNotepad th,
+table.DTNotepad td {
+  border: 1px solid #c0c0c0;
+  padding: 3px 4px 3px 4px;
+  color: #000;
+}
+
+table.DTView th,
+table.DTGrid th {
+  font-weight: 600;
+}
+  
+table.DTNotepad td.notepad {
+  border: 1px solid #c0c0c0;
+  padding: 0;
+  color: #000;
+}
+
+table.DTView .top,
+table.DTGrid .top,
+table.DTNotepad .top {
+	text-align:center;
+}
+
+table.DTGrid td a,
+table.DTGrid td a:visited {
+  display:block;
+  padding:0 5px 0 5px;
+  border-radius:4px;
+  white-space:nowrap;
+  text-decoration:none;
+  color: #fff;
+}
+
+table.DTGrid td a:hover {
+/*	font-weight:bold;   Removed because this causes a column width size change on grids*/
+	color: #fff59d;
+}
+
+table.DTView .heading {
+	color: #ddd;
+}
+
+/* colors */
+
+table.DT-red th, .DT-red a, .side-nav.sidebar.DT-red {
+  background-color: #b71c1c;
+  color: #fff;
+}
+table.DT-red a, .DT-red a.active, .DT-red a:hover, table.DT-red .heading {
+	background-color:#d32f2f;
+}
+
+table.DT-pink th, .DT-pink a, .side-nav.sidebar.DT-pink {
+  background-color: #880e4f;
+  color: #fff;
+}
+table.DT-pink a, .DT-pink a.active, .DT-pink a:hover, table.DT-pink .heading {
+	background-color:#c2185b;
+}
+
+table.DT-purple th, .DT-purple a, .side-nav.sidebar.DT-purple {
+  background-color: #4a148c;
+  color: #fff;
+}
+table.DT-purple a, .DT-purple a.active, .DT-purple a:hover, table.DT-purple .heading {
+	background-color:#7b1fa2;
+}
+
+table.DT-deep-purple th, .DT-deep-purple a, .side-nav.sidebar.DT-deep-purple {
+  background-color: #311b92;
+  color: #fff;
+}
+table.DT-deep-purple a, .DT-deep-purple a.active, .DT-deep-purple a:hover, table.DT-deep-purple .heading {
+	background-color:#512da8;
+}
+
+table.DT-indigo th, .DT-indigo a, .side-nav.sidebar.DT-indigo {
+  background-color: #1a237e;
+  color: #fff;
+}
+table.DT-indigo a, .DT-indigo a.active, .DT-indigo a:hover, table.DT-indigo .heading {
+	background-color:#303f9f;
+}
+
+table.DT-blue th, .DT-blue a, .side-nav.sidebar.DT-blue {
+  background-color: #0d47a1;
+  color: #fff;
+}
+/* UPDATE 21 MAY 2021*/
+ /* .DT-blue {
+  background-color: #0d47a1;
+  color: #fff;
+}  */
+table.DT-blue a, .DT-blue a.active, .DT-blue a:hover, table.DT-blue .heading {
+	background-color:#1976d2;
+}
+
+table.DT-light-blue th, .DT-light-blue a, .side-nav.sidebar.DT-light-blue {
+  background-color: #01579b;
+  color: #fff;
+}
+table.DT-light-blue a, .DT-light-blue a.active, .DT-light-blue a:hover, table.DT-light-blue .heading {
+	background-color:#0288d1;
+}
+
+table.DT-cyan th, .DT-cyan a, .side-nav.sidebar.DT-cyan {
+  background-color: #006064; 
+  color: #fff;
+}
+table.DT-cyan a, .DT-cyan a.active, .DT-cyan a:hover, table.DT-cyan .heading {
+	background-color:#0097a7;
+}
+
+table.DT-teal th, .DT-teal a, .side-nav.sidebar.DT-teal {
+  background-color: #004d40; 
+  color: #fff;
+}
+table.DT-teal a, .DT-teal a.active, .DT-teal a:hover, table.DT-teal .heading {
+	background-color:#00796b;
+}
+
+table.DT-green th, .DT-green a, .side-nav.sidebar.DT-green {
+  background-color: #1b5e20;
+  color: #fff;
+}
+table.DT-green a, .DT-green a.active, .DT-green a:hover, table.DT-green .heading {
+	background-color:#388e3c;
+}
+
+table.DT-light-green th, .DT-light-green a, .side-nav.sidebar.DT-light-green {
+  background-color: #33691e;
+  color: #fff;
+}
+table.DT-light-green a, .DT-light-green a.active, .DT-light-green a:hover, table.DT-light-green .heading {
+	background-color:#689f38;
+}
+
+table.DT-lime th, .DT-lime a, .side-nav.sidebar.DT-lime {
+  background-color: #827717;
+  color: #fff;
+}
+table.DT-lime a, .DT-lime a.active, .DT-lime a:hover, table.DT-lime .heading {
+	background-color:#afb42b;
+}
+
+table.DT-yellow th, .DT-yellow a, .side-nav.sidebar.DT-yellow {
+  background-color: #f57f17;
+  color: #fff;
+}
+table.DT-yellow a, .DT-yellow a.active, .DT-yellow a:hover, table.DT-yellow .heading {
+	background-color:#fbc02d;
+}
+
+table.DT-amber th, .DT-amber a, .side-nav.sidebar.DT-amber {
+  background-color: #ff6f00;
+  color: #fff;
+}
+table.DT-amber a, .DT-amber a.active, .DT-amber a:hover, table.DT-amber .heading {
+	background-color:#ffa000;
+}
+
+table.DT-orange th, .DT-orange a, .side-nav.sidebar.DT-orange {
+  background-color: #e65100;
+  color: #fff;
+}
+table.DT-orange a, .DT-orange a.active, .DT-orange a:hover, table.DT-orange .heading {
+	background-color:#f57c00;
+}
+
+table.DT-deep-orange th, .DT-deep-orange a, .side-nav.sidebar.DT-deep-orange {
+  background-color: #bf360c;
+  color: #fff;
+}
+table.DT-deep-orange a, .DT-deep-orange a.active, .DT-deep-orange a:hover, table.DT-deep-orange .heading {
+	background-color:#e64a19;
+}
+
+table.DT-brown th, .DT-brown a, .side-nav.sidebar.DT-brown {
+  background-color: #3e2723;
+  color: #fff;
+}
+table.DT-brown a, .DT-brown a.active, .DT-brown a:hover, table.DT-brown .heading {
+	background-color:#5d4037;
+}
+
+table.DT-grey th, .DT-grey a, .side-nav.sidebar.DT-grey {
+  background-color: #212121;
+  color: #fff;
+}
+table.DT-grey a, .DT-grey a.active, .DT-grey a:hover, table.DT-grey .heading {
+	background-color:#616161;
+}
+
+table.DT-blue-grey th, .DT-blue-grey a, .side-nav.sidebar.DT-blue-grey {
+  background-color: #263238;
+  color: #fff;
+}
+table.DT-blue-grey a, .DT-blue-grey a.active, .DT-blue-grey a:hover, table.DT-blue-grey .heading {
+	background-color:#455a64;
+}
+
+/* Standard DT HTML Table */
+table.DT-light-yellow th, .DT-light-yellow a, .side-nav.sidebar.DT-light-yellow
+{
+  background-color: #ffffcc;
+  color: #444;
+}
+table.DT-light-yellow a, .DT-light-yellow a.active, .DT-light-yellow a:hover, ta
+ble.DT-light-yellow .heading {
+  background-color: #ffffaa;
+  color: #000 !important;
+}
+
+.center
+{
+	text-align:center !important;
+}
+
+/* special cell colors typically set based on cell contents */
+td.DT-red    {background-color:red;color:white !important;}
+td.DT-green  {background-color:green;color:white !important;}
+td.DT-yellow {background-color:yellow;color:black !important;}
+
+/* DT Button colors */
+.DTButton-default       {background-color:#26a69a; color:white}
+.DTButton-red           {background-color:red !important; color:white !important;}
+.DTButton-black         {background-color:#000 !important; color:#fff !important;}
+.DTButton-yellow        {background-color:yellow !important; color:#444 !important;}
+.DTButton-light-yellow  {background-color:#ffffcc !important; color:#444 !important;}
+
+.fa .fa-trash .DTButton-red .btn .center{
+  background-color:#f00 !important;
+  color:#fff;
+}
+
+/* prevent telephone numbers and zip codes from appearing as links */
+table.DTView tr.roweven td a[href^="tel:"]:link,
+table.DTView tr.roweven td a[href^="tel:"]:visited,
+table.DTView tr.roweven td a[href^="tel:"]:hover,
+table.DTGrid tr.roweven td a[href^="tel:"]:link,
+table.DTGrid tr.roweven td a[href^="tel:"]:visited,
+table.DTGrid tr.roweven td a[href^="tel:"]:hover {
+  color: #000;
+  background-color: #fff;
+  text-decoration: none;
+  pointer-events: none;
+  cursor: default;
+  display: inline;
+}
+table.DTView tr.rowodd td a[href^="tel:"]:link,
+table.DTView tr.rowodd td a[href^="tel:"]:visited,
+table.DTView tr.rowodd td a[href^="tel:"]:hover,
+table.DTGrid tr.rowodd td a[href^="tel:"]:link,
+table.DTGrid tr.rowodd td a[href^="tel:"]:visited,
+table.DTGrid tr.rowodd td a[href^="tel:"]:hover {
+  color: #000;
+  background-color: #f0f0f0;
+  text-decoration: none;
+  pointer-events: none;
+  cursor: default;
+  display:inline;
+}
+/* other non-table colors */
+.DTemptyExpander {
+	background-color: #E9F7EF !important;
+}
+/* start 29April */
+.DTButton {
+  margin: 5px;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 5px;
+  border: 0;
+  outline: 0;
+  box-shadow: 0 2px 5px #00000029, 0 2px 10px #0000001f;
+  height: 30px!important;
+  }
+
+.DTButton:focus, .DTButtonb:hover, .DTButton:active {
+  outline: 5px solid #aaa !important;
+}
+
+  
+.DTButton           {background-color:#26a69a !important; color:#fff  !important}
+.DTB-red            {background-color:#ff0000 !important; color:#fff  !important}
+.DTB-yellow         {background-color:#ffff00   !important; color:#333    !important}
+.DTB-blue           {background-color:#0000cd   !important; color:#fff    !important}
+.DTB-green          {background-color:#008000   !important; color:#fff    !important}
+.DTB-orange         {background-color:#ff8c00   !important; color:#fff    !important}
+.DTB-violet         {background-color:#c71585   !important; color:#fff    !important}
+.DTB-brown          {background-color:#a0522d   !important; color:#fff    !important}
+.DTB-black          {background-color:#000    !important; color:#fff  !important}
+.DTB-gray           {background-color:#71797e   !important; color:#fff    !important}
+.DTB-light-yellow   {background-color:#ffffcc !important; color:#333  !important}
+.DTB-ibm-blue       {background-color:#0f62fe   !important; color:#fff    !important}
+/* end 29April */
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .DTButton {
+    margin: 1px;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 5px;
+    border: 0;
+    outline: 0;
+    box-shadow: 0 2px 5px #00000029, 0 2px 10px #0000001f;
+    height: 30px!important;
+    }
+  body
+  {
+    font-size: 0.8rem!important;
+  }
+  html,
+  body,
+  table td {
+    font-family:Roboto,Verdana,Tahoma,"sans serif";
+  }
+  
+  .tl1 td:nth-child(1),.tl1 th:nth-child(1),
+  .tl2 td:nth-child(2),.tl2 th:nth-child(2),
+  .tl3 td:nth-child(3),.tl3 th:nth-child(3),
+  .tl4 td:nth-child(4),.tl4 th:nth-child(4),
+  .tl5 td:nth-child(5),.tl5 th:nth-child(5),
+  .tl6 td:nth-child(6),.tl6 th:nth-child(6),
+  .tl7 td:nth-child(7),.tl7 th:nth-child(7),
+  .tl8 td:nth-child(8),.tl8 th:nth-child(8),
+  .tl9 td:nth-child(9),.tl9 th:nth-child(9),
+  .tl10 td:nth-child(10),.tl10 th:nth-child(10),
+  .tl11 td:nth-child(11),.tl11 th:nth-child(11),
+  .tl12 td:nth-child(12),.tl12 th:nth-child(12),
+  .tl13 td:nth-child(13),.tl13 th:nth-child(13),
+  .tl14 td:nth-child(14),.tl14 th:nth-child(14),
+  .tl15 td:nth-child(15),.tl15 th:nth-child(15),
+  .tl16 td:nth-child(16),.tl16 th:nth-child(16),
+  .tl17 td:nth-child(17),.tl17 th:nth-child(17),
+  .tl18 td:nth-child(18),.tl18 th:nth-child(18),
+  .tl19 td:nth-child(19),.tl19 th:nth-child(19),
+  .tl20 td:nth-child(20),.tl20 th:nth-child(20),
+  .tl21 td:nth-child(21),.tl21 th:nth-child(21),
+  .tl22 td:nth-child(22),.tl22 th:nth-child(22),
+  .tl23 td:nth-child(23),.tl23 th:nth-child(23),
+  .tl24 td:nth-child(24),.tl24 th:nth-child(24),
+  .tl25 td:nth-child(25),.tl25 th:nth-child(25),
+  .tl26 td:nth-child(26),.tl26 th:nth-child(26),
+  .tl27 td:nth-child(27),.tl27 th:nth-child(27),
+  .tl28 td:nth-child(28),.tl28 th:nth-child(28),
+  .tl29 td:nth-child(29),.tl29 th:nth-child(29),
+  .tl30 td:nth-child(30),.tl30 th:nth-child(30),
+  .tl31 td:nth-child(31),.tl31 th:nth-child(31),
+  .tl32 td:nth-child(32),.tl32 th:nth-child(32),
+  .tl33 td:nth-child(33),.tl33 th:nth-child(33),
+  .tl34 td:nth-child(34),.tl34 th:nth-child(34),
+  .tl35 td:nth-child(35),.tl35 th:nth-child(35),
+  .tl36 td:nth-child(36),.tl36 th:nth-child(36),
+  .tl37 td:nth-child(37),.tl37 th:nth-child(37),
+  .tl38 td:nth-child(38),.tl38 th:nth-child(38),
+  .tl39 td:nth-child(39),.tl39 th:nth-child(39),
+  .tl40 td:nth-child(40),.tl40 th:nth-child(40),
+  .tl41 td:nth-child(41),.tl41 th:nth-child(41),
+  .tl42 td:nth-child(42),.tl42 th:nth-child(42),
+  .tl43 td:nth-child(43),.tl43 th:nth-child(43),
+  .tl44 td:nth-child(44),.tl44 th:nth-child(44),
+  .tl45 td:nth-child(45),.tl45 th:nth-child(45),
+  .tl46 td:nth-child(46),.tl46 th:nth-child(46),
+  .tl47 td:nth-child(47),.tl47 th:nth-child(47),
+  .tl48 td:nth-child(48),.tl48 th:nth-child(48),
+  .tl49 td:nth-child(49),.tl49 th:nth-child(49) {text-align: left}
+  
+  .tr1 td:nth-child(1),.tr1 th:nth-child(1),
+  .tr2 td:nth-child(2),.tr2 th:nth-child(2),
+  .tr3 td:nth-child(3),.tr3 th:nth-child(3),
+  .tr4 td:nth-child(4),.tr4 th:nth-child(4),
+  .tr5 td:nth-child(5),.tr5 th:nth-child(5),
+  .tr6 td:nth-child(6),.tr6 th:nth-child(6),
+  .tr7 td:nth-child(7),.tr7 th:nth-child(7),
+  .tr8 td:nth-child(8),.tr8 th:nth-child(8),
+  .tr9 td:nth-child(9),.tr9 th:nth-child(9),
+  .tr10 td:nth-child(10),.tr10 th:nth-child(10),
+  .tr11 td:nth-child(11),.tr11 th:nth-child(11),
+  .tr12 td:nth-child(12),.tr12 th:nth-child(12),
+  .tr13 td:nth-child(13),.tr13 th:nth-child(13),
+  .tr14 td:nth-child(14),.tr14 th:nth-child(14),
+  .tr15 td:nth-child(15),.tr15 th:nth-child(15),
+  .tr16 td:nth-child(16),.tr16 th:nth-child(16),
+  .tr17 td:nth-child(17),.tr17 th:nth-child(17),
+  .tr18 td:nth-child(18),.tr18 th:nth-child(18),
+  .tr19 td:nth-child(19),.tr19 th:nth-child(19),
+  .tr20 td:nth-child(20),.tr20 th:nth-child(20),
+  .tr21 td:nth-child(21),.tr21 th:nth-child(21),
+  .tr22 td:nth-child(22),.tr22 th:nth-child(22),
+  .tr23 td:nth-child(23),.tr23 th:nth-child(23),
+  .tr24 td:nth-child(24),.tr24 th:nth-child(24),
+  .tr25 td:nth-child(25),.tr25 th:nth-child(25),
+  .tr26 td:nth-child(26),.tr26 th:nth-child(26),
+  .tr27 td:nth-child(27),.tr27 th:nth-child(27),
+  .tr28 td:nth-child(28),.tr28 th:nth-child(28),
+  .tr29 td:nth-child(29),.tr29 th:nth-child(29),
+  .tr30 td:nth-child(30),.tr30 th:nth-child(30),
+  .tr31 td:nth-child(31),.tr31 th:nth-child(31),
+  .tr32 td:nth-child(32),.tr32 th:nth-child(32),
+  .tr33 td:nth-child(33),.tr33 th:nth-child(33),
+  .tr34 td:nth-child(34),.tr34 th:nth-child(34),
+  .tr35 td:nth-child(35),.tr35 th:nth-child(35),
+  .tr36 td:nth-child(36),.tr36 th:nth-child(36),
+  .tr37 td:nth-child(37),.tr37 th:nth-child(37),
+  .tr38 td:nth-child(38),.tr38 th:nth-child(38),
+  .tr39 td:nth-child(39),.tr39 th:nth-child(39),
+  .tr40 td:nth-child(40),.tr40 th:nth-child(40),
+  .tr41 td:nth-child(41),.tr41 th:nth-child(41),
+  .tr42 td:nth-child(42),.tr42 th:nth-child(42),
+  .tr43 td:nth-child(43),.tr43 th:nth-child(43),
+  .tr44 td:nth-child(44),.tr44 th:nth-child(44),
+  .tr45 td:nth-child(45),.tr45 th:nth-child(45),
+  .tr46 td:nth-child(46),.tr46 th:nth-child(46),
+  .tr47 td:nth-child(47),.tr47 th:nth-child(47),
+  .tr48 td:nth-child(48),.tr48 th:nth-child(48),
+  .tr49 td:nth-child(49),.tr49 th:nth-child(49) {text-align: right}
+  
+  .tc1 td:nth-child(1),.tc1 th:nth-child(1),
+  .tc2 td:nth-child(2),.tc2 th:nth-child(2),
+  .tc3 td:nth-child(3),.tc3 th:nth-child(3),
+  .tc4 td:nth-child(4),.tc4 th:nth-child(4),
+  .tc5 td:nth-child(5),.tc5 th:nth-child(5),
+  .tc6 td:nth-child(6),.tc6 th:nth-child(6),
+  .tc7 td:nth-child(7),.tc7 th:nth-child(7),
+  .tc8 td:nth-child(8),.tc8 th:nth-child(8),
+  .tc9 td:nth-child(9),.tc9 th:nth-child(9),
+  .tc10 td:nth-child(10),.tc10 th:nth-child(10),
+  .tc11 td:nth-child(11),.tc11 th:nth-child(11),
+  .tc12 td:nth-child(12),.tc12 th:nth-child(12),
+  .tc13 td:nth-child(13),.tc13 th:nth-child(13),
+  .tc14 td:nth-child(14),.tc14 th:nth-child(14),
+  .tc15 td:nth-child(15),.tc15 th:nth-child(15),
+  .tc16 td:nth-child(16),.tc16 th:nth-child(16),
+  .tc17 td:nth-child(17),.tc17 th:nth-child(17),
+  .tc18 td:nth-child(18),.tc18 th:nth-child(18),
+  .tc19 td:nth-child(19),.tc19 th:nth-child(19),
+  .tc20 td:nth-child(20),.tc20 th:nth-child(20)
+  .tc21 td:nth-child(21),.tc21 th:nth-child(21),
+  .tc22 td:nth-child(22),.tc22 th:nth-child(22),
+  .tc23 td:nth-child(23),.tc23 th:nth-child(23),
+  .tc24 td:nth-child(24),.tc24 th:nth-child(24),
+  .tc25 td:nth-child(25),.tc25 th:nth-child(25),
+  .tc26 td:nth-child(26),.tc26 th:nth-child(26),
+  .tc27 td:nth-child(27),.tc27 th:nth-child(27),
+  .tc28 td:nth-child(28),.tc28 th:nth-child(28),
+  .tc29 td:nth-child(29),.tc29 th:nth-child(29),
+  .tc30 td:nth-child(30),.tc30 th:nth-child(30),
+  .tc31 td:nth-child(31),.tc31 th:nth-child(31),
+  .tc32 td:nth-child(32),.tc32 th:nth-child(32),
+  .tc33 td:nth-child(33),.tc33 th:nth-child(33),
+  .tc34 td:nth-child(34),.tc34 th:nth-child(34),
+  .tc35 td:nth-child(35),.tc35 th:nth-child(35),
+  .tc36 td:nth-child(36),.tc36 th:nth-child(36),
+  .tc37 td:nth-child(37),.tc37 th:nth-child(37),
+  .tc38 td:nth-child(38),.tc38 th:nth-child(38),
+  .tc39 td:nth-child(39),.tc39 th:nth-child(39),
+  .tc40 td:nth-child(40),.tc40 th:nth-child(40),
+  .tc41 td:nth-child(41),.tc41 th:nth-child(41),
+  .tc42 td:nth-child(42),.tc42 th:nth-child(42),
+  .tc43 td:nth-child(43),.tc43 th:nth-child(43),
+  .tc44 td:nth-child(44),.tc44 th:nth-child(44),
+  .tc45 td:nth-child(45),.tc45 th:nth-child(45),
+  .tc46 td:nth-child(46),.tc46 th:nth-child(46),
+  .tc47 td:nth-child(47),.tc47 th:nth-child(47),
+  .tc48 td:nth-child(48),.tc48 th:nth-child(48),
+  .tc49 td:nth-child(49),.tc49 th:nth-child(49) {text-align: center}
+  
+  table.DTView,
+  table.DTGrid {
+    width: auto;
+    border-collapse:collapse;
+    /* font-size: 15px;  22Feb Change  */
+    font-size: 0.8rem!important;
+    margin-bottom: 15px;
+  }
+  
+  table.DTNotepad {
+    width:100%;
+    border-collapse:collapse;
+    /* font-size: 15px;   22Feb Change */
+    font-size: 0.8rem!important;
+  }
+  
+  table.DTView tr.rowodd td,
+  table.DTGrid tr.rowodd td {
+    background-color: #f0f0f0;
+  }
+  
+  table.DTView th,
+  table.DTView td,
+  table.DTGrid th,
+  table.DTGrid td,
+  table.DTNotepad th,
+  table.DTNotepad td {
+    border: 1px solid #c0c0c0;
+    padding: 3px 4px 3px 4px;
+    color: #000;
+  }
+  
+  table.DTView th,
+  table.DTGrid th {
+    font-weight: 600;
+  }
+    
+  table.DTNotepad td.notepad {
+    border: 1px solid #c0c0c0;
+    padding: 0;
+    color: #000;
+  }
+  
+  table.DTView .top,
+  table.DTGrid .top,
+  table.DTNotepad .top {
+    text-align:center;
+  }
+  
+  table.DTGrid td a,
+  table.DTGrid td a:visited {
+    display:block;
+    padding:0 5px 0 5px;
+    border-radius:4px;
+    white-space:nowrap;
+    text-decoration:none;
+    color: #fff;
+  }
+  
+  table.DTGrid td a:hover {
+  /*	font-weight:bold;   Removed because this causes a column width size change on grids*/
+    color: #fff59d;
+  }
+  
+  table.DTView .heading {
+    color: #ddd;
+  }
+  
+  /* colors */
+  
+  table.DT-red th, .DT-red a, .side-nav.sidebar.DT-red {
+    background-color: #b71c1c;
+    color: #fff;
+  }
+  table.DT-red a, .DT-red a.active, .DT-red a:hover, table.DT-red .heading {
+    background-color:#d32f2f;
+  }
+  
+  table.DT-pink th, .DT-pink a, .side-nav.sidebar.DT-pink {
+    background-color: #880e4f;
+    color: #fff;
+  }
+  table.DT-pink a, .DT-pink a.active, .DT-pink a:hover, table.DT-pink .heading {
+    background-color:#c2185b;
+  }
+  
+  table.DT-purple th, .DT-purple a, .side-nav.sidebar.DT-purple {
+    background-color: #4a148c;
+    color: #fff;
+  }
+  table.DT-purple a, .DT-purple a.active, .DT-purple a:hover, table.DT-purple .heading {
+    background-color:#7b1fa2;
+  }
+  
+  table.DT-deep-purple th, .DT-deep-purple a, .side-nav.sidebar.DT-deep-purple {
+    background-color: #311b92;
+    color: #fff;
+  }
+  table.DT-deep-purple a, .DT-deep-purple a.active, .DT-deep-purple a:hover, table.DT-deep-purple .heading {
+    background-color:#512da8;
+  }
+  
+  table.DT-indigo th, .DT-indigo a, .side-nav.sidebar.DT-indigo {
+    background-color: #1a237e;
+    color: #fff;
+  }
+  table.DT-indigo a, .DT-indigo a.active, .DT-indigo a:hover, table.DT-indigo .heading {
+    background-color:#303f9f;
+  }
+  
+  table.DT-blue th, .DT-blue a, .side-nav.sidebar.DT-blue {
+    background-color: #0d47a1;
+    color: #fff;
+  }
+  /* UPDATE 21 MAY 2021*/
+   /* .DT-blue {
+    background-color: #0d47a1;
+    color: #fff;
+  }  */
+  table.DT-blue a, .DT-blue a.active, .DT-blue a:hover, table.DT-blue .heading {
+    background-color:#1976d2;
+  }
+  
+  table.DT-light-blue th, .DT-light-blue a, .side-nav.sidebar.DT-light-blue {
+    background-color: #01579b;
+    color: #fff;
+  }
+  table.DT-light-blue a, .DT-light-blue a.active, .DT-light-blue a:hover, table.DT-light-blue .heading {
+    background-color:#0288d1;
+  }
+  
+  table.DT-cyan th, .DT-cyan a, .side-nav.sidebar.DT-cyan {
+    background-color: #006064; 
+    color: #fff;
+  }
+  table.DT-cyan a, .DT-cyan a.active, .DT-cyan a:hover, table.DT-cyan .heading {
+    background-color:#0097a7;
+  }
+  
+  table.DT-teal th, .DT-teal a, .side-nav.sidebar.DT-teal {
+    background-color: #004d40; 
+    color: #fff;
+  }
+  table.DT-teal a, .DT-teal a.active, .DT-teal a:hover, table.DT-teal .heading {
+    background-color:#00796b;
+  }
+  
+  table.DT-green th, .DT-green a, .side-nav.sidebar.DT-green {
+    background-color: #1b5e20;
+    color: #fff;
+  }
+  table.DT-green a, .DT-green a.active, .DT-green a:hover, table.DT-green .heading {
+    background-color:#388e3c;
+  }
+  
+  table.DT-light-green th, .DT-light-green a, .side-nav.sidebar.DT-light-green {
+    background-color: #33691e;
+    color: #fff;
+  }
+  table.DT-light-green a, .DT-light-green a.active, .DT-light-green a:hover, table.DT-light-green .heading {
+    background-color:#689f38;
+  }
+  
+  table.DT-lime th, .DT-lime a, .side-nav.sidebar.DT-lime {
+    background-color: #827717;
+    color: #fff;
+  }
+  table.DT-lime a, .DT-lime a.active, .DT-lime a:hover, table.DT-lime .heading {
+    background-color:#afb42b;
+  }
+  
+  table.DT-yellow th, .DT-yellow a, .side-nav.sidebar.DT-yellow {
+    background-color: #f57f17;
+    color: #fff;
+  }
+  table.DT-yellow a, .DT-yellow a.active, .DT-yellow a:hover, table.DT-yellow .heading {
+    background-color:#fbc02d;
+  }
+  
+  table.DT-amber th, .DT-amber a, .side-nav.sidebar.DT-amber {
+    background-color: #ff6f00;
+    color: #fff;
+  }
+  table.DT-amber a, .DT-amber a.active, .DT-amber a:hover, table.DT-amber .heading {
+    background-color:#ffa000;
+  }
+  
+  table.DT-orange th, .DT-orange a, .side-nav.sidebar.DT-orange {
+    background-color: #e65100;
+    color: #fff;
+  }
+  table.DT-orange a, .DT-orange a.active, .DT-orange a:hover, table.DT-orange .heading {
+    background-color:#f57c00;
+  }
+  
+  table.DT-deep-orange th, .DT-deep-orange a, .side-nav.sidebar.DT-deep-orange {
+    background-color: #bf360c;
+    color: #fff;
+  }
+  table.DT-deep-orange a, .DT-deep-orange a.active, .DT-deep-orange a:hover, table.DT-deep-orange .heading {
+    background-color:#e64a19;
+  }
+  
+  table.DT-brown th, .DT-brown a, .side-nav.sidebar.DT-brown {
+    background-color: #3e2723;
+    color: #fff;
+  }
+  table.DT-brown a, .DT-brown a.active, .DT-brown a:hover, table.DT-brown .heading {
+    background-color:#5d4037;
+  }
+  
+  table.DT-grey th, .DT-grey a, .side-nav.sidebar.DT-grey {
+    background-color: #212121;
+    color: #fff;
+  }
+  table.DT-grey a, .DT-grey a.active, .DT-grey a:hover, table.DT-grey .heading {
+    background-color:#616161;
+  }
+  
+  table.DT-blue-grey th, .DT-blue-grey a, .side-nav.sidebar.DT-blue-grey {
+    background-color: #263238;
+    color: #fff;
+  }
+  table.DT-blue-grey a, .DT-blue-grey a.active, .DT-blue-grey a:hover, table.DT-blue-grey .heading {
+    background-color:#455a64;
+  }
+  
+  /* Standard DT HTML Table */
+  table.DT-light-yellow th, .DT-light-yellow a, .side-nav.sidebar.DT-light-yellow
+  {
+    background-color: #ffffcc;
+    color: #444;
+  }
+  table.DT-light-yellow a, .DT-light-yellow a.active, .DT-light-yellow a:hover, ta
+  ble.DT-light-yellow .heading {
+    background-color: #ffffaa;
+    color: #000 !important;
+  }
+  
+  .center
+  {
+    text-align:center !important;
+  }
+  
+  /* special cell colors typically set based on cell contents */
+  td.DT-red    {background-color:red;color:white !important;}
+  td.DT-green  {background-color:green;color:white !important;}
+  td.DT-yellow {background-color:yellow;color:black !important;}
+  
+  /* DT Button colors */
+  .DTButton-default       {background-color:#26a69a; color:white}
+  .DTButton-red           {background-color:red !important; color:white !important;}
+  .DTButton-black         {background-color:#000 !important; color:#fff !important;}
+  .DTButton-yellow        {background-color:yellow !important; color:#444 !important;}
+  .DTButton-light-yellow  {background-color:#ffffcc !important; color:#444 !important;}
+  
+  .fa .fa-trash .DTButton-red .btn .center{
+    background-color:#f00 !important;
+    color:#fff;
+  }
+  
+  /* prevent telephone numbers and zip codes from appearing as links */
+  table.DTView tr.roweven td a[href^="tel:"]:link,
+  table.DTView tr.roweven td a[href^="tel:"]:visited,
+  table.DTView tr.roweven td a[href^="tel:"]:hover,
+  table.DTGrid tr.roweven td a[href^="tel:"]:link,
+  table.DTGrid tr.roweven td a[href^="tel:"]:visited,
+  table.DTGrid tr.roweven td a[href^="tel:"]:hover {
+    color: #000;
+    background-color: #fff;
+    text-decoration: none;
+    pointer-events: none;
+    cursor: default;
+    display: inline;
+  }
+  table.DTView tr.rowodd td a[href^="tel:"]:link,
+  table.DTView tr.rowodd td a[href^="tel:"]:visited,
+  table.DTView tr.rowodd td a[href^="tel:"]:hover,
+  table.DTGrid tr.rowodd td a[href^="tel:"]:link,
+  table.DTGrid tr.rowodd td a[href^="tel:"]:visited,
+  table.DTGrid tr.rowodd td a[href^="tel:"]:hover {
+    color: #000;
+    background-color: #f0f0f0;
+    text-decoration: none;
+    pointer-events: none;
+    cursor: default;
+    display:inline;
+  }
+  /* other non-table colors */
+  .DTemptyExpander {
+    background-color: #E9F7EF !important;
+  }
+  
+  
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  html,
+  body,
+  table td {
+    font-family:Roboto,Verdana,Tahoma,"sans serif";
+  }
+  
+  .tl1 td:nth-child(1),.tl1 th:nth-child(1),
+  .tl2 td:nth-child(2),.tl2 th:nth-child(2),
+  .tl3 td:nth-child(3),.tl3 th:nth-child(3),
+  .tl4 td:nth-child(4),.tl4 th:nth-child(4),
+  .tl5 td:nth-child(5),.tl5 th:nth-child(5),
+  .tl6 td:nth-child(6),.tl6 th:nth-child(6),
+  .tl7 td:nth-child(7),.tl7 th:nth-child(7),
+  .tl8 td:nth-child(8),.tl8 th:nth-child(8),
+  .tl9 td:nth-child(9),.tl9 th:nth-child(9),
+  .tl10 td:nth-child(10),.tl10 th:nth-child(10),
+  .tl11 td:nth-child(11),.tl11 th:nth-child(11),
+  .tl12 td:nth-child(12),.tl12 th:nth-child(12),
+  .tl13 td:nth-child(13),.tl13 th:nth-child(13),
+  .tl14 td:nth-child(14),.tl14 th:nth-child(14),
+  .tl15 td:nth-child(15),.tl15 th:nth-child(15),
+  .tl16 td:nth-child(16),.tl16 th:nth-child(16),
+  .tl17 td:nth-child(17),.tl17 th:nth-child(17),
+  .tl18 td:nth-child(18),.tl18 th:nth-child(18),
+  .tl19 td:nth-child(19),.tl19 th:nth-child(19),
+  .tl20 td:nth-child(20),.tl20 th:nth-child(20),
+  .tl21 td:nth-child(21),.tl21 th:nth-child(21),
+  .tl22 td:nth-child(22),.tl22 th:nth-child(22),
+  .tl23 td:nth-child(23),.tl23 th:nth-child(23),
+  .tl24 td:nth-child(24),.tl24 th:nth-child(24),
+  .tl25 td:nth-child(25),.tl25 th:nth-child(25),
+  .tl26 td:nth-child(26),.tl26 th:nth-child(26),
+  .tl27 td:nth-child(27),.tl27 th:nth-child(27),
+  .tl28 td:nth-child(28),.tl28 th:nth-child(28),
+  .tl29 td:nth-child(29),.tl29 th:nth-child(29),
+  .tl30 td:nth-child(30),.tl30 th:nth-child(30),
+  .tl31 td:nth-child(31),.tl31 th:nth-child(31),
+  .tl32 td:nth-child(32),.tl32 th:nth-child(32),
+  .tl33 td:nth-child(33),.tl33 th:nth-child(33),
+  .tl34 td:nth-child(34),.tl34 th:nth-child(34),
+  .tl35 td:nth-child(35),.tl35 th:nth-child(35),
+  .tl36 td:nth-child(36),.tl36 th:nth-child(36),
+  .tl37 td:nth-child(37),.tl37 th:nth-child(37),
+  .tl38 td:nth-child(38),.tl38 th:nth-child(38),
+  .tl39 td:nth-child(39),.tl39 th:nth-child(39),
+  .tl40 td:nth-child(40),.tl40 th:nth-child(40),
+  .tl41 td:nth-child(41),.tl41 th:nth-child(41),
+  .tl42 td:nth-child(42),.tl42 th:nth-child(42),
+  .tl43 td:nth-child(43),.tl43 th:nth-child(43),
+  .tl44 td:nth-child(44),.tl44 th:nth-child(44),
+  .tl45 td:nth-child(45),.tl45 th:nth-child(45),
+  .tl46 td:nth-child(46),.tl46 th:nth-child(46),
+  .tl47 td:nth-child(47),.tl47 th:nth-child(47),
+  .tl48 td:nth-child(48),.tl48 th:nth-child(48),
+  .tl49 td:nth-child(49),.tl49 th:nth-child(49) {text-align: left}
+  
+  .tr1 td:nth-child(1),.tr1 th:nth-child(1),
+  .tr2 td:nth-child(2),.tr2 th:nth-child(2),
+  .tr3 td:nth-child(3),.tr3 th:nth-child(3),
+  .tr4 td:nth-child(4),.tr4 th:nth-child(4),
+  .tr5 td:nth-child(5),.tr5 th:nth-child(5),
+  .tr6 td:nth-child(6),.tr6 th:nth-child(6),
+  .tr7 td:nth-child(7),.tr7 th:nth-child(7),
+  .tr8 td:nth-child(8),.tr8 th:nth-child(8),
+  .tr9 td:nth-child(9),.tr9 th:nth-child(9),
+  .tr10 td:nth-child(10),.tr10 th:nth-child(10),
+  .tr11 td:nth-child(11),.tr11 th:nth-child(11),
+  .tr12 td:nth-child(12),.tr12 th:nth-child(12),
+  .tr13 td:nth-child(13),.tr13 th:nth-child(13),
+  .tr14 td:nth-child(14),.tr14 th:nth-child(14),
+  .tr15 td:nth-child(15),.tr15 th:nth-child(15),
+  .tr16 td:nth-child(16),.tr16 th:nth-child(16),
+  .tr17 td:nth-child(17),.tr17 th:nth-child(17),
+  .tr18 td:nth-child(18),.tr18 th:nth-child(18),
+  .tr19 td:nth-child(19),.tr19 th:nth-child(19),
+  .tr20 td:nth-child(20),.tr20 th:nth-child(20),
+  .tr21 td:nth-child(21),.tr21 th:nth-child(21),
+  .tr22 td:nth-child(22),.tr22 th:nth-child(22),
+  .tr23 td:nth-child(23),.tr23 th:nth-child(23),
+  .tr24 td:nth-child(24),.tr24 th:nth-child(24),
+  .tr25 td:nth-child(25),.tr25 th:nth-child(25),
+  .tr26 td:nth-child(26),.tr26 th:nth-child(26),
+  .tr27 td:nth-child(27),.tr27 th:nth-child(27),
+  .tr28 td:nth-child(28),.tr28 th:nth-child(28),
+  .tr29 td:nth-child(29),.tr29 th:nth-child(29),
+  .tr30 td:nth-child(30),.tr30 th:nth-child(30),
+  .tr31 td:nth-child(31),.tr31 th:nth-child(31),
+  .tr32 td:nth-child(32),.tr32 th:nth-child(32),
+  .tr33 td:nth-child(33),.tr33 th:nth-child(33),
+  .tr34 td:nth-child(34),.tr34 th:nth-child(34),
+  .tr35 td:nth-child(35),.tr35 th:nth-child(35),
+  .tr36 td:nth-child(36),.tr36 th:nth-child(36),
+  .tr37 td:nth-child(37),.tr37 th:nth-child(37),
+  .tr38 td:nth-child(38),.tr38 th:nth-child(38),
+  .tr39 td:nth-child(39),.tr39 th:nth-child(39),
+  .tr40 td:nth-child(40),.tr40 th:nth-child(40),
+  .tr41 td:nth-child(41),.tr41 th:nth-child(41),
+  .tr42 td:nth-child(42),.tr42 th:nth-child(42),
+  .tr43 td:nth-child(43),.tr43 th:nth-child(43),
+  .tr44 td:nth-child(44),.tr44 th:nth-child(44),
+  .tr45 td:nth-child(45),.tr45 th:nth-child(45),
+  .tr46 td:nth-child(46),.tr46 th:nth-child(46),
+  .tr47 td:nth-child(47),.tr47 th:nth-child(47),
+  .tr48 td:nth-child(48),.tr48 th:nth-child(48),
+  .tr49 td:nth-child(49),.tr49 th:nth-child(49) {text-align: right}
+  
+  .tc1 td:nth-child(1),.tc1 th:nth-child(1),
+  .tc2 td:nth-child(2),.tc2 th:nth-child(2),
+  .tc3 td:nth-child(3),.tc3 th:nth-child(3),
+  .tc4 td:nth-child(4),.tc4 th:nth-child(4),
+  .tc5 td:nth-child(5),.tc5 th:nth-child(5),
+  .tc6 td:nth-child(6),.tc6 th:nth-child(6),
+  .tc7 td:nth-child(7),.tc7 th:nth-child(7),
+  .tc8 td:nth-child(8),.tc8 th:nth-child(8),
+  .tc9 td:nth-child(9),.tc9 th:nth-child(9),
+  .tc10 td:nth-child(10),.tc10 th:nth-child(10),
+  .tc11 td:nth-child(11),.tc11 th:nth-child(11),
+  .tc12 td:nth-child(12),.tc12 th:nth-child(12),
+  .tc13 td:nth-child(13),.tc13 th:nth-child(13),
+  .tc14 td:nth-child(14),.tc14 th:nth-child(14),
+  .tc15 td:nth-child(15),.tc15 th:nth-child(15),
+  .tc16 td:nth-child(16),.tc16 th:nth-child(16),
+  .tc17 td:nth-child(17),.tc17 th:nth-child(17),
+  .tc18 td:nth-child(18),.tc18 th:nth-child(18),
+  .tc19 td:nth-child(19),.tc19 th:nth-child(19),
+  .tc20 td:nth-child(20),.tc20 th:nth-child(20)
+  .tc21 td:nth-child(21),.tc21 th:nth-child(21),
+  .tc22 td:nth-child(22),.tc22 th:nth-child(22),
+  .tc23 td:nth-child(23),.tc23 th:nth-child(23),
+  .tc24 td:nth-child(24),.tc24 th:nth-child(24),
+  .tc25 td:nth-child(25),.tc25 th:nth-child(25),
+  .tc26 td:nth-child(26),.tc26 th:nth-child(26),
+  .tc27 td:nth-child(27),.tc27 th:nth-child(27),
+  .tc28 td:nth-child(28),.tc28 th:nth-child(28),
+  .tc29 td:nth-child(29),.tc29 th:nth-child(29),
+  .tc30 td:nth-child(30),.tc30 th:nth-child(30),
+  .tc31 td:nth-child(31),.tc31 th:nth-child(31),
+  .tc32 td:nth-child(32),.tc32 th:nth-child(32),
+  .tc33 td:nth-child(33),.tc33 th:nth-child(33),
+  .tc34 td:nth-child(34),.tc34 th:nth-child(34),
+  .tc35 td:nth-child(35),.tc35 th:nth-child(35),
+  .tc36 td:nth-child(36),.tc36 th:nth-child(36),
+  .tc37 td:nth-child(37),.tc37 th:nth-child(37),
+  .tc38 td:nth-child(38),.tc38 th:nth-child(38),
+  .tc39 td:nth-child(39),.tc39 th:nth-child(39),
+  .tc40 td:nth-child(40),.tc40 th:nth-child(40),
+  .tc41 td:nth-child(41),.tc41 th:nth-child(41),
+  .tc42 td:nth-child(42),.tc42 th:nth-child(42),
+  .tc43 td:nth-child(43),.tc43 th:nth-child(43),
+  .tc44 td:nth-child(44),.tc44 th:nth-child(44),
+  .tc45 td:nth-child(45),.tc45 th:nth-child(45),
+  .tc46 td:nth-child(46),.tc46 th:nth-child(46),
+  .tc47 td:nth-child(47),.tc47 th:nth-child(47),
+  .tc48 td:nth-child(48),.tc48 th:nth-child(48),
+  .tc49 td:nth-child(49),.tc49 th:nth-child(49) {text-align: center}
+  
+  table.DTView,
+  table.DTGrid {
+    width: auto;
+    border-collapse:collapse;
+    font-size: 15px;  
+    margin-bottom: 15px;
+  }
+  
+  table.DTNotepad {
+    width:100%;
+    border-collapse:collapse;
+    font-size: 15px;  
+  }
+  
+  table.DTView tr.rowodd td,
+  table.DTGrid tr.rowodd td {
+    background-color: #f0f0f0;
+  }
+  
+  table.DTView th,
+  table.DTView td,
+  table.DTGrid th,
+  table.DTGrid td,
+  table.DTNotepad th,
+  table.DTNotepad td {
+    border: 1px solid #c0c0c0;
+    padding: 3px 4px 3px 4px;
+    color: #000;
+  }
+  
+  table.DTView th,
+  table.DTGrid th {
+    font-weight: 600;
+  }
+    
+  table.DTNotepad td.notepad {
+    border: 1px solid #c0c0c0;
+    padding: 0;
+    color: #000;
+  }
+  
+  table.DTView .top,
+  table.DTGrid .top,
+  table.DTNotepad .top {
+    text-align:center;
+  }
+  
+  table.DTGrid td a,
+  table.DTGrid td a:visited {
+    display:block;
+    padding:0 5px 0 5px;
+    border-radius:4px;
+    white-space:nowrap;
+    text-decoration:none;
+    color: #fff;
+  }
+  
+  table.DTGrid td a:hover {
+  /*	font-weight:bold;   Removed because this causes a column width size change on grids*/
+    color: #fff59d;
+  }
+  
+  table.DTView .heading {
+    color: #ddd;
+  }
+  
+  /* colors */
+  
+  table.DT-red th, .DT-red a, .side-nav.sidebar.DT-red {
+    background-color: #b71c1c;
+    color: #fff;
+  }
+  table.DT-red a, .DT-red a.active, .DT-red a:hover, table.DT-red .heading {
+    background-color:#d32f2f;
+  }
+  
+  table.DT-pink th, .DT-pink a, .side-nav.sidebar.DT-pink {
+    background-color: #880e4f;
+    color: #fff;
+  }
+  table.DT-pink a, .DT-pink a.active, .DT-pink a:hover, table.DT-pink .heading {
+    background-color:#c2185b;
+  }
+  
+  table.DT-purple th, .DT-purple a, .side-nav.sidebar.DT-purple {
+    background-color: #4a148c;
+    color: #fff;
+  }
+  table.DT-purple a, .DT-purple a.active, .DT-purple a:hover, table.DT-purple .heading {
+    background-color:#7b1fa2;
+  }
+  
+  table.DT-deep-purple th, .DT-deep-purple a, .side-nav.sidebar.DT-deep-purple {
+    background-color: #311b92;
+    color: #fff;
+  }
+  table.DT-deep-purple a, .DT-deep-purple a.active, .DT-deep-purple a:hover, table.DT-deep-purple .heading {
+    background-color:#512da8;
+  }
+  
+  table.DT-indigo th, .DT-indigo a, .side-nav.sidebar.DT-indigo {
+    background-color: #1a237e;
+    color: #fff;
+  }
+  table.DT-indigo a, .DT-indigo a.active, .DT-indigo a:hover, table.DT-indigo .heading {
+    background-color:#303f9f;
+  }
+  
+  table.DT-blue th, .DT-blue a, .side-nav.sidebar.DT-blue {
+    background-color: #0d47a1;
+    color: #fff;
+  }
+  /* UPDATE 21 MAY 2021*/
+   /* .DT-blue {
+    background-color: #0d47a1;
+    color: #fff;
+  }  */
+  table.DT-blue a, .DT-blue a.active, .DT-blue a:hover, table.DT-blue .heading {
+    background-color:#1976d2;
+  }
+  
+  table.DT-light-blue th, .DT-light-blue a, .side-nav.sidebar.DT-light-blue {
+    background-color: #01579b;
+    color: #fff;
+  }
+  table.DT-light-blue a, .DT-light-blue a.active, .DT-light-blue a:hover, table.DT-light-blue .heading {
+    background-color:#0288d1;
+  }
+  
+  table.DT-cyan th, .DT-cyan a, .side-nav.sidebar.DT-cyan {
+    background-color: #006064; 
+    color: #fff;
+  }
+  table.DT-cyan a, .DT-cyan a.active, .DT-cyan a:hover, table.DT-cyan .heading {
+    background-color:#0097a7;
+  }
+  
+  table.DT-teal th, .DT-teal a, .side-nav.sidebar.DT-teal {
+    background-color: #004d40; 
+    color: #fff;
+  }
+  table.DT-teal a, .DT-teal a.active, .DT-teal a:hover, table.DT-teal .heading {
+    background-color:#00796b;
+  }
+  
+  table.DT-green th, .DT-green a, .side-nav.sidebar.DT-green {
+    background-color: #1b5e20;
+    color: #fff;
+  }
+  table.DT-green a, .DT-green a.active, .DT-green a:hover, table.DT-green .heading {
+    background-color:#388e3c;
+  }
+  
+  table.DT-light-green th, .DT-light-green a, .side-nav.sidebar.DT-light-green {
+    background-color: #33691e;
+    color: #fff;
+  }
+  table.DT-light-green a, .DT-light-green a.active, .DT-light-green a:hover, table.DT-light-green .heading {
+    background-color:#689f38;
+  }
+  
+  table.DT-lime th, .DT-lime a, .side-nav.sidebar.DT-lime {
+    background-color: #827717;
+    color: #fff;
+  }
+  table.DT-lime a, .DT-lime a.active, .DT-lime a:hover, table.DT-lime .heading {
+    background-color:#afb42b;
+  }
+  
+  table.DT-yellow th, .DT-yellow a, .side-nav.sidebar.DT-yellow {
+    background-color: #f57f17;
+    color: #fff;
+  }
+  table.DT-yellow a, .DT-yellow a.active, .DT-yellow a:hover, table.DT-yellow .heading {
+    background-color:#fbc02d;
+  }
+  
+  table.DT-amber th, .DT-amber a, .side-nav.sidebar.DT-amber {
+    background-color: #ff6f00;
+    color: #fff;
+  }
+  table.DT-amber a, .DT-amber a.active, .DT-amber a:hover, table.DT-amber .heading {
+    background-color:#ffa000;
+  }
+  
+  table.DT-orange th, .DT-orange a, .side-nav.sidebar.DT-orange {
+    background-color: #e65100;
+    color: #fff;
+  }
+  table.DT-orange a, .DT-orange a.active, .DT-orange a:hover, table.DT-orange .heading {
+    background-color:#f57c00;
+  }
+  
+  table.DT-deep-orange th, .DT-deep-orange a, .side-nav.sidebar.DT-deep-orange {
+    background-color: #bf360c;
+    color: #fff;
+  }
+  table.DT-deep-orange a, .DT-deep-orange a.active, .DT-deep-orange a:hover, table.DT-deep-orange .heading {
+    background-color:#e64a19;
+  }
+  
+  table.DT-brown th, .DT-brown a, .side-nav.sidebar.DT-brown {
+    background-color: #3e2723;
+    color: #fff;
+  }
+  table.DT-brown a, .DT-brown a.active, .DT-brown a:hover, table.DT-brown .heading {
+    background-color:#5d4037;
+  }
+  
+  table.DT-grey th, .DT-grey a, .side-nav.sidebar.DT-grey {
+    background-color: #212121;
+    color: #fff;
+  }
+  table.DT-grey a, .DT-grey a.active, .DT-grey a:hover, table.DT-grey .heading {
+    background-color:#616161;
+  }
+  
+  table.DT-blue-grey th, .DT-blue-grey a, .side-nav.sidebar.DT-blue-grey {
+    background-color: #263238;
+    color: #fff;
+  }
+  table.DT-blue-grey a, .DT-blue-grey a.active, .DT-blue-grey a:hover, table.DT-blue-grey .heading {
+    background-color:#455a64;
+  }
+  
+  /* Standard DT HTML Table */
+  table.DT-light-yellow th, .DT-light-yellow a, .side-nav.sidebar.DT-light-yellow
+  {
+    background-color: #ffffcc;
+    color: #444;
+  }
+  table.DT-light-yellow a, .DT-light-yellow a.active, .DT-light-yellow a:hover, ta
+  ble.DT-light-yellow .heading {
+    background-color: #ffffaa;
+    color: #000 !important;
+  }
+  
+  .center
+  {
+    text-align:center !important;
+  }
+  
+  /* special cell colors typically set based on cell contents */
+  td.DT-red    {background-color:red;color:white !important;}
+  td.DT-green  {background-color:green;color:white !important;}
+  td.DT-yellow {background-color:yellow;color:black !important;}
+  
+  /* DT Button colors */
+  .DTButton-default       {background-color:#26a69a; color:white}
+  .DTButton-red           {background-color:red !important; color:white !important;}
+  .DTButton-black         {background-color:#000 !important; color:#fff !important;}
+  .DTButton-yellow        {background-color:yellow !important; color:#444 !important;}
+  .DTButton-light-yellow  {background-color:#ffffcc !important; color:#444 !important;}
+  
+  .fa .fa-trash .DTButton-red .btn .center{
+    background-color:#f00 !important;
+    color:#fff;
+  }
+  
+  /* prevent telephone numbers and zip codes from appearing as links */
+  table.DTView tr.roweven td a[href^="tel:"]:link,
+  table.DTView tr.roweven td a[href^="tel:"]:visited,
+  table.DTView tr.roweven td a[href^="tel:"]:hover,
+  table.DTGrid tr.roweven td a[href^="tel:"]:link,
+  table.DTGrid tr.roweven td a[href^="tel:"]:visited,
+  table.DTGrid tr.roweven td a[href^="tel:"]:hover {
+    color: #000;
+    background-color: #fff;
+    text-decoration: none;
+    pointer-events: none;
+    cursor: default;
+    display: inline;
+  }
+  table.DTView tr.rowodd td a[href^="tel:"]:link,
+  table.DTView tr.rowodd td a[href^="tel:"]:visited,
+  table.DTView tr.rowodd td a[href^="tel:"]:hover,
+  table.DTGrid tr.rowodd td a[href^="tel:"]:link,
+  table.DTGrid tr.rowodd td a[href^="tel:"]:visited,
+  table.DTGrid tr.rowodd td a[href^="tel:"]:hover {
+    color: #000;
+    background-color: #f0f0f0;
+    text-decoration: none;
+    pointer-events: none;
+    cursor: default;
+    display:inline;
+  }
+  /* other non-table colors */
+  .DTemptyExpander {
+    background-color: #E9F7EF !important;
+  }
+  
+  
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  html,
+  body,
+  table td {
+    font-family:Roboto,Verdana,Tahoma,"sans serif";
+  }
+  
+  .tl1 td:nth-child(1),.tl1 th:nth-child(1),
+  .tl2 td:nth-child(2),.tl2 th:nth-child(2),
+  .tl3 td:nth-child(3),.tl3 th:nth-child(3),
+  .tl4 td:nth-child(4),.tl4 th:nth-child(4),
+  .tl5 td:nth-child(5),.tl5 th:nth-child(5),
+  .tl6 td:nth-child(6),.tl6 th:nth-child(6),
+  .tl7 td:nth-child(7),.tl7 th:nth-child(7),
+  .tl8 td:nth-child(8),.tl8 th:nth-child(8),
+  .tl9 td:nth-child(9),.tl9 th:nth-child(9),
+  .tl10 td:nth-child(10),.tl10 th:nth-child(10),
+  .tl11 td:nth-child(11),.tl11 th:nth-child(11),
+  .tl12 td:nth-child(12),.tl12 th:nth-child(12),
+  .tl13 td:nth-child(13),.tl13 th:nth-child(13),
+  .tl14 td:nth-child(14),.tl14 th:nth-child(14),
+  .tl15 td:nth-child(15),.tl15 th:nth-child(15),
+  .tl16 td:nth-child(16),.tl16 th:nth-child(16),
+  .tl17 td:nth-child(17),.tl17 th:nth-child(17),
+  .tl18 td:nth-child(18),.tl18 th:nth-child(18),
+  .tl19 td:nth-child(19),.tl19 th:nth-child(19),
+  .tl20 td:nth-child(20),.tl20 th:nth-child(20),
+  .tl21 td:nth-child(21),.tl21 th:nth-child(21),
+  .tl22 td:nth-child(22),.tl22 th:nth-child(22),
+  .tl23 td:nth-child(23),.tl23 th:nth-child(23),
+  .tl24 td:nth-child(24),.tl24 th:nth-child(24),
+  .tl25 td:nth-child(25),.tl25 th:nth-child(25),
+  .tl26 td:nth-child(26),.tl26 th:nth-child(26),
+  .tl27 td:nth-child(27),.tl27 th:nth-child(27),
+  .tl28 td:nth-child(28),.tl28 th:nth-child(28),
+  .tl29 td:nth-child(29),.tl29 th:nth-child(29),
+  .tl30 td:nth-child(30),.tl30 th:nth-child(30),
+  .tl31 td:nth-child(31),.tl31 th:nth-child(31),
+  .tl32 td:nth-child(32),.tl32 th:nth-child(32),
+  .tl33 td:nth-child(33),.tl33 th:nth-child(33),
+  .tl34 td:nth-child(34),.tl34 th:nth-child(34),
+  .tl35 td:nth-child(35),.tl35 th:nth-child(35),
+  .tl36 td:nth-child(36),.tl36 th:nth-child(36),
+  .tl37 td:nth-child(37),.tl37 th:nth-child(37),
+  .tl38 td:nth-child(38),.tl38 th:nth-child(38),
+  .tl39 td:nth-child(39),.tl39 th:nth-child(39),
+  .tl40 td:nth-child(40),.tl40 th:nth-child(40),
+  .tl41 td:nth-child(41),.tl41 th:nth-child(41),
+  .tl42 td:nth-child(42),.tl42 th:nth-child(42),
+  .tl43 td:nth-child(43),.tl43 th:nth-child(43),
+  .tl44 td:nth-child(44),.tl44 th:nth-child(44),
+  .tl45 td:nth-child(45),.tl45 th:nth-child(45),
+  .tl46 td:nth-child(46),.tl46 th:nth-child(46),
+  .tl47 td:nth-child(47),.tl47 th:nth-child(47),
+  .tl48 td:nth-child(48),.tl48 th:nth-child(48),
+  .tl49 td:nth-child(49),.tl49 th:nth-child(49) {text-align: left}
+  
+  .tr1 td:nth-child(1),.tr1 th:nth-child(1),
+  .tr2 td:nth-child(2),.tr2 th:nth-child(2),
+  .tr3 td:nth-child(3),.tr3 th:nth-child(3),
+  .tr4 td:nth-child(4),.tr4 th:nth-child(4),
+  .tr5 td:nth-child(5),.tr5 th:nth-child(5),
+  .tr6 td:nth-child(6),.tr6 th:nth-child(6),
+  .tr7 td:nth-child(7),.tr7 th:nth-child(7),
+  .tr8 td:nth-child(8),.tr8 th:nth-child(8),
+  .tr9 td:nth-child(9),.tr9 th:nth-child(9),
+  .tr10 td:nth-child(10),.tr10 th:nth-child(10),
+  .tr11 td:nth-child(11),.tr11 th:nth-child(11),
+  .tr12 td:nth-child(12),.tr12 th:nth-child(12),
+  .tr13 td:nth-child(13),.tr13 th:nth-child(13),
+  .tr14 td:nth-child(14),.tr14 th:nth-child(14),
+  .tr15 td:nth-child(15),.tr15 th:nth-child(15),
+  .tr16 td:nth-child(16),.tr16 th:nth-child(16),
+  .tr17 td:nth-child(17),.tr17 th:nth-child(17),
+  .tr18 td:nth-child(18),.tr18 th:nth-child(18),
+  .tr19 td:nth-child(19),.tr19 th:nth-child(19),
+  .tr20 td:nth-child(20),.tr20 th:nth-child(20),
+  .tr21 td:nth-child(21),.tr21 th:nth-child(21),
+  .tr22 td:nth-child(22),.tr22 th:nth-child(22),
+  .tr23 td:nth-child(23),.tr23 th:nth-child(23),
+  .tr24 td:nth-child(24),.tr24 th:nth-child(24),
+  .tr25 td:nth-child(25),.tr25 th:nth-child(25),
+  .tr26 td:nth-child(26),.tr26 th:nth-child(26),
+  .tr27 td:nth-child(27),.tr27 th:nth-child(27),
+  .tr28 td:nth-child(28),.tr28 th:nth-child(28),
+  .tr29 td:nth-child(29),.tr29 th:nth-child(29),
+  .tr30 td:nth-child(30),.tr30 th:nth-child(30),
+  .tr31 td:nth-child(31),.tr31 th:nth-child(31),
+  .tr32 td:nth-child(32),.tr32 th:nth-child(32),
+  .tr33 td:nth-child(33),.tr33 th:nth-child(33),
+  .tr34 td:nth-child(34),.tr34 th:nth-child(34),
+  .tr35 td:nth-child(35),.tr35 th:nth-child(35),
+  .tr36 td:nth-child(36),.tr36 th:nth-child(36),
+  .tr37 td:nth-child(37),.tr37 th:nth-child(37),
+  .tr38 td:nth-child(38),.tr38 th:nth-child(38),
+  .tr39 td:nth-child(39),.tr39 th:nth-child(39),
+  .tr40 td:nth-child(40),.tr40 th:nth-child(40),
+  .tr41 td:nth-child(41),.tr41 th:nth-child(41),
+  .tr42 td:nth-child(42),.tr42 th:nth-child(42),
+  .tr43 td:nth-child(43),.tr43 th:nth-child(43),
+  .tr44 td:nth-child(44),.tr44 th:nth-child(44),
+  .tr45 td:nth-child(45),.tr45 th:nth-child(45),
+  .tr46 td:nth-child(46),.tr46 th:nth-child(46),
+  .tr47 td:nth-child(47),.tr47 th:nth-child(47),
+  .tr48 td:nth-child(48),.tr48 th:nth-child(48),
+  .tr49 td:nth-child(49),.tr49 th:nth-child(49) {text-align: right}
+  
+  .tc1 td:nth-child(1),.tc1 th:nth-child(1),
+  .tc2 td:nth-child(2),.tc2 th:nth-child(2),
+  .tc3 td:nth-child(3),.tc3 th:nth-child(3),
+  .tc4 td:nth-child(4),.tc4 th:nth-child(4),
+  .tc5 td:nth-child(5),.tc5 th:nth-child(5),
+  .tc6 td:nth-child(6),.tc6 th:nth-child(6),
+  .tc7 td:nth-child(7),.tc7 th:nth-child(7),
+  .tc8 td:nth-child(8),.tc8 th:nth-child(8),
+  .tc9 td:nth-child(9),.tc9 th:nth-child(9),
+  .tc10 td:nth-child(10),.tc10 th:nth-child(10),
+  .tc11 td:nth-child(11),.tc11 th:nth-child(11),
+  .tc12 td:nth-child(12),.tc12 th:nth-child(12),
+  .tc13 td:nth-child(13),.tc13 th:nth-child(13),
+  .tc14 td:nth-child(14),.tc14 th:nth-child(14),
+  .tc15 td:nth-child(15),.tc15 th:nth-child(15),
+  .tc16 td:nth-child(16),.tc16 th:nth-child(16),
+  .tc17 td:nth-child(17),.tc17 th:nth-child(17),
+  .tc18 td:nth-child(18),.tc18 th:nth-child(18),
+  .tc19 td:nth-child(19),.tc19 th:nth-child(19),
+  .tc20 td:nth-child(20),.tc20 th:nth-child(20)
+  .tc21 td:nth-child(21),.tc21 th:nth-child(21),
+  .tc22 td:nth-child(22),.tc22 th:nth-child(22),
+  .tc23 td:nth-child(23),.tc23 th:nth-child(23),
+  .tc24 td:nth-child(24),.tc24 th:nth-child(24),
+  .tc25 td:nth-child(25),.tc25 th:nth-child(25),
+  .tc26 td:nth-child(26),.tc26 th:nth-child(26),
+  .tc27 td:nth-child(27),.tc27 th:nth-child(27),
+  .tc28 td:nth-child(28),.tc28 th:nth-child(28),
+  .tc29 td:nth-child(29),.tc29 th:nth-child(29),
+  .tc30 td:nth-child(30),.tc30 th:nth-child(30),
+  .tc31 td:nth-child(31),.tc31 th:nth-child(31),
+  .tc32 td:nth-child(32),.tc32 th:nth-child(32),
+  .tc33 td:nth-child(33),.tc33 th:nth-child(33),
+  .tc34 td:nth-child(34),.tc34 th:nth-child(34),
+  .tc35 td:nth-child(35),.tc35 th:nth-child(35),
+  .tc36 td:nth-child(36),.tc36 th:nth-child(36),
+  .tc37 td:nth-child(37),.tc37 th:nth-child(37),
+  .tc38 td:nth-child(38),.tc38 th:nth-child(38),
+  .tc39 td:nth-child(39),.tc39 th:nth-child(39),
+  .tc40 td:nth-child(40),.tc40 th:nth-child(40),
+  .tc41 td:nth-child(41),.tc41 th:nth-child(41),
+  .tc42 td:nth-child(42),.tc42 th:nth-child(42),
+  .tc43 td:nth-child(43),.tc43 th:nth-child(43),
+  .tc44 td:nth-child(44),.tc44 th:nth-child(44),
+  .tc45 td:nth-child(45),.tc45 th:nth-child(45),
+  .tc46 td:nth-child(46),.tc46 th:nth-child(46),
+  .tc47 td:nth-child(47),.tc47 th:nth-child(47),
+  .tc48 td:nth-child(48),.tc48 th:nth-child(48),
+  .tc49 td:nth-child(49),.tc49 th:nth-child(49) {text-align: center}
+  
+  table.DTView,
+  table.DTGrid {
+    width: auto;
+    border-collapse:collapse;
+    font-size: 15px;  
+    margin-bottom: 15px;
+  }
+  
+  table.DTNotepad {
+    width:100%;
+    border-collapse:collapse;
+    font-size: 15px;  
+  }
+  
+  table.DTView tr.rowodd td,
+  table.DTGrid tr.rowodd td {
+    background-color: #f0f0f0;
+  }
+  
+  table.DTView th,
+  table.DTView td,
+  table.DTGrid th,
+  table.DTGrid td,
+  table.DTNotepad th,
+  table.DTNotepad td {
+    border: 1px solid #c0c0c0;
+    padding: 3px 4px 3px 4px;
+    color: #000;
+  }
+  
+  table.DTView th,
+  table.DTGrid th {
+    font-weight: 600;
+  }
+    
+  table.DTNotepad td.notepad {
+    border: 1px solid #c0c0c0;
+    padding: 0;
+    color: #000;
+  }
+  
+  table.DTView .top,
+  table.DTGrid .top,
+  table.DTNotepad .top {
+    text-align:center;
+  }
+  
+  table.DTGrid td a,
+  table.DTGrid td a:visited {
+    display:block;
+    padding:0 5px 0 5px;
+    border-radius:4px;
+    white-space:nowrap;
+    text-decoration:none;
+    color: #fff;
+  }
+  
+  table.DTGrid td a:hover {
+  /*	font-weight:bold;   Removed because this causes a column width size change on grids*/
+    color: #fff59d;
+  }
+  
+  table.DTView .heading {
+    color: #ddd;
+  }
+  
+  /* colors */
+  
+  table.DT-red th, .DT-red a, .side-nav.sidebar.DT-red {
+    background-color: #b71c1c;
+    color: #fff;
+  }
+  table.DT-red a, .DT-red a.active, .DT-red a:hover, table.DT-red .heading {
+    background-color:#d32f2f;
+  }
+  
+  table.DT-pink th, .DT-pink a, .side-nav.sidebar.DT-pink {
+    background-color: #880e4f;
+    color: #fff;
+  }
+  table.DT-pink a, .DT-pink a.active, .DT-pink a:hover, table.DT-pink .heading {
+    background-color:#c2185b;
+  }
+  
+  table.DT-purple th, .DT-purple a, .side-nav.sidebar.DT-purple {
+    background-color: #4a148c;
+    color: #fff;
+  }
+  table.DT-purple a, .DT-purple a.active, .DT-purple a:hover, table.DT-purple .heading {
+    background-color:#7b1fa2;
+  }
+  
+  table.DT-deep-purple th, .DT-deep-purple a, .side-nav.sidebar.DT-deep-purple {
+    background-color: #311b92;
+    color: #fff;
+  }
+  table.DT-deep-purple a, .DT-deep-purple a.active, .DT-deep-purple a:hover, table.DT-deep-purple .heading {
+    background-color:#512da8;
+  }
+  
+  table.DT-indigo th, .DT-indigo a, .side-nav.sidebar.DT-indigo {
+    background-color: #1a237e;
+    color: #fff;
+  }
+  table.DT-indigo a, .DT-indigo a.active, .DT-indigo a:hover, table.DT-indigo .heading {
+    background-color:#303f9f;
+  }
+  
+  table.DT-blue th, .DT-blue a, .side-nav.sidebar.DT-blue {
+    background-color: #0d47a1;
+    color: #fff;
+  }
+  /* UPDATE 21 MAY 2021*/
+   /* .DT-blue {
+    background-color: #0d47a1;
+    color: #fff;
+  }  */
+  table.DT-blue a, .DT-blue a.active, .DT-blue a:hover, table.DT-blue .heading {
+    background-color:#1976d2;
+  }
+  
+  table.DT-light-blue th, .DT-light-blue a, .side-nav.sidebar.DT-light-blue {
+    background-color: #01579b;
+    color: #fff;
+  }
+  table.DT-light-blue a, .DT-light-blue a.active, .DT-light-blue a:hover, table.DT-light-blue .heading {
+    background-color:#0288d1;
+  }
+  
+  table.DT-cyan th, .DT-cyan a, .side-nav.sidebar.DT-cyan {
+    background-color: #006064; 
+    color: #fff;
+  }
+  table.DT-cyan a, .DT-cyan a.active, .DT-cyan a:hover, table.DT-cyan .heading {
+    background-color:#0097a7;
+  }
+  
+  table.DT-teal th, .DT-teal a, .side-nav.sidebar.DT-teal {
+    background-color: #004d40; 
+    color: #fff;
+  }
+  table.DT-teal a, .DT-teal a.active, .DT-teal a:hover, table.DT-teal .heading {
+    background-color:#00796b;
+  }
+  
+  table.DT-green th, .DT-green a, .side-nav.sidebar.DT-green {
+    background-color: #1b5e20;
+    color: #fff;
+  }
+  table.DT-green a, .DT-green a.active, .DT-green a:hover, table.DT-green .heading {
+    background-color:#388e3c;
+  }
+  
+  table.DT-light-green th, .DT-light-green a, .side-nav.sidebar.DT-light-green {
+    background-color: #33691e;
+    color: #fff;
+  }
+  table.DT-light-green a, .DT-light-green a.active, .DT-light-green a:hover, table.DT-light-green .heading {
+    background-color:#689f38;
+  }
+  
+  table.DT-lime th, .DT-lime a, .side-nav.sidebar.DT-lime {
+    background-color: #827717;
+    color: #fff;
+  }
+  table.DT-lime a, .DT-lime a.active, .DT-lime a:hover, table.DT-lime .heading {
+    background-color:#afb42b;
+  }
+  
+  table.DT-yellow th, .DT-yellow a, .side-nav.sidebar.DT-yellow {
+    background-color: #f57f17;
+    color: #fff;
+  }
+  table.DT-yellow a, .DT-yellow a.active, .DT-yellow a:hover, table.DT-yellow .heading {
+    background-color:#fbc02d;
+  }
+  
+  table.DT-amber th, .DT-amber a, .side-nav.sidebar.DT-amber {
+    background-color: #ff6f00;
+    color: #fff;
+  }
+  table.DT-amber a, .DT-amber a.active, .DT-amber a:hover, table.DT-amber .heading {
+    background-color:#ffa000;
+  }
+  
+  table.DT-orange th, .DT-orange a, .side-nav.sidebar.DT-orange {
+    background-color: #e65100;
+    color: #fff;
+  }
+  table.DT-orange a, .DT-orange a.active, .DT-orange a:hover, table.DT-orange .heading {
+    background-color:#f57c00;
+  }
+  
+  table.DT-deep-orange th, .DT-deep-orange a, .side-nav.sidebar.DT-deep-orange {
+    background-color: #bf360c;
+    color: #fff;
+  }
+  table.DT-deep-orange a, .DT-deep-orange a.active, .DT-deep-orange a:hover, table.DT-deep-orange .heading {
+    background-color:#e64a19;
+  }
+  
+  table.DT-brown th, .DT-brown a, .side-nav.sidebar.DT-brown {
+    background-color: #3e2723;
+    color: #fff;
+  }
+  table.DT-brown a, .DT-brown a.active, .DT-brown a:hover, table.DT-brown .heading {
+    background-color:#5d4037;
+  }
+  
+  table.DT-grey th, .DT-grey a, .side-nav.sidebar.DT-grey {
+    background-color: #212121;
+    color: #fff;
+  }
+  table.DT-grey a, .DT-grey a.active, .DT-grey a:hover, table.DT-grey .heading {
+    background-color:#616161;
+  }
+  
+  table.DT-blue-grey th, .DT-blue-grey a, .side-nav.sidebar.DT-blue-grey {
+    background-color: #263238;
+    color: #fff;
+  }
+  table.DT-blue-grey a, .DT-blue-grey a.active, .DT-blue-grey a:hover, table.DT-blue-grey .heading {
+    background-color:#455a64;
+  }
+  
+  /* Standard DT HTML Table */
+  table.DT-light-yellow th, .DT-light-yellow a, .side-nav.sidebar.DT-light-yellow
+  {
+    background-color: #ffffcc;
+    color: #444;
+  }
+  table.DT-light-yellow a, .DT-light-yellow a.active, .DT-light-yellow a:hover, ta
+  ble.DT-light-yellow .heading {
+    background-color: #ffffaa;
+    color: #000 !important;
+  }
+  
+  .center
+  {
+    text-align:center !important;
+  }
+  
+  /* special cell colors typically set based on cell contents */
+  td.DT-red    {background-color:red;color:white !important;}
+  td.DT-green  {background-color:green;color:white !important;}
+  td.DT-yellow {background-color:yellow;color:black !important;}
+  
+  /* DT Button colors */
+  .DTButton-default       {background-color:#26a69a; color:white}
+  .DTButton-red           {background-color:red !important; color:white !important;}
+  .DTButton-black         {background-color:#000 !important; color:#fff !important;}
+  .DTButton-yellow        {background-color:yellow !important; color:#444 !important;}
+  .DTButton-light-yellow  {background-color:#ffffcc !important; color:#444 !important;}
+  
+  .fa .fa-trash .DTButton-red .btn .center{
+    background-color:#f00 !important;
+    color:#fff;
+  }
+  
+  /* prevent telephone numbers and zip codes from appearing as links */
+  table.DTView tr.roweven td a[href^="tel:"]:link,
+  table.DTView tr.roweven td a[href^="tel:"]:visited,
+  table.DTView tr.roweven td a[href^="tel:"]:hover,
+  table.DTGrid tr.roweven td a[href^="tel:"]:link,
+  table.DTGrid tr.roweven td a[href^="tel:"]:visited,
+  table.DTGrid tr.roweven td a[href^="tel:"]:hover {
+    color: #000;
+    background-color: #fff;
+    text-decoration: none;
+    pointer-events: none;
+    cursor: default;
+    display: inline;
+  }
+  table.DTView tr.rowodd td a[href^="tel:"]:link,
+  table.DTView tr.rowodd td a[href^="tel:"]:visited,
+  table.DTView tr.rowodd td a[href^="tel:"]:hover,
+  table.DTGrid tr.rowodd td a[href^="tel:"]:link,
+  table.DTGrid tr.rowodd td a[href^="tel:"]:visited,
+  table.DTGrid tr.rowodd td a[href^="tel:"]:hover {
+    color: #000;
+    background-color: #f0f0f0;
+    text-decoration: none;
+    pointer-events: none;
+    cursor: default;
+    display:inline;
+  }
+  /* other non-table colors */
+  .DTemptyExpander {
+    background-color: #E9F7EF !important;
+  }
+  
+  
+} 
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  html,
+  body,
+  table td {
+    font-family:Roboto,Verdana,Tahoma,"sans serif";
+  }
+  
+  .tl1 td:nth-child(1),.tl1 th:nth-child(1),
+  .tl2 td:nth-child(2),.tl2 th:nth-child(2),
+  .tl3 td:nth-child(3),.tl3 th:nth-child(3),
+  .tl4 td:nth-child(4),.tl4 th:nth-child(4),
+  .tl5 td:nth-child(5),.tl5 th:nth-child(5),
+  .tl6 td:nth-child(6),.tl6 th:nth-child(6),
+  .tl7 td:nth-child(7),.tl7 th:nth-child(7),
+  .tl8 td:nth-child(8),.tl8 th:nth-child(8),
+  .tl9 td:nth-child(9),.tl9 th:nth-child(9),
+  .tl10 td:nth-child(10),.tl10 th:nth-child(10),
+  .tl11 td:nth-child(11),.tl11 th:nth-child(11),
+  .tl12 td:nth-child(12),.tl12 th:nth-child(12),
+  .tl13 td:nth-child(13),.tl13 th:nth-child(13),
+  .tl14 td:nth-child(14),.tl14 th:nth-child(14),
+  .tl15 td:nth-child(15),.tl15 th:nth-child(15),
+  .tl16 td:nth-child(16),.tl16 th:nth-child(16),
+  .tl17 td:nth-child(17),.tl17 th:nth-child(17),
+  .tl18 td:nth-child(18),.tl18 th:nth-child(18),
+  .tl19 td:nth-child(19),.tl19 th:nth-child(19),
+  .tl20 td:nth-child(20),.tl20 th:nth-child(20),
+  .tl21 td:nth-child(21),.tl21 th:nth-child(21),
+  .tl22 td:nth-child(22),.tl22 th:nth-child(22),
+  .tl23 td:nth-child(23),.tl23 th:nth-child(23),
+  .tl24 td:nth-child(24),.tl24 th:nth-child(24),
+  .tl25 td:nth-child(25),.tl25 th:nth-child(25),
+  .tl26 td:nth-child(26),.tl26 th:nth-child(26),
+  .tl27 td:nth-child(27),.tl27 th:nth-child(27),
+  .tl28 td:nth-child(28),.tl28 th:nth-child(28),
+  .tl29 td:nth-child(29),.tl29 th:nth-child(29),
+  .tl30 td:nth-child(30),.tl30 th:nth-child(30),
+  .tl31 td:nth-child(31),.tl31 th:nth-child(31),
+  .tl32 td:nth-child(32),.tl32 th:nth-child(32),
+  .tl33 td:nth-child(33),.tl33 th:nth-child(33),
+  .tl34 td:nth-child(34),.tl34 th:nth-child(34),
+  .tl35 td:nth-child(35),.tl35 th:nth-child(35),
+  .tl36 td:nth-child(36),.tl36 th:nth-child(36),
+  .tl37 td:nth-child(37),.tl37 th:nth-child(37),
+  .tl38 td:nth-child(38),.tl38 th:nth-child(38),
+  .tl39 td:nth-child(39),.tl39 th:nth-child(39),
+  .tl40 td:nth-child(40),.tl40 th:nth-child(40),
+  .tl41 td:nth-child(41),.tl41 th:nth-child(41),
+  .tl42 td:nth-child(42),.tl42 th:nth-child(42),
+  .tl43 td:nth-child(43),.tl43 th:nth-child(43),
+  .tl44 td:nth-child(44),.tl44 th:nth-child(44),
+  .tl45 td:nth-child(45),.tl45 th:nth-child(45),
+  .tl46 td:nth-child(46),.tl46 th:nth-child(46),
+  .tl47 td:nth-child(47),.tl47 th:nth-child(47),
+  .tl48 td:nth-child(48),.tl48 th:nth-child(48),
+  .tl49 td:nth-child(49),.tl49 th:nth-child(49) {text-align: left}
+  
+  .tr1 td:nth-child(1),.tr1 th:nth-child(1),
+  .tr2 td:nth-child(2),.tr2 th:nth-child(2),
+  .tr3 td:nth-child(3),.tr3 th:nth-child(3),
+  .tr4 td:nth-child(4),.tr4 th:nth-child(4),
+  .tr5 td:nth-child(5),.tr5 th:nth-child(5),
+  .tr6 td:nth-child(6),.tr6 th:nth-child(6),
+  .tr7 td:nth-child(7),.tr7 th:nth-child(7),
+  .tr8 td:nth-child(8),.tr8 th:nth-child(8),
+  .tr9 td:nth-child(9),.tr9 th:nth-child(9),
+  .tr10 td:nth-child(10),.tr10 th:nth-child(10),
+  .tr11 td:nth-child(11),.tr11 th:nth-child(11),
+  .tr12 td:nth-child(12),.tr12 th:nth-child(12),
+  .tr13 td:nth-child(13),.tr13 th:nth-child(13),
+  .tr14 td:nth-child(14),.tr14 th:nth-child(14),
+  .tr15 td:nth-child(15),.tr15 th:nth-child(15),
+  .tr16 td:nth-child(16),.tr16 th:nth-child(16),
+  .tr17 td:nth-child(17),.tr17 th:nth-child(17),
+  .tr18 td:nth-child(18),.tr18 th:nth-child(18),
+  .tr19 td:nth-child(19),.tr19 th:nth-child(19),
+  .tr20 td:nth-child(20),.tr20 th:nth-child(20),
+  .tr21 td:nth-child(21),.tr21 th:nth-child(21),
+  .tr22 td:nth-child(22),.tr22 th:nth-child(22),
+  .tr23 td:nth-child(23),.tr23 th:nth-child(23),
+  .tr24 td:nth-child(24),.tr24 th:nth-child(24),
+  .tr25 td:nth-child(25),.tr25 th:nth-child(25),
+  .tr26 td:nth-child(26),.tr26 th:nth-child(26),
+  .tr27 td:nth-child(27),.tr27 th:nth-child(27),
+  .tr28 td:nth-child(28),.tr28 th:nth-child(28),
+  .tr29 td:nth-child(29),.tr29 th:nth-child(29),
+  .tr30 td:nth-child(30),.tr30 th:nth-child(30),
+  .tr31 td:nth-child(31),.tr31 th:nth-child(31),
+  .tr32 td:nth-child(32),.tr32 th:nth-child(32),
+  .tr33 td:nth-child(33),.tr33 th:nth-child(33),
+  .tr34 td:nth-child(34),.tr34 th:nth-child(34),
+  .tr35 td:nth-child(35),.tr35 th:nth-child(35),
+  .tr36 td:nth-child(36),.tr36 th:nth-child(36),
+  .tr37 td:nth-child(37),.tr37 th:nth-child(37),
+  .tr38 td:nth-child(38),.tr38 th:nth-child(38),
+  .tr39 td:nth-child(39),.tr39 th:nth-child(39),
+  .tr40 td:nth-child(40),.tr40 th:nth-child(40),
+  .tr41 td:nth-child(41),.tr41 th:nth-child(41),
+  .tr42 td:nth-child(42),.tr42 th:nth-child(42),
+  .tr43 td:nth-child(43),.tr43 th:nth-child(43),
+  .tr44 td:nth-child(44),.tr44 th:nth-child(44),
+  .tr45 td:nth-child(45),.tr45 th:nth-child(45),
+  .tr46 td:nth-child(46),.tr46 th:nth-child(46),
+  .tr47 td:nth-child(47),.tr47 th:nth-child(47),
+  .tr48 td:nth-child(48),.tr48 th:nth-child(48),
+  .tr49 td:nth-child(49),.tr49 th:nth-child(49) {text-align: right}
+  
+  .tc1 td:nth-child(1),.tc1 th:nth-child(1),
+  .tc2 td:nth-child(2),.tc2 th:nth-child(2),
+  .tc3 td:nth-child(3),.tc3 th:nth-child(3),
+  .tc4 td:nth-child(4),.tc4 th:nth-child(4),
+  .tc5 td:nth-child(5),.tc5 th:nth-child(5),
+  .tc6 td:nth-child(6),.tc6 th:nth-child(6),
+  .tc7 td:nth-child(7),.tc7 th:nth-child(7),
+  .tc8 td:nth-child(8),.tc8 th:nth-child(8),
+  .tc9 td:nth-child(9),.tc9 th:nth-child(9),
+  .tc10 td:nth-child(10),.tc10 th:nth-child(10),
+  .tc11 td:nth-child(11),.tc11 th:nth-child(11),
+  .tc12 td:nth-child(12),.tc12 th:nth-child(12),
+  .tc13 td:nth-child(13),.tc13 th:nth-child(13),
+  .tc14 td:nth-child(14),.tc14 th:nth-child(14),
+  .tc15 td:nth-child(15),.tc15 th:nth-child(15),
+  .tc16 td:nth-child(16),.tc16 th:nth-child(16),
+  .tc17 td:nth-child(17),.tc17 th:nth-child(17),
+  .tc18 td:nth-child(18),.tc18 th:nth-child(18),
+  .tc19 td:nth-child(19),.tc19 th:nth-child(19),
+  .tc20 td:nth-child(20),.tc20 th:nth-child(20)
+  .tc21 td:nth-child(21),.tc21 th:nth-child(21),
+  .tc22 td:nth-child(22),.tc22 th:nth-child(22),
+  .tc23 td:nth-child(23),.tc23 th:nth-child(23),
+  .tc24 td:nth-child(24),.tc24 th:nth-child(24),
+  .tc25 td:nth-child(25),.tc25 th:nth-child(25),
+  .tc26 td:nth-child(26),.tc26 th:nth-child(26),
+  .tc27 td:nth-child(27),.tc27 th:nth-child(27),
+  .tc28 td:nth-child(28),.tc28 th:nth-child(28),
+  .tc29 td:nth-child(29),.tc29 th:nth-child(29),
+  .tc30 td:nth-child(30),.tc30 th:nth-child(30),
+  .tc31 td:nth-child(31),.tc31 th:nth-child(31),
+  .tc32 td:nth-child(32),.tc32 th:nth-child(32),
+  .tc33 td:nth-child(33),.tc33 th:nth-child(33),
+  .tc34 td:nth-child(34),.tc34 th:nth-child(34),
+  .tc35 td:nth-child(35),.tc35 th:nth-child(35),
+  .tc36 td:nth-child(36),.tc36 th:nth-child(36),
+  .tc37 td:nth-child(37),.tc37 th:nth-child(37),
+  .tc38 td:nth-child(38),.tc38 th:nth-child(38),
+  .tc39 td:nth-child(39),.tc39 th:nth-child(39),
+  .tc40 td:nth-child(40),.tc40 th:nth-child(40),
+  .tc41 td:nth-child(41),.tc41 th:nth-child(41),
+  .tc42 td:nth-child(42),.tc42 th:nth-child(42),
+  .tc43 td:nth-child(43),.tc43 th:nth-child(43),
+  .tc44 td:nth-child(44),.tc44 th:nth-child(44),
+  .tc45 td:nth-child(45),.tc45 th:nth-child(45),
+  .tc46 td:nth-child(46),.tc46 th:nth-child(46),
+  .tc47 td:nth-child(47),.tc47 th:nth-child(47),
+  .tc48 td:nth-child(48),.tc48 th:nth-child(48),
+  .tc49 td:nth-child(49),.tc49 th:nth-child(49) {text-align: center}
+  
+  table.DTView,
+  table.DTGrid {
+    width: auto;
+    border-collapse:collapse;
+    font-size: 15px;  
+    margin-bottom: 15px;
+  }
+  
+  table.DTNotepad {
+    width:100%;
+    border-collapse:collapse;
+    font-size: 15px;  
+  }
+  
+  table.DTView tr.rowodd td,
+  table.DTGrid tr.rowodd td {
+    background-color: #f0f0f0;
+  }
+  
+  table.DTView th,
+  table.DTView td,
+  table.DTGrid th,
+  table.DTGrid td,
+  table.DTNotepad th,
+  table.DTNotepad td {
+    border: 1px solid #c0c0c0;
+    padding: 3px 4px 3px 4px;
+    color: #000;
+  }
+  
+  table.DTView th,
+  table.DTGrid th {
+    font-weight: 600;
+  }
+    
+  table.DTNotepad td.notepad {
+    border: 1px solid #c0c0c0;
+    padding: 0;
+    color: #000;
+  }
+  
+  table.DTView .top,
+  table.DTGrid .top,
+  table.DTNotepad .top {
+    text-align:center;
+  }
+  
+  table.DTGrid td a,
+  table.DTGrid td a:visited {
+    display:block;
+    padding:0 5px 0 5px;
+    border-radius:4px;
+    white-space:nowrap;
+    text-decoration:none;
+    color: #fff;
+  }
+  
+  table.DTGrid td a:hover {
+  /*	font-weight:bold;   Removed because this causes a column width size change on grids*/
+    color: #fff59d;
+  }
+  
+  table.DTView .heading {
+    color: #ddd;
+  }
+  
+  /* colors */
+  
+  table.DT-red th, .DT-red a, .side-nav.sidebar.DT-red {
+    background-color: #b71c1c;
+    color: #fff;
+  }
+  table.DT-red a, .DT-red a.active, .DT-red a:hover, table.DT-red .heading {
+    background-color:#d32f2f;
+  }
+  
+  table.DT-pink th, .DT-pink a, .side-nav.sidebar.DT-pink {
+    background-color: #880e4f;
+    color: #fff;
+  }
+  table.DT-pink a, .DT-pink a.active, .DT-pink a:hover, table.DT-pink .heading {
+    background-color:#c2185b;
+  }
+  
+  table.DT-purple th, .DT-purple a, .side-nav.sidebar.DT-purple {
+    background-color: #4a148c;
+    color: #fff;
+  }
+  table.DT-purple a, .DT-purple a.active, .DT-purple a:hover, table.DT-purple .heading {
+    background-color:#7b1fa2;
+  }
+  
+  table.DT-deep-purple th, .DT-deep-purple a, .side-nav.sidebar.DT-deep-purple {
+    background-color: #311b92;
+    color: #fff;
+  }
+  table.DT-deep-purple a, .DT-deep-purple a.active, .DT-deep-purple a:hover, table.DT-deep-purple .heading {
+    background-color:#512da8;
+  }
+  
+  table.DT-indigo th, .DT-indigo a, .side-nav.sidebar.DT-indigo {
+    background-color: #1a237e;
+    color: #fff;
+  }
+  table.DT-indigo a, .DT-indigo a.active, .DT-indigo a:hover, table.DT-indigo .heading {
+    background-color:#303f9f;
+  }
+  
+  table.DT-blue th, .DT-blue a, .side-nav.sidebar.DT-blue {
+    background-color: #0d47a1;
+    color: #fff;
+  }
+  /* UPDATE 21 MAY 2021*/
+   /* .DT-blue {
+    background-color: #0d47a1;
+    color: #fff;
+  }  */
+  table.DT-blue a, .DT-blue a.active, .DT-blue a:hover, table.DT-blue .heading {
+    background-color:#1976d2;
+  }
+  
+  table.DT-light-blue th, .DT-light-blue a, .side-nav.sidebar.DT-light-blue {
+    background-color: #01579b;
+    color: #fff;
+  }
+  table.DT-light-blue a, .DT-light-blue a.active, .DT-light-blue a:hover, table.DT-light-blue .heading {
+    background-color:#0288d1;
+  }
+  
+  table.DT-cyan th, .DT-cyan a, .side-nav.sidebar.DT-cyan {
+    background-color: #006064; 
+    color: #fff;
+  }
+  table.DT-cyan a, .DT-cyan a.active, .DT-cyan a:hover, table.DT-cyan .heading {
+    background-color:#0097a7;
+  }
+  
+  table.DT-teal th, .DT-teal a, .side-nav.sidebar.DT-teal {
+    background-color: #004d40; 
+    color: #fff;
+  }
+  table.DT-teal a, .DT-teal a.active, .DT-teal a:hover, table.DT-teal .heading {
+    background-color:#00796b;
+  }
+  
+  table.DT-green th, .DT-green a, .side-nav.sidebar.DT-green {
+    background-color: #1b5e20;
+    color: #fff;
+  }
+  table.DT-green a, .DT-green a.active, .DT-green a:hover, table.DT-green .heading {
+    background-color:#388e3c;
+  }
+  
+  table.DT-light-green th, .DT-light-green a, .side-nav.sidebar.DT-light-green {
+    background-color: #33691e;
+    color: #fff;
+  }
+  table.DT-light-green a, .DT-light-green a.active, .DT-light-green a:hover, table.DT-light-green .heading {
+    background-color:#689f38;
+  }
+  
+  table.DT-lime th, .DT-lime a, .side-nav.sidebar.DT-lime {
+    background-color: #827717;
+    color: #fff;
+  }
+  table.DT-lime a, .DT-lime a.active, .DT-lime a:hover, table.DT-lime .heading {
+    background-color:#afb42b;
+  }
+  
+  table.DT-yellow th, .DT-yellow a, .side-nav.sidebar.DT-yellow {
+    background-color: #f57f17;
+    color: #fff;
+  }
+  table.DT-yellow a, .DT-yellow a.active, .DT-yellow a:hover, table.DT-yellow .heading {
+    background-color:#fbc02d;
+  }
+  
+  table.DT-amber th, .DT-amber a, .side-nav.sidebar.DT-amber {
+    background-color: #ff6f00;
+    color: #fff;
+  }
+  table.DT-amber a, .DT-amber a.active, .DT-amber a:hover, table.DT-amber .heading {
+    background-color:#ffa000;
+  }
+  
+  table.DT-orange th, .DT-orange a, .side-nav.sidebar.DT-orange {
+    background-color: #e65100;
+    color: #fff;
+  }
+  table.DT-orange a, .DT-orange a.active, .DT-orange a:hover, table.DT-orange .heading {
+    background-color:#f57c00;
+  }
+  
+  table.DT-deep-orange th, .DT-deep-orange a, .side-nav.sidebar.DT-deep-orange {
+    background-color: #bf360c;
+    color: #fff;
+  }
+  table.DT-deep-orange a, .DT-deep-orange a.active, .DT-deep-orange a:hover, table.DT-deep-orange .heading {
+    background-color:#e64a19;
+  }
+  
+  table.DT-brown th, .DT-brown a, .side-nav.sidebar.DT-brown {
+    background-color: #3e2723;
+    color: #fff;
+  }
+  table.DT-brown a, .DT-brown a.active, .DT-brown a:hover, table.DT-brown .heading {
+    background-color:#5d4037;
+  }
+  
+  table.DT-grey th, .DT-grey a, .side-nav.sidebar.DT-grey {
+    background-color: #212121;
+    color: #fff;
+  }
+  table.DT-grey a, .DT-grey a.active, .DT-grey a:hover, table.DT-grey .heading {
+    background-color:#616161;
+  }
+  
+  table.DT-blue-grey th, .DT-blue-grey a, .side-nav.sidebar.DT-blue-grey {
+    background-color: #263238;
+    color: #fff;
+  }
+  table.DT-blue-grey a, .DT-blue-grey a.active, .DT-blue-grey a:hover, table.DT-blue-grey .heading {
+    background-color:#455a64;
+  }
+  
+  /* Standard DT HTML Table */
+  table.DT-light-yellow th, .DT-light-yellow a, .side-nav.sidebar.DT-light-yellow
+  {
+    background-color: #ffffcc;
+    color: #444;
+  }
+  table.DT-light-yellow a, .DT-light-yellow a.active, .DT-light-yellow a:hover, ta
+  ble.DT-light-yellow .heading {
+    background-color: #ffffaa;
+    color: #000 !important;
+  }
+  
+  .center
+  {
+    text-align:center !important;
+  }
+  
+  /* special cell colors typically set based on cell contents */
+  td.DT-red    {background-color:red;color:white !important;}
+  td.DT-green  {background-color:green;color:white !important;}
+  td.DT-yellow {background-color:yellow;color:black !important;}
+  
+  /* DT Button colors */
+  .DTButton-default       {background-color:#26a69a; color:white}
+  .DTButton-red           {background-color:red !important; color:white !important;}
+  .DTButton-black         {background-color:#000 !important; color:#fff !important;}
+  .DTButton-yellow        {background-color:yellow !important; color:#444 !important;}
+  .DTButton-light-yellow  {background-color:#ffffcc !important; color:#444 !important;}
+  
+  .fa .fa-trash .DTButton-red .btn .center{
+    background-color:#f00 !important;
+    color:#fff;
+  }
+  
+  /* prevent telephone numbers and zip codes from appearing as links */
+  table.DTView tr.roweven td a[href^="tel:"]:link,
+  table.DTView tr.roweven td a[href^="tel:"]:visited,
+  table.DTView tr.roweven td a[href^="tel:"]:hover,
+  table.DTGrid tr.roweven td a[href^="tel:"]:link,
+  table.DTGrid tr.roweven td a[href^="tel:"]:visited,
+  table.DTGrid tr.roweven td a[href^="tel:"]:hover {
+    color: #000;
+    background-color: #fff;
+    text-decoration: none;
+    pointer-events: none;
+    cursor: default;
+    display: inline;
+  }
+  table.DTView tr.rowodd td a[href^="tel:"]:link,
+  table.DTView tr.rowodd td a[href^="tel:"]:visited,
+  table.DTView tr.rowodd td a[href^="tel:"]:hover,
+  table.DTGrid tr.rowodd td a[href^="tel:"]:link,
+  table.DTGrid tr.rowodd td a[href^="tel:"]:visited,
+  table.DTGrid tr.rowodd td a[href^="tel:"]:hover {
+    color: #000;
+    background-color: #f0f0f0;
+    text-decoration: none;
+    pointer-events: none;
+    cursor: default;
+    display:inline;
+  }
+  /* other non-table colors */
+  .DTemptyExpander {
+    background-color: #E9F7EF !important;
+  }
+  
+  
+} 
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  html,
+  body,
+  table td {
+    font-family:Roboto,Verdana,Tahoma,"sans serif";
+  }
+  
+  .tl1 td:nth-child(1),.tl1 th:nth-child(1),
+  .tl2 td:nth-child(2),.tl2 th:nth-child(2),
+  .tl3 td:nth-child(3),.tl3 th:nth-child(3),
+  .tl4 td:nth-child(4),.tl4 th:nth-child(4),
+  .tl5 td:nth-child(5),.tl5 th:nth-child(5),
+  .tl6 td:nth-child(6),.tl6 th:nth-child(6),
+  .tl7 td:nth-child(7),.tl7 th:nth-child(7),
+  .tl8 td:nth-child(8),.tl8 th:nth-child(8),
+  .tl9 td:nth-child(9),.tl9 th:nth-child(9),
+  .tl10 td:nth-child(10),.tl10 th:nth-child(10),
+  .tl11 td:nth-child(11),.tl11 th:nth-child(11),
+  .tl12 td:nth-child(12),.tl12 th:nth-child(12),
+  .tl13 td:nth-child(13),.tl13 th:nth-child(13),
+  .tl14 td:nth-child(14),.tl14 th:nth-child(14),
+  .tl15 td:nth-child(15),.tl15 th:nth-child(15),
+  .tl16 td:nth-child(16),.tl16 th:nth-child(16),
+  .tl17 td:nth-child(17),.tl17 th:nth-child(17),
+  .tl18 td:nth-child(18),.tl18 th:nth-child(18),
+  .tl19 td:nth-child(19),.tl19 th:nth-child(19),
+  .tl20 td:nth-child(20),.tl20 th:nth-child(20),
+  .tl21 td:nth-child(21),.tl21 th:nth-child(21),
+  .tl22 td:nth-child(22),.tl22 th:nth-child(22),
+  .tl23 td:nth-child(23),.tl23 th:nth-child(23),
+  .tl24 td:nth-child(24),.tl24 th:nth-child(24),
+  .tl25 td:nth-child(25),.tl25 th:nth-child(25),
+  .tl26 td:nth-child(26),.tl26 th:nth-child(26),
+  .tl27 td:nth-child(27),.tl27 th:nth-child(27),
+  .tl28 td:nth-child(28),.tl28 th:nth-child(28),
+  .tl29 td:nth-child(29),.tl29 th:nth-child(29),
+  .tl30 td:nth-child(30),.tl30 th:nth-child(30),
+  .tl31 td:nth-child(31),.tl31 th:nth-child(31),
+  .tl32 td:nth-child(32),.tl32 th:nth-child(32),
+  .tl33 td:nth-child(33),.tl33 th:nth-child(33),
+  .tl34 td:nth-child(34),.tl34 th:nth-child(34),
+  .tl35 td:nth-child(35),.tl35 th:nth-child(35),
+  .tl36 td:nth-child(36),.tl36 th:nth-child(36),
+  .tl37 td:nth-child(37),.tl37 th:nth-child(37),
+  .tl38 td:nth-child(38),.tl38 th:nth-child(38),
+  .tl39 td:nth-child(39),.tl39 th:nth-child(39),
+  .tl40 td:nth-child(40),.tl40 th:nth-child(40),
+  .tl41 td:nth-child(41),.tl41 th:nth-child(41),
+  .tl42 td:nth-child(42),.tl42 th:nth-child(42),
+  .tl43 td:nth-child(43),.tl43 th:nth-child(43),
+  .tl44 td:nth-child(44),.tl44 th:nth-child(44),
+  .tl45 td:nth-child(45),.tl45 th:nth-child(45),
+  .tl46 td:nth-child(46),.tl46 th:nth-child(46),
+  .tl47 td:nth-child(47),.tl47 th:nth-child(47),
+  .tl48 td:nth-child(48),.tl48 th:nth-child(48),
+  .tl49 td:nth-child(49),.tl49 th:nth-child(49) {text-align: left}
+  
+  .tr1 td:nth-child(1),.tr1 th:nth-child(1),
+  .tr2 td:nth-child(2),.tr2 th:nth-child(2),
+  .tr3 td:nth-child(3),.tr3 th:nth-child(3),
+  .tr4 td:nth-child(4),.tr4 th:nth-child(4),
+  .tr5 td:nth-child(5),.tr5 th:nth-child(5),
+  .tr6 td:nth-child(6),.tr6 th:nth-child(6),
+  .tr7 td:nth-child(7),.tr7 th:nth-child(7),
+  .tr8 td:nth-child(8),.tr8 th:nth-child(8),
+  .tr9 td:nth-child(9),.tr9 th:nth-child(9),
+  .tr10 td:nth-child(10),.tr10 th:nth-child(10),
+  .tr11 td:nth-child(11),.tr11 th:nth-child(11),
+  .tr12 td:nth-child(12),.tr12 th:nth-child(12),
+  .tr13 td:nth-child(13),.tr13 th:nth-child(13),
+  .tr14 td:nth-child(14),.tr14 th:nth-child(14),
+  .tr15 td:nth-child(15),.tr15 th:nth-child(15),
+  .tr16 td:nth-child(16),.tr16 th:nth-child(16),
+  .tr17 td:nth-child(17),.tr17 th:nth-child(17),
+  .tr18 td:nth-child(18),.tr18 th:nth-child(18),
+  .tr19 td:nth-child(19),.tr19 th:nth-child(19),
+  .tr20 td:nth-child(20),.tr20 th:nth-child(20),
+  .tr21 td:nth-child(21),.tr21 th:nth-child(21),
+  .tr22 td:nth-child(22),.tr22 th:nth-child(22),
+  .tr23 td:nth-child(23),.tr23 th:nth-child(23),
+  .tr24 td:nth-child(24),.tr24 th:nth-child(24),
+  .tr25 td:nth-child(25),.tr25 th:nth-child(25),
+  .tr26 td:nth-child(26),.tr26 th:nth-child(26),
+  .tr27 td:nth-child(27),.tr27 th:nth-child(27),
+  .tr28 td:nth-child(28),.tr28 th:nth-child(28),
+  .tr29 td:nth-child(29),.tr29 th:nth-child(29),
+  .tr30 td:nth-child(30),.tr30 th:nth-child(30),
+  .tr31 td:nth-child(31),.tr31 th:nth-child(31),
+  .tr32 td:nth-child(32),.tr32 th:nth-child(32),
+  .tr33 td:nth-child(33),.tr33 th:nth-child(33),
+  .tr34 td:nth-child(34),.tr34 th:nth-child(34),
+  .tr35 td:nth-child(35),.tr35 th:nth-child(35),
+  .tr36 td:nth-child(36),.tr36 th:nth-child(36),
+  .tr37 td:nth-child(37),.tr37 th:nth-child(37),
+  .tr38 td:nth-child(38),.tr38 th:nth-child(38),
+  .tr39 td:nth-child(39),.tr39 th:nth-child(39),
+  .tr40 td:nth-child(40),.tr40 th:nth-child(40),
+  .tr41 td:nth-child(41),.tr41 th:nth-child(41),
+  .tr42 td:nth-child(42),.tr42 th:nth-child(42),
+  .tr43 td:nth-child(43),.tr43 th:nth-child(43),
+  .tr44 td:nth-child(44),.tr44 th:nth-child(44),
+  .tr45 td:nth-child(45),.tr45 th:nth-child(45),
+  .tr46 td:nth-child(46),.tr46 th:nth-child(46),
+  .tr47 td:nth-child(47),.tr47 th:nth-child(47),
+  .tr48 td:nth-child(48),.tr48 th:nth-child(48),
+  .tr49 td:nth-child(49),.tr49 th:nth-child(49) {text-align: right}
+  
+  .tc1 td:nth-child(1),.tc1 th:nth-child(1),
+  .tc2 td:nth-child(2),.tc2 th:nth-child(2),
+  .tc3 td:nth-child(3),.tc3 th:nth-child(3),
+  .tc4 td:nth-child(4),.tc4 th:nth-child(4),
+  .tc5 td:nth-child(5),.tc5 th:nth-child(5),
+  .tc6 td:nth-child(6),.tc6 th:nth-child(6),
+  .tc7 td:nth-child(7),.tc7 th:nth-child(7),
+  .tc8 td:nth-child(8),.tc8 th:nth-child(8),
+  .tc9 td:nth-child(9),.tc9 th:nth-child(9),
+  .tc10 td:nth-child(10),.tc10 th:nth-child(10),
+  .tc11 td:nth-child(11),.tc11 th:nth-child(11),
+  .tc12 td:nth-child(12),.tc12 th:nth-child(12),
+  .tc13 td:nth-child(13),.tc13 th:nth-child(13),
+  .tc14 td:nth-child(14),.tc14 th:nth-child(14),
+  .tc15 td:nth-child(15),.tc15 th:nth-child(15),
+  .tc16 td:nth-child(16),.tc16 th:nth-child(16),
+  .tc17 td:nth-child(17),.tc17 th:nth-child(17),
+  .tc18 td:nth-child(18),.tc18 th:nth-child(18),
+  .tc19 td:nth-child(19),.tc19 th:nth-child(19),
+  .tc20 td:nth-child(20),.tc20 th:nth-child(20)
+  .tc21 td:nth-child(21),.tc21 th:nth-child(21),
+  .tc22 td:nth-child(22),.tc22 th:nth-child(22),
+  .tc23 td:nth-child(23),.tc23 th:nth-child(23),
+  .tc24 td:nth-child(24),.tc24 th:nth-child(24),
+  .tc25 td:nth-child(25),.tc25 th:nth-child(25),
+  .tc26 td:nth-child(26),.tc26 th:nth-child(26),
+  .tc27 td:nth-child(27),.tc27 th:nth-child(27),
+  .tc28 td:nth-child(28),.tc28 th:nth-child(28),
+  .tc29 td:nth-child(29),.tc29 th:nth-child(29),
+  .tc30 td:nth-child(30),.tc30 th:nth-child(30),
+  .tc31 td:nth-child(31),.tc31 th:nth-child(31),
+  .tc32 td:nth-child(32),.tc32 th:nth-child(32),
+  .tc33 td:nth-child(33),.tc33 th:nth-child(33),
+  .tc34 td:nth-child(34),.tc34 th:nth-child(34),
+  .tc35 td:nth-child(35),.tc35 th:nth-child(35),
+  .tc36 td:nth-child(36),.tc36 th:nth-child(36),
+  .tc37 td:nth-child(37),.tc37 th:nth-child(37),
+  .tc38 td:nth-child(38),.tc38 th:nth-child(38),
+  .tc39 td:nth-child(39),.tc39 th:nth-child(39),
+  .tc40 td:nth-child(40),.tc40 th:nth-child(40),
+  .tc41 td:nth-child(41),.tc41 th:nth-child(41),
+  .tc42 td:nth-child(42),.tc42 th:nth-child(42),
+  .tc43 td:nth-child(43),.tc43 th:nth-child(43),
+  .tc44 td:nth-child(44),.tc44 th:nth-child(44),
+  .tc45 td:nth-child(45),.tc45 th:nth-child(45),
+  .tc46 td:nth-child(46),.tc46 th:nth-child(46),
+  .tc47 td:nth-child(47),.tc47 th:nth-child(47),
+  .tc48 td:nth-child(48),.tc48 th:nth-child(48),
+  .tc49 td:nth-child(49),.tc49 th:nth-child(49) {text-align: center}
+  
+  table.DTView,
+  table.DTGrid {
+    width: auto;
+    border-collapse:collapse;
+    font-size: 15px;  
+    margin-bottom: 15px;
+  }
+  
+  table.DTNotepad {
+    width:100%;
+    border-collapse:collapse;
+    font-size: 15px;  
+  }
+  
+  table.DTView tr.rowodd td,
+  table.DTGrid tr.rowodd td {
+    background-color: #f0f0f0;
+  }
+  
+  table.DTView th,
+  table.DTView td,
+  table.DTGrid th,
+  table.DTGrid td,
+  table.DTNotepad th,
+  table.DTNotepad td {
+    border: 1px solid #c0c0c0;
+    padding: 3px 4px 3px 4px;
+    color: #000;
+  }
+  
+  table.DTView th,
+  table.DTGrid th {
+    font-weight: 600;
+  }
+    
+  table.DTNotepad td.notepad {
+    border: 1px solid #c0c0c0;
+    padding: 0;
+    color: #000;
+  }
+  
+  table.DTView .top,
+  table.DTGrid .top,
+  table.DTNotepad .top {
+    text-align:center;
+  }
+  
+  table.DTGrid td a,
+  table.DTGrid td a:visited {
+    display:block;
+    padding:0 5px 0 5px;
+    border-radius:4px;
+    white-space:nowrap;
+    text-decoration:none;
+    color: #fff;
+  }
+  
+  table.DTGrid td a:hover {
+  /*	font-weight:bold;   Removed because this causes a column width size change on grids*/
+    color: #fff59d;
+  }
+  
+  table.DTView .heading {
+    color: #ddd;
+  }
+  
+  /* colors */
+  
+  table.DT-red th, .DT-red a, .side-nav.sidebar.DT-red {
+    background-color: #b71c1c;
+    color: #fff;
+  }
+  table.DT-red a, .DT-red a.active, .DT-red a:hover, table.DT-red .heading {
+    background-color:#d32f2f;
+  }
+  
+  table.DT-pink th, .DT-pink a, .side-nav.sidebar.DT-pink {
+    background-color: #880e4f;
+    color: #fff;
+  }
+  table.DT-pink a, .DT-pink a.active, .DT-pink a:hover, table.DT-pink .heading {
+    background-color:#c2185b;
+  }
+  
+  table.DT-purple th, .DT-purple a, .side-nav.sidebar.DT-purple {
+    background-color: #4a148c;
+    color: #fff;
+  }
+  table.DT-purple a, .DT-purple a.active, .DT-purple a:hover, table.DT-purple .heading {
+    background-color:#7b1fa2;
+  }
+  
+  table.DT-deep-purple th, .DT-deep-purple a, .side-nav.sidebar.DT-deep-purple {
+    background-color: #311b92;
+    color: #fff;
+  }
+  table.DT-deep-purple a, .DT-deep-purple a.active, .DT-deep-purple a:hover, table.DT-deep-purple .heading {
+    background-color:#512da8;
+  }
+  
+  table.DT-indigo th, .DT-indigo a, .side-nav.sidebar.DT-indigo {
+    background-color: #1a237e;
+    color: #fff;
+  }
+  table.DT-indigo a, .DT-indigo a.active, .DT-indigo a:hover, table.DT-indigo .heading {
+    background-color:#303f9f;
+  }
+  
+  table.DT-blue th, .DT-blue a, .side-nav.sidebar.DT-blue {
+    background-color: #0d47a1;
+    color: #fff;
+  }
+  /* UPDATE 21 MAY 2021*/
+   /* .DT-blue {
+    background-color: #0d47a1;
+    color: #fff;
+  }  */
+  table.DT-blue a, .DT-blue a.active, .DT-blue a:hover, table.DT-blue .heading {
+    background-color:#1976d2;
+  }
+  
+  table.DT-light-blue th, .DT-light-blue a, .side-nav.sidebar.DT-light-blue {
+    background-color: #01579b;
+    color: #fff;
+  }
+  table.DT-light-blue a, .DT-light-blue a.active, .DT-light-blue a:hover, table.DT-light-blue .heading {
+    background-color:#0288d1;
+  }
+  
+  table.DT-cyan th, .DT-cyan a, .side-nav.sidebar.DT-cyan {
+    background-color: #006064; 
+    color: #fff;
+  }
+  table.DT-cyan a, .DT-cyan a.active, .DT-cyan a:hover, table.DT-cyan .heading {
+    background-color:#0097a7;
+  }
+  
+  table.DT-teal th, .DT-teal a, .side-nav.sidebar.DT-teal {
+    background-color: #004d40; 
+    color: #fff;
+  }
+  table.DT-teal a, .DT-teal a.active, .DT-teal a:hover, table.DT-teal .heading {
+    background-color:#00796b;
+  }
+  
+  table.DT-green th, .DT-green a, .side-nav.sidebar.DT-green {
+    background-color: #1b5e20;
+    color: #fff;
+  }
+  table.DT-green a, .DT-green a.active, .DT-green a:hover, table.DT-green .heading {
+    background-color:#388e3c;
+  }
+  
+  table.DT-light-green th, .DT-light-green a, .side-nav.sidebar.DT-light-green {
+    background-color: #33691e;
+    color: #fff;
+  }
+  table.DT-light-green a, .DT-light-green a.active, .DT-light-green a:hover, table.DT-light-green .heading {
+    background-color:#689f38;
+  }
+  
+  table.DT-lime th, .DT-lime a, .side-nav.sidebar.DT-lime {
+    background-color: #827717;
+    color: #fff;
+  }
+  table.DT-lime a, .DT-lime a.active, .DT-lime a:hover, table.DT-lime .heading {
+    background-color:#afb42b;
+  }
+  
+  table.DT-yellow th, .DT-yellow a, .side-nav.sidebar.DT-yellow {
+    background-color: #f57f17;
+    color: #fff;
+  }
+  table.DT-yellow a, .DT-yellow a.active, .DT-yellow a:hover, table.DT-yellow .heading {
+    background-color:#fbc02d;
+  }
+  
+  table.DT-amber th, .DT-amber a, .side-nav.sidebar.DT-amber {
+    background-color: #ff6f00;
+    color: #fff;
+  }
+  table.DT-amber a, .DT-amber a.active, .DT-amber a:hover, table.DT-amber .heading {
+    background-color:#ffa000;
+  }
+  
+  table.DT-orange th, .DT-orange a, .side-nav.sidebar.DT-orange {
+    background-color: #e65100;
+    color: #fff;
+  }
+  table.DT-orange a, .DT-orange a.active, .DT-orange a:hover, table.DT-orange .heading {
+    background-color:#f57c00;
+  }
+  
+  table.DT-deep-orange th, .DT-deep-orange a, .side-nav.sidebar.DT-deep-orange {
+    background-color: #bf360c;
+    color: #fff;
+  }
+  table.DT-deep-orange a, .DT-deep-orange a.active, .DT-deep-orange a:hover, table.DT-deep-orange .heading {
+    background-color:#e64a19;
+  }
+  
+  table.DT-brown th, .DT-brown a, .side-nav.sidebar.DT-brown {
+    background-color: #3e2723;
+    color: #fff;
+  }
+  table.DT-brown a, .DT-brown a.active, .DT-brown a:hover, table.DT-brown .heading {
+    background-color:#5d4037;
+  }
+  
+  table.DT-grey th, .DT-grey a, .side-nav.sidebar.DT-grey {
+    background-color: #212121;
+    color: #fff;
+  }
+  table.DT-grey a, .DT-grey a.active, .DT-grey a:hover, table.DT-grey .heading {
+    background-color:#616161;
+  }
+  
+  table.DT-blue-grey th, .DT-blue-grey a, .side-nav.sidebar.DT-blue-grey {
+    background-color: #263238;
+    color: #fff;
+  }
+  table.DT-blue-grey a, .DT-blue-grey a.active, .DT-blue-grey a:hover, table.DT-blue-grey .heading {
+    background-color:#455a64;
+  }
+  
+  /* Standard DT HTML Table */
+  table.DT-light-yellow th, .DT-light-yellow a, .side-nav.sidebar.DT-light-yellow
+  {
+    background-color: #ffffcc;
+    color: #444;
+  }
+  table.DT-light-yellow a, .DT-light-yellow a.active, .DT-light-yellow a:hover, ta
+  ble.DT-light-yellow .heading {
+    background-color: #ffffaa;
+    color: #000 !important;
+  }
+  
+  .center
+  {
+    text-align:center !important;
+  }
+  
+  /* special cell colors typically set based on cell contents */
+  td.DT-red    {background-color:red;color:white !important;}
+  td.DT-green  {background-color:green;color:white !important;}
+  td.DT-yellow {background-color:yellow;color:black !important;}
+  
+  /* DT Button colors */
+  .DTButton-default       {background-color:#26a69a; color:white}
+  .DTButton-red           {background-color:red !important; color:white !important;}
+  .DTButton-black         {background-color:#000 !important; color:#fff !important;}
+  .DTButton-yellow        {background-color:yellow !important; color:#444 !important;}
+  .DTButton-light-yellow  {background-color:#ffffcc !important; color:#444 !important;}
+  
+  .fa .fa-trash .DTButton-red .btn .center{
+    background-color:#f00 !important;
+    color:#fff;
+  }
+  
+  /* prevent telephone numbers and zip codes from appearing as links */
+  table.DTView tr.roweven td a[href^="tel:"]:link,
+  table.DTView tr.roweven td a[href^="tel:"]:visited,
+  table.DTView tr.roweven td a[href^="tel:"]:hover,
+  table.DTGrid tr.roweven td a[href^="tel:"]:link,
+  table.DTGrid tr.roweven td a[href^="tel:"]:visited,
+  table.DTGrid tr.roweven td a[href^="tel:"]:hover {
+    color: #000;
+    background-color: #fff;
+    text-decoration: none;
+    pointer-events: none;
+    cursor: default;
+    display: inline;
+  }
+  table.DTView tr.rowodd td a[href^="tel:"]:link,
+  table.DTView tr.rowodd td a[href^="tel:"]:visited,
+  table.DTView tr.rowodd td a[href^="tel:"]:hover,
+  table.DTGrid tr.rowodd td a[href^="tel:"]:link,
+  table.DTGrid tr.rowodd td a[href^="tel:"]:visited,
+  table.DTGrid tr.rowodd td a[href^="tel:"]:hover {
+    color: #000;
+    background-color: #f0f0f0;
+    text-decoration: none;
+    pointer-events: none;
+    cursor: default;
+    display:inline;
+  }
+  /* other non-table colors */
+  .DTemptyExpander {
+    background-color: #E9F7EF !important;
+  }
+  
+  
+}

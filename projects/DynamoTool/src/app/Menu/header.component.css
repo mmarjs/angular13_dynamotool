@@ -1,0 +1,255 @@
+
+/** patient home css start **/
+
+.patient-home .top-head {
+	background: #fff;
+	padding: 0;
+	-webkit-box-shadow: 0px 6px 15px 0px rgba(50, 50, 52, 0.20);
+	-moz-box-shadow: 0px 6px 15px 0px rgba(50, 50, 52, 0.20);
+	box-shadow: 0px 6px 15px 0px rgba(50, 50, 52, 0.20);
+}
+
+.patient-home .logo {
+	width: 300px;
+	float: left;
+}
+
+.patient-home .logo img {
+	width: 100%;
+	height: auto;
+}
+
+.patient-home h2 {
+	font-size: 22px;
+	color: #282828;
+	margin: 0px 0px 15px;
+	padding: 0px;
+	text-transform: uppercase;
+}
+
+
+.patient-home .top-heading {
+	padding: 10px 15px;
+	font-size: 21px;
+	color: #fff;
+	background: #2cc1d9;
+	text-transform: uppercase;
+	border-radius: 6px 6px 0px 0px;
+	-webkit-border-radius: 6px 6px 0px 0px;
+	-moz-border-radius: 6px 6px 0px 0px;
+}
+
+.patient-home .user-pic {
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	border: 2px solid #883333;
+	text-align: center;
+	border-radius: 50%;
+	color: #883333;
+	display: table;
+	margin: 15px auto;
+	overflow: hidden;
+}
+
+.patient-home .user-pic i {
+	font-size: 68px;
+	display: table-cell;
+	vertical-align: middle;
+	margin: 0;
+	padding: 0;
+}
+
+.patient-home ul.user-info {
+	margin: 0px;
+	padding: 10px 15px;
+}
+
+.patient-home ul.user-info li {
+	color: #4a4848;
+	display: block;
+	font-size: 15px;
+	margin-bottom: 10px;
+}
+
+.patient-home ul.user-info li span {
+	color: #000;
+}
+
+
+
+.patient-home .user-profile {
+	float: right;
+}
+
+.patient-home .user-profile .custom-dropdown {
+	position: relative;
+	padding: 6px 0;
+}
+
+.patient-home .user-profile a.btn {
+	background: #fff;
+	box-shadow: inherit;
+	font-size: 12px;
+	padding: 0 5px;
+	color: #831013;
+	display: table;
+}
+
+
+.patient-home .user-profile .user-pic {
+
+	float: left;
+	margin-right: 5px;
+}
+
+.patient-home .user-profile .user-pic i {
+	font-size: 20px;
+}
+
+.patient-home .user-profile .user-name {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.patient-home ul.dropdown-list {
+	position: absolute;
+	width: 180px;
+	background: #fff;
+	box-shadow: 0 0 5px rgba(166, 161, 161, 0.6);
+	-moz-box-shadow: 0 0 5px rgba(166, 161, 161, 0.6);
+	-webkit-box-shadow: 0 0 5px rgba(166, 161, 161, 0.6);
+	-o-box-shadow: 0 0 5px rgba(166, 161, 161, 0.6);
+	top: 51px;
+	right: 25px;
+	padding: 8px 15px;
+	z-index: 10;
+}
+
+.patient-home ul.dropdown-list li a {
+	text-align: left;
+	color: #919191;
+	font-size: 16px;
+	line-height: 31px;
+	transition: 0.5s all ease-in;
+}
+
+.patient-home ul.dropdown-list li a i {
+	padding-right: 10px;
+}
+
+.patient-home ul.dropdown-list li a:hover {
+	color: #831013;
+}
+
+span.set-address {
+    height: 24px;
+    padding-right: 5px;
+    float: left;
+}
+
+/* .mail-color{word-wrap: break-word;} */
+
+
+.dropdown-content li>span {
+	font-size: 1rem;
+}
+span.align-logo {
+    display: block;
+  
+}
+
+.set-title .custom-dropdown {
+	padding: 20px 0 !important;
+	
+}
+.set-title {
+	float: left !important;
+}
+
+
+.patient-home .logo {
+    width: 25%;
+	
+	text-align: center;
+}
+.patient-home .user-profile {
+    width: 25%;
+	/* border-right: 1px solid #000; */
+	text-align: center;
+}
+.patient-home .user-profile a.custom-mg{
+	/*font-size: 0.78em;*/
+	font-size: 14px;
+	font-weight: 700;
+	line-height: 17px;
+	text-align: left;
+}
+
+.patient-home .split-3{
+	width:33.33%;
+} 
+
+
+@media only screen and (min-width: 993px )
+{
+.container {
+    width: 92% !important;
+}
+}
+@media(max-width:990px) {
+	.patient-home .logo {
+		float: left;
+	}
+	.patient-home .user-profile a.custom-mg{
+		font-size: 12px;
+	}
+}
+@media(max-width:767px) {
+	span.align-logo {
+		margin: 0 auto;
+	}
+	
+}
+@media(max-width:640px) {
+	.patient-home ul.dropdown-list{
+		left:85px;
+	}
+}
+@media (max-width:567px) {
+	.patient-home .logo {
+		width: 100%;
+	}
+	.patient-home .user-profile {
+		width: 100%;
+		margin: 0px 0 0;
+    height: 48px;
+	}
+	.patient-home .user-profile a.custom-mg{
+		margin:auto;
+	}
+	.patient-home .user-profile a.btn {
+		background: none;
+		box-shadow: inherit;
+		font-size: 12px;
+		padding: 0 5px;
+		color: #831013;
+		display: table;
+	}
+	.patient-home .user-profile .custom-dropdown {
+		position: relative;
+		padding: 0px 0;
+	}
+}
+
+.titleStyle {
+	font-weight: bold !important;
+	text-transform: none !important;
+	color:rgb(0, 0, 0) !important;
+	font-family: "Roboto", "Helvetica", "Arial", "sans-serif";
+	
+}
+.IconMenu {
+	color:white !important;
+	font-size: 18px !important;
+}

@@ -1,0 +1,95 @@
+<app-message [messageResponse]="setmessage"></app-message>
+<!-- <div *ngIf="appName=='Dynamo' || appName=='NC' || appName == 'DynamoTools'" class="patient-home"> -->
+<div  class="patient-home"><!-- Dynamo -->
+
+    <div class="top-head">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col s12">
+                    <div class="logo pagename">
+                        <span *ngIf="logoWidth!==undefined" class="align-logo"><img src="{{extraLink}}" [ngStyle]="{'width': logoWidth,'height': logoHeight + 'px','margin-top': setTopMargin + 'px' }" />
+                        </span>
+                    </div>
+                    <div class="header-right">
+                        <div class="user-profile">
+                            <div class="custom-dropdown" tabindex="3" (keydown.space)="toggle()">
+                                    <!-- [ngClass]="userClass!==undefined?userClass:''"  defined within user-pic class -->
+                                <a (click)="toggle()" class="dropdown-trigger btn custom-mg" > <span class="user-pic" [ngClass]="userIcon!==undefined?userIcon:''" ><i
+                                            class="fa fa-user"></i></span>
+                                           
+                                    <span class="user-name" > {{userName}} <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                    </span></a>
+                                <ul *ngIf="expanded == true" class="dropdown-list" tabindex="3" (keydown.space)="logoutPatient()">  <!-- fa fa-sign-out -->
+                                    <li (click)="logoutPatient()"><a><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div *ngIf="customerName?.length > 0" class="user-profile">
+                            <div class="custom-dropdown">
+                                <a class="dropdown-trigger btn custom-mg"> <span class="user-pic" [ngClass]="customerIcon!==undefined?customerIcon:''"><i class="fa fa-building"></i></span>
+                                    <span class="user-name"> {{ customerName }} <i class="fa " aria-hidden="true"></i>
+                                    </span></a>
+                            </div>
+                        </div>
+
+                        <div *ngIf="setMenuTitle?.length > 0" class="user-profile">
+                            <div class="custom-dropdown">
+                                <a class="dropdown-trigger btn custom-mg">
+                                  <!--   user-pic {{ setMenuIconColor }}123 -->
+                                    <span class="user-pic {{ setMenuIconColor }}" *ngIf="setMenuIconColor!==undefined" style="border:unset;width:32px;height:32px;">
+                                    <i class="{{ setMenuIcon}} IconMenu"></i></span>
+                                  
+                                    <span class="user-name titleStyle" > {{ setMenuTitle }} <i class="fa " aria-hidden="true"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- DynamoTool -->
+<!-- <div *ngIf="appName=='DynamoTools_new'" class="patient-home"> -->
+<div *ngIf="appName=='DynamoTools_new'" class="patient-home">
+
+    <div class="top-head">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col s12">
+                    <div class="logo pagename split-3">
+                        <span class="align-logo"><img src="{{extraLink}}" [ngStyle]="{'width': logoWidth,'height': logoHeight + 'px','margin-top': setTopMargin + 'px' }" />
+                        </span>
+                    </div>
+                    <div class="header-right">
+                        <div class="user-profile split-3">
+                            <div class="custom-dropdown" tabindex="10001" (keydown.space)="toggle()">
+                                <a (click)="toggle()" class="dropdown-trigger btn custom-mg"> <span class="user-pic"><i
+                                            class="fa fa-user"></i></span>
+                                    <span class="user-name"> {{userName}} <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                    </span></a>
+                                <ul *ngIf="expanded == true" class="dropdown-list">
+                                   <!--  fa fa-sign-out -->
+                                    <li (click)="logoutPatient()"><a><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div *ngIf="setMenuTitle?.length > 0" class="user-profile split-3">
+                            <div class="custom-dropdown">
+                                <a class="dropdown-trigger btn custom-mg">
+                                        <span class="user-pic {{ setMenuIconColor }}" style="border:unset;width:32px;height:32px;">
+                                                <i class="{{ setMenuIcon }} IconMenu"></i></span>
+                                    <span class="user-name titleStyle"> {{ setMenuTitle }} <i class="fa " aria-hidden="true"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

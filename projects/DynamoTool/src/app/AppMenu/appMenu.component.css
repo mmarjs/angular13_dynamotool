@@ -1,0 +1,53 @@
+.sidebar {
+    left: 0;
+ }
+ .sidebar {
+     /* background: #1C2A48; */
+     min-width: 200px;
+   /*  max-width: 235px; */
+     margin-left: 0px;
+     -webkit-transition: all 0.5s ease;
+     transition: all 0.5s ease;
+     position: relative;
+     height: 600px;
+     cursor: pointer;
+ }
+ 
+ .side-nav li {
+     float: none;
+     padding: 1px 0px;
+ }
+ .side-nav {
+     overflow: visible;
+     z-index: 1;
+ }
+ .side-nav a {
+     font-size: 13px;
+ }
+ .sidebar li a {
+     color: #fff;
+     display: block;
+     -webkit-transition: all 0.5s ease;
+     transition: all 0.5s ease;
+     line-height:20px;
+     height:auto;
+ }
+ /* .sidebar li:hover, .sidebar li a.active{
+     background:#7986cb;
+     text-decoration:none;
+ } */
+ .wrapper{
+     overflow: hidden;
+ }
+ .appfontSize {
+     font-size: 13px !important;
+ }
+
+ /* 5 March */
+
+[type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+	left:0 !important;
+    opacity: unset !important;
+    visibility: inherit;
+    pointer-events: all;
+	}

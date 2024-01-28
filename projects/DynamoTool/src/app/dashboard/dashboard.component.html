@@ -1,0 +1,75 @@
+<app-message [messageResponse]="setmessage"></app-message>
+<div class="patient-home">
+    <div class="inner-col orders_inner">
+        <div class="container">
+            <div *ngIf="showMenu" class="row">
+                <!-- {{showMenu + "dss"}} -->
+                <div class="information">
+                    <div *ngIf="sideSection !== undefined && sideSection !== ''" class="col m4 left-col">
+                        <div class="detail-col">
+                            <div class="top-heading">
+                                {{ title }}
+                            </div>
+                            <ul class="user-info">
+                                <li *ngFor="let res of sideSection">
+                                    <span class="set-address address-col {{ res.labelClass }}">{{ res.label }}:</span>
+                                    <span class="address-align {{ res.valueClass }}"> &nbsp;{{ res.value }}</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col m8 right-col">
+                        <div *ngIf="headingSection !== '' && headingSection !== undefined" class="doctor-info">
+                            <div class="top-heading">
+                                {{ headingSection?.title }}
+                            </div>
+                            <div class="doctor-name">
+                                <div class="profile-box row">
+                                    <div
+                                        *ngIf="image !== undefined"
+                                        class="pic-col practice"
+                                        [ngStyle]="{ background: 'url(' + serverName + image + ') center center / contain no-repeat', 'background-size': 'contain' }"
+                                    ></div>
+
+                                    <span> {{ headingSection?.text }}</span>
+                                </div>
+                                <div></div>
+                            </div>
+                        </div>
+                        <div class="col m12">
+                            <div class="row">
+                                <div class="all-link" *ngIf="patientMenu">
+                                    <div *ngFor="let patientDetails of patientMenu" class="col m6 s12">
+                                        <a (click)="getSelected(patientDetails)" class="hypertext">
+                                            <div class="menu-col">
+                                                <div class="{{ patientDetails.iconcolor }}">
+                                                    <i class="{{ patientDetails.icon }}"></i>
+                                                </div>
+                                                <h3>
+                                                    {{ patientDetails.title }}
+                                                </h3>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div *ngIf="UserType == 'patient'" class="col m12 no-pad">
+                            <div class="customer-service">
+                                <div class="phone-icon">
+                                    <span>
+                                        <img src="assets/images/phone-img.png" alt="Customer Service" />
+                                    </span>
+                                </div>
+                                <div class="call-info">
+                                    For questions regarding your account please call NCDS Medical Billing <span class="tel_number">1-800-556-6236</span> or email
+                                    <span><a href="mailto:billing@ncdsinc.com" data-rel="external" target="_blank">billing@ncdsinc.com</a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

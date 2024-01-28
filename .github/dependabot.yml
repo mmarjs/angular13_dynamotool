@@ -1,0 +1,19 @@
+# Specify a non-default branch for pull requests for pip
+
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+      # Check for npm updates on Sundays
+    open-pull-requests-limit: 10
+    target-branch: "staging"
+    # Labels on pull requests for security and version updates
+    labels:
+      - "npm dependencies"
+    assignees:
+      - "andrey-bogush"
+    reviewers:
+      - "LenKrause"
+      - "andrey-bogush"

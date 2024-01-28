@@ -1,0 +1,1633 @@
+* {
+  font-family: "Montserrat", sans-serif;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: "Montserrat", sans-serif !important;
+  background: #e4e5e9;
+  background: #fff;
+  position: relative;
+}
+.innerbg {
+  background: #fff;
+  color: #606060;
+  width: 700px;
+  margin: auto;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  max-width: 80%;
+  transform: translateY(-50%);
+}
+
+.loginMain {
+  color: #606060;
+  width: 700px;
+  margin: auto;
+  border-radius: 5px;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  right: 0;
+  margin: 10p;
+  max-width: 100%;
+}
+
+/*.innerbg {
+    background: #fff !important;
+    color: #606060 !important;
+    width: 700px !important;
+    margin: auto !important;
+    border-radius: 5px !important;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75) !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 0 !important;
+    right: 0 !important;
+    transform: translateY(-50%) !important;
+    max-width: 80% !important;
+}*/
+
+.forgotpassword {
+  cursor: pointer;
+}
+button.btn.center {
+  margin-left: 5px !important;
+}
+/*  8 sept .top-heading {
+    padding: 10px 15px;
+    font-size: 21px;
+    color: #fff;
+    background: #2cc1d9;
+    text-transform: uppercase;
+    border-radius: 6px 6px 0 0;
+    -webkit-border-radius: 6px 6px 0 0;
+    -moz-border-radius: 6px 6px 0 0;
+} */
+div#modal11 {
+  z-index: 1;
+}
+
+/* Login css 8-9-2019 */
+
+.loginHeader {
+  font-size: 34px;
+  color: #164473;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 20px;
+  letter-spacing: 1.8px;
+}
+.mt-28 {
+  margin-top: 28px;
+}
+
+.formWidth {
+  width: 80%;
+  margin: 0 auto;
+}
+.icons {
+  position: absolute;
+  bottom: 18px;
+  right: 10px;
+  color: #d7d7d7;
+}
+.input-field label {
+  color: #9e9e9e;
+  position: absolute;
+  top: 0.8rem;
+  left: 0.75rem;
+  font-size: 1rem;
+  cursor: text;
+  transition: 0.2s ease-out;
+}
+.label-clr {
+  color: #606060 !important;
+}
+.copyright {
+  text-align: center;
+  margin-bottom: -20px;
+  font-size: 13px;
+}
+
+.btn-cancel {
+  background-color: #dddddd;
+  color: #000;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 5px;
+  padding: 10px 35px;
+  text-transform: uppercase;
+  text-align: center;
+}
+input[type="text"] {
+  height: 3.5rem;
+}
+.btn-custom {
+  background-color: #164473;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 5px;
+  padding: 10px 35px;
+  text-transform: uppercase;
+  text-align: center;
+}
+.btn-enter {
+  width: 100%;
+  background-color: #fc4128;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 5px;
+  padding: 10px 25px;
+  text-transform: uppercase;
+  text-align: center;
+}
+.icons {
+  position: absolute;
+  bottom: 23px;
+  right: 10px;
+  color: #d7d7d7;
+}
+input:not([type]):focus:not([readonly]),
+input[type="text"]:not(.browser-default):focus:not([readonly]),
+input[type="password"]:not(.browser-default):focus:not([readonly]),
+input[type="email"]:not(.browser-default):focus:not([readonly]),
+input[type="url"]:not(.browser-default):focus:not([readonly]),
+input[type="time"]:not(.browser-default):focus:not([readonly]),
+input[type="date"]:not(.browser-default):focus:not([readonly]),
+input[type="datetime"]:not(.browser-default):focus:not([readonly]),
+input[type="datetime-local"]:not(.browser-default):focus:not([readonly]),
+input[type="tel"]:not(.browser-default):focus:not([readonly]),
+input[type="number"]:not(.browser-default):focus:not([readonly]),
+input[type="search"]:not(.browser-default):focus:not([readonly]),
+textarea.materialize-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid #164473;
+  box-shadow: 0 1px 0 0 #164473;
+}
+.validate ng-pristine ng-valid {
+  color: #164473;
+}
+.input[type="text"].valid input[type="password"].valid:not(.browser-default) {
+  border-bottom: 1px solid #164473;
+  box-shadow: 0 1px 0 0 #164473;
+}
+.input-field label:not(.label-icon).active {
+  color: #5a5a5a !important;
+}
+.input-field[_ngcontent-c1] label[_ngcontent-c1] {
+  color: #5a5a5a !important;
+  position: absolute;
+  top: 0.8rem;
+  left: 0.75rem;
+  font-size: 1rem;
+  cursor: text;
+  transition: 0.2s ease-out;
+}
+.ckp {
+  margin-top: -23px;
+}
+
+input[type="text"][_ngcontent-c1] {
+  height: 3.6rem;
+}
+.input-field label.active {
+  font-size: 0.8rem;
+}
+.forgotpassword {
+  font-size: 14px;
+  color: #606060;
+}
+.cs-tp {
+  position: absolute;
+  margin-top: -20px;
+  right: 75px !important;
+}
+
+.top-heading {
+  padding: 10px 15px;
+  font-size: 21px;
+  color: #fff;
+  background: #2cc1d9;
+  /*text-transform: uppercase;*/
+  border-radius: 6px 6px 0 0;
+  -webkit-border-radius: 6px 6px 0 0;
+  -moz-border-radius: 6px 6px 0 0;
+  text-align: center;
+}
+form p:last-child {
+  margin-bottom: 2px !important;
+}
+
+.logoImgsize {
+  width: 100%;
+}
+
+@media screen and (max-device-width: 480px) and (orientation: portrait) {
+  /* some CSS here */
+  * {
+    font-family: "Montserrat", sans-serif;
+  }
+
+  html,
+  body {
+    height: 100%;
+  }
+
+  body {
+    font-family: "Montserrat", sans-serif !important;
+    background: #e4e5e9;
+    background: #fff;
+    position: relative;
+  }
+  .innerbg {
+    background: #fff;
+    color: #606060;
+    width: 700px;
+    margin: auto;
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    max-width: 80%;
+    transform: translateY(-50%);
+  }
+
+  /*.innerbg {
+        background: #fff !important;
+        color: #606060 !important;
+        width: 700px !important;
+        margin: auto !important;
+        border-radius: 5px !important;
+        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75) !important;
+        position: absolute !important;
+        top: 50% !important;
+        left: 0 !important;
+        right: 0 !important;
+        transform: translateY(-50%) !important;
+        max-width: 80% !important;
+    }*/
+
+  .forgotpassword {
+    cursor: pointer;
+  }
+  button.btn.center {
+    margin-left: 5px !important;
+  }
+  /*  8 sept .top-heading {
+        padding: 10px 15px;
+        font-size: 21px;
+        color: #fff;
+        background: #2cc1d9;
+        text-transform: uppercase;
+        border-radius: 6px 6px 0 0;
+        -webkit-border-radius: 6px 6px 0 0;
+        -moz-border-radius: 6px 6px 0 0;
+    } */
+  div#modal11 {
+    z-index: 1;
+  }
+
+  /* Login css 8-9-2019 */
+
+  .loginHeader {
+    font-size: 34px;
+    color: #164473;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 20px;
+    letter-spacing: 1.8px;
+  }
+  .mt-28 {
+    margin-top: 28px;
+  }
+
+  .formWidth {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .icons {
+    position: absolute;
+    bottom: 18px;
+    right: 10px;
+    color: #d7d7d7;
+  }
+  .input-field label {
+    color: #9e9e9e;
+    position: absolute;
+    top: 0.8rem;
+    left: 0.75rem;
+    font-size: 1rem;
+    cursor: text;
+    transition: 0.2s ease-out;
+  }
+  .label-clr {
+    color: #606060 !important;
+  }
+  .copyright {
+    text-align: center;
+    margin-bottom: -20px;
+    font-size: 13px;
+  }
+
+  .btn-cancel {
+    background-color: #dddddd;
+    color: #000;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    padding: 10px 16px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  input[type="text"] {
+    height: 3.5rem;
+  }
+  .btn-custom {
+    background-color: #164473;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    padding: 10px 35px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  .btn-enter {
+    width: 100%;
+    background-color: #fc4128;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    padding: 10px 25px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  .icons {
+    position: absolute;
+    bottom: 23px;
+    right: 10px;
+    color: #d7d7d7;
+  }
+  input:not([type]):focus:not([readonly]),
+  input[type="text"]:not(.browser-default):focus:not([readonly]),
+  input[type="password"]:not(.browser-default):focus:not([readonly]),
+  input[type="email"]:not(.browser-default):focus:not([readonly]),
+  input[type="url"]:not(.browser-default):focus:not([readonly]),
+  input[type="time"]:not(.browser-default):focus:not([readonly]),
+  input[type="date"]:not(.browser-default):focus:not([readonly]),
+  input[type="datetime"]:not(.browser-default):focus:not([readonly]),
+  input[type="datetime-local"]:not(.browser-default):focus:not([readonly]),
+  input[type="tel"]:not(.browser-default):focus:not([readonly]),
+  input[type="number"]:not(.browser-default):focus:not([readonly]),
+  input[type="search"]:not(.browser-default):focus:not([readonly]),
+  textarea.materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #164473;
+    box-shadow: 0 1px 0 0 #164473;
+  }
+  .validate ng-pristine ng-valid {
+    color: #164473;
+  }
+  .input[type="text"].valid input[type="password"].valid:not(.browser-default) {
+    border-bottom: 1px solid #164473;
+    box-shadow: 0 1px 0 0 #164473;
+  }
+  .input-field label:not(.label-icon).active {
+    color: #5a5a5a !important;
+  }
+  .input-field[_ngcontent-c1] label[_ngcontent-c1] {
+    color: #5a5a5a !important;
+    position: absolute;
+    top: 0.8rem;
+    left: 0.75rem;
+    font-size: 1rem;
+    cursor: text;
+    transition: 0.2s ease-out;
+  }
+  .ckp {
+    margin-top: -23px;
+  }
+
+  input[type="text"][_ngcontent-c1] {
+    height: 3.6rem;
+  }
+  .input-field label.active {
+    font-size: 0.8rem;
+  }
+  .forgotpassword {
+    font-size: 14px;
+    color: #606060;
+  }
+  .cs-tp {
+    position: absolute;
+    margin-top: -20px;
+    right: 75px !important;
+  }
+
+  .top-heading {
+    padding: 10px 15px;
+    font-size: 21px;
+    color: #fff;
+    background: #2cc1d9;
+    /*text-transform: uppercase;*/
+    border-radius: 6px 6px 0 0;
+    -webkit-border-radius: 6px 6px 0 0;
+    -moz-border-radius: 6px 6px 0 0;
+    text-align: center;
+  }
+  form p:last-child {
+    margin-bottom: 2px !important;
+  }
+
+  /*  21 Feb */
+
+  .logoWidth {
+    margin-left: 36px;
+    margin-top: 48px;
+  }
+  .logoImgsize {
+    width: 100%;
+  }
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  * {
+    font-family: "Montserrat", sans-serif;
+  }
+
+  html,
+  body {
+    height: 100%;
+  }
+
+  body {
+    font-family: "Montserrat", sans-serif !important;
+    background: #e4e5e9;
+    background: #fff;
+    position: relative;
+  }
+  .innerbg {
+    background: #fff;
+    color: #606060;
+    width: 700px;
+    margin: auto;
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    max-width: 80%;
+    transform: translateY(-50%);
+  }
+
+  /*.innerbg {
+        background: #fff !important;
+        color: #606060 !important;
+        width: 700px !important;
+        margin: auto !important;
+        border-radius: 5px !important;
+        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75) !important;
+        position: absolute !important;
+        top: 50% !important;
+        left: 0 !important;
+        right: 0 !important;
+        transform: translateY(-50%) !important;
+        max-width: 80% !important;
+    }*/
+
+  .forgotpassword {
+    cursor: pointer;
+  }
+  button.btn.center {
+    margin-left: 5px !important;
+  }
+  /*  8 sept .top-heading {
+        padding: 10px 15px;
+        font-size: 21px;
+        color: #fff;
+        background: #2cc1d9;
+        text-transform: uppercase;
+        border-radius: 6px 6px 0 0;
+        -webkit-border-radius: 6px 6px 0 0;
+        -moz-border-radius: 6px 6px 0 0;
+    } */
+  div#modal11 {
+    z-index: 1;
+  }
+
+  /* Login css 8-9-2019 */
+
+  .loginHeader {
+    font-size: 34px;
+    color: #164473;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 20px;
+    letter-spacing: 1.8px;
+  }
+  .mt-28 {
+    margin-top: 28px;
+  }
+
+  .formWidth {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .icons {
+    position: absolute;
+    bottom: 18px;
+    right: 10px;
+    color: #d7d7d7;
+  }
+  .input-field label {
+    color: #9e9e9e;
+    position: absolute;
+    top: 0.8rem;
+    left: 0.75rem;
+    font-size: 1rem;
+    cursor: text;
+    transition: 0.2s ease-out;
+  }
+  .label-clr {
+    color: #606060 !important;
+  }
+  .copyright {
+    text-align: center;
+    margin-bottom: -20px;
+    font-size: 13px;
+  }
+
+  .btn-cancel {
+    background-color: #dddddd;
+    color: #000;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    padding: 10px 16px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  input[type="text"] {
+    height: 3.5rem;
+  }
+  .btn-custom {
+    background-color: #164473;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    padding: 10px 35px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  .btn-enter {
+    width: 100%;
+    background-color: #fc4128;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    padding: 10px 25px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  .icons {
+    position: absolute;
+    bottom: 23px;
+    right: 10px;
+    color: #d7d7d7;
+  }
+  input:not([type]):focus:not([readonly]),
+  input[type="text"]:not(.browser-default):focus:not([readonly]),
+  input[type="password"]:not(.browser-default):focus:not([readonly]),
+  input[type="email"]:not(.browser-default):focus:not([readonly]),
+  input[type="url"]:not(.browser-default):focus:not([readonly]),
+  input[type="time"]:not(.browser-default):focus:not([readonly]),
+  input[type="date"]:not(.browser-default):focus:not([readonly]),
+  input[type="datetime"]:not(.browser-default):focus:not([readonly]),
+  input[type="datetime-local"]:not(.browser-default):focus:not([readonly]),
+  input[type="tel"]:not(.browser-default):focus:not([readonly]),
+  input[type="number"]:not(.browser-default):focus:not([readonly]),
+  input[type="search"]:not(.browser-default):focus:not([readonly]),
+  textarea.materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #164473;
+    box-shadow: 0 1px 0 0 #164473;
+  }
+  .validate ng-pristine ng-valid {
+    color: #164473;
+  }
+  .input[type="text"].valid input[type="password"].valid:not(.browser-default) {
+    border-bottom: 1px solid #164473;
+    box-shadow: 0 1px 0 0 #164473;
+  }
+  .input-field label:not(.label-icon).active {
+    color: #5a5a5a !important;
+  }
+  .input-field[_ngcontent-c1] label[_ngcontent-c1] {
+    color: #5a5a5a !important;
+    position: absolute;
+    top: 0.8rem;
+    left: 0.75rem;
+    font-size: 1rem;
+    cursor: text;
+    transition: 0.2s ease-out;
+  }
+  .ckp {
+    margin-top: -23px;
+  }
+
+  input[type="text"][_ngcontent-c1] {
+    height: 3.6rem;
+  }
+  .input-field label.active {
+    font-size: 0.8rem;
+  }
+  .forgotpassword {
+    font-size: 14px;
+    color: #606060;
+  }
+  .cs-tp {
+    position: absolute;
+    margin-top: -20px;
+    right: 75px !important;
+  }
+
+  .top-heading {
+    padding: 10px 15px;
+    font-size: 21px;
+    color: #fff;
+    background: #2cc1d9;
+    /*text-transform: uppercase;*/
+    border-radius: 6px 6px 0 0;
+    -webkit-border-radius: 6px 6px 0 0;
+    -moz-border-radius: 6px 6px 0 0;
+    text-align: center;
+  }
+  form p:last-child {
+    margin-bottom: 2px !important;
+  }
+
+  /*  21 Feb */
+
+  .logoWidth {
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-top: 16px;
+  }
+  .logoImgsize {
+    width: 100%;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  * {
+    font-family: "Montserrat", sans-serif;
+  }
+
+  html,
+  body {
+    height: 100%;
+  }
+
+  body {
+    font-family: "Montserrat", sans-serif !important;
+    background: #e4e5e9;
+    background: #fff;
+    position: relative;
+  }
+  .innerbg {
+    background: #fff;
+    color: #606060;
+    width: 700px;
+    margin: auto;
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    max-width: 80%;
+    transform: translateY(-50%);
+  }
+
+  /*.innerbg {
+        background: #fff !important;
+        color: #606060 !important;
+        width: 700px !important;
+        margin: auto !important;
+        border-radius: 5px !important;
+        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75) !important;
+        position: absolute !important;
+        top: 50% !important;
+        left: 0 !important;
+        right: 0 !important;
+        transform: translateY(-50%) !important;
+        max-width: 80% !important;
+    }*/
+
+  .forgotpassword {
+    cursor: pointer;
+  }
+  button.btn.center {
+    margin-left: 5px !important;
+  }
+  /*  8 sept .top-heading {
+        padding: 10px 15px;
+        font-size: 21px;
+        color: #fff;
+        background: #2cc1d9;
+        text-transform: uppercase;
+        border-radius: 6px 6px 0 0;
+        -webkit-border-radius: 6px 6px 0 0;
+        -moz-border-radius: 6px 6px 0 0;
+    } */
+  div#modal11 {
+    z-index: 1;
+  }
+
+  /* Login css 8-9-2019 */
+
+  .loginHeader {
+    font-size: 34px;
+    color: #164473;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 20px;
+    letter-spacing: 1.8px;
+  }
+  .mt-28 {
+    margin-top: 28px;
+  }
+
+  .formWidth {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .icons {
+    position: absolute;
+    bottom: 18px;
+    right: 10px;
+    color: #d7d7d7;
+  }
+  .input-field label {
+    color: #9e9e9e;
+    position: absolute;
+    top: 0.8rem;
+    left: 0.75rem;
+    font-size: 1rem;
+    cursor: text;
+    transition: 0.2s ease-out;
+  }
+  .label-clr {
+    color: #606060 !important;
+  }
+  .copyright {
+    text-align: center;
+    margin-bottom: -20px;
+    font-size: 13px;
+  }
+
+  .btn-cancel {
+    background-color: #dddddd;
+    color: #000;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    padding: 10px 35px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  input[type="text"] {
+    height: 3.5rem;
+  }
+  .btn-custom {
+    background-color: #164473;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    padding: 10px 35px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  .btn-enter {
+    width: 100%;
+    background-color: #fc4128;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    padding: 10px 25px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  .icons {
+    position: absolute;
+    bottom: 23px;
+    right: 10px;
+    color: #d7d7d7;
+  }
+  input:not([type]):focus:not([readonly]),
+  input[type="text"]:not(.browser-default):focus:not([readonly]),
+  input[type="password"]:not(.browser-default):focus:not([readonly]),
+  input[type="email"]:not(.browser-default):focus:not([readonly]),
+  input[type="url"]:not(.browser-default):focus:not([readonly]),
+  input[type="time"]:not(.browser-default):focus:not([readonly]),
+  input[type="date"]:not(.browser-default):focus:not([readonly]),
+  input[type="datetime"]:not(.browser-default):focus:not([readonly]),
+  input[type="datetime-local"]:not(.browser-default):focus:not([readonly]),
+  input[type="tel"]:not(.browser-default):focus:not([readonly]),
+  input[type="number"]:not(.browser-default):focus:not([readonly]),
+  input[type="search"]:not(.browser-default):focus:not([readonly]),
+  textarea.materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #164473;
+    box-shadow: 0 1px 0 0 #164473;
+  }
+  .validate ng-pristine ng-valid {
+    color: #164473;
+  }
+  .input[type="text"].valid input[type="password"].valid:not(.browser-default) {
+    border-bottom: 1px solid #164473;
+    box-shadow: 0 1px 0 0 #164473;
+  }
+  .input-field label:not(.label-icon).active {
+    color: #5a5a5a !important;
+  }
+  .input-field[_ngcontent-c1] label[_ngcontent-c1] {
+    color: #5a5a5a !important;
+    position: absolute;
+    top: 0.8rem;
+    left: 0.75rem;
+    font-size: 1rem;
+    cursor: text;
+    transition: 0.2s ease-out;
+  }
+  .ckp {
+    margin-top: -23px;
+  }
+
+  input[type="text"][_ngcontent-c1] {
+    height: 3.6rem;
+  }
+  .input-field label.active {
+    font-size: 0.8rem;
+  }
+  .forgotpassword {
+    font-size: 14px;
+    color: #606060;
+  }
+  .cs-tp {
+    position: absolute;
+    margin-top: -20px;
+    right: 75px !important;
+  }
+
+  .top-heading {
+    padding: 10px 15px;
+    font-size: 21px;
+    color: #fff;
+    background: #2cc1d9;
+    /*text-transform: uppercase;*/
+    border-radius: 6px 6px 0 0;
+    -webkit-border-radius: 6px 6px 0 0;
+    -moz-border-radius: 6px 6px 0 0;
+    text-align: center;
+  }
+  form p:last-child {
+    margin-bottom: 2px !important;
+  }
+
+  .logoImgsize {
+    width: 100%;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  * {
+    font-family: "Montserrat", sans-serif;
+  }
+
+  html,
+  body {
+    height: 100%;
+  }
+
+  body {
+    font-family: "Montserrat", sans-serif !important;
+    background: #e4e5e9;
+    background: #fff;
+    position: relative;
+  }
+  .innerbg {
+    background: #fff;
+    color: #606060;
+    width: 700px;
+    margin: auto;
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    max-width: 80%;
+    transform: translateY(-50%);
+  }
+
+  /*.innerbg {
+        background: #fff !important;
+        color: #606060 !important;
+        width: 700px !important;
+        margin: auto !important;
+        border-radius: 5px !important;
+        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75) !important;
+        position: absolute !important;
+        top: 50% !important;
+        left: 0 !important;
+        right: 0 !important;
+        transform: translateY(-50%) !important;
+        max-width: 80% !important;
+    }*/
+
+  .forgotpassword {
+    cursor: pointer;
+  }
+  button.btn.center {
+    margin-left: 5px !important;
+  }
+  /*  8 sept .top-heading {
+        padding: 10px 15px;
+        font-size: 21px;
+        color: #fff;
+        background: #2cc1d9;
+        text-transform: uppercase;
+        border-radius: 6px 6px 0 0;
+        -webkit-border-radius: 6px 6px 0 0;
+        -moz-border-radius: 6px 6px 0 0;
+    } */
+  div#modal11 {
+    z-index: 1;
+  }
+
+  /* Login css 8-9-2019 */
+
+  .loginHeader {
+    font-size: 34px;
+    color: #164473;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 20px;
+    letter-spacing: 1.8px;
+  }
+  .mt-28 {
+    margin-top: 28px;
+  }
+
+  .formWidth {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .icons {
+    position: absolute;
+    bottom: 18px;
+    right: 10px;
+    color: #d7d7d7;
+  }
+  .input-field label {
+    color: #9e9e9e;
+    position: absolute;
+    top: 0.8rem;
+    left: 0.75rem;
+    font-size: 1rem;
+    cursor: text;
+    transition: 0.2s ease-out;
+  }
+  .label-clr {
+    color: #606060 !important;
+  }
+  .copyright {
+    text-align: center;
+    margin-bottom: -20px;
+    font-size: 13px;
+  }
+
+  .btn-cancel {
+    background-color: #dddddd;
+    color: #000;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    padding: 10px 35px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  input[type="text"] {
+    height: 3.5rem;
+  }
+  .btn-custom {
+    background-color: #164473;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    padding: 10px 35px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  .btn-enter {
+    width: 100%;
+    background-color: #fc4128;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    padding: 10px 25px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  .icons {
+    position: absolute;
+    bottom: 23px;
+    right: 10px;
+    color: #d7d7d7;
+  }
+  input:not([type]):focus:not([readonly]),
+  input[type="text"]:not(.browser-default):focus:not([readonly]),
+  input[type="password"]:not(.browser-default):focus:not([readonly]),
+  input[type="email"]:not(.browser-default):focus:not([readonly]),
+  input[type="url"]:not(.browser-default):focus:not([readonly]),
+  input[type="time"]:not(.browser-default):focus:not([readonly]),
+  input[type="date"]:not(.browser-default):focus:not([readonly]),
+  input[type="datetime"]:not(.browser-default):focus:not([readonly]),
+  input[type="datetime-local"]:not(.browser-default):focus:not([readonly]),
+  input[type="tel"]:not(.browser-default):focus:not([readonly]),
+  input[type="number"]:not(.browser-default):focus:not([readonly]),
+  input[type="search"]:not(.browser-default):focus:not([readonly]),
+  textarea.materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #164473;
+    box-shadow: 0 1px 0 0 #164473;
+  }
+  .validate ng-pristine ng-valid {
+    color: #164473;
+  }
+  .input[type="text"].valid input[type="password"].valid:not(.browser-default) {
+    border-bottom: 1px solid #164473;
+    box-shadow: 0 1px 0 0 #164473;
+  }
+  .input-field label:not(.label-icon).active {
+    color: #5a5a5a !important;
+  }
+  .input-field[_ngcontent-c1] label[_ngcontent-c1] {
+    color: #5a5a5a !important;
+    position: absolute;
+    top: 0.8rem;
+    left: 0.75rem;
+    font-size: 1rem;
+    cursor: text;
+    transition: 0.2s ease-out;
+  }
+  .ckp {
+    margin-top: -23px;
+  }
+
+  input[type="text"][_ngcontent-c1] {
+    height: 3.6rem;
+  }
+  .input-field label.active {
+    font-size: 0.8rem;
+  }
+  .forgotpassword {
+    font-size: 14px;
+    color: #606060;
+  }
+  .cs-tp {
+    position: absolute;
+    margin-top: -20px;
+    right: 75px !important;
+  }
+
+  .top-heading {
+    padding: 10px 15px;
+    font-size: 21px;
+    color: #fff;
+    background: #2cc1d9;
+    /*text-transform: uppercase;*/
+    border-radius: 6px 6px 0 0;
+    -webkit-border-radius: 6px 6px 0 0;
+    -moz-border-radius: 6px 6px 0 0;
+    text-align: center;
+  }
+  form p:last-child {
+    margin-bottom: 2px !important;
+  }
+
+  .logoWidth {
+    margin-top: 35px;
+  }
+  .logoImgsize {
+    width: 100%;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  * {
+    font-family: "Montserrat", sans-serif;
+  }
+
+  html,
+  body {
+    height: 100%;
+  }
+
+  body {
+    font-family: "Montserrat", sans-serif !important;
+    background: #e4e5e9;
+    background: #fff;
+    position: relative;
+  }
+  .innerbg {
+    background: #fff;
+    color: #606060;
+    width: 700px;
+    margin: auto;
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    max-width: 80%;
+    transform: translateY(-50%);
+  }
+
+  /*.innerbg {
+        background: #fff !important;
+        color: #606060 !important;
+        width: 700px !important;
+        margin: auto !important;
+        border-radius: 5px !important;
+        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75) !important;
+        position: absolute !important;
+        top: 50% !important;
+        left: 0 !important;
+        right: 0 !important;
+        transform: translateY(-50%) !important;
+        max-width: 80% !important;
+    }*/
+
+  .forgotpassword {
+    cursor: pointer;
+  }
+  button.btn.center {
+    margin-left: 5px !important;
+  }
+  /*  8 sept .top-heading {
+        padding: 10px 15px;
+        font-size: 21px;
+        color: #fff;
+        background: #2cc1d9;
+        text-transform: uppercase;
+        border-radius: 6px 6px 0 0;
+        -webkit-border-radius: 6px 6px 0 0;
+        -moz-border-radius: 6px 6px 0 0;
+    } */
+  div#modal11 {
+    z-index: 1;
+  }
+
+  /* Login css 8-9-2019 */
+
+  .loginHeader {
+    font-size: 34px;
+    color: #164473;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 20px;
+    letter-spacing: 1.8px;
+  }
+  .mt-28 {
+    margin-top: 28px;
+  }
+
+  .formWidth {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .icons {
+    position: absolute;
+    bottom: 18px;
+    right: 10px;
+    color: #d7d7d7;
+  }
+  .input-field label {
+    color: #9e9e9e;
+    position: absolute;
+    top: 0.8rem;
+    left: 0.75rem;
+    font-size: 1rem;
+    cursor: text;
+    transition: 0.2s ease-out;
+  }
+  .label-clr {
+    color: #606060 !important;
+  }
+  .copyright {
+    text-align: center;
+    margin-bottom: -20px;
+    font-size: 13px;
+  }
+
+  .btn-cancel {
+    background-color: #dddddd;
+    color: #000;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    padding: 10px 35px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  input[type="text"] {
+    height: 3.5rem;
+  }
+  .btn-custom {
+    background-color: #164473;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    padding: 10px 35px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  .btn-enter {
+    width: 100%;
+    background-color: #fc4128;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    padding: 10px 25px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  .icons {
+    position: absolute;
+    bottom: 23px;
+    right: 10px;
+    color: #d7d7d7;
+  }
+  input:not([type]):focus:not([readonly]),
+  input[type="text"]:not(.browser-default):focus:not([readonly]),
+  input[type="password"]:not(.browser-default):focus:not([readonly]),
+  input[type="email"]:not(.browser-default):focus:not([readonly]),
+  input[type="url"]:not(.browser-default):focus:not([readonly]),
+  input[type="time"]:not(.browser-default):focus:not([readonly]),
+  input[type="date"]:not(.browser-default):focus:not([readonly]),
+  input[type="datetime"]:not(.browser-default):focus:not([readonly]),
+  input[type="datetime-local"]:not(.browser-default):focus:not([readonly]),
+  input[type="tel"]:not(.browser-default):focus:not([readonly]),
+  input[type="number"]:not(.browser-default):focus:not([readonly]),
+  input[type="search"]:not(.browser-default):focus:not([readonly]),
+  textarea.materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #164473;
+    box-shadow: 0 1px 0 0 #164473;
+  }
+  .validate ng-pristine ng-valid {
+    color: #164473;
+  }
+  .input[type="text"].valid input[type="password"].valid:not(.browser-default) {
+    border-bottom: 1px solid #164473;
+    box-shadow: 0 1px 0 0 #164473;
+  }
+  .input-field label:not(.label-icon).active {
+    color: #5a5a5a !important;
+  }
+  .input-field[_ngcontent-c1] label[_ngcontent-c1] {
+    color: #5a5a5a !important;
+    position: absolute;
+    top: 0.8rem;
+    left: 0.75rem;
+    font-size: 1rem;
+    cursor: text;
+    transition: 0.2s ease-out;
+  }
+  .ckp {
+    margin-top: -23px;
+  }
+
+  input[type="text"][_ngcontent-c1] {
+    height: 3.6rem;
+  }
+  .input-field label.active {
+    font-size: 0.8rem;
+  }
+  .forgotpassword {
+    font-size: 14px;
+    color: #606060;
+  }
+  .cs-tp {
+    position: absolute;
+    margin-top: -20px;
+    right: 75px !important;
+  }
+
+  .top-heading {
+    padding: 10px 15px;
+    font-size: 21px;
+    color: #fff;
+    background: #2cc1d9;
+    /*text-transform: uppercase;*/
+    border-radius: 6px 6px 0 0;
+    -webkit-border-radius: 6px 6px 0 0;
+    -moz-border-radius: 6px 6px 0 0;
+    text-align: center;
+  }
+  form p:last-child {
+    margin-bottom: 2px !important;
+  }
+
+  .logoImgsize {
+    width: 100%;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  * {
+    font-family: "Montserrat", sans-serif;
+  }
+
+  html,
+  body {
+    height: 100%;
+  }
+
+  body {
+    font-family: "Montserrat", sans-serif !important;
+    background: #e4e5e9;
+    background: #fff;
+    position: relative;
+  }
+  .innerbg {
+    background: #fff;
+    color: #606060;
+    width: 700px;
+    margin: auto;
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    max-width: 80%;
+    transform: translateY(-50%);
+  }
+
+  /*.innerbg {
+        background: #fff !important;
+        color: #606060 !important;
+        width: 700px !important;
+        margin: auto !important;
+        border-radius: 5px !important;
+        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75) !important;
+        position: absolute !important;
+        top: 50% !important;
+        left: 0 !important;
+        right: 0 !important;
+        transform: translateY(-50%) !important;
+        max-width: 80% !important;
+    }*/
+
+  .forgotpassword {
+    cursor: pointer;
+  }
+  button.btn.center {
+    margin-left: 5px !important;
+  }
+  /*  8 sept .top-heading {
+        padding: 10px 15px;
+        font-size: 21px;
+        color: #fff;
+        background: #2cc1d9;
+        text-transform: uppercase;
+        border-radius: 6px 6px 0 0;
+        -webkit-border-radius: 6px 6px 0 0;
+        -moz-border-radius: 6px 6px 0 0;
+    } */
+  div#modal11 {
+    z-index: 1;
+  }
+
+  /* Login css 8-9-2019 */
+
+  .loginHeader {
+    font-size: 34px;
+    color: #164473;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 20px;
+    letter-spacing: 1.8px;
+  }
+  .mt-28 {
+    margin-top: 28px;
+  }
+
+  .formWidth {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .icons {
+    position: absolute;
+    bottom: 18px;
+    right: 10px;
+    color: #d7d7d7;
+  }
+  .input-field label {
+    color: #9e9e9e;
+    position: absolute;
+    top: 0.8rem;
+    left: 0.75rem;
+    font-size: 1rem;
+    cursor: text;
+    transition: 0.2s ease-out;
+  }
+  .label-clr {
+    color: #606060 !important;
+  }
+  .copyright {
+    text-align: center;
+    margin-bottom: -20px;
+    font-size: 13px;
+  }
+
+  .btn-cancel {
+    background-color: #dddddd;
+    color: #000;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    padding: 10px 35px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  input[type="text"] {
+    height: 3.5rem;
+  }
+  .btn-custom {
+    background-color: #164473;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    padding: 10px 35px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  .btn-enter {
+    width: 100%;
+    background-color: #fc4128;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    padding: 10px 25px;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  .icons {
+    position: absolute;
+    bottom: 23px;
+    right: 10px;
+    color: #d7d7d7;
+  }
+  input:not([type]):focus:not([readonly]),
+  input[type="text"]:not(.browser-default):focus:not([readonly]),
+  input[type="password"]:not(.browser-default):focus:not([readonly]),
+  input[type="email"]:not(.browser-default):focus:not([readonly]),
+  input[type="url"]:not(.browser-default):focus:not([readonly]),
+  input[type="time"]:not(.browser-default):focus:not([readonly]),
+  input[type="date"]:not(.browser-default):focus:not([readonly]),
+  input[type="datetime"]:not(.browser-default):focus:not([readonly]),
+  input[type="datetime-local"]:not(.browser-default):focus:not([readonly]),
+  input[type="tel"]:not(.browser-default):focus:not([readonly]),
+  input[type="number"]:not(.browser-default):focus:not([readonly]),
+  input[type="search"]:not(.browser-default):focus:not([readonly]),
+  textarea.materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #164473;
+    box-shadow: 0 1px 0 0 #164473;
+  }
+  .validate ng-pristine ng-valid {
+    color: #164473;
+  }
+  .input[type="text"].valid input[type="password"].valid:not(.browser-default) {
+    border-bottom: 1px solid #164473;
+    box-shadow: 0 1px 0 0 #164473;
+  }
+  .input-field label:not(.label-icon).active {
+    color: #5a5a5a !important;
+  }
+  .input-field[_ngcontent-c1] label[_ngcontent-c1] {
+    color: #5a5a5a !important;
+    position: absolute;
+    top: 0.8rem;
+    left: 0.75rem;
+    font-size: 1rem;
+    cursor: text;
+    transition: 0.2s ease-out;
+  }
+  .ckp {
+    margin-top: -23px;
+  }
+
+  input[type="text"][_ngcontent-c1] {
+    height: 3.6rem;
+  }
+  .input-field label.active {
+    font-size: 0.8rem;
+  }
+  .forgotpassword {
+    font-size: 14px;
+    color: #606060;
+  }
+  .cs-tp {
+    position: absolute;
+    margin-top: -20px;
+    right: 75px !important;
+  }
+
+  .top-heading {
+    padding: 10px 15px;
+    font-size: 21px;
+    color: #fff;
+    background: #2cc1d9;
+    /*text-transform: uppercase;*/
+    border-radius: 6px 6px 0 0;
+    -webkit-border-radius: 6px 6px 0 0;
+    -moz-border-radius: 6px 6px 0 0;
+    text-align: center;
+  }
+  form p:last-child {
+    margin-bottom: 2px !important;
+  }
+
+  .logoImgsize {
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .loginMain {
+    color: #606060;
+    width: 700px;
+    border-radius: 5px;
+    left: 0;
+    right: 0;
+    max-width: 100%;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+::ng-deep .row .input-field {
+  float: left;
+  box-sizing: border-box;
+  padding: 0 0 !important;
+  text-align: left !important;
+}

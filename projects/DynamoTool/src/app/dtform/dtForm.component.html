@@ -1,0 +1,1991 @@
+<app-message [messageResponse]="setmessage"></app-message>
+
+<div class="center">
+    <img src="{{ logourl }}" [ngStyle]="{ width: logoWidth, height: logoHeight }" />
+</div>
+<div class="main-block">
+    <div class="{{ modelOverLay }}" [ngStyle]="{ display: displayPoup }">
+        <div [ngStyle]="{ display: displayPoup, 'z-index': zIndex }" class="modal" id="modal11">
+            <div class="modal-content">
+                <a (click)="closePopUp()" [ngStyle]="{ display: displayFiled }" class="close-icon"><i class="fa fa-times-circle"></i></a>
+                <div [ngStyle]="{ display: displayFiled }">
+                    <div [ngStyle]="{ display: dtForm_viewtable }" class="genralLedegrInfo" *ngIf="displayViewresponse">
+                        <app-displayview [setDisplayView]="displayViewresponse"></app-displayview>
+                    </div>
+                    <div [ngStyle]="{ display: dtForm_table }">
+                        <app-displaysubgrid [greetSubresponse]="displaySubGridresp" (sendData)="getDataByHexkey($event)"></app-displaysubgrid>
+                    </div>
+                </div>
+                <div *ngIf="displayLookUpForm" [ngStyle]="{ display: lookupFormField }">
+                    <table>
+                        <tr>
+                            <td>Show</td>
+                            <td>
+                                {{ displayLookUpForm.show }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Value</td>
+                            <td>
+                                {{ displayLookUpForm.value }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Type</td>
+                            <td>
+                                {{ displayLookUpForm.type }}
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div [style.display]="navigationcsspopUp" class="pagin_nav">
+                    <app-naviagtion *ngIf="navigatinresponse" [naviresponse]="navigatinresponse" (navChanged)="navChangedHandler($event)"></app-naviagtion>
+                </div>
+                <div class="back_button">
+                    <a (click)="closePopUp()" [ngStyle]="{ display: displayFiled }" class="waves-light btn btn-mini">close</a>
+                    <a (click)="closefileLookPopUp()" [ngStyle]="{ display: lookupFormField }" class="waves-light btn btn-mini">close</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="main-block">
+    <div [ngClass]="show_popup == 'block' ? 'loading1' : 'noclass'">
+        <div
+            [ngStyle]="{
+                display: show_popup,
+                width: popup_width,
+                height: popup_height,
+                top: popup_top,
+                'z-index': popup_zindex,
+                'max-height': popupMaxHeight
+            }"
+            id="modal1112"
+            class="modal modal-main-item"
+            [ngClass]="popupMaxHeight == undefined || popupMaxHeight.length < 2 ? 'setBottom' : 'noclass'"
+        >
+            <div class="top-heading buy_orders">
+                {{ mainPopuptitle
+                }}<a *ngIf="showClose" class="close-icon" (click)="cancelPopup(setparam, onCloseRedirect !== undefined ? onCloseRedirect : onCloseApi, setHexkey)"
+                    ><i class="fa fa-times icon-padding"></i
+                ></a>
+            </div>
+
+            <div class="modal-content start_new_receipt" [ngStyle]="{ width: dialogWidth }">
+                <div *ngIf="showDialog" class="input-field col s12 m12">
+                    <span [innerHTML]="showText"></span>
+                </div>
+
+                <div *ngIf="showDialogHtmlPopup" class="input-field col s12 m12">
+                    <div class="validate" [innerHTML]="showTextDialogPopup | safeHtml"></div>
+                </div>
+                <!--DIV TO SHOW BROWSE FOR FILE UPLOAD-->
+                <div>
+                    <div [ngStyle]="{ display: uploadOpen }" class="row">
+                        <div class="file-field input-field">
+                            <div class="btn fa fa-folder-open DTButton">
+                                <span style="padding-left: 4px">BROWSE</span>
+                                <input [multiple]="isMultiple" #fileInput accept="{{ fileExtensions }}" (change)="onSelectFile($event)" id="files" name="files" type="file" />
+                            </div>
+                            <div class="file-path-wrapper">
+                                <input class="file-path validate" #inputFile [(ngModel)]="filetextinput" name="filetextinput" id="filetextinput" type="text" />
+                            </div>
+                        </div>
+                    </div>
+                    <label *ngIf="searchWordsSize > 0" for="searchPhraseInput" [style.font-size]="fontSize ? fontSize : ''">Search Words </label>
+                    <input
+                        *ngIf="searchWordsSize > 0"
+                        maxlength="{{ searchWordsSize }}"
+                        [(ngModel)]="searchPhraseInput"
+                        name="searchPhraseInput"
+                        id="searchPhraseInput"
+                        type="text"
+                        [style.font-size]="fontSize ? fontSize : ''"
+                    />
+
+                    <div [ngStyle]="{ display: uploadOpen }" class="modal-footer">
+                        <div>
+                            <span style="color: red">* {{ extensionText }}</span>
+                            <div *ngIf="buttonsFileUpload.length != 0" class="cst-report-page">
+                                <div *ngFor="let item of buttonsFileUpload" class="footer-btn-col {{ item.isEnabled ? '' : 'setDisableBtn' }}">
+                                    <app-displayButton
+                                        [getButtonResponse]="item"
+                                        (click)="buttonAPICall(item.onPush, item.action, item.viewId, item.ddname, item.cc)"
+                                        (keydown.space)="buttonAPICall(item.onPush, item.action, item.viewId, item.ddname, item.cc)"
+                                    >
+                                    </app-displayButton>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dyn-custom-align dyn-custom-align-grid">
+                    <app-displaysubgrid *ngIf="displaySubGridrespDialog" [greetSubresponse]="displaySubGridrespDialog" (sendData)="getDataResponse($event)"></app-displaysubgrid>
+                    <div [style.display]="navigationcss" class="setInCenter">
+                        <app-naviagtion id="itemInquiry" *ngIf="navigatinresponseDialog" [naviresponse]="navigatinresponseDialog" (navChanged)="navChangedHandlerDialog($event)"> </app-naviagtion>
+                    </div>
+                </div>
+                <app-displayview *ngIf="displayViewresponseDialog" [setDisplayView]="displayViewresponseDialog"> </app-displayview>
+
+                <app-displaydtForm
+                    *ngIf="responseDtFormDialog"
+                    [getdtForm]="responseDtFormDialog"
+                    (sendDtForm)="receiveDtForm($event)"
+                    (message)="getcancel($event)"
+                    (keyup.enter)="showEnterKey ? receiveDtFormEnter($event) : ''"
+                ></app-displaydtForm>
+
+                <div *ngIf="buttonresponseDialog.length != 0" class="cst-report-page modal-footer">
+                    <div *ngFor="let item of buttonresponseDialog" class="footer-btn-col {{ item?.isEnabled ? '' : 'setDisableBtn' }}">
+                        <app-displayButton [getButtonResponse]="item" (click)="buttonAPICall(item.onPush, item.action)" (keydown.space)="buttonAPICall(item.onPush, item.action)"> </app-displayButton>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Dialog-->
+<div class="main-block" (keydown)="desabledTab($event)">
+    <div *ngIf="showBusyText?.length > 0" class="setbusyText">
+        {{ showBusyText }}
+    </div>
+    <div [style.display]="loader" id="loader" class="loading"></div>
+    <div class="">
+        <div class="row">
+            <div class="col s12">
+                <div class="custom-page">
+                    <form [ngStyle]="{ display: showForm }" #dtForm="ngForm" (keydown.enter)="enterKeySubmits == false ? $event.preventDefault() : ''">
+                        <div *ngIf="title?.length > 2" class="top-heading" [innerHTML]="title">
+                            <!-- {{title}} -->
+                        </div>
+
+                        <div *ngIf="dtFormList?.length > 0" class="modal-content info-col cst-account-col" id="receipt-form">
+                            <div *ngFor="let dtFormrow of dtFormList; let j = index">
+                                <div class="{{ dtFormrow.divclass }} cst-row-space">
+                                    <div *ngIf="dtFormrow.section" class="section">
+                                        <!-- {{j}}-->
+                                        <div class="sectionclass">{{ dtFormrow.section }}</div>
+                                    </div>
+                                    <ng-container *ngFor="let dtfields of dtFormrow.fields; let i = index">
+                                        <div class="receipt-field">
+                                            <div
+                                                *ngIf="
+                                                    dtfields.type == 'text' &&
+                                                    !dtfields.hidden &&
+                                                    dtfields.show === undefined &&
+                                                    dtfields.onChangeApi === undefined &&
+                                                    dtfields.onFocus === undefined &&
+                                                    dtfields.isCardNumber === undefined &&
+                                                    dtfields.isExpiry === undefined
+                                                "
+                                                class="{{ dtfields.divclass }}"
+                                            >
+                                                <input
+                                                    type="{{ dtfields.type }}"
+                                                    attr.id="{{ dtfields.name }}"
+                                                    pattern="{{ dtfields.pattern }}"
+                                                    minlength="{{ dtfields.minlength }}"
+                                                    placeholder="{{ dtfields.placeholder }}"
+                                                    [required]="dtfields?.required"
+                                                    (change)="
+                                                        getFocusOut(
+                                                            $event,
+                                                            dtfields.value,
+                                                            dtfields.onChangeApi === undefined ? '' : dtfields.onChangeApi,
+                                                            dtForm,
+                                                            dtfields.name,
+                                                            dtfields.tabindex,
+                                                            dtfields.showBusyIndicator === undefined ? '' : dtfields.showBusyIndicator,
+                                                            dtfields.type,
+                                                            dtfields.includeAllFields,
+                                                            '',
+                                                            '',
+                                                            false,
+                                                            dtControle?.errors
+                                                        )
+                                                    "
+                                                    [size]="dtfields?.size && dtfields.size !== 0 ? dtfields.size : 10"
+                                                    name="{{ dtfields.name }}"
+                                                    tabindex="{{ dtfields.tabindex }}"
+                                                    maxlength="{{ dtfields.maxlength }}"
+                                                    [(ngModel)]="dtfields.value"
+                                                    class="{{ dtfields.inputclass }}"
+                                                    #dtControle="ngModel"
+                                                    [autofocus]="dtfields.focus ? true : false"
+                                                    (focus)="myMethod($event)"
+                                                    (keyup.enter)="enterKeySubmits ? savedtForm(dtForm, onPush, dtFormList, $event) : ''"
+                                                    [disabled]="dtfields.readonly ? true : false"
+                                                    [ngStyle]="{
+                                                        'text-transform': dtfields.style !== undefined ? transformValue(dtfields.style) : '',
+                                                        'text-align': dtfields.textalign,
+                                                        'max-width': dtfields.maxwidth,
+                                                        'font-size': fontSize
+                                                    }"
+                                                    [style.font-size]="fontSize ? fontSize : ''"
+                                                />
+
+                                                <label [style.font-size]="fontSize ? fontSize : ''" for="{{ dtfields.name }}"
+                                                    >{{ dtfields.label }}
+                                                    <!-- 99 --><span *ngIf="dtfields.required" class="required-ast">*</span>
+                                                </label>
+                                                <i class="{{ dtfields.icon }}"></i>
+
+                                                <span class="invalid" data-error="wrong" data-success="right" *ngIf="dtControle?.errors?.minlength && dtControle.touched">
+                                                    Please enter at least
+                                                    {{ dtfields.minlength }} characters.
+                                                </span>
+                                                <span class="invalid" data-error="wrong" data-success="right" *ngIf="dtControle?.errors?.pattern && dtControle.touched">
+                                                    Please enter valid {{ dtfields.pattern }} pattern.
+                                                </span>
+                                            </div>
+                                            <div
+                                                *ngIf="dtfields.type == 'text' && !dtfields.hidden && dtfields.show !== undefined && dtfields.onChangeApi == undefined"
+                                                class="{{ dtfields.divclass }}"
+                                            >
+                                                <input type="hidden" name="{{ dtfields.name }}" [(ngModel)]="dtfields.value" />
+                                                <input
+                                                    type="{{ dtfields.type }}"
+                                                    attr.id="{{ dtfields.name }}"
+                                                    pattern="{{ dtfields.pattern }}"
+                                                    name="{{ dtfields.name }}"
+                                                    tabindex="{{ dtfields.tabindex }}"
+                                                    maxlength="{{ dtfields.maxlength }}"
+                                                    minlength="{{ dtfields.minlength }}"
+                                                    [size]="dtfields?.size && dtfields.size !== 0 ? dtfields.size : 10"
+                                                    [required]="dtfields?.required"
+                                                    placeholder="{{ dtfields.placeholder }}"
+                                                    [(ngModel)]="dtfields.show"
+                                                    #dtControle="ngModel"
+                                                    [autofocus]="dtfields.focus ? true : false"
+                                                    (focus)="myMethod($event)"
+                                                    (keyup.enter)="enterKeySubmits ? savedtForm(dtForm, onPush, dtFormList, $event) : ''"
+                                                    (change)="
+                                                        getFocusOut(
+                                                            $event,
+                                                            dtfields.value,
+                                                            dtfields.onChangeApi === undefined ? '' : dtfields.onChangeApi,
+                                                            dtForm,
+                                                            dtfields.name,
+                                                            dtfields.tabindex,
+                                                            dtfields.showBusyIndicator === undefined ? '' : dtfields.showBusyIndicator,
+                                                            dtfields.type,
+                                                            dtfields.includeAllFields
+                                                        )
+                                                    "
+                                                    class="{{ dtfields.inputclass }}"
+                                                    (keydown)="getVlaue($event, dtfields.onChangeApi)"
+                                                    [disabled]="dtfields.readonly ? true : false"
+                                                    [ngStyle]="{
+                                                        'text-transform': dtfields.style !== undefined ? transformValue(dtfields.style) : '',
+                                                        'text-align': dtfields.textalign,
+                                                        'max-width': dtfields.maxwidth
+                                                    }"
+                                                    [style.font-size]="fontSize ? fontSize : ''"
+                                                />
+                                                <label for="{{ dtfields.name }}" [style.font-size]="fontSize ? fontSize : ''"
+                                                    >{{ dtfields.label }}<span *ngIf="dtfields.required" class="required-ast">*</span></label
+                                                >
+                                                <i
+                                                    *ngIf="dtfields.readonly == false || dtfields.readonly == undefined"
+                                                    class="{{ dtfields.icon }}"
+                                                    (mousedown)="
+                                                        getClickApi(
+                                                            $event,
+                                                            getClickApival,
+                                                            dtfields.value,
+                                                            dtfields.onChangeApi === undefined ? '' : dtfields.onChangeApi,
+                                                            dtForm,
+                                                            dtfields.name,
+                                                            dtfields.showBusyIndicator
+                                                        )
+                                                    "
+                                                ></i>
+                                                <i *ngIf="dtfields.readonly == true" class="{{ dtfields.icon }}"></i>
+                                                <!-- <span class="invalid" data-error="wrong" data-success="right"
+                                                    *ngIf="dtControle?.errors?.required && dtControle.touched">
+                                                    Required
+                                                </span> -->
+                                                <span class="invalid" data-error="wrong" data-success="right" *ngIf="dtControle?.errors?.minlength && dtControle.touched">
+                                                    Please enter at least
+                                                    {{ dtfields.minlength }} characters.
+                                                </span>
+                                                <span class="invalid" data-error="wrong" data-success="right" *ngIf="dtControle?.errors?.pattern && dtControle.touched">
+                                                    Please enter valid {{ dtfields.pattern }} pattern.
+                                                </span>
+                                            </div>
+
+                                            <!--- ADDED FOR IP ADDRESS -->
+                                            <div *ngIf="dtfields.type == 'ipAddress' && !dtfields.hidden" class="{{ dtfields.divclass }}">
+                                                <input
+                                                    type="text"
+                                                    attr.id="{{ dtfields.name }}"
+                                                    minlength="{{ dtfields.minlength }}"
+                                                    placeholder="{{ dtfields.placeholder }}"
+                                                    [required]="dtfields?.required"
+                                                    (change)="
+                                                        getFocusOut(
+                                                            $event,
+                                                            dtfields.value,
+                                                            dtfields.onChangeApi === undefined ? '' : dtfields.onChangeApi,
+                                                            dtForm,
+                                                            dtfields.name,
+                                                            dtfields.tabindex,
+                                                            dtfields.showBusyIndicator === undefined ? '' : dtfields.showBusyIndicator,
+                                                            dtfields.type,
+                                                            dtfields.includeAllFields
+                                                        )
+                                                    "
+                                                    [size]="dtfields?.size && dtfields.size !== 0 ? dtfields.size : 10"
+                                                    name="{{ dtfields.name }}"
+                                                    tabindex="{{ dtfields.tabindex }}"
+                                                    maxlength="{{ dtfields.maxlength }}"
+                                                    [(ngModel)]="dtfields.value"
+                                                    class="{{ dtfields.inputclass }}"
+                                                    #dtControleIp="ngModel"
+                                                    [autofocus]="dtfields.focus ? true : false"
+                                                    (blur)="validateField(dtfields)"
+                                                    (keyup.enter)="enterKeySubmits ? savedtForm(dtForm, onPush, dtFormList, $event) : ''"
+                                                    [disabled]="dtfields.readonly ? true : false"
+                                                    [ngStyle]="{
+                                                        'text-transform': dtfields.style !== undefined ? transformValue(dtfields.style) : '',
+                                                        'text-align': dtfields.textalign,
+                                                        'max-width': dtfields.maxwidth
+                                                    }"
+                                                    [style.font-size]="fontSize ? fontSize : ''"
+                                                />
+
+                                                <label for="{{ dtfields.name }}" [style.font-size]="fontSize ? fontSize : ''"
+                                                    >{{ dtfields.label }}<span *ngIf="dtfields.required" class="required-ast">*</span></label
+                                                >
+                                                <i class="{{ dtfields.icon }}"></i>
+
+                                                <!-- <span class="invalid" data-error="wrong" data-success="right"
+                                                    *ngIf="dtControleIp?.errors?.required && dtControleIp.touched">
+                                                    Required
+                                                </span> -->
+
+                                                <span class="invalid" data-error="wrong" data-success="right" *ngIf="ipAddressInvalid && dtControleIp.touched && dtfields.value != ''">
+                                                    Please enter valid Ip Address
+                                                </span>
+                                            </div>
+                                            <!--- ADDED FOR HEXADECIMAL -->
+                                            <div *ngIf="dtfields.type == 'hexadecimal' && !dtfields.hidden" class="{{ dtfields.divclass }}">
+                                                <input
+                                                    type="text"
+                                                    attr.id="{{ dtfields.name }}"
+                                                    minlength="{{ dtfields.minlength }}"
+                                                    placeholder="{{ dtfields.placeholder }}"
+                                                    [required]="dtfields?.required"
+                                                    (change)="
+                                                        getFocusOut(
+                                                            $event,
+                                                            dtfields.value,
+                                                            dtfields.onChangeApi === undefined ? '' : dtfields.onChangeApi,
+                                                            dtForm,
+                                                            dtfields.name,
+                                                            dtfields.tabindex,
+                                                            dtfields.showBusyIndicator === undefined ? '' : dtfields.showBusyIndicator,
+                                                            dtfields.type,
+                                                            dtfields.includeAllFields
+                                                        )
+                                                    "
+                                                    [size]="dtfields?.size && dtfields.size !== 0 ? dtfields.size : 10"
+                                                    name="{{ dtfields.name }}"
+                                                    tabindex="{{ dtfields.tabindex }}"
+                                                    maxlength="{{ dtfields.maxlength }}"
+                                                    [(ngModel)]="dtfields.value"
+                                                    class="{{ dtfields.inputclass }} setMonospace"
+                                                    #dtControlehexadecimal="ngModel"
+                                                    [autofocus]="dtfields.focus ? true : false"
+                                                    (blur)="validateField(dtfields)"
+                                                    (keyup.enter)="enterKeySubmits ? savedtForm(dtForm, onPush, dtFormList, $event) : ''"
+                                                    [disabled]="dtfields.readonly ? true : false"
+                                                    [ngStyle]="{
+                                                        'text-transform': dtfields.style !== undefined ? transformValue(dtfields.style) : '',
+                                                        'text-align': dtfields.textalign,
+                                                        'max-width': dtfields.maxwidth
+                                                    }"
+                                                    [style.font-size]="fontSize ? fontSize : ''"
+                                                />
+
+                                                <label for="{{ dtfields.name }}" [style.font-size]="fontSize ? fontSize : ''"
+                                                    >{{ dtfields.label }}
+                                                    <!-- {{hexadecimalInvalid}} --><span *ngIf="dtfields.required" class="required-ast">*</span>
+                                                </label>
+                                                <i class="{{ dtfields.icon }}"></i>
+
+                                                <!-- <span class="invalid" data-error="wrong" data-success="right"
+                                                    *ngIf="dtControlehexadecimal?.errors?.required && dtControlehexadecimal.touched">
+                                                    Required
+                                                </span> -->
+
+                                                <span class="invalid" data-error="wrong" data-success="right" *ngIf="hexadecimalInvalid && dtControlehexadecimal.touched && dtfields.value != ''">
+                                                    Please enter valid Hexadecimal Field
+                                                </span>
+                                            </div>
+                                            <!--- ADDED FOR url -->
+                                            <div *ngIf="dtfields.type == 'url' && !dtfields.hidden" class="{{ dtfields.divclass }}">
+                                                <input
+                                                    type="text"
+                                                    attr.id="{{ dtfields.name }}"
+                                                    pattern="{{ dtfields.pattern }}"
+                                                    minlength="{{ dtfields.minlength }}"
+                                                    placeholder="{{ dtfields.placeholder }}"
+                                                    [required]="dtfields?.required"
+                                                    (change)="
+                                                        getFocusOut(
+                                                            $event,
+                                                            dtfields.value,
+                                                            dtfields.onChangeApi === undefined ? '' : dtfields.onChangeApi,
+                                                            dtForm,
+                                                            dtfields.name,
+                                                            dtfields.tabindex,
+                                                            dtfields.showBusyIndicator === undefined ? '' : dtfields.showBusyIndicator,
+                                                            dtfields.type,
+                                                            dtfields.includeAllFields
+                                                        )
+                                                    "
+                                                    [size]="dtfields?.size && dtfields.size !== 0 ? dtfields.size : 10"
+                                                    name="{{ dtfields.name }}"
+                                                    tabindex="{{ dtfields.tabindex }}"
+                                                    maxlength="{{ dtfields.maxlength }}"
+                                                    [(ngModel)]="dtfields.value"
+                                                    class="{{ dtfields.inputclass }}"
+                                                    #dtControleurl="ngModel"
+                                                    [autofocus]="dtfields.focus ? true : false"
+                                                    (blur)="validateField(dtfields)"
+                                                    (keyup.enter)="enterKeySubmits ? savedtForm(dtForm, onPush, dtFormList, $event) : ''"
+                                                    [disabled]="dtfields.readonly ? true : false"
+                                                    [ngStyle]="{
+                                                        'text-transform': dtfields.style !== undefined ? transformValue(dtfields.style) : '',
+                                                        'text-align': dtfields.textalign,
+                                                        'max-width': dtfields.maxwidth
+                                                    }"
+                                                    [style.font-size]="fontSize ? fontSize : ''"
+                                                />
+
+                                                <label for="{{ dtfields.name }}" [style.font-size]="fontSize ? fontSize : ''"
+                                                    >{{ dtfields.label }}<span *ngIf="dtfields.required" class="required-ast">*</span></label
+                                                >
+                                                <i class="{{ dtfields.icon }}"></i>
+
+                                                <!-- <span class="invalid" data-error="wrong" data-success="right"
+                                                    *ngIf="dtControleurl?.errors?.required && dtControleurl.touched">
+                                                    Required
+                                                </span> -->
+
+                                                <span class="invalid" data-error="wrong" data-success="right" *ngIf="urlInvalid && dtControleurl.touched && dtfields.value != ''">
+                                                    Please enter valid Url
+                                                </span>
+                                            </div>
+
+                                            <!--- ADDED FOR MAC ADDRESS -->
+                                            <div *ngIf="dtfields.type == 'macAddress' && !dtfields.hidden" class="{{ dtfields.divclass }}">
+                                                <input
+                                                    type="text"
+                                                    attr.id="{{ dtfields.name }}"
+                                                    pattern="{{ dtfields.pattern }}"
+                                                    minlength="{{ dtfields.minlength }}"
+                                                    placeholder="{{ dtfields.placeholder }}"
+                                                    [required]="dtfields?.required"
+                                                    (change)="
+                                                        getFocusOut(
+                                                            $event,
+                                                            dtfields.value,
+                                                            dtfields.onChangeApi === undefined ? '' : dtfields.onChangeApi,
+                                                            dtForm,
+                                                            dtfields.name,
+                                                            dtfields.tabindex,
+                                                            dtfields.showBusyIndicator === undefined ? '' : dtfields.showBusyIndicator,
+                                                            dtfields.type,
+                                                            dtfields.includeAllFields
+                                                        )
+                                                    "
+                                                    [size]="dtfields?.size && dtfields.size !== 0 ? dtfields.size : 10"
+                                                    name="{{ dtfields.name }}"
+                                                    tabindex="{{ dtfields.tabindex }}"
+                                                    maxlength="{{ dtfields.maxlength }}"
+                                                    [(ngModel)]="dtfields.value"
+                                                    class="{{ dtfields.inputclass }}"
+                                                    #dtControleMac="ngModel"
+                                                    [autofocus]="dtfields.focus ? true : false"
+                                                    (blur)="validateField(dtfields)"
+                                                    (keyup.enter)="enterKeySubmits ? savedtForm(dtForm, onPush, dtFormList, $event) : ''"
+                                                    [disabled]="dtfields.readonly ? true : false"
+                                                    [ngStyle]="{
+                                                        'text-transform': dtfields.style !== undefined ? transformValue(dtfields.style) : '',
+                                                        'text-align': dtfields.textalign,
+                                                        'max-width': dtfields.maxwidth
+                                                    }"
+                                                    [style.font-size]="fontSize ? fontSize : ''"
+                                                />
+
+                                                <label for="{{ dtfields.name }}" [style.font-size]="fontSize ? fontSize : ''"
+                                                    >{{ dtfields.label }}<span *ngIf="dtfields.required" class="required-ast">*</span></label
+                                                >
+                                                <i class="{{ dtfields.icon }}"></i>
+
+                                                <!-- <span class="invalid" data-error="wrong" data-success="right"
+                                                    *ngIf="dtControleMac?.errors?.required && dtControleMac.touched">
+                                                    Required
+                                                </span> -->
+
+                                                <span class="invalid" data-error="wrong" data-success="right" *ngIf="macAddressInvalid && dtControleMac.touched && dtfields.value != ''">
+                                                    Please enter valid Mac Address
+                                                </span>
+                                            </div>
+                                            <!--- ADDED FOR USTELEPHONE NUMBER -->
+                                            <div *ngIf="dtfields.type == 'usTelephoneNumber' && !dtfields.hidden" class="{{ dtfields.divclass }}">
+                                                <input
+                                                    type="text"
+                                                    attr.id="{{ dtfields.name }}"
+                                                    pattern="{{ dtfields.pattern }}"
+                                                    minlength="{{ dtfields.minlength }}"
+                                                    placeholder="{{ dtfields.placeholder }}"
+                                                    [required]="dtfields?.required"
+                                                    (change)="
+                                                        getFocusOut(
+                                                            $event,
+                                                            dtfields.value,
+                                                            dtfields.onChangeApi === undefined ? '' : dtfields.onChangeApi,
+                                                            dtForm,
+                                                            dtfields.name,
+                                                            dtfields.tabindex,
+                                                            dtfields.showBusyIndicator === undefined ? '' : dtfields.showBusyIndicator,
+                                                            dtfields.type,
+                                                            dtfields.includeAllFields
+                                                        )
+                                                    "
+                                                    [size]="dtfields?.size && dtfields.size !== 0 ? dtfields.size : 10"
+                                                    name="{{ dtfields.name }}"
+                                                    tabindex="{{ dtfields.tabindex }}"
+                                                    maxlength="{{ dtfields.maxlength }}"
+                                                    [(ngModel)]="dtfields.value"
+                                                    class="{{ dtfields.inputclass }}"
+                                                    #dtControleTele="ngModel"
+                                                    [autofocus]="dtfields.focus ? true : false"
+                                                    (blur)="validateField(dtfields)"
+                                                    mask="000-000-0000"
+                                                    (keyup.enter)="enterKeySubmits ? savedtForm(dtForm, onPush, dtFormList, $event) : ''"
+                                                    [disabled]="dtfields.readonly ? true : false"
+                                                    [ngStyle]="{
+                                                        'text-transform': dtfields.style !== undefined ? transformValue(dtfields.style) : '',
+                                                        'text-align': dtfields.textalign,
+                                                        'max-width': dtfields.maxwidth
+                                                    }"
+                                                    [style.font-size]="fontSize ? fontSize : ''"
+                                                />
+
+                                                <label for="{{ dtfields.name }}" [style.font-size]="fontSize ? fontSize : ''"
+                                                    >{{ dtfields.label }}<span *ngIf="dtfields.required" class="required-ast">*</span></label
+                                                >
+                                                <i class="{{ dtfields.icon }}"></i>
+
+                                                <!-- <span class="invalid" data-error="wrong" data-success="right"
+                                                    *ngIf="dtControleTele?.errors?.required && dtControleTele.touched">
+                                                    Required
+                                                </span> -->
+
+                                                <span class="invalid" data-error="wrong" data-success="right" *ngIf="ustelephoneInvalid && dtControleTele.touched && dtfields.value != ''">
+                                                    Please enter valid Phone Number
+                                                </span>
+                                            </div>
+                                            <!-- ADDED FOR CREDIT CARD NUMBER -->
+                                            <div
+                                                *ngIf="
+                                                    dtfields.type == 'text' &&
+                                                    !dtfields.hidden &&
+                                                    dtfields.show === undefined &&
+                                                    dtfields.onChangeApi === undefined &&
+                                                    dtfields.onFocus === undefined &&
+                                                    dtfields.isCardNumber
+                                                "
+                                                class="{{ dtfields.divclass }}"
+                                            >
+                                                <input
+                                                    class="{{ dtfields.inputclass }}"
+                                                    type="{{ dtfields.type }}"
+                                                    numberInputValidator
+                                                    attr.id="{{ dtfields.name }}"
+                                                    name="{{ dtfields.name }}"
+                                                    pattern="{{ dtfields.pattern }}"
+                                                    [style.font-size]="fontSize ? fontSize : ''"
+                                                    minlength="{{ dtfields.minlength }}"
+                                                    placeholder="{{ dtfields.placeholder }}"
+                                                    [required]="dtfields?.required"
+                                                    size="{{ dtfields.size }}"
+                                                    maxlength="{{ dtfields.maxlength }}"
+                                                    [disabled]="dtfields.readonly ? true : false"
+                                                    tabindex="{{ dtfields.tabindex }}"
+                                                    [(ngModel)]="dtfields.value"
+                                                    #numberControle="ngModel"
+                                                    mask="0000 0000 0000 0000"
+                                                    required
+                                                />
+
+                                                <label for="{{ dtfields.name }}" [style.font-size]="fontSize ? fontSize : ''"
+                                                    >{{ dtfields.label }}<span *ngIf="dtfields.required" class="required-ast">*</span></label
+                                                >
+                                                <i class="{{ dtfields.icon }}"></i>
+
+                                                <!-- <span class="invalid" data-error="wrong" data-success="right"
+                                                    *ngIf="numberControle.invalid && numberControle.touched">
+                                                    Required
+                                                </span> -->
+                                                <br />
+                                                <span class="invalid" data-error="wrong" data-success="right" *ngIf="numberControle.errors?.numberInput && numberControle.touched">
+                                                    Invalid Credit Card Number.
+                                                </span>
+                                            </div>
+                                            <!---- ADDED FOR EXPIRY THRU-->
+                                            <div
+                                                *ngIf="
+                                                    dtfields.type == 'text' &&
+                                                    !dtfields.hidden &&
+                                                    dtfields.show === undefined &&
+                                                    dtfields.onChangeApi === undefined &&
+                                                    dtfields.onFocus === undefined &&
+                                                    dtfields.isExpiry
+                                                "
+                                                class="{{ dtfields.divclass }}"
+                                            >
+                                                <input
+                                                    class="{{ dtfields.inputclass }}"
+                                                    type="{{ dtfields.type }}"
+                                                    [style.font-size]="fontSize ? fontSize : ''"
+                                                    expiryInputValidator
+                                                    attr.id="{{ dtfields.name }}"
+                                                    name="{{ dtfields.name }}"
+                                                    [disabled]="dtfields.readonly ? true : false"
+                                                    pattern="{{ dtfields.pattern }}"
+                                                    placeholder="{{ dtfields.placeholder }}"
+                                                    [required]="dtfields?.required"
+                                                    size="{{ dtfields.size }}"
+                                                    tabindex="{{ dtfields.tabindex }}"
+                                                    [(ngModel)]="dtfields.value"
+                                                    #expiryControle="ngModel"
+                                                    [dropSpecialCharacters]="false"
+                                                    mask="00 / 00"
+                                                    required
+                                                />
+
+                                                <label for="{{ dtfields.name }}" [style.font-size]="fontSize ? fontSize : ''"
+                                                    >{{ dtfields.label }}<span *ngIf="dtfields.required" class="required-ast">*</span></label
+                                                >
+                                                <i class="{{ dtfields.icon }}"></i>
+
+                                                <!-- <span class="invalid" data-error="wrong" data-success="right"
+                                                    *ngIf="expiryControle.invalid && expiryControle.touched">
+                                                    Required
+                                                </span> -->
+                                                <br />
+                                                <span class="invalid" data-error="wrong" data-success="right" *ngIf="expiryControle.errors?.expiryInput && expiryControle.touched">
+                                                    Invalid or expired date.
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div *ngIf="dtfields.type == 'text' && !dtfields.hidden && dtfields.show === undefined && dtfields.onFocus == 'geolocate()'" class="cst-location-col">
+                                            <div *ngIf="dtfields.type == 'text' && dtfields.show === undefined && dtfields.onFocus == 'geolocate()'" class="{{ dtfields.divclass }}">
+                                                <AutocompleteComponent
+                                                    [getDivId]="j"
+                                                    [getDivsAndInput]="dtfields"
+                                                    [updateAddress]="updateAddress"
+                                                    (setAddress)="getAddress($event)"
+                                                    (keydown)="onTabPress($event)"
+                                                    (keyup)="onTabPress($event)"
+                                                    (setManualInput)="getManualAddress($event)"
+                                                    adressType="geocode"
+                                                    [getName]="getNameValue(dtfields.name, dtfields.value, dtfields.onFocus)"
+                                                >
+                                                </AutocompleteComponent>
+                                            </div>
+                                        </div>
+
+                                        <div *ngIf="dtfields.type == 'file'" class="{{ dtfields.divclass }} file-field input-field">
+                                            <div>{{ dtfields.label }}</div>
+                                            <div class="btn fa fa-folder-open DTButton">
+                                                <span class="browsePadding">BROWSE</span>
+                                                <input
+                                                    [multiple]="dtfields.multiple"
+                                                    #fileInput
+                                                    accept="{{ dtfields.extensions }}"
+                                                    (change)="onSelectFile($event, true, dtfields.name)"
+                                                    id="files"
+                                                    name="{{ dtfields.name }}"
+                                                    type="file"
+                                                />
+                                            </div>
+
+                                            <div class="file-path-wrapper">
+                                                <span *ngIf="dtfields?.extensions" style="color: red">* {{ dtfields.extensions }}</span>
+                                                <input class="file-path validate" #inputFile [(ngModel)]="filetextinput" name="filetextinput" id="filetextinput" type="text" />
+                                            </div>
+                                        </div>
+
+                                        <div *ngIf="dtfields.type == 'file' && dtfields?.searchWordsSize" class="{{ dtfields.divclass }}">
+                                            <label for="searchPhraseInput" [style.font-size]="fontSize ? fontSize : ''">Search Words </label>
+                                            <input
+                                                *ngIf="dtfields?.searchWordsSize"
+                                                maxlength="{{ dtfields.searchWordsSize }}"
+                                                [(ngModel)]="searchPhraseInput"
+                                                name="searchPhraseInput"
+                                                type="text"
+                                                [style.font-size]="fontSize ? fontSize : ''"
+                                            />
+                                        </div>
+
+                                        <div *ngIf="dtfields.type == 'text' && !dtfields.hidden && dtfields.show !== undefined && dtfields.onChangeApi !== undefined" class="{{ dtfields.divclass }}">
+                                            <input type="hidden" name="{{ dtfields.name }}" [(ngModel)]="dtfields.value" />
+                                            <input
+                                                type="{{ dtfields.type }}"
+                                                attr.id="{{ dtfields.name }}"
+                                                pattern="{{ dtfields.pattern }}"
+                                                name="{{ dtfields.name }}"
+                                                tabindex="{{ dtfields.tabindex }}"
+                                                maxlength="{{ dtfields.maxlength }}"
+                                                minlength="{{ dtfields.minlength }}"
+                                                [size]="dtfields?.size && dtfields.size !== 0 ? dtfields.size : 10"
+                                                [required]="dtfields?.required"
+                                                placeholder="{{ dtfields.placeholder }}"
+                                                [(ngModel)]="dtfields.show === undefined ? dtfields.value : dtfields.show"
+                                                #dtControle="ngModel"
+                                                [autofocus]="dtfields.focus ? true : false"
+                                                (focus)="myMethod($event)"
+                                                (keyup.enter)="enterKeySubmits ? savedtForm(dtForm, onPush, dtFormList, $event) : ''"
+                                                (change)="
+                                                    getFocusOut(
+                                                        $event,
+                                                        dtfields.value,
+                                                        dtfields.onChangeApi === undefined ? '' : dtfields.onChangeApi,
+                                                        dtForm,
+                                                        dtfields.name,
+                                                        dtfields.tabindex,
+                                                        dtfields.showBusyIndicator === undefined ? '' : dtfields.showBusyIndicator,
+                                                        dtfields.type,
+                                                        dtfields.includeAllFields
+                                                    )
+                                                "
+                                                class="{{ dtfields.inputclass }} {{ dtfields.isValid ? 'setValid' : 'setInValid' }}"
+                                                (keydown)="getVlaue($event, dtfields.onChangeApi)"
+                                                [disabled]="dtfields.readonly ? true : false"
+                                                [ngStyle]="{
+                                                    'text-transform': dtfields.style !== undefined ? transformValue(dtfields.style) : '',
+                                                    'text-align': dtfields.textalign,
+                                                    'max-width': dtfields.maxwidth
+                                                }"
+                                                [style.font-size]="fontSize ? fontSize : ''"
+                                            />
+                                            <label for="{{ dtfields.name }}" [style.font-size]="fontSize ? fontSize : ''"
+                                                >{{ dtfields.label }}
+                                                <!-- yy keyup change to keydown 17 dec 2021 --><span *ngIf="dtfields.required" class="required-ast">*</span>
+                                            </label>
+                                            <i
+                                                *ngIf="dtfields.readonly == undefined || dtfields.readonly == false"
+                                                class="{{ dtfields.icon }}"
+                                                (mousedown)="
+                                                    getClickApi(
+                                                        $event,
+                                                        getClickApival,
+                                                        dtfields.value,
+                                                        dtfields.onChangeApi === undefined ? '' : dtfields.onChangeApi,
+                                                        dtForm,
+                                                        dtfields.name,
+                                                        dtfields.showBusyIndicator
+                                                    )
+                                                "
+                                            ></i>
+                                            <i *ngIf="dtfields.readonly == true" class="{{ dtfields.icon }}"></i>
+
+                                            <!-- <span class="invalid" data-error="wrong" data-success="right"
+                                                *ngIf="dtControle?.errors?.required && dtControle.touched">
+                                                Required
+                                            </span> -->
+                                            <span class="invalid" data-error="wrong" data-success="right" *ngIf="dtControle?.errors?.minlength && dtControle.touched">
+                                                Please enter at least
+                                                {{ dtfields.minlength }} characters.
+                                            </span>
+                                            <span class="invalid" data-error="wrong" data-success="right" *ngIf="dtControle?.errors?.pattern && dtControle.touched">
+                                                Please enter valid {{ dtfields.pattern }} pattern.
+                                            </span>
+                                        </div>
+
+                                        <div *ngIf="dtfields.type == 'text' && !dtfields.hidden && dtfields.show === undefined && dtfields.onChangeApi !== undefined" class="{{ dtfields.divclass }}">
+                                            <input
+                                                type="{{ dtfields.type }}"
+                                                attr.id="{{ dtfields.name }}"
+                                                pattern="{{ dtfields.pattern }}"
+                                                name="{{ dtfields.name }}"
+                                                [required]="dtfields?.required"
+                                                tabindex="{{ dtfields.tabindex }}"
+                                                maxlength="{{ dtfields.maxlength }}"
+                                                minlength="{{ dtfields.minlength }}"
+                                                [size]="dtfields?.size && dtfields.size !== 0 ? dtfields.size : 10"
+                                                placeholder="{{ dtfields.placeholder }}"
+                                                [(ngModel)]="dtfields.value"
+                                                (keyup.enter)="enterKeySubmits ? savedtForm(dtForm, onPush, dtFormList, $event) : ''"
+                                                #dtControle="ngModel"
+                                                [autofocus]="dtfields.focus ? true : false"
+                                                (focus)="myMethod($event)"
+                                                (change)="
+                                                    getFocusOut(
+                                                        $event,
+                                                        dtfields.value,
+                                                        dtfields.onChangeApi === undefined ? '' : dtfields.onChangeApi,
+                                                        dtForm,
+                                                        dtfields.name,
+                                                        dtfields.tabindex,
+                                                        dtfields.showBusyIndicator === undefined ? '' : dtfields.showBusyIndicator,
+                                                        dtfields.type,
+                                                        dtfields.includeAllFields
+                                                    )
+                                                "
+                                                class="{{ dtfields.inputclass }} manage-search {{ dtfields.isValid ? 'setValid' : 'setInValid' }}"
+                                                (keydown)="getVlaue($event, dtfields.onChangeApi)"
+                                                [disabled]="dtfields.readonly ? true : false"
+                                                [ngStyle]="{
+                                                    'text-transform': dtfields.style !== undefined ? transformValue(dtfields.style) : '',
+                                                    'text-align': dtfields.textalign,
+                                                    'max-width': dtfields.maxwidth
+                                                }"
+                                                [style.font-size]="fontSize ? fontSize : ''"
+                                            />
+
+                                            <label for="{{ dtfields.name }}" [style.font-size]="fontSize ? fontSize : ''"
+                                                >{{ dtfields.label }}
+                                                <!-- ggg -->
+                                                <!-- zip --><span *ngIf="dtfields.required" class="required-ast">*</span>
+                                            </label>
+
+                                            <i
+                                                *ngIf="dtfields.readonly == false || dtfields.readonly == undefined"
+                                                class="{{ dtfields.icon }}"
+                                                (mousedown)="
+                                                    getClickApi(
+                                                        $event,
+                                                        getClickApival,
+                                                        dtfields.value,
+                                                        dtfields.onChangeApi === undefined ? '' : dtfields.onChangeApi,
+                                                        dtForm,
+                                                        dtfields.name,
+                                                        dtfields.showBusyIndicator
+                                                    )
+                                                "
+                                            ></i>
+                                            <i *ngIf="dtfields.readonly == true" class="{{ dtfields.icon }}"></i>
+                                            <!-- <span class="invalid" data-error="wrong" data-success="right"
+                                                *ngIf="dtControle?.errors?.required && dtControle.touched">
+                                                Required
+                                            </span> -->
+                                            <span class="invalid" data-error="wrong" data-success="right" *ngIf="dtControle?.errors?.minlength && dtControle.touched">
+                                                Please enter at least
+                                                {{ dtfields.minlength }} characters.
+                                            </span>
+                                            <span class="invalid" data-error="wrong" data-success="right" *ngIf="dtControle?.errors?.pattern && dtControle.touched">
+                                                <!--  Please enter valid {{dtfields.pattern}} pattern. -->
+                                                {{ dtfields.validationMessage }}
+                                            </span>
+                                            <input type="hidden" name="{{ dtfields.name }}" [(ngModel)]="dtfields.value" />
+                                        </div>
+
+                                        <!-- ADDED HTML TO HANDLE PASSWORD AND EMAIL TYPE-->
+
+                                        <div *ngIf="dtfields.type == 'email' && !dtfields.hidden" class="{{ dtfields.divclass }}">
+                                            <input type="hidden" name="{{ dtfields.name }}" [(ngModel)]="dtfields.value" />
+                                            <input
+                                                type="{{ dtfields.type }}"
+                                                attr.id="{{ dtfields.name }}"
+                                                name="{{ dtfields.name }}"
+                                                tabindex="{{ dtfields.tabindex }}"
+                                                maxlength="{{ dtfields.maxlength }}"
+                                                [(ngModel)]="dtfields.value"
+                                                minlength="{{ dtfields.minlength }}"
+                                                [required]="dtfields?.required"
+                                                [disabled]="dtfields.readonly ? true : false"
+                                                (change)="
+                                                    getFocusOut(
+                                                        $event,
+                                                        dtfields.value,
+                                                        dtfields.onChangeApi === undefined ? '' : dtfields.onChangeApi,
+                                                        dtForm,
+                                                        dtfields.name,
+                                                        dtfields.tabindex,
+                                                        dtfields.showBusyIndicator === undefined ? '' : dtfields.showBusyIndicator,
+                                                        dtfields.type,
+                                                        dtfields.includeAllFields
+                                                    )
+                                                "
+                                                placeholder="{{ dtfields.placeholder }}"
+                                                #dtControle="ngModel"
+                                                class="{{ dtfields.inputclass }} {{ dtfields.isValid ? 'setValid' : 'setInValid' }}"
+                                                [ngStyle]="{
+                                                    'text-transform': dtfields.style !== undefined ? transformValue(dtfields.style) : '',
+                                                    'text-align': dtfields.textalign,
+                                                    'max-width': dtfields.maxwidth
+                                                }"
+                                                [style.font-size]="fontSize ? fontSize : ''"
+                                            />
+                                            <i class="{{ dtfields.icon }}" (click)="showPassword(dtfields.name)"></i>
+                                            <label for="{{ dtfields.name }}" [style.font-size]="fontSize ? fontSize : ''"
+                                                >{{ dtfields.label }}<span *ngIf="dtfields.required" class="required-ast">*</span></label
+                                            >
+                                            <!-- <span class="invalid" data-error="wrong" data-success="right"
+                                                *ngIf="dtControle.errors?.required && dtControle.touched">
+                                                Required
+                                            </span> -->
+                                            <span class="invalid" data-error="wrong" data-success="right" *ngIf="dtControle.errors?.minlength && dtControle.touched">
+                                                Please enter at least
+                                                {{ dtfields.minlength }} characters.
+                                            </span>
+                                        </div>
+                                        <div *ngIf="dtfields.type == 'password' && !dtfields.hidden" class="cst-password-col">
+                                            <div class="{{ dtfields.divclass }}" *ngIf="dtfields.type == 'password'">
+                                                <input type="hidden" name="{{ dtfields.name }}" [(ngModel)]="dtfields.value" />
+
+                                                <input
+                                                    type="{{ dtfields.type }}"
+                                                    attr.id="{{ dtfields.name }}"
+                                                    name="{{ dtfields.name }}"
+                                                    tabindex="{{ dtfields.tabindex }}"
+                                                    maxlength="{{ dtfields.maxlength }}"
+                                                    [(ngModel)]="dtfields.value"
+                                                    (keyup.enter)="enterKeySubmits ? savedtForm(dtForm, onPush, dtFormList, $event) : ''"
+                                                    minlength="{{ dtfields.minlength }}"
+                                                    [disabled]="dtfields.readonly ? true : false"
+                                                    placeholder="{{ dtfields.placeholder }}"
+                                                    #dtControle="ngModel"
+                                                    [required]="dtfields?.required"
+                                                    class="{{ dtfields.inputclass }}"
+                                                    [ngStyle]="{
+                                                        'text-transform': dtfields.style !== undefined ? transformValue(dtfields.style) : '',
+                                                        'text-align': dtfields.textalign,
+                                                        'max-width': dtfields.maxwidth
+                                                    }"
+                                                    [style.font-size]="fontSize ? fontSize : ''"
+                                                />
+                                                <i class="{{ dtfields.icon }}" (click)="showPassword(dtfields.name)"></i>
+
+                                                <label for="{{ dtfields.name }}" [style.font-size]="fontSize ? fontSize : ''"
+                                                    >{{ dtfields.label }}<span *ngIf="dtfields.required" class="required-ast">*</span></label
+                                                >
+                                                <!-- <span class="invalid" data-error="wrong" data-success="right"
+                                                    *ngIf="dtControle?.errors?.required && dtControle.touched">
+                                                    Required
+                                                </span> -->
+                                                <span class="invalid" data-error="wrong" data-success="right" *ngIf="dtControle?.errors?.minlength && dtControle.touched">
+                                                    Please enter at least
+                                                    {{ dtfields.minlength }} characters.
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div *ngIf="dtfields.type == 'hidden'">
+                                            <input type="hidden" name="{{ dtfields.name }}" [(ngModel)]="dtfields.value" />
+                                            <input
+                                                type="{{ dtfields.type }}"
+                                                attr.id="{{ dtfields.name }}"
+                                                name="{{ dtfields.name }}"
+                                                tabindex="{{ dtfields.tabindex }}"
+                                                maxlength="{{ dtfields.maxlength }}"
+                                                [(ngModel)]="dtfields.value"
+                                                minlength="{{ dtfields.minlength }}"
+                                                #dtControle="ngModel"
+                                                class="{{ dtfields.inputclass }}"
+                                                [ngStyle]="{
+                                                    'text-transform': dtfields.style !== undefined ? transformValue(dtfields.style) : ''
+                                                }"
+                                            />
+                                        </div>
+                                        <!-- ADDED HTML TO HANDLE PASSWORD AND EMAIL TYPE-->
+
+                                        <div class="{{ dtfields.divclass }}" *ngIf="dtfields.type == 'textarea' && !dtfields.hidden" id="textareaHeight">
+                                            <textarea
+                                                attr.id="{{ dtfields.name }}"
+                                                pattern="{{ dtfields.pattern }}"
+                                                name="{{ dtfields.name }}"
+                                                [required]="dtfields?.required"
+                                                placeholder="{{ dtfields.placeholder }}"
+                                                cols="{{ dtfields.cols }}"
+                                                [style.font-size]="fontSize ? fontSize : ''"
+                                                tabindex="{{ dtfields.tabindex }}"
+                                                rows="{{ dtfields.rows }}"
+                                                maxlength="{{ dtfields.maxlength }}"
+                                                minlength="{{ dtfields.minlength }}"
+                                                [(ngModel)]="dtfields.value"
+                                                class="{{ dtfields.inputclass }}"
+                                                [ngStyle]="{
+                                                    'text-align': dtfields.textalign,
+                                                    'max-width': dtfields.maxwidth
+                                                }"
+                                                [autofocus]="dtfields.focus ? true : false"
+                                                [disabled]="dtfields.readonly ? true : false"
+                                            ></textarea>
+
+                                            <label for="{{ dtfields.name }}" [style.font-size]="fontSize ? fontSize : ''"
+                                                >{{ dtfields.label }}<span *ngIf="dtfields.required" class="required-ast">*</span></label
+                                            >
+                                            <!-- <span class="invalid" data-error="wrong" data-success="right"
+                                                *ngIf="dtControle?.errors?.required && dtControle.touched">
+                                                Required
+                                            </span> -->
+                                            <span class="invalid" data-error="wrong" data-success="right" *ngIf="dtControle?.errors?.minlength && dtControle.touched">
+                                                Please enter at least
+                                                {{ dtfields.minlength }} characters.
+                                            </span>
+                                        </div>
+
+                                        <!-- *ngIf="dtfields.type == 'number' && !dtfields.hidden && (dtfields.show == undefined || dtfields.show == '') && dtfields.onChangeApi === undefined" -->
+
+                                        <!-- [(ngModel)]="dtfields.show === undefined?dtfields.value:dtfields.show" -->
+
+                                        <div
+                                            class="{{ dtfields.divclass }}"
+                                            *ngIf="dtfields.type == 'number' && !dtfields.hidden && (dtfields.show == undefined || dtfields.show == '') && dtfields.onChangeApi === undefined"
+                                        >
+                                            <input
+                                                type="{{ dtfields.type }}"
+                                                attr.id="{{ dtfields.name }}"
+                                                pattern="{{ dtfields.pattern }}"
+                                                name="{{ dtfields.name }}"
+                                                (change)="
+                                                    getFocusOut(
+                                                        $event,
+                                                        dtfields.value,
+                                                        dtfields.onChangeApi === undefined ? '' : dtfields.onChangeApi,
+                                                        dtForm,
+                                                        dtfields.name,
+                                                        dtfields.tabindex,
+                                                        dtfields.showBusyIndicator === undefined ? '' : dtfields.showBusyIndicator,
+                                                        dtfields.type,
+                                                        dtfields.includeAllFields
+                                                    )
+                                                "
+                                                [required]="dtfields?.required"
+                                                placeholder="{{ dtfields.placeholder }}"
+                                                [style.font-size]="fontSize ? fontSize : ''"
+                                                tabindex="{{ dtfields.tabindex }}"
+                                                customMax="{{ dtfields.max }}"
+                                                customMin="{{ dtfields.min }}"
+                                                maxlength="{{ dtfields.maxlength }}"
+                                                minlength="{{ dtfields.minlength }}"
+                                                [(ngModel)]="dtfields.value == 0 ? '' : dtfields.value"
+                                                step="{{ dtfields.step }}"
+                                                class="{{ dtfields.inputclass }}"
+                                                [ngClass]="dtfields.focus ? 'setFocusColor' : ''"
+                                                [ngStyle]="{
+                                                    'text-align': dtfields.textalign,
+                                                    'max-width': dtfields.maxwidth
+                                                }"
+                                                #numberControle="ngModel"
+                                                [disabled]="dtfields.readonly ? true : false"
+                                                [autofocus]="dtfields.focus ? true : false"
+                                                (keypress)="checkDecimal($event, dtfields)"
+                                                (focus)="myMethod($event)"
+                                            />
+                                            <label for="{{ dtfields.name }}" class="{{ dtfields.labelclass }}" [style.font-size]="fontSize ? fontSize : ''"
+                                                >{{ dtfields.label }}<span *ngIf="dtfields.required" class="required-ast">*</span></label
+                                            >
+                                            <span class="invalid" data-error="wrong" data-success="right" *ngIf="numberControle.touched && numberControle.errors?.customMax">
+                                                Maximum of {{ dtfields.max }}.
+                                            </span>
+                                            <span class="invalid" data-error="wrong" data-success="right" *ngIf="numberControle.touched && numberControle.errors?.customMin">
+                                                Minimum of {{ dtfields.min }}.
+                                            </span>
+                                            <!-- <span class="invalid" data-error="wrong" data-success="right"
+                                                *ngIf="numberControle.errors?.required && numberControle.touched">
+                                                Required
+                                            </span> -->
+                                        </div>
+
+                                        <!-----21 April 2022---->
+
+                                        <div
+                                            class="{{ dtfields.divclass }}"
+                                            *ngIf="dtfields.type == 'number' && !dtfields.hidden && dtfields.show !== undefined && dtfields.show !== '' && dtfields.onChangeApi == undefined"
+                                        >
+                                            <input
+                                                type="{{ dtfields.type }}"
+                                                attr.id="{{ dtfields.name }}"
+                                                pattern="{{ dtfields.pattern }}"
+                                                name="{{ dtfields.name }}"
+                                                (change)="
+                                                    getFocusOut(
+                                                        $event,
+                                                        dtfields.value,
+                                                        dtfields.onChangeApi === undefined ? '' : dtfields.onChangeApi,
+                                                        dtForm,
+                                                        dtfields.name,
+                                                        dtfields.tabindex,
+                                                        dtfields.showBusyIndicator === undefined ? '' : dtfields.showBusyIndicator,
+                                                        dtfields.type,
+                                                        dtfields.includeAllFields,
+                                                        '',
+                                                        dtfields
+                                                    )
+                                                "
+                                                [required]="dtfields?.required"
+                                                placeholder="{{ dtfields.placeholder }}"
+                                                tabindex="{{ dtfields.tabindex }}"
+                                                customMax="{{ dtfields.max }}"
+                                                customMin="{{ dtfields.min }}"
+                                                maxlength="{{ dtfields.maxlength }}"
+                                                [style.font-size]="fontSize ? fontSize : ''"
+                                                minlength="{{ dtfields.minlength }}"
+                                                [(ngModel)]="dtfields.value == 0 ? '' : dtfields.value"
+                                                step="{{ dtfields.step }}"
+                                                class="{{ dtfields.inputclass }}"
+                                                [ngClass]="dtfields.focus ? 'setFocusColor' : ''"
+                                                [ngStyle]="{
+                                                    'text-align': dtfields.textalign,
+                                                    'max-width': dtfields.maxwidth
+                                                }"
+                                                #numberControle="ngModel"
+                                                [disabled]="dtfields.readonly ? true : false"
+                                                [autofocus]="dtfields.focus ? true : false"
+                                                (keypress)="checkDecimal($event, dtfields)"
+                                                (focus)="myMethod($event)"
+                                            />
+                                            <label for="{{ dtfields.name }}" class="{{ dtfields.labelclass }}" [style.font-size]="fontSize ? fontSize : ''"
+                                                >{{ dtfields.label }}<span *ngIf="dtfields.required" class="required-ast">*</span></label
+                                            >
+                                            <span class="invalid" data-error="wrong" data-success="right" *ngIf="numberControle.touched && numberControle.errors?.customMax">
+                                                Maximum of {{ dtfields.max }}.
+                                            </span>
+                                            <span class="invalid" data-error="wrong" data-success="right" *ngIf="numberControle.touched && numberControle.errors?.customMin">
+                                                Minimum of {{ dtfields.min }}.
+                                            </span>
+                                        </div>
+                                        <!-- niharika (keyup)="setValue($event,dtfields)"-->
+                                        <!-----21 April 2022---->
+
+                                        <div class="{{ dtfields.divclass }}" *ngIf="dtfields.type == 'number' && !dtfields.hidden && dtfields.show !== undefined && dtfields.onChangeApi !== undefined">
+                                            <input type="hidden" name="{{ dtfields.name }}" [(ngModel)]="dtfields.value" />
+                                            <input
+                                                type="{{ dtfields.type }}"
+                                                attr.id="{{ dtfields.name }}"
+                                                pattern="{{ dtfields.pattern }}"
+                                                name="{{ dtfields.name }}"
+                                                placeholder="{{ dtfields.placeholder }}"
+                                                tabindex="{{ dtfields.tabindex }}"
+                                                maxlength="{{ dtfields.maxlength }}"
+                                                minlength="{{ dtfields.minlength }}"
+                                                step="{{ dtfields.step }}"
+                                                [required]="dtfields?.required"
+                                                [(ngModel)]="dtfields.value == 0 ? '' : dtfields.value"
+                                                #dtControle="ngModel"
+                                                [autofocus]="dtfields.focus ? true : false"
+                                                [style.font-size]="fontSize ? fontSize : ''"
+                                                (focus)="myMethod($event)"
+                                                (change)="
+                                                    getFocusOut(
+                                                        $event,
+                                                        dtfields.value,
+                                                        dtfields.onChangeApi === undefined ? '' : dtfields.onChangeApi,
+                                                        dtForm,
+                                                        dtfields.name,
+                                                        dtfields.tabindex,
+                                                        dtfields.showBusyIndicator === undefined ? '' : dtfields.showBusyIndicator,
+                                                        dtfields.type,
+                                                        dtfields.includeAllFields,
+                                                        '',
+                                                        dtfields
+                                                    )
+                                                "
+                                                class="{{ dtfields.inputclass }} {{ dtfields.isValid ? 'setValid' : 'setInValid' }}"
+                                                (keydown)="getVlaue($event, dtfields.onChangeApi)"
+                                                [disabled]="dtfields.readonly ? true : false"
+                                                [ngStyle]="{
+                                                    'text-transform': dtfields.style !== undefined ? transformValue(dtfields.style) : '',
+                                                    'text-align': dtfields.textalign,
+                                                    'max-width': dtfields.maxwidth
+                                                }"
+                                                (keypress)="checkDecimal($event, dtfields)"
+                                            />
+                                            <label for="{{ dtfields.name }}" [style.font-size]="fontSize ? fontSize : ''"
+                                                >{{ dtfields.label }}<span *ngIf="dtfields.required" class="required-ast">*</span></label
+                                            >
+
+                                            <span class="invalid" data-error="wrong" data-success="right" *ngIf="dtControle?.errors?.minlength && dtControle.touched">
+                                                Please enter at least
+                                                {{ dtfields.minlength }} characters.
+                                            </span>
+                                        </div>
+
+                                        <!-----21 April 2022---->
+
+                                        <div class="{{ dtfields.divclass }}" *ngIf="dtfields.type == 'number' && !dtfields.hidden && dtfields.show === undefined && dtfields.onChangeApi !== undefined">
+                                            <input type="hidden" name="{{ dtfields.name }}" [(ngModel)]="dtfields.value" />
+                                            <input
+                                                type="{{ dtfields.type }}"
+                                                attr.id="{{ dtfields.name }}"
+                                                pattern="{{ dtfields.pattern }}"
+                                                name="{{ dtfields.name }}"
+                                                step="{{ dtfields.step }}"
+                                                placeholder="{{ dtfields.placeholder }}"
+                                                tabindex="{{ dtfields.tabindex }}"
+                                                maxlength="{{ dtfields.maxlength }}"
+                                                minlength="{{ dtfields.minlength }}"
+                                                [required]="dtfields?.required"
+                                                [(ngModel)]="dtfields.value == 0 ? '' : dtfields.value"
+                                                #dtControle="ngModel"
+                                                [autofocus]="dtfields.focus ? true : false"
+                                                (focus)="myMethod($event)"
+                                                (change)="
+                                                    getFocusOut(
+                                                        $event,
+                                                        dtfields.value,
+                                                        dtfields.onChangeApi === undefined ? '' : dtfields.onChangeApi,
+                                                        dtForm,
+                                                        dtfields.name,
+                                                        dtfields.tabindex,
+                                                        dtfields.showBusyIndicator === undefined ? '' : dtfields.showBusyIndicator,
+                                                        dtfields.type,
+                                                        dtfields.includeAllFields,
+                                                        '',
+                                                        dtfields
+                                                    )
+                                                "
+                                                class="{{ dtfields.inputclass }} {{ dtfields.isValid ? 'setValid' : 'setInValid' }}"
+                                                (keydown)="getVlaue($event, dtfields.onChangeApi)"
+                                                [disabled]="dtfields.readonly ? true : false"
+                                                [ngStyle]="{
+                                                    'text-transform': dtfields.style !== undefined ? transformValue(dtfields.style) : '',
+                                                    'text-align': dtfields.textalign,
+                                                    'max-width': dtfields.maxwidth
+                                                }"
+                                                (keypress)="checkDecimal($event, dtfields)"
+                                            />
+                                            <label for="{{ dtfields.name }}" [style.font-size]="fontSize ? fontSize : ''"
+                                                >{{ dtfields.label }}<span *ngIf="dtfields.required" class="required-ast">*</span></label
+                                            >
+
+                                            <span class="invalid" data-error="wrong" data-success="right" *ngIf="dtControle?.errors?.minlength && dtControle.touched">
+                                                Please enter at least
+                                                {{ dtfields.minlength }} characters.
+                                            </span>
+                                        </div>
+
+                                        <!-- 22 dec 2021 change (change) event to (blur) event on date (blur)="addClassOnDate(dtfields.name)" -->
+                                        <div *ngIf="dtfields.type == 'date' && !dtfields.hidden && (dtfields.readonly == undefined || dtfields.readonly == false)" class="{{ dtfields.divclass }}">
+                                            <input
+                                                type="{{ dtfields.type }}"
+                                                pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
+                                                name="{{ dtfields.name }}"
+                                                id="{{ dtfields.name }}"
+                                                tabindex="{{ dtfields.tabindex }}"
+                                                [autofocus]="dtfields.focus ? true : false"
+                                                (blur)="
+                                                    getFocusOut(
+                                                        $event,
+                                                        dtfields.value,
+                                                        dtfields.onChangeApi === undefined ? '' : dtfields.onChangeApi,
+                                                        dtForm,
+                                                        dtfields.name,
+                                                        dtfields.tabindex,
+                                                        dtfields.showBusyIndicator === undefined ? '' : dtfields.showBusyIndicator,
+                                                        dtfields.type,
+                                                        dtfields.includeAllFields,
+                                                        '',
+                                                        dtfields,
+                                                        false
+                                                    )
+                                                "
+                                                [disabled]="dtfields.readonly ? true : false"
+                                                min="{{ dtfields.min }}"
+                                                [style.font-size]="fontSize ? fontSize : ''"
+                                                max="{{ dtfields.max }}"
+                                                [(ngModel)]="dtfields.value"
+                                                (keydown)="getChangeDate($event, dtfields)"
+                                                #dateControle="ngModel"
+                                                class="{{ dtfields.inputclass }} manage-date"
+                                                [required]="dtfields?.required"
+                                                [ngStyle]="{
+                                                    'text-align': dtfields.textalign,
+                                                    'max-width': dtfields.maxwidth
+                                                }"
+                                            />
+                                            <label for="{{ dtfields.name }}" id="{{ dtfields.name + 'label' }}" class="{{ dtfields.labelclass }}" [style.font-size]="fontSize ? fontSize : ''">
+                                                {{ dtfields.label }}<span *ngIf="dtfields.required" class="required-ast"> *</span></label
+                                            >
+                                            <!-- <span
+                                                *ngIf="dateControle?.touched && dtfields.required && dtfields.value == ''"
+                                                class="invalid" data-error="wrong" data-success="right">
+                                                Required
+                                            </span> -->
+                                            <!-- niharika 10 may 2022 -->
+                                            <span
+                                                *ngIf="dtfields.min !== undefined && dtfields.min !== 0 && dtfields.value !== '' && dateControle?.touched && dtfields.value < dtfields.min"
+                                                class="invalid"
+                                                data-error="wrong"
+                                                data-success="right"
+                                            >
+                                                Date must be after {{ formatDate(dtfields.min) }}
+                                            </span>
+                                            <span
+                                                *ngIf="dtfields.max !== undefined && dtfields.max !== 0 && dtfields.value !== '' && dateControle?.touched && dtfields.value > dtfields.max"
+                                                class="invalid"
+                                                data-error="wrong"
+                                                data-success="right"
+                                            >
+                                                Date must be before {{ formatDate(dtfields.max) }}
+                                            </span>
+
+                                            <!---  PATTERN ERROR -->
+                                            <span class="invalid" data-error="wrong" data-success="right" *ngIf="dateControle?.touched && !checkYear(dtfields.value)"> Year must be four digit </span>
+                                            <!--- DATE ERROR -->
+                                            <span class="invalid" data-error="wrong" data-success="right" *ngIf="dateControle?.touched && !dateValidate(dtfields.value, dtfields)">
+                                                Date is not valid
+                                            </span>
+                                        </div>
+
+                                        <div
+                                            *ngIf="dtfields.type == 'date' && !dtfields.hidden && dtfields.readonly == true && dtfields.value !== undefined && dtfields.value !== ''"
+                                            class="{{ dtfields.divclass }}"
+                                        >
+                                            <input
+                                                type="date"
+                                                name="{{ dtfields.name }}"
+                                                id="{{ dtfields.name }}"
+                                                tabindex="{{ dtfields.tabindex }}"
+                                                [disabled]="dtfields.readonly ? true : false"
+                                                [(ngModel)]="dtfields.value"
+                                                class="{{ dtfields.inputclass }} manage-date"
+                                                [ngStyle]="{
+                                                    'text-align': dtfields.textalign,
+                                                    'max-width': dtfields.maxwidth
+                                                }"
+                                                [style.font-size]="fontSize ? fontSize : ''"
+                                            />
+
+                                            <label for="{{ dtfields.name }}" id="{{ dtfields.name + 'label' }}" class="{{ dtfields.labelclass }}" [style.font-size]="fontSize ? fontSize : ''">
+                                                {{ dtfields.label }}<span *ngIf="dtfields.required" class="required-ast"> *</span></label
+                                            >
+                                        </div>
+                                        <div
+                                            *ngIf="dtfields.type == 'date' && !dtfields.hidden && dtfields.readonly == true && dtfields.value !== undefined && dtfields.value == ''"
+                                            class="{{ dtfields.divclass }}"
+                                        >
+                                            <input
+                                                type="text"
+                                                name="{{ dtfields.name }}"
+                                                id="{{ dtfields.name }}"
+                                                tabindex="{{ dtfields.tabindex }}"
+                                                [disabled]="dtfields.readonly ? true : false"
+                                                [(ngModel)]="dtfields.value == undefined || dtfields.value == '' ? ' ' : dtfields.value"
+                                                class="{{ dtfields.inputclass }} manage-date"
+                                                [ngStyle]="{
+                                                    'text-align': dtfields.textalign,
+                                                    'max-width': dtfields.maxwidth
+                                                }"
+                                                [style.font-size]="fontSize ? fontSize : ''"
+                                            />
+
+                                            <label for="{{ dtfields.name }}" id="{{ dtfields.name + 'label' }}" class="{{ dtfields.labelclass }}" [style.font-size]="fontSize ? fontSize : ''">
+                                                {{ dtfields.label }}<span *ngIf="dtfields.required" class="required-ast"> *</span></label
+                                            >
+                                        </div>
+                                        <!--- SIGNATURE START -->
+                                        <div *ngIf="dtfields.type == 'signature'" class="{{ dtfields.divclass }} flex-column">
+                                            <label for="{{ dtfields.name }}" class="{{ dtfields.readonly ? '' : 'setactive' }}" [style.font-size]="fontSize ? fontSize : ''"
+                                                >{{ dtfields.label }}<span *ngIf="dtfields.required" class="required-ast">*</span>
+                                            </label>
+                                            <canvas
+                                                #canvas
+                                                (touchstart)="startDrawing($event)"
+                                                (touchmove)="moved($event)"
+                                                (mouseleave)="saveSignature(dtfields.name)"
+                                                (mouseover)="setValidateCanvas()"
+                                                id="canvasField"
+                                            ></canvas>
+
+                                            <input type="hidden" name="{{ dtfields.name }}" [(ngModel)]="signatureData" #canvasData="ngModel" id="{{ dtfields.name }}" required="dtfields.required" />
+                                            <!-- <span
+                                                *ngIf="dtfields.required && isSignature && canvasRequired && signatureData?.length == 0"
+                                                class="invalid" data-error="wrong" data-success="right">
+                                                Required
+                                            </span> -->
+                                        </div>
+                                        <!-- SIGNATURE END-->
+
+                                        <!--  <div class="{{dtfields.divclass}}" *ngIf="dtfields.type == 'time' && !dtfields.hidden ">
+                                            <div class="group-input-icon">
+                                                <input name="{{dtfields.name}}" id="{{dtfields.name}}"
+                                                [ngxTimepicker]="fullTime" [format]="dtfields.format" [min]="dtfields.min"  [max]="dtfields.max"
+                                                #dtControle="ngModel" [required]="dtfields?.required"
+                                                placeholder="{{dtfields.placeholder}}" tabindex="{{dtfields.tabindex}}"
+                                                [disabled]="dtfields.readonly ? true : false"
+                                                [(ngModel)]="dtfields.value"
+                                                (change)="getFocusOut($event, dtfields.value, dtfields.onChangeApi === undefined ? '' : dtfields.onChangeApi, dtForm, dtfields.name, dtfields.tabindex,dtfields.showBusyIndicator === undefined ? '' : dtfields.showBusyIndicator,dtfields.type,dtfields.includeAllFields,'',dtfields,true)"
+                                                class="{{dtfields.inputclass}} timetext" [disableClick]="true"
+                                                [autofocus]="dtfields.focus ? true : false" (focus)="myMethod($event)"
+                                                [ngStyle]="{'text-align': dtfields.textalign,'max-width': dtfields.maxwidth}" />
+                                                <mat-icon matSuffix *ngIf="!dtfields.readonly" class="timeicon" (click)="openFromIcon(fullTime)">schedule</mat-icon>
+                                            <ngx-material-timepicker #fullTime  (timeSet)="getFocusOut($event, dtfields.value, dtfields.onChangeApi === undefined ? '' : dtfields.onChangeApi, dtForm, dtfields.name, dtfields.tabindex,dtfields.showBusyIndicator === undefined ? '' : dtfields.showBusyIndicator,dtfields.type,dtfields.includeAllFields,'',dtfields,true)"></ngx-material-timepicker>
+                                        </div>
+                                            <label for="text-box"
+                                                class="{{dtfields.readonly ? 'time-txt' : ''}} {{dtfields.labelclass}}">{{dtfields.label}}
+                                                <span *ngIf="dtfields.required" class="required-ast">*</span></label>
+                                            <span class="invalid" data-error="wrong" data-success="right"
+                                                *ngIf="dtControle?.errors?.required && dtControle.touched">
+                                                Required
+                                            </span>
+
+                                            <span class="invalid" data-error="wrong" data-success="right"
+                                                *ngIf="dtfields.value !== '' && !dtfields.isValid">
+                                                Time is not valid
+                                            </span>
+
+                                        </div> -->
+                                        <div class="{{ dtfields.divclass }}" *ngIf="dtfields.type == 'time' && !dtfields.hidden">
+                                            <div class="group-input-icon">
+                                                <input
+                                                    *ngIf="dtfields.value == '' || dtfields.value !== '' || fullTime.timepickerInput?._value == 'Invalid DateTime'"
+                                                    [required]="dtfields?.required"
+                                                    class="{{ dtfields.inputclass }} timetext"
+                                                    [style.font-size]="fontSize ? fontSize : ''"
+                                                    [autofocus]="dtfields.focus ? true : false"
+                                                    (focus)="myMethod($event)"
+                                                    [ngStyle]="{
+                                                        'text-align': dtfields.textalign,
+                                                        'max-width': dtfields.maxwidth
+                                                    }"
+                                                    [disabled]="dtfields.readonly ? true : false"
+                                                    [disabledClick]="true"
+                                                    placeholder="{{ dtfields.placeholder }}"
+                                                    name="{{ dtfields.name }}"
+                                                    id="{{ dtfields.name }}"
+                                                    tabindex="{{ dtfields.tabindex }}"
+                                                    [(ngModel)]="dtfields.value"
+                                                    [(format)]="dtfields.format"
+                                                    [(max)]="dtfields.max"
+                                                    [(min)]="dtfields.min"
+                                                    (change)="
+                                                        getFocusOut(
+                                                            $event,
+                                                            dtfields.value,
+                                                            dtfields.onChangeApi === undefined ? '' : dtfields.onChangeApi,
+                                                            dtForm,
+                                                            dtfields.name,
+                                                            dtfields.tabindex,
+                                                            dtfields.showBusyIndicator === undefined ? '' : dtfields.showBusyIndicator,
+                                                            dtfields.type,
+                                                            dtfields.includeAllFields,
+                                                            '',
+                                                            dtfields,
+                                                            false
+                                                        )
+                                                    "
+                                                    [(value)]="dtfields.value"
+                                                />
+
+                                                <label
+                                                    [ngxTimepicker]="fullTime"
+                                                    *ngIf="dtfields.value == '' || dtfields.value !== '' || fullTime.timepickerInput?._value == 'Invalid DateTime'"
+                                                    [required]="dtfields?.required"
+                                                    class="{{ dtfields.inputclass }} timetext"
+                                                    [style.font-size]="fontSize ? fontSize : ''"
+                                                    [ngStyle]="{
+                                                        'text-align': dtfields.textalign,
+                                                        'max-width': dtfields.maxwidth
+                                                    }"
+                                                    [disabled]="dtfields.readonly ? true : false"
+                                                    [minutes]="true"
+                                                    [autofocus]="dtfields.focus ? true : false"
+                                                    placeholder="{{ dtfields.placeholder }}"
+                                                    (change)="
+                                                        getFocusOut(
+                                                            $event,
+                                                            dtfields.value,
+                                                            dtfields.onChangeApi === undefined ? '' : dtfields.onChangeApi,
+                                                            dtForm,
+                                                            dtfields.name,
+                                                            dtfields.tabindex,
+                                                            dtfields.showBusyIndicator === undefined ? '' : dtfields.showBusyIndicator,
+                                                            dtfields.type,
+                                                            dtfields.includeAllFields,
+                                                            '',
+                                                            dtfields,
+                                                            false
+                                                        )
+                                                    "
+                                                    name="{{ dtfields.name }}"
+                                                    id="{{ dtfields.name }}"
+                                                    [(ngModel)]="dtfields.value"
+                                                    [(format)]="dtfields.format"
+                                                    [(max)]="dtfields.max"
+                                                    [(min)]="dtfields.min"
+                                                    [(value)]="dtfields.value"
+                                                >
+                                                </label>
+
+                                                <mat-icon matSuffix *ngIf="!dtfields.readonly" class="timeicon" (click)="openFromIcon(fullTime)">schedule </mat-icon>
+
+                                                <ngx-material-timepicker
+                                                    #fullTime
+                                                    (timeSet)="
+                                                        getFocusOut(
+                                                            $event,
+                                                            dtfields.value,
+                                                            dtfields.onChangeApi === undefined ? '' : dtfields.onChangeApi,
+                                                            dtForm,
+                                                            dtfields.name,
+                                                            dtfields.tabindex,
+                                                            dtfields.showBusyIndicator === undefined ? '' : dtfields.showBusyIndicator,
+                                                            dtfields.type,
+                                                            dtfields.includeAllFields,
+                                                            '',
+                                                            dtfields,
+                                                            true
+                                                        )
+                                                    "
+                                                >
+                                                </ngx-material-timepicker>
+                                            </div>
+                                            <label for="text-box" class="{{ dtfields.readonly ? 'time-txt' : '' }} {{ dtfields.labelclass }}" [style.font-size]="fontSize ? fontSize : ''"
+                                                >{{ dtfields.label }} {{ dtfields.focus }} <span *ngIf="dtfields.required" class="required-ast">*</span></label
+                                            >
+
+                                            <span class="invalid" data-error="wrong" data-success="right" *ngIf="dtfields.isValid == false"> Time is not valid </span>
+                                        </div>
+
+                                        <div
+                                            class="{{ dtfields.divclass }} {{ isMultipleAddress ? 'mat-form-field-infix-fix-multiple' : 'mat-form-field-infix-fix' }}"
+                                            *ngIf="dtfields.type == 'select' && !dtfields.hidden"
+                                        >
+                                            <mat-form-field>
+                                                <mat-label
+                                                    class="{{ dtfields.readonly == undefined || dtfields.readonly == false ? dtfields.labelclass + ' ' + 'lbl-color' : 'unsetActive' }}"
+                                                    class="lbl-color"
+                                                    [style.font-size]="fontSize ? '12px' : ''"
+                                                    >{{ dtfields.label }}
+                                                </mat-label>
+                                                <mat-select
+                                                    #mySelect
+                                                    #mySelected="ngModel"
+                                                    name="{{ dtfields.name }}"
+                                                    tabIndex="{{ dtfields.tabindex }}"
+                                                    (selectionChange)="
+                                                        getFocusOut(
+                                                            $event,
+                                                            dtfields.value,
+                                                            dtfields.onChangeApi === undefined ? '' : dtfields.onChangeApi,
+                                                            dtForm,
+                                                            dtfields.name,
+                                                            dtfields.tabindex,
+                                                            dtfields.showBusyIndicator === undefined ? '' : dtfields.showBusyIndicator,
+                                                            dtfields.type,
+                                                            dtfields.includeAllFields
+                                                        )
+                                                    "
+                                                    [autofocus]="dtfields.focus ? true : false"
+                                                    [disabled]="dtfields.readonly ? true : false"
+                                                    attr.id="{{ dtfields.name }}"
+                                                    [(ngModel)]="dtfields.value"
+                                                    [ngStyle]="{
+                                                        'text-align': dtfields.textalign,
+                                                        'max-width': dtfields.maxwidth
+                                                    }"
+                                                    [style.font-size]="fontSize ? fontSize : ''"
+                                                    [required]="dtfields?.required"
+                                                >
+                                                    <mat-option *ngFor="let itemInquiryoption of dtfields.options" [value]="itemInquiryoption.value">
+                                                        {{ itemInquiryoption.show }}
+                                                    </mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
+                                            <!-- <span class="invalid" data-error="wrong" data-success="right"
+                                                *ngIf="mySelected?.errors?.required && mySelected.touched">
+                                                Required
+                                            </span> -->
+                                        </div>
+                                        <div class="{{ dtfields.divclass }}" *ngIf="dtfields.type == 'switch' && !dtfields.hidden">
+                                            <div class="switch">
+                                                <label>
+                                                    <span class="switch_class {{ dtfields.readonly == undefined || dtfields.readonly == false ? dtfields.labelclass : 'noclass' }}">
+                                                        {{ dtfields.label }}</span
+                                                    ><span *ngIf="dtfields.required" class="required-ast">*</span><br />
+                                                    <input
+                                                        type="checkbox"
+                                                        name="{{ dtfields.name }}"
+                                                        attr.id="{{ dtfields.name }}"
+                                                        [(ngModel)]="dtfields.value"
+                                                        tabindex="{{ dtfields.tabindex }}"
+                                                        class="{{ isCheckBoxFocus || dtfields.value || dtfields.focus ? 'tabbed' : 'untabbed' }}"
+                                                        (click)="
+                                                            getFocusOut(
+                                                                $event,
+                                                                !dtfields.value,
+                                                                dtfields.onChangeApi === undefined ? '' : dtfields.onChangeApi,
+                                                                dtForm,
+                                                                dtfields.name,
+                                                                dtfields.tabindex,
+                                                                dtfields.showBusyIndicator === undefined ? '' : dtfields.showBusyIndicator,
+                                                                dtfields.type,
+                                                                dtfields.includeAllFields
+                                                            )
+                                                        "
+                                                        [disabled]="dtfields.readonly ? true : false"
+                                                        (keyup.enter)="enterKeySubmits ? savedtForm(dtForm, onPush, dtFormList, $event) : ''"
+                                                        value="{{ dtfields.value }}"
+                                                        [required]="dtfields?.required"
+                                                        checked="{{ dtfields.value ? 'checked' : '' }}"
+                                                        [autofocus]="dtfields.focus ? true : false"
+                                                    />
+                                                    <span class="lever"></span>
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div *ngIf="dtfields.type == 'radio' && alignment == 'horizontal' && !dtfields.hidden" class="{{ dtfields.divclass }}">
+                                            <p>
+                                                <span class="radio-label {{ dtfields.readonly == undefined || dtfields.readonly == false ? dtfields.labelclass : 'noclass' }}">{{
+                                                    dtfields.label
+                                                }}</span
+                                                ><span *ngIf="dtfields.required" class="required-ast">*</span>
+                                                <label class="{{ dtfields.labelclass }} " [style.font-size]="fontSize ? fontSize : ''">
+                                                    <span *ngFor="let itemInquiryoption of dtfields.options">
+                                                        <input
+                                                            *ngIf="dtfields.readonly"
+                                                            type="radio"
+                                                            class="filled-in {{
+                                                                dtfields.focus && dtfields.value == itemInquiryoption.value
+                                                                    ? 'tabbed'
+                                                                    : 'untabbed' || (dtfields.tabindex == setTabIndexFocus && i == 0)
+                                                                    ? 'tabbed'
+                                                                    : 'untabbed'
+                                                            }}"
+                                                            [(ngModel)]="dtfields.value"
+                                                            tabindex="{{ dtfields.tabindex }}"
+                                                            (change)="
+                                                                getFocusOut(
+                                                                    $event,
+                                                                    itemInquiryoption.value,
+                                                                    dtfields.onChangeApi === undefined ? '' : dtfields.onChangeApi,
+                                                                    dtForm,
+                                                                    dtfields.name,
+                                                                    dtfields.tabindex,
+                                                                    dtfields.showBusyIndicator === undefined ? '' : dtfields.showBusyIndicator,
+                                                                    dtfields.type,
+                                                                    dtfields.includeAllFields
+                                                                )
+                                                            "
+                                                            id="{{ itemInquiryoption.show }}{{ itemInquiryoption.value }}"
+                                                            value="{{ itemInquiryoption.value }}"
+                                                            [attr.disabled]="true"
+                                                            name="{{ dtfields.name }}"
+                                                            attr.name="{{ dtfields.name }}"
+                                                            [required]="dtfields?.required"
+                                                            [ngStyle]="{ visibility: 'visible' }"
+                                                            [autofocus]="
+                                                                dtfields.focus && dtfields.value == itemInquiryoption.value
+                                                                    ? true
+                                                                    : false || (dtfields.tabindex == setTabIndexFocus && i == 0)
+                                                                    ? 'true'
+                                                                    : 'false'
+                                                            "
+                                                        />
+                                                        <input
+                                                            *ngIf="dtfields.readonly == undefined || !dtfields.readonly"
+                                                            type="radio"
+                                                            class="filled-in {{ dtfields.value == itemInquiryoption.value && dtfields.focus ? 'tabbed' : 'untabbed' }}"
+                                                            [(ngModel)]="dtfields.value"
+                                                            tabindex="{{ dtfields.tabindex }}"
+                                                            (change)="
+                                                                getFocusOut(
+                                                                    $event,
+                                                                    itemInquiryoption.value,
+                                                                    dtfields.onChangeApi === undefined ? '' : dtfields.onChangeApi,
+                                                                    dtForm,
+                                                                    dtfields.name,
+                                                                    dtfields.tabindex,
+                                                                    dtfields.showBusyIndicator === undefined ? '' : dtfields.showBusyIndicator,
+                                                                    dtfields.type,
+                                                                    dtfields.includeAllFields
+                                                                )
+                                                            "
+                                                            id="{{ itemInquiryoption.show }}{{ itemInquiryoption.value }}"
+                                                            value="{{ itemInquiryoption.value }}"
+                                                            name="{{ dtfields.name }}"
+                                                            attr.name="{{ dtfields.name }}"
+                                                            [required]="dtfields?.required"
+                                                            [ngStyle]="{ visibility: 'visible' }"
+                                                            [autofocus]="dtfields.focus && dtfields.value == itemInquiryoption.value ? true : false"
+                                                        />
+                                                        <label class="customeCss" for="{{ itemInquiryoption.show }}{{ itemInquiryoption.value }}" [style.font-size]="fontSize ? fontSize : ''">
+                                                            {{ itemInquiryoption.show }}</label
+                                                        >
+                                                    </span>
+                                                </label>
+                                            </p>
+                                        </div>
+
+                                        <div
+                                            *ngIf="dtfields.type == 'radio' && alignment == 'vertical' && !dtfields.hidden"
+                                            class="{{ dtfields.divclass }} {{ dtfields.name }} flex-column radio-block"
+                                        >
+                                            <label
+                                                class="block {{ dtfields.readonly == undefined || dtfields.readonly == false ? dtfields.labelclass : 'noclass' }}"
+                                                [style.font-size]="fontSize ? fontSize : ''"
+                                                >{{ dtfields.label }} <span *ngIf="dtfields.required" class="required-ast">*</span></label
+                                            >
+
+                                            <span *ngFor="let itemInquiryoption of dtfields.options; let i = index">
+                                                <input
+                                                    *ngIf="dtfields.readonly"
+                                                    type="radio"
+                                                    class="filled-in {{
+                                                        dtfields.focus && dtfields.value == itemInquiryoption.value
+                                                            ? 'tabbed'
+                                                            : 'untabbed' || (dtfields.tabindex == setTabIndexFocus && i == 0)
+                                                            ? 'tabbed'
+                                                            : 'untabbed'
+                                                    }}"
+                                                    [(ngModel)]="dtfields.value"
+                                                    tabindex="{{ dtfields.tabindex }}"
+                                                    id="{{ itemInquiryoption.show }}{{ itemInquiryoption.value }}"
+                                                    value="{{ itemInquiryoption.value }}"
+                                                    (change)="
+                                                        getFocusOut(
+                                                            $event,
+                                                            itemInquiryoption.value,
+                                                            dtfields.onChangeApi === undefined ? '' : dtfields.onChangeApi,
+                                                            dtForm,
+                                                            dtfields.name,
+                                                            dtfields.tabindex,
+                                                            dtfields.showBusyIndicator === undefined ? '' : dtfields.showBusyIndicator,
+                                                            dtfields.type,
+                                                            dtfields.includeAllFields
+                                                        )
+                                                    "
+                                                    [required]="dtfields?.required"
+                                                    [attr.disabled]="true"
+                                                    attr.name="{{ dtfields.name }}"
+                                                    name="{{ dtfields.name }}"
+                                                    [ngStyle]="{ visibility: 'visible' }"
+                                                    [autofocus]="
+                                                        dtfields.focus && dtfields.value == itemInquiryoption.value
+                                                            ? true
+                                                            : false || (dtfields.tabindex == setTabIndexFocus && i == 0)
+                                                            ? 'true'
+                                                            : 'false'
+                                                    "
+                                                />
+                                                <input
+                                                    *ngIf="dtfields.readonly == undefined || !dtfields.readonly"
+                                                    type="radio"
+                                                    class="filled-in {{
+                                                        dtfields.focus && dtfields.value == itemInquiryoption.value
+                                                            ? 'tabbed'
+                                                            : 'untabbed' || (dtfields.tabindex == setTabIndexFocus && i == 0)
+                                                            ? 'tabbed'
+                                                            : 'untabbed'
+                                                    }}"
+                                                    [(ngModel)]="dtfields.value"
+                                                    tabindex="{{ dtfields.tabindex }}"
+                                                    id="{{ itemInquiryoption.show }}{{ itemInquiryoption.value }}"
+                                                    value="{{ itemInquiryoption.value }}"
+                                                    (change)="
+                                                        getFocusOut(
+                                                            $event,
+                                                            itemInquiryoption.value,
+                                                            dtfields.onChangeApi === undefined ? '' : dtfields.onChangeApi,
+                                                            dtForm,
+                                                            dtfields.name,
+                                                            dtfields.tabindex,
+                                                            dtfields.showBusyIndicator === undefined ? '' : dtfields.showBusyIndicator,
+                                                            dtfields.type,
+                                                            dtfields.includeAllFields
+                                                        )
+                                                    "
+                                                    [required]="dtfields?.required"
+                                                    attr.name="{{ dtfields.name }}"
+                                                    name="{{ dtfields.name }}"
+                                                    [ngStyle]="{ visibility: 'visible' }"
+                                                    [autofocus]="
+                                                        dtfields.focus && dtfields.value == itemInquiryoption.value
+                                                            ? true
+                                                            : false || (dtfields.tabindex == setTabIndexFocus && i == 0)
+                                                            ? 'true'
+                                                            : 'false'
+                                                    "
+                                                />
+
+                                                <label class="customeCss" for="{{ itemInquiryoption.show }}{{ itemInquiryoption.value }}" [style.font-size]="fontSize ? fontSize : ''">
+                                                    {{ itemInquiryoption.show }} </label
+                                                ><br />
+                                            </span>
+                                        </div>
+                                    </ng-container>
+                                </div>
+                            </div>
+                            <div *ngIf="isRemembar">
+                                <div class="col s6 ckp">
+                                    <label>
+                                        <input type="checkbox" class="filled-in" id="filled-in-box" (click)="setRembereme($event)" [checked]="isChecked" />
+
+                                        <label for="filled-in-box" class="p-l-25 label-clr">Remember me</label>
+                                    </label>
+                                </div>
+                            </div>
+                            <input type="text" name="test" style="height: 0px; width: 0px" tabindex="100" />
+                        </div>
+                    </form>
+                    <div *ngFor="let htmlContent of htmlEditPageArr" style="margin-bottom: 15px">
+                        <form #f="ngForm" (ngSubmit)="saveItemNotepad(f, htmlContent.htmlEdithexkey, htmlContent.getFileName, htmlContent.saveApi)" class="custom-width">
+                            <table id="itemNotepad_css" class="{{ htmlContent.tableclass }}">
+                                <tr>
+                                    <th class="top" colspan="99">
+                                        {{ htmlContent.inquiryTitle }}
+                                        <!-- 123 -->
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td class="notepad" colspan="99">
+                                        <div class="form-group">
+                                            <simple-tiny
+                                                [(ngModel)]="htmlContent.pageContent"
+                                                [isEnhanced]="htmlContent.enhanced"
+                                                [setReadOnly]="htmlContent.tinyReadonly"
+                                                name="content"
+                                                (ngModelChange)="notepadUpdate(htmlContent.pageContent, htmlContent.htmlEdithexkey)"
+                                            ></simple-tiny>
+                                            <input type="hidden" id="{{ htmlContent.htmlEditTabindex }}" value="{{ htmlContent.pageContent }}" />
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="top" colspan="99">{{ htmlContent.lastrevised }}{{ htmlContent.htmlEditTabindex }}</th>
+                                </tr>
+                                <tr>
+                                    <div id="tinysave_btn" *ngIf="saveApi != undefined">
+                                        <button type="submit" style.display="{{ htmlContent.tinyButtion }}" class="DTB-default DTButton DTButton-default">
+                                            <i class="fas fa-arrow-alt-circle-right" style="margin: 0px 5px 0px 0px !important"></i>save
+                                        </button>
+                                    </div>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                    <app-displaysubgrid *ngIf="displaySubGridPage" [greetSubresponse]="displaySubGridPage" (sendData)="getDataByHexkey($event)"></app-displaysubgrid>
+                    <app-displayview *ngIf="displayViewPage" [setDisplayView]="displayViewPage"></app-displayview>
+                    <!-- CODE TO HANDLE DIALOG HTML ON PAGE START -->
+                    <div *ngIf="showDialogHtmlPage" class="dialog-html-page" [ngStyle]="{ width: dialogPageWidth }">
+                        <div class="modal-content start_new_receipt dialog-html">
+                            <div class="dialog-html-title">
+                                <div class="top-heading" [innerHTML]="showDialogTitle"></div>
+                            </div>
+                            <div *ngIf="showTextDialogPage" class="input-field dialog-html-content">
+                                <div class="validate" [innerHTML]="showTextDialogPage | safeHtml"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div *ngIf="showTitlePage !== '' && showTitlePage !== undefined" class="row" [ngStyle]="{ width: dialogFileWidth, 'padding-top': '5px' }">
+                        <div class="top-heading">
+                            {{ showTitlePage }}
+                        </div>
+                        <div class="file-field input-field">
+                            <div>
+                                {{ showTextPage }}
+                            </div>
+                            <div class="btn fa fa-folder-open DTButton">
+                                <span style="padding-left: 4px">BROWSE</span>
+                                <input [multiple]="isMultiplePage" #fileInput accept="{{ fileExtensionsPage }}" (change)="onSelectFile($event)" id="files" name="files" type="file" />
+                            </div>
+
+                            <div class="file-path-wrapper">
+                                <span style="color: red">* {{ extensionTextPage }}</span>
+                                <input class="file-path validate" #inputFile [(ngModel)]="filetextinput" name="filetextinput" id="filetextinput" type="text" />
+                            </div>
+                        </div>
+
+                        <label *ngIf="searchWordsSize > 0" for="searchPhraseInput" [style.font-size]="fontSize ? fontSize : ''">Search Words </label>
+                        <input
+                            *ngIf="searchWordsSize > 0"
+                            maxlength="{{ searchWordsSize }}"
+                            [(ngModel)]="searchPhraseInput"
+                            name="searchPhraseInput"
+                            id="searchPhraseInput"
+                            type="text"
+                            [style.font-size]="fontSize ? fontSize : ''"
+                        />
+                    </div>
+
+                    <div *ngIf="displayGridRespPage" class="dyn-custom-align dyn-custom-align-grid">
+                        <app-displaysubgrid *ngIf="displayGridRespPage" [greetSubresponse]="displayGridRespPage" (sendData)="getDataResponse($event)"> </app-displaysubgrid>
+                        <div [style.display]="navigationcssPage" class="setInCenter">
+                            <app-naviagtion *ngIf="navigationresPage" [naviresponse]="navigationresPage" (navChanged)="navChangedHandlerPage($event)"></app-naviagtion>
+                        </div>
+                    </div>
+                    <!--   [requiredFieldMultiForm]="requiredFieldMultiForm" -->
+                    <display-edit-grid
+                        *ngIf="responseEditGrid"
+                        [editGridResponse]="responseEditGrid"
+                        (sendDtEditGrid)="receiveDtEditGrid($event)"
+                        (handleSubmitEditGrid)="submitEditGrid($event)"
+                        [updateEntryGrid]="updateEntryGrid"
+                        (handleDialog)="handleDialog($event)"
+                        (enabledSubmitButton)="enabledSubmitButton($event)"
+                        [submitApiEntryGrid]="submitApiEntryGrid"
+                        [submitApiEntryGridMultipart]="apiEntryGridMultipart"
+                        [requiredField]="requiredEntryField"
+                    >
+                    </display-edit-grid>
+
+                    <multi-part-tree
+                        *ngIf="expansionPanelData"
+                        [showDataExpansion]="expansionPanelData"
+                        (handleCancelInParent)="handleCancelTreeControl($event)"
+                        (handleSubmitInParent)="handleSubmitTreeControl($event)"
+                        (handleButtonInParent)="handleButtonInParent($event)"
+                        (widthMultiPart)="setWidthMultiPart($event)"
+                    ></multi-part-tree>
+                    <!--- ADDED TO HANDLE NAVIGATION INSIDE FORM   -->
+                    <div [style.display]="formsNavigationCss" style="margin-left: 8px">
+                        <app-naviagtion *ngIf="formsNavigation" [naviresponse]="formsNavigation" (navChanged)="navChangedHandlerForm($event)"></app-naviagtion>
+                    </div>
+                    <div *ngIf="buttonresponseForm?.length != 0" class="cst-report-page modal-footer">
+                        <div *ngFor="let buttonres of buttonresponseForm">
+                            <div *ngIf="buttonres.isHidden == false || buttonres.isHidden == undefined" class="footer-btn-col {{ buttonres.isEnabled ? '' : 'setDisableBtn' }}">
+                                <app-displayButton
+                                    *ngIf="(buttonres.buttonType == 'submit' && buttonres.isHidden == false) || buttonres.isHidden == undefined"
+                                    [getButtonResponse]="buttonres"
+                                    [buttonLength]="buttonresponseForm?.length"
+                                    (click)="savedtForm(dtForm, buttonres.onPush, dtFormList, $event, buttonres)"
+                                    (keydown.space)="savedtForm(dtForm, buttonres.onPush, dtFormList, $event, buttonres)"
+                                >
+                                </app-displayButton>
+                                <app-displayButton
+                                    *ngIf="(buttonres.buttonType == 'print' && buttonres.isHidden == false) || buttonres.isHidden == undefined"
+                                    [getButtonResponse]="buttonres"
+                                    [buttonLength]="buttonresponseForm?.length"
+                                    (click)="print()"
+                                    (keydown.space)="print()"
+                                >
+                                </app-displayButton>
+                                <app-displayButton
+                                    *ngIf="(buttonres.buttonType == 'cancel' && buttonres.isHidden == false) || buttonres.isHidden == undefined"
+                                    [getButtonResponse]="buttonres"
+                                    [buttonLength]="buttonresponseForm?.length"
+                                    (click)="cancelNew(buttonres.onPush, buttonres.showMenu, buttonres.action)"
+                                    (keydown.space)="cancelNew(buttonres.onPush, buttonres.showMenu, buttonres.action)"
+                                >
+                                </app-displayButton>
+                                <app-displayButton
+                                    *ngIf="(buttonres.buttonType == 'button' && buttonres.isHidden == false) || buttonres.isHidden == undefined"
+                                    [getButtonResponse]="buttonres"
+                                    [buttonLength]="buttonresponseForm?.length"
+                                    (click)="buttonAPICallSend(buttonres)"
+                                    (keydown.space)="buttonAPICallSend(buttonres)"
+                                >
+                                </app-displayButton>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

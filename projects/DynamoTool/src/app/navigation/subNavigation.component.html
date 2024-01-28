@@ -1,0 +1,14 @@
+<ul class="pagination">
+    <li [ngStyle]="{'pointer-events': itemFirst, 'opacity': firstOpecity}">
+        <a (click)="getPage(getFirstPageAPI)"><i class="fa fa-angle-double-left"></i></a>
+    </li>
+    <li [ngStyle]="{'pointer-events': itemPrev, 'opacity': prevOpecity}">
+        <a (click)="getPage(getPrevPageAPI)"><i class="fa fa-angle-left"></i></a>
+    </li>
+    <li [ngStyle]="{'pointer-events': itemNext, 'opacity': nextOpecity}">
+        <a (click)="getPage(getNextPageAPI)"><i class="fa fa-angle-right"></i></a>
+    </li>
+    <li [ngStyle]="{'pointer-events': itemLast, 'opacity': lastOpecity}">
+        <a (click)="getPage(getLastPageAPI)"><i class="fa fa-angle-double-right"></i></a>
+    </li>
+</ul>

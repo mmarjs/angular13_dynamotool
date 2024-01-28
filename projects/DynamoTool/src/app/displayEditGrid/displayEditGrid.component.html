@@ -1,0 +1,847 @@
+<app-message [messageResponse]="setmessage"></app-message>
+<div *ngIf="showBusyText?.length > 0" class="setbusyText">
+  {{ showBusyText }}
+</div>
+<div [style.display]="loader" class="loading"></div>
+<div [ngClass]="editGridPopUp == 'block' ? 'loading1' : 'noclass'">
+  <div
+    [ngStyle]="{
+      display: editGridPopUp,
+      top: popup_top,
+      width: popup_width,
+      'z-index': popup_zindex,
+      'max-height': popupMaxHeight
+    }"
+    id="modal_edit"
+    class="modal po-md myEdit12"
+    [ngClass]="popupMaxHeight == undefined || popupMaxHeight.length < 2 ? 'setBottom' : 'noclass'"
+  >
+    <div class="top-heading buy_orders" [ngStyle]="{ height: gridPopupTitle?.length == 0 ? '24px' : '' }">
+      {{ gridPopupTitle }}<a class="close-icon" (click)="cancel()"><i class="fa fa-times"></i></a>
+    </div>
+
+    <div class="modal-content start_new_receipt">
+      <div class="dyn-custom-align dyn-custom-align-grid">
+        <app-displaysubgrid
+          *ngIf="displaySubGridresp"
+          [greetSubresponse]="displaySubGridresp"
+          (sendData)="getData($event, '', '', '', addRowButton?.dataIndex)"
+        ></app-displaysubgrid>
+      </div>
+      <div [style.display]="navigationcss" class="setInCenter">
+        <app-naviagtion
+          id="display_grid"
+          *ngIf="navigatinresponse"
+          [naviresponse]="navigatinresponse"
+          (navChanged)="navChangedHandler($event)"
+        ></app-naviagtion>
+      </div>
+      <app-displaydtForm
+        *ngIf="responseDtForm"
+        [getdtForm]="responseDtForm"
+        (sendDtForm)="receiveDtForm($event)"
+        (message)="redirectTo($event)"
+        (keydown.enter)="showEnterKey ? receiveDtFormEnter($event) : ''"
+      >
+      </app-displaydtForm>
+
+      <display-edit-grid
+        *ngIf="responseEditGrid"
+        [editGridResponse]="responseEditGrid"
+        (sendDtEditGrid)="receiveDtEditGrid($event)"
+        (handleSubmitEditGrid)="submitEditGrid($event)"
+        [updateEntryGrid]="updateEntryGrid"
+        (handleDialog)="handleDialog($event)"
+        (enabledSubmitButton)="enabledSubmitButton($event)"
+        [submitApiEntryGrid]="submitApiEntryGrid"
+        [submitApiEntryGridMultipart]="apiEntryGridMultipart"
+        [requiredField]="requiredEntryField"
+      >
+      </display-edit-grid>
+
+      <div *ngIf="editGridButton?.length > 0" class="cst-report-page modal-footer">
+        <div *ngFor="let item of editGridButton" class="footer-btn-col {{ item?.isEnabled ? '' : 'setDisableBtn' }}">
+          <app-displayButton [getButtonResponse]="item" (click)="buttonAPICall(item.onPushApi)" (keydown.space)="buttonAPICall(item.onPushApi)">
+          </app-displayButton>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--- ADDED TO CENTER NAVIGATION -->
+<div class="navigationStyle">
+  <div class="container-fluid cst-display-md" id="display-section">
+    <div class="col-sm-12">
+      <div class="tbl-scroll custom-top-gridsub">
+        <div *ngIf="showSearch">
+          <div _ngcontent-fvs-c144="" class="search-field">
+            <input
+              class="Validate manage-search setValid ng-pristine ng-valid ng-touched"
+              type="text"
+              tabindex="10001"
+              placeholder="Search"
+              size="80"
+              (keyup)="searchByClient($event, 2)"
+              [(ngModel)]="filterText"
+              maxlength="80"
+              style="max-width: 209px; height: 6px; padding: 10px"
+            /><i _ngcontent-mmt-c144="" class="fa-search fas"></i>
+          </div>
+        </div>
+        <table
+          *ngIf="itemInquiryBody.length !== 0"
+          cdkDropList
+          class="{{ tableclass }}"
+          (cdkDropListDropped)="drop($event, dataIndex)"
+          [ngStyle]="{
+            float: !isCenter ? 'left' : 'unset',
+            'max-width': tableMaxWidth !== undefined ? tableMaxWidth : 'fit-content'
+          }"
+        >
+          <thead>
+            <tr>
+              <th colspan="99">
+                <div class="grid-heading box-sizes">
+                  <div [innerHTML]="editGridTitle" class="tbl-heading"></div>
+                </div>
+              </th>
+            </tr>
+            <tr class="text-white">
+              <ng-container *ngFor="let itemInquiryHeader of itemInquiryHead; let i = index">
+                <th class="alignHeader">
+                  <div class="top-th-row cst-star" [innerHTML]="itemInquiryHeader.title"></div>
+                  <span *ngIf="itemInquiryHeader?.required" class="cst-star required-star">*</span>
+
+                  <span *ngIf="itemInquiryHeader?.type == 'checkbox'">
+                    <div>
+                      <input
+                        type="checkbox"
+                        (change)="checkAllCheckBox($event, dataIndex)"
+                        tabindex="{{ itemInquiryHeader.tabindex }}"
+                        id="filled-in-box1"
+                        class="filled-in customize"
+                      />
+                    </div>
+                    <div (click)="deleteSelectedFile(itemInquiryHeader.checkBoxApi)" class="delete_button {{ itemInquiryHeader.buttonIcon }}"></div>
+                  </span>
+                </th>
+              </ng-container>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr *ngFor="let itemdata of itemInquiryBody; let myIndex = index" [style.display]="itemdata.hidden == true ? 'none' : ''">
+              <ng-container *ngIf="itemdata.items !== undefined && itemdata.isDeleted == false">
+                <ng-container *ngFor="let itemsubdata of itemdata.items">
+                  <ng-container *ngFor="let degColumn of itemsubdata.degColumns">
+                    <td
+                      *ngIf="degColumn.type != 'hidden'"
+                      class="cst-comp-col"
+                      attr.rowspan="{{ degColumn.rowspan }}"
+                      attr.colspan="{{ degColumn.colspan }}"
+                    >
+                      <div *ngIf="degColumn.mControl == false">
+                        <span
+                          *ngIf="
+                            (degColumn.type == '' || degColumn.type == undefined) && (degColumn.apicollink == undefined || degColumn.apicollink == '')
+                          "
+                          [innerHTML]="degColumn.value"
+                          [style.font-size]="fontSize ? fontSize : ''"
+                        ></span>
+                        <a
+                          *ngIf="
+                            (degColumn.type == '' || degColumn.type == undefined) && degColumn.apicollink !== undefined && degColumn.apicollink !== ''
+                          "
+                        >
+                          <spna
+                            [innerHTML]="degColumn.value"
+                            (click)="openFile(degColumn.apicollink, degColumn.hexkey)"
+                            [style.font-size]="fontSize ? fontSize : ''"
+                          >
+                          </spna>
+                        </a>
+                        <!--   [ngStyle]="{'text-align': degColumn.textalign,'max-width': degColumn.maxwidth}" -->
+                        <input
+                          *ngIf="degColumn.type == 'text' && degColumn.name !== ''"
+                          type="{{ degColumn.type }}"
+                          attr.id="{{ degColumn.id }}"
+                          pattern="{{ degColumn.pattern }}"
+                          [autofocus]="degColumn.focus ? true : false"
+                          name="{{ degColumn.name }}"
+                          maxlength="{{ degColumn.maxlength }}"
+                          [size]="degColumn?.size && degColumn.size !== 0 ? degColumn.size : 35"
+                          placeholder="{{ degColumn.placeholder }}"
+                          [(ngModel)]="degColumn.value"
+                          class="{{ degColumn.inputclass }} {{ degColumn.isValid ? 'setValid' : 'setInValid' }} {{
+                            degColumn.requiredValid ? 'setValid' : 'setInValid'
+                          }}"
+                          tabindex="{{ degColumn.id }}"
+                          [disabled]="degColumn.readonly ? true : false"
+                          (change)="getChange(itemdata.id, itemdata.displayGridButton[0], '', '', '', '', degColumn)"
+                          (keydown)="getChangeAddRow(itemdata.id, degColumn, $event, itemInquiryHead, NewRow, addRowButton)"
+                          [style.font-size]="fontSize ? fontSize : ''"
+                        />
+                        <!-- IP ADDRESS -->
+                        <input
+                          *ngIf="degColumn.type == 'ipAddress' && degColumn.name !== ''"
+                          type="text"
+                          attr.id="{{ degColumn.id }}"
+                          pattern="{{ degColumn.pattern }}"
+                          name="{{ degColumn.name }}"
+                          maxlength="{{ degColumn.maxlength }}"
+                          [size]="degColumn?.size && degColumn.size !== 0 ? degColumn.size : 35"
+                          placeholder="{{ degColumn.placeholder }}"
+                          [(ngModel)]="degColumn.value"
+                          [ngStyle]="{
+                            'text-align': degColumn.textalign,
+                            'max-width': degColumn.maxwidth
+                          }"
+                          class="{{ degColumn.inputclass }} {{ degColumn.isValid ? 'setValid' : 'setInValid' }} {{
+                            degColumn.requiredValid ? 'setValid' : 'setInValid'
+                          }}"
+                          [autofocus]="degColumn.focus ? true : false"
+                          tabindex="{{ degColumn.id }}"
+                          [disabled]="degColumn.readonly ? true : false"
+                          (change)="getChange(itemdata.id, itemdata.displayGridButton[0], '', '', '', '', degColumn)"
+                          (keydown)="getChangeAddRow(itemdata.id, degColumn, $event, itemInquiryHead, NewRow, addRowButton)"
+                          [style.font-size]="fontSize ? fontSize : ''"
+                        />
+                        <!-- HEXADECIMAL -->
+                        <input
+                          *ngIf="degColumn.type == 'hexadecimal' && degColumn.name !== ''"
+                          type="text"
+                          attr.id="{{ degColumn.id }}"
+                          pattern="{{ degColumn.pattern }}"
+                          name="{{ degColumn.name }}"
+                          maxlength="{{ degColumn.maxlength }}"
+                          [size]="degColumn?.size && degColumn.size !== 0 ? degColumn.size : 35"
+                          placeholder="{{ degColumn.placeholder }}"
+                          [(ngModel)]="degColumn.value"
+                          [ngStyle]="{
+                            'text-align': degColumn.textalign,
+                            'max-width': degColumn.maxwidth
+                          }"
+                          class="{{ degColumn.inputclass }} {{ degColumn.isValid ? 'setValid' : 'setInValid' }} {{
+                            degColumn.requiredValid ? 'setValid' : 'setInValid'
+                          }} setMonospace"
+                          [autofocus]="degColumn.focus ? true : false"
+                          tabindex="{{ degColumn.id }}"
+                          [disabled]="degColumn.readonly ? true : false"
+                          (change)="getChange(itemdata.id, itemdata.displayGridButton[0], '', '', '', '', degColumn)"
+                          (keydown)="getChangeAddRow(itemdata.id, degColumn, $event, itemInquiryHead, NewRow, addRowButton)"
+                          [style.font-size]="fontSize ? fontSize : ''"
+                        />
+                        <!-- URL  -->
+                        <input
+                          *ngIf="degColumn.type == 'url' && degColumn.name !== ''"
+                          type="text"
+                          attr.id="{{ degColumn.id }}"
+                          pattern="{{ degColumn.pattern }}"
+                          name="{{ degColumn.name }}"
+                          maxlength="{{ degColumn.maxlength }}"
+                          [size]="degColumn?.size && degColumn.size !== 0 ? degColumn.size : 35"
+                          placeholder="{{ degColumn.placeholder }}"
+                          [(ngModel)]="degColumn.value"
+                          [ngStyle]="{
+                            'text-align': degColumn.textalign,
+                            'max-width': degColumn.maxwidth
+                          }"
+                          class="{{ degColumn.inputclass }} {{ degColumn.isValid ? 'setValid' : 'setInValid' }} {{
+                            degColumn.requiredValid ? 'setValid' : 'setInValid'
+                          }}"
+                          [autofocus]="degColumn.focus ? true : false"
+                          tabindex="{{ degColumn.id }}"
+                          [disabled]="degColumn.readonly ? true : false"
+                          (change)="getChange(itemdata.id, itemdata.displayGridButton[0], '', '', '', '', degColumn)"
+                          (keydown)="getChangeAddRow(itemdata.id, degColumn, $event, itemInquiryHead, NewRow, addRowButton)"
+                          [style.font-size]="fontSize ? fontSize : ''"
+                        />
+                        <!-- MAC ADDRESS  -->
+                        <input
+                          *ngIf="degColumn.type == 'macAddress' && degColumn.name !== ''"
+                          type="text"
+                          attr.id="{{ degColumn.id }}"
+                          pattern="{{ degColumn.pattern }}"
+                          name="{{ degColumn.name }}"
+                          maxlength="{{ degColumn.maxlength }}"
+                          [size]="degColumn?.size && degColumn.size !== 0 ? degColumn.size : 35"
+                          placeholder="{{ degColumn.placeholder }}"
+                          [(ngModel)]="degColumn.value"
+                          [ngStyle]="{
+                            'text-align': degColumn.textalign,
+                            'max-width': degColumn.maxwidth
+                          }"
+                          class="{{ degColumn.inputclass }} {{ degColumn.isValid ? 'setValid' : 'setInValid' }} {{
+                            degColumn.requiredValid ? 'setValid' : 'setInValid'
+                          }}"
+                          [autofocus]="degColumn.focus ? true : false"
+                          tabindex="{{ degColumn.id }}"
+                          [disabled]="degColumn.readonly ? true : false"
+                          (change)="getChange(itemdata.id, itemdata.displayGridButton[0], '', '', '', '', degColumn)"
+                          (keydown)="getChangeAddRow(itemdata.id, degColumn, $event, itemInquiryHead, NewRow, addRowButton)"
+                          [style.font-size]="fontSize ? fontSize : ''"
+                        />
+                        <!-- us Telephone Number  -->
+                        <input
+                          *ngIf="degColumn.type == 'usTelephoneNumber' && degColumn.name !== ''"
+                          type="text"
+                          attr.id="{{ degColumn.id }}"
+                          pattern="{{ degColumn.pattern }}"
+                          name="{{ degColumn.name }}"
+                          maxlength="{{ degColumn.maxlength }}"
+                          [size]="degColumn?.size && degColumn.size !== 0 ? degColumn.size : 35"
+                          placeholder="{{ degColumn.placeholder }}"
+                          [(ngModel)]="degColumn.value"
+                          [ngStyle]="{
+                            'text-align': degColumn.textalign,
+                            'max-width': degColumn.maxwidth
+                          }"
+                          class="{{ degColumn.inputclass }} {{ degColumn.isValid ? 'setValid' : 'setInValid' }} {{
+                            degColumn.requiredValid ? 'setValid' : 'setInValid'
+                          }}"
+                          [autofocus]="degColumn.focus ? true : false"
+                          tabindex="{{ degColumn.id }}"
+                          [disabled]="degColumn.readonly ? true : false"
+                          mask="000-000-0000"
+                          (change)="getChange(itemdata.id, itemdata.displayGridButton[0], '', '', '', '', degColumn)"
+                          (keydown)="getChangeAddRow(itemdata.id, degColumn, $event, itemInquiryHead, NewRow, addRowButton)"
+                          [style.font-size]="fontSize ? fontSize : ''"
+                        />
+
+                        <!--  {{degColumn.value}} -->
+                        <input
+                          *ngIf="degColumn.type == 'number' && degColumn.name !== ''"
+                          type="{{ degColumn.type }}"
+                          attr.id="{{ degColumn.id }}"
+                          pattern="{{ degColumn.pattern }}"
+                          [autofocus]="degColumn.focus ? true : false"
+                          (click)="setFocus(degColumn.focus, $event, degColumn.id)"
+                          name="{{ degColumn.name }}"
+                          step="{{ degColumn.step }}"
+                          placeholder="{{ degColumn.placeholder }}"
+                          tabindex="{{ degColumn.id }}"
+                          [(ngModel)]="degColumn.value"
+                          [ngStyle]="{
+                            'text-align': degColumn.textalign,
+                            'max-width': degColumn.maxwidth
+                          }"
+                          class="num-fix {{ degColumn.inputclass }} {{ degColumn.isValid ? 'setValid' : 'setInValid' }} {{
+                            degColumn.requiredValid == 'false' ? 'setInValid' : 'setValid'
+                          }} {{ degColumn.focus ? 'setFocus' : '' }}"
+                          max="{{ degColumn.max }}"
+                          min="{{ degColumn.min }}"
+                          [disabled]="degColumn.readonly ? true : false"
+                          (select)="customFocus($event)"
+                          (change)="
+                            getChange(itemdata.id, itemdata.displayGridButton[0], '', degColumn.value, degColumn.max, degColumn.name, degColumn)
+                          "
+                          (keydown)="getChangeAddRow(itemdata.id, degColumn, $event, itemInquiryHead, NewRow, addRowButton)"
+                          (keypress)="checkDecimalEntryGrid($event, degColumn)"
+                          [style.font-size]="fontSize ? fontSize : ''"
+                        /><!-- {{degColumn.requiredValid + 'NUM'}} {{degColumn.isValid + 'NUM'}} -->
+                        <!-- (focus)="setFocus(degColumn.focus,$event,degColumn.id)" (change)   [(ngModel)]="dtfields.show !== undefined ? dtfields.show : dtfields.value"-->
+
+                        <span *ngIf="degColumn.checkMaxValue" class="invalid"> Please don't exceed {{ degColumn.max }} numbers. </span>
+                        <!-- NEW TYPE TIME  (keydown.tab) -->
+                        <div *ngIf="degColumn.type == 'time' && degColumn.name !== ''" style="height: 26px !important">
+                          <input
+                            *ngIf="degColumn.value == '' || degColumn.value !== '' || fullTime.timepickerInput?._value == 'Invalid DateTime'"
+                            [required]="degColumn?.required"
+                            class="{{ degColumn.inputclass }} timetext"
+                            (focus)="myMethod($event)"
+                            [style.font-size]="fontSize ? fontSize : ''"
+                            [ngStyle]="{
+                              'text-align': degColumn.textalign,
+                              'max-width': degColumn.maxwidth
+                            }"
+                            [disabled]="degColumn.readonly ? true : false"
+                            [disabledClick]="true"
+                            [autofocus]="degColumn.focus ? true : false"
+                            placeholder="{{ degColumn.placeholder }}"
+                            (change)="
+                              getChangeTime(
+                                itemdata.id,
+                                itemdata.displayGridButton[0],
+                                '',
+                                degColumn.value,
+                                degColumn.max,
+                                degColumn.name,
+                                degColumn,
+                                $event
+                              )
+                            "
+                            (keydown)="getChangeAddRow(itemdata.id, degColumn, $event, itemInquiryHead, NewRow, addRowButton)"
+                            name="{{ degColumn.name }}"
+                            id="{{ degColumn.name }}"
+                            tabindex="{{ degColumn.tabindex }}"
+                            focus="{{ degColumn.focus }}"
+                            [(ngModel)]="degColumn.value"
+                            [(format)]="degColumn.format"
+                            [(max)]="degColumn.max"
+                            [(min)]="degColumn.min"
+                            [(value)]="degColumn.value"
+                          />
+                          <label
+                            [ngxTimepicker]="fullTime"
+                            *ngIf="degColumn.type == 'time' && degColumn.name !== ''"
+                            [required]="degColumn?.required"
+                            class="{{ degColumn.inputclass }} timetext"
+                            (focus)="myMethod($event)"
+                            [ngStyle]="{
+                              'text-align': degColumn.textalign,
+                              'max-width': degColumn.maxwidth
+                            }"
+                            [disabled]="degColumn.readonly ? true : false"
+                            [minutes]="true"
+                            [autofocus]="degColumn.focus ? true : false"
+                            placeholder="{{ degColumn.placeholder }}"
+                            (change)="
+                              getFocusOut(
+                                $event,
+                                degColumn.value,
+                                degColumn.onChangeApi === undefined ? '' : degColumn.onChangeApi,
+                                dtForm,
+                                degColumn.name,
+                                degColumn.tabindex,
+                                degColumn.showBusyIndicator === undefined ? '' : degColumn.showBusyIndicator,
+                                degColumn.type,
+                                degColumn.includeAllFields,
+                                '',
+                                degColumn,
+                                false
+                              )
+                            "
+                            name="{{ degColumn.name }}"
+                            id="{{ degColumn.name }}"
+                            focus="{{ degColumn.focus }}"
+                            [(ngModel)]="degColumn.value"
+                            [(format)]="degColumn.format"
+                            [(max)]="degColumn.max"
+                            [(min)]="degColumn.min"
+                            [(value)]="degColumn.value"
+                            [style.font-size]="fontSize ? fontSize : ''"
+                          >
+                          </label>
+
+                          <mat-icon matSuffix *ngIf="!degColumn.readonly" class="timeicon" (click)="openFromIcon(fullTime)">schedule</mat-icon>
+                          <ngx-material-timepicker
+                            #fullTime
+                            (timeSet)="
+                              getChangeTime(
+                                itemdata.id,
+                                itemdata.displayGridButton[0],
+                                '',
+                                degColumn.value,
+                                degColumn.max,
+                                degColumn.name,
+                                degColumn,
+                                $event,
+                                true
+                              )
+                            "
+                          >
+                          </ngx-material-timepicker>
+                          <!-- WORKING TIME (keydown) -->
+
+                          <!-- <input type="text" [ngStyle]="{'text-align': degColumn.textalign,'max-width': degColumn.maxwidth}" [(ngModel)]="degColumn.value"  id="{{degColumn.id}}" tabindex="{{degColumn.id}}"
+                                                   (change)="getChangeTime(itemdata.id,itemdata.displayGridButton[0],'',degColumn.value,degColumn.max,degColumn.name,degColumn,$event)"
+                                                   (keydown)="getChangeAddRow(itemdata.id,degColumn,$event,itemInquiryHead,NewRow,addRowButton)" class="{{degColumn.inputclass}} {{degColumn.isValid ? 'setValid' : 'setInValid'}} {{degColumn.requiredValid ? 'setValid' : 'setInValid'}}"/>
+                                                    -->
+                        </div>
+
+                        <input
+                          *ngIf="degColumn.type == 'checkbox' && degColumn.name !== ''"
+                          type="{{ degColumn.type }}"
+                          name="{{ degColumn.name }}"
+                          id="{{ degColumn.id }}"
+                          tabindex="{{ degColumn.id }}"
+                          [disabled]="degColumn.readonly ? true : false"
+                          checked="{{ degColumn.value ? 'checked' : '' }}"
+                          (change)="getChangeCheckbox(itemdata.id, itemdata.displayGridButton[0], '', '', '', '', degColumn, $event)"
+                          (keydown)="getChangeAddRow(itemdata.id, degColumn, $event, itemInquiryHead, NewRow, addRowButton)"
+                          [autofocus]="degColumn.focus ? true : false"
+                          class="filled-in"
+                          [style.font-size]="fontSize ? fontSize : ''"
+                        />
+                        <input
+                          *ngIf="degColumn.type == 'email' && degColumn.name !== ''"
+                          type="{{ degColumn.type }}"
+                          attr.id="{{ degColumn.id }}"
+                          pattern="{{ degColumn.pattern }}"
+                          name="{{ degColumn.name }}"
+                          maxlength="{{ degColumn.maxlength }}"
+                          [size]="degColumn?.size && degColumn.size !== 0 ? degColumn.size : 35"
+                          placeholder="{{ degColumn.placeholder }}"
+                          [(ngModel)]="degColumn.value"
+                          [ngStyle]="{
+                            'text-align': degColumn.textalign,
+                            'max-width': degColumn.maxwidth
+                          }"
+                          class="{{ degColumn.inputclass }} {{ degColumn.isValid ? 'setValid' : 'setInValid' }} {{
+                            degColumn.requiredValid ? 'setValid' : 'setInValid'
+                          }}"
+                          [autofocus]="degColumn.focus ? true : false"
+                          tabindex="{{ degColumn.id }}"
+                          [disabled]="degColumn.readonly ? true : false"
+                          (change)="getChange(itemdata.id, itemdata.displayGridButton[0], '', '', '', '', degColumn)"
+                          (keydown)="getChangeAddRow(itemdata.id, degColumn, $event, itemInquiryHead, NewRow, addRowButton)"
+                          [style.font-size]="fontSize ? fontSize : ''"
+                        />
+
+                        <!-- ADDED FOR RADIO -->
+                        <div *ngIf="degColumn.type == 'radio' && degColumn.alignment == 'vertical'" class="radio{{ degColumn.id }} alignRadio">
+                          <span *ngFor="let itemInquiryoption of degColumn.options; let k = index">
+                            <input
+                              type="radio"
+                              class="filled-in {{ degColumn.requiredValid == false ? 'setInValid' : 'setValid' }} {{
+                                degColumn.value1 == itemInquiryoption.value || degColumn.focus ? 'tabbed' : 'untabbed'
+                              }}"
+                              [(ngModel)]="degColumn.value1"
+                              tabindex="{{ degColumn.tabindex }}"
+                              id="{{ itemInquiryoption.show }}{{ itemInquiryoption.value }}{{ degColumn.tabindex }}"
+                              value="{{ itemInquiryoption.value }}"
+                              (change)="
+                                getChangeRadio(
+                                  itemdata.id,
+                                  itemdata.displayGridButton[0],
+                                  '',
+                                  degColumn.value1,
+                                  degColumn.max,
+                                  degColumn.name,
+                                  degColumn
+                                )
+                              "
+                              [disabled]="degColumn.readonly ? true : false"
+                              [name]="degColumn.name + degColumn.tabindex"
+                              attr.name="{{ degColumn.name + degColumn.tabindex }}"
+                              [ngStyle]="{ visibility: 'visible' }"
+                              [autofocus]="degColumn.focus ? true : false"
+                              (keydown)="getChangeAddRow(itemdata.id, degColumn, $event, itemInquiryHead, NewRow, addRowButton)"
+                            />
+                            <!--   id="{{itemInquiryoption.show}}{{itemInquiryoption.value}}{{degColumn.tabindex}}" used before but problems with name="{{degColumn.tabindex}}"
+                                                             for="{{itemInquiryoption.show}}{{itemInquiryoption.value}}{{degColumn.tabindex}}" -->
+                            <label
+                              class="{{ degColumn.requiredValid == false ? 'setInValid' : 'setValid' }}"
+                              for="{{ itemInquiryoption.show }}{{ itemInquiryoption.value }}{{ degColumn.tabindex }}"
+                              [style.font-size]="fontSize ? fontSize : ''"
+                            >
+                              {{ itemInquiryoption.show }} </label
+                            ><br />
+                          </span>
+                        </div>
+                        <div *ngIf="degColumn.type == 'radio' && degColumn.alignment == 'horizontal'">
+                          <p>
+                            <span class="radio-label"></span>
+
+                            <label>
+                              <span *ngFor="let itemInquiryoption of degColumn.options">
+                                <input
+                                  type="radio"
+                                  class="filled-in {{ degColumn.requiredValid ? 'setValid' : 'setInValid' }} {{
+                                    degColumn.value1 == itemInquiryoption.value || degColumn.focus ? 'tabbed' : 'untabbed'
+                                  }}"
+                                  [(ngModel)]="degColumn.value1"
+                                  tabindex="{{ degColumn.tabindex }}"
+                                  id="{{ itemInquiryoption.show }}{{ itemInquiryoption.value }}{{ degColumn.tabindex }}"
+                                  value="{{ itemInquiryoption.value }}"
+                                  (change)="
+                                    getChangeRadio(
+                                      itemdata.id,
+                                      itemdata.displayGridButton[0],
+                                      '',
+                                      degColumn.value1,
+                                      degColumn.max,
+                                      degColumn.name,
+                                      degColumn
+                                    )
+                                  "
+                                  [disabled]="degColumn.readonly ? true : false"
+                                  [name]="degColumn.name + degColumn.tabindex"
+                                  attr.name="{{ degColumn.name + degColumn.tabindex }}"
+                                  [ngStyle]="{ visibility: 'visible' }"
+                                  [autofocus]="degColumn.focus ? true : false"
+                                  (keydown)="getChangeAddRow(itemdata.id, degColumn, $event, itemInquiryHead, NewRow, addRowButton)"
+                                />
+                                <label
+                                  for="{{ itemInquiryoption.show }}{{ itemInquiryoption.value }}{{ degColumn.tabindex }}"
+                                  [style.font-size]="fontSize ? fontSize : ''"
+                                >
+                                  {{ itemInquiryoption.show }}</label
+                                >
+                              </span>
+                            </label>
+                          </p>
+                        </div>
+
+                        <!-- ADDED FOR TEXTAREA -->
+
+                        <textarea
+                          *ngIf="degColumn.type == 'textarea' && degColumn.readonly == true && degColumn.name !== ''"
+                          class="{{ degColumn.inputclass }} setBorderTextArea"
+                          attr.id="{{ degColumn.id }}"
+                          pattern="{{ degColumn.pattern }}"
+                          [autofocus]="degColumn.focus ? true : false"
+                          name="{{ degColumn.name }}"
+                          maxlength="{{ degColumn.maxlength }}"
+                          placeholder="{{ degColumn.placeholder }}"
+                          [(ngModel)]="degColumn.value"
+                          readonly="{{ degColumn.readonly }}"
+                          tabindex="{{ degColumn.id }}"
+                          (change)="getChange(itemdata.id, itemdata.displayGridButton[0], '', '', '', '', degColumn)"
+                          (keydown)="getChangeAddRow(itemdata.id, degColumn, $event, itemInquiryHead, NewRow, addRowButton)"
+                          rows="{{ degColumn.rows }}"
+                          cols="{{ degColumn.cols }}"
+                          [style.font-size]="fontSize ? fontSize : ''"
+                        ></textarea>
+                        <textarea
+                          *ngIf="degColumn.type == 'textarea' && degColumn.readonly == false && degColumn.name !== ''"
+                          class="{{ degColumn.inputclass }} setBorderTextArea {{ degColumn.requiredValid ? 'setValid' : 'setInValid' }}"
+                          attr.id="{{ degColumn.id }}"
+                          pattern="{{ degColumn.pattern }}"
+                          [autofocus]="degColumn.focus ? true : false"
+                          name="{{ degColumn.name }}"
+                          maxlength="{{ degColumn.maxlength }}"
+                          placeholder="{{ degColumn.placeholder }}"
+                          [(ngModel)]="degColumn.value"
+                          [ngStyle]="{
+                            'text-align': degColumn.textalign,
+                            'max-width': degColumn.maxwidth
+                          }"
+                          tabindex="{{ degColumn.id }}"
+                          (change)="getChange(itemdata.id, itemdata.displayGridButton[0], '', '', '', '', degColumn)"
+                          (keydown)="getChangeAddRow(itemdata.id, degColumn, $event, itemInquiryHead, NewRow, addRowButton)"
+                          rows="{{ degColumn.rows }}"
+                          cols="{{ degColumn.cols }}"
+                          [style.font-size]="fontSize ? fontSize : ''"
+                        ></textarea>
+                        <!-- ADD BLUR EVENT ON DATE FOR VALIDATION (blur)="dateValidation(degColumn)"-->
+                        <input
+                          *ngIf="
+                            degColumn.type == 'date' && degColumn.name !== '' && (degColumn.readonly == undefined || degColumn.readonly == false)
+                          "
+                          type="{{ degColumn.type }}"
+                          attr.id="{{ degColumn.id }}"
+                          pattern="{{ degColumn.pattern }}"
+                          [autofocus]="degColumn.focus ? true : false"
+                          name="{{ degColumn.name }}"
+                          maxlength="{{ degColumn.maxlength }}"
+                          placeholder="{{ degColumn.placeholder }}"
+                          [(ngModel)]="degColumn.value"
+                          [ngStyle]="{
+                            'text-align': degColumn.textalign,
+                            'max-width': degColumn.maxwidth
+                          }"
+                          class="fix-date-ht {{ degColumn.inputclass }} {{ degColumn.isValid ? 'setValid' : 'setInValid' }} {{
+                            degColumn.requiredValid ? 'setValid' : 'setInValid'
+                          }}"
+                          tabindex="{{ degColumn.id }}"
+                          (keydown)="getChangeAddRow(itemdata.id, degColumn, $event, itemInquiryHead, NewRow, addRowButton)"
+                          [disabled]="degColumn.readonly ? true : false"
+                          (blur)="getChangeDate(itemdata.id, itemdata.displayGridButton[0], '', '', '', '', degColumn, $event)"
+                          [style.font-size]="fontSize ? fontSize : ''"
+                        />
+                        <input
+                          *ngIf="degColumn.type == 'date' && degColumn.name !== '' && degColumn.readonly && degColumn.value !== ''"
+                          type="date"
+                          pattern="{{ degColumn.pattern }}"
+                          attr.id="{{ degColumn.id }}"
+                          name="{{ degColumn.name }}"
+                          [(ngModel)]="degColumn.value"
+                          [ngStyle]="{
+                            'text-align': degColumn.textalign,
+                            'max-width': degColumn.maxwidth
+                          }"
+                          class="fix-date-ht {{ degColumn.inputclass }}"
+                          tabindex="{{ degColumn.id }}"
+                          [disabled]="degColumn.readonly ? true : false"
+                          [style.font-size]="fontSize ? fontSize : ''"
+                        />
+                        <input
+                          *ngIf="degColumn.type == 'date' && degColumn.name !== '' && degColumn.readonly && degColumn.value == ''"
+                          type="text"
+                          attr.id="{{ degColumn.id }}"
+                          name="{{ degColumn.name }}"
+                          [(ngModel)]="degColumn.value"
+                          [ngStyle]="{
+                            'text-align': degColumn.textalign,
+                            'max-width': degColumn.maxwidth
+                          }"
+                          class="fix-date-ht {{ degColumn.inputclass }}"
+                          tabindex="{{ degColumn.id }}"
+                          [disabled]="degColumn.readonly ? true : false"
+                          [style.font-size]="fontSize ? fontSize : ''"
+                        />
+
+                        <div *ngIf="degColumn.type == 'switch'" class="switch">
+                          <label>
+                            <input
+                              type="checkbox"
+                              name="{{ degColumn.name }}"
+                              id="{{ degColumn.id }}"
+                              [(ngModel)]="degColumn.value"
+                              tabindex="{{ degColumn.id }}"
+                              [disabled]="degColumn.readonly ? true : false"
+                              value="{{ degColumn.value }}"
+                              checked="{{ degColumn.value ? 'checked' : '' }}"
+                              (change)="getChangeSwitch(itemdata.id, itemdata.displayGridButton[0], '', '', '', '', degColumn)"
+                              (keydown)="getChangeAddRow(itemdata.id, degColumn, $event, itemInquiryHead, NewRow, addRowButton)"
+                              [autofocus]="degColumn.focus ? true : false"
+                              class="{{ degColumn.requiredValid ? 'setValid' : 'setInValid' }} {{
+                                degColumn.value || degColumn.focus ? 'tabbed' : 'untabbed'
+                              }}"
+                            />
+                            <span class="lever" [style.font-size]="fontSize ? fontSize : ''"></span>
+                          </label>
+                        </div>
+
+                        <mat-form-field *ngIf="degColumn.type == 'select'" class="lbl-color cst-focus">
+                          <mat-select
+                            #mySelect
+                            name="{{ degColumn.name }}"
+                            tabIndex="{{ degColumn.id }}"
+                            class="{{ degColumn.requiredValid ? 'setValid' : 'setInValid' }}"
+                            [disabled]="degColumn.readonly ? true : false"
+                            (selectionChange)="getChangeSelect(itemdata.id, itemdata.displayGridButton[0], tableclass, '', '', '', degColumn)"
+                            (keydown)="getChangeAddRow(itemdata.id, degColumn, $event, itemInquiryHead, NewRow, addRowButton)"
+                            [(ngModel)]="degColumn.value"
+                            [ngStyle]="{
+                              'text-align': degColumn.textalign,
+                              'max-width': degColumn.maxwidth
+                            }"
+                            [autofocus]="degColumn.focus ? true : false"
+                            [style.font-size]="fontSize ? fontSize : ''"
+                          >
+                            <mat-option *ngFor="let option of degColumn.options" [value]="option.value">
+                              {{ option.show }}
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                        <!--   (keydown)="OnChangeAPiData(degColumn.onChangeApi,degColumn.value,degColumn.name,degColumn)" -->
+                        <div *ngIf="degColumn.type == 'search'" class="input-field table-search">
+                          <input
+                            type="text"
+                            name="{{ degColumn.name }}"
+                            [style.font-size]="fontSize ? fontSize : ''"
+                            placeholder="{{ degColumn.placeholder }}"
+                            [(ngModel)]="degColumn.value"
+                            [ngStyle]="{
+                              'text-align': degColumn.textalign,
+                              'max-width': degColumn.maxwidth
+                            }"
+                            [ngClass]="searchitem"
+                            class="{{ degColumn.inputclass }} {{ degColumn.isValid ? 'setValid' : 'setInValid' }} {{
+                              degColumn.requiredValid ? 'setValid' : 'setInValid'
+                            }}"
+                            id="{{ degColumn.id }}"
+                            tabindex="{{ degColumn.id }}"
+                            [size]="degColumn?.size && degColumn.size !== 0 ? degColumn.size : 35"
+                            maxlength="{{ degColumn.maxlength }}"
+                            (change)="getChange(itemdata.id, itemdata.displayGridButton[0], '', '', '', '', degColumn)"
+                            (keydown)="getChangeAddRow(itemdata.id, degColumn, $event, itemInquiryHead, NewRow, addRowButton)"
+                            [disabled]="degColumn.readonly ? true : false"
+                            [autofocus]="degColumn.focus ? true : false"
+                          />
+                          <!-- <p>66  (keydown.enter)="OnChangeAPiData(degColumn.onChangeApi,degColumn.value,degColumn.name,degColumn)"</p> -->
+
+                          <span *ngIf="degColumn.readonly == true" id="inquirySearch" class="fa fa-search disabledClass" tabindex="2"></span>
+                          <span
+                            *ngIf="degColumn.readonly == false || degColumn.readonly == undefined"
+                            id="inquirySearch"
+                            class="fa fa-search"
+                            tabindex="2"
+                            (click)="OnChangeAPiData(degColumn.onChangeApi, degColumn.value, degColumn.name, degColumn)"
+                            [style.font-size]="fontSize ? fontSize : ''"
+                          ></span>
+                        </div>
+
+                        <div *ngIf="degColumn.type == 'image'" class="table-search">
+                          <img src="{{ serverName }}{{ degColumn.path }}" width="{{ degColumn.width }}" />
+                        </div>
+                      </div>
+                    </td>
+                  </ng-container>
+                </ng-container>
+
+                <!-- dragdrop -->
+                <td *ngIf="itemdata.displayGridButton.length > 0" class="last-col">
+                  <div *ngIf="itemdata.displayGridButton" class="cst-action-col">
+                    <div *ngFor="let button of itemdata.displayGridButton" class="display-btn btn-center cstm-red">
+                      <app-displayButton
+                        *ngIf="button.action == 'api_call'"
+                        (click)="onClick(button)"
+                        (keydown.space)="onClick(button)"
+                        [getButtonResponse]="button"
+                      >
+                      </app-displayButton>
+                      <app-displayButton
+                        *ngIf="(button.action == 'function' || button.action == 'Function') && button.onPush == 'dragdrop'"
+                        (click)="onClick(button)"
+                        [cdkDragDisabled]="!canReorder"
+                        cdkDrag
+                        [getButtonResponse]="button"
+                      >
+                      </app-displayButton>
+                      <app-displayButton
+                        *ngIf="(button.action == 'function' || button.action == 'Function') && button.onPush !== 'dragdrop'"
+                        (click)="onClick(button)"
+                        (keydown.space)="onClick(button)"
+                        [getButtonResponse]="button"
+                      >
+                      </app-displayButton>
+                    </div>
+                  </div>
+                </td>
+              </ng-container>
+            </tr>
+          </tbody>
+
+          <tfoot *ngIf="footerTitle?.length > 0">
+            <tr>
+              <th colspan="99">
+                <div class="grid-heading box-sizes">
+                  <div [innerHTML]="footerTitle" class="tbl-heading"></div>
+                </div>
+              </th>
+            </tr>
+          </tfoot>
+        </table>
+        <div style="margin-left: 45%; margin-left: 45%">
+          <!--- ADDED TO HANDLE NAVIGATION INSIDE ENTRYGRID   -->
+          <div [style.display]="entryGridNavigationCss">
+            <app-naviagtion
+              *ngIf="entryGridNavigation"
+              [naviresponse]="entryGridNavigation"
+              (navChanged)="navHandlerEntryGrid($event)"
+            ></app-naviagtion>
+          </div>
+          <div *ngIf="clientPagination == true">
+            <app-naviagtion
+              *ngIf="entryGridNavigation"
+              [naviresponse]="entryGridNavigation"
+              (navChanged)="navClientPaginationHandler($event)"
+            ></app-naviagtion>
+          </div>
+        </div>
+        <div *ngIf="addRowButton !== undefined || undeleteButton !== undefined" class="cst-report-page modal-footer">
+          <div class="footer-btn-col">
+            <app-displayButton
+              *ngIf="addRowButton !== undefined && addRowButton.buttonType == 'button'"
+              [getButtonResponse]="addRowButton"
+              (click)="onClick(addRowButton, addRowButton.dataIndex, itemInquiryHead, NewRow, addRowButton.checkDragDrop, addRowButton.editApi)"
+              (keydown)="onClick(addRowButton, addRowButton.dataIndex, itemInquiryHead, NewRow, addRowButton.checkDragDrop, addRowButton.editApi)"
+            >
+            </app-displayButton
+            >&nbsp;&nbsp;
+            <app-displayButton
+              *ngIf="undeleteButton !== undefined && undeleteButton.buttonType == 'button'"
+              [getButtonResponse]="undeleteButton"
+              (click)="onClick(undeleteButton)"
+              (keydown.space)="onClick(undeleteButton)"
+            >
+            </app-displayButton>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

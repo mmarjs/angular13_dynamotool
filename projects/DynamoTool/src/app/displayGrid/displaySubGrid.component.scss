@@ -1,0 +1,265 @@
+thead th {
+  cursor: pointer;
+  // margin-right: 15px;
+  // margin-left: 15px;
+
+  // span {
+  //   visibility: hidden;
+  // }
+
+  &.active {
+    // color: #000;
+
+    span {
+      visibility: visible;
+    }
+  }
+}
+
+table tbody tr td.active {
+  background-color: #123456 !important;
+  color: white;
+}
+td {
+  cursor: pointer;
+}
+// .tc5 .top-th-row {
+//   float: left;
+// }
+// .top-th-row {
+//   float: left;
+// }
+// span.sort-arrow {
+//   font-size: 10px;
+//   padding-left: 10px;
+// }
+#filled-in-box {
+  visibility: visible;
+}
+.sorting-col {
+  width: 0;
+  float: right;
+  padding: 2px 12px;
+}
+span.sort-up,
+span.sort-down {
+  font-size: 8px;
+  float: left;
+  width: 0px;
+  height: 4px;
+  opacity: 0.7;
+}
+span.sort-down {
+  margin-top: 7px;
+}
+span.align-check {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  left: 8px;
+  top: 3px;
+}
+.align-radio {
+  left: 5px !important;
+}
+
+.delete_Heading {
+  display: block;
+  float: none;
+  text-align: center !important;
+}
+
+.delete_button {
+  float: none;
+  display: block;
+  margin-bottom: 6px;
+  margin-top: 8px;
+}
+
+.delete_checkbox {
+  margin-left: 24px;
+  margin-bottom: -2px;
+  width: 30px;
+  height: 14px;
+}
+label.delete_checkbox [type="checkbox"].filled-in:checked + label:after {
+  width: 14px;
+  height: 14px;
+}
+
+[type="checkbox"].filled-in.customize:not(:checked) + label:after {
+  border: 2px solid #fff;
+  height: 17px;
+  width: 18px;
+  left: -3px;
+}
+
+[type="checkbox"].filled-in.customize:checked + label:after {
+  width: 18px;
+  height: 17px;
+  left: -3px;
+}
+
+[type="checkbox"].filled-in.customize:checked + label:before {
+  left: 0px;
+  width: 5px;
+  height: 11px;
+}
+[popup="table"] > tbody > tr > td > div {
+  white-space: nowrap;
+}
+[popup="table"] > thead > tr > th > div {
+  white-space: nowrap;
+}
+.custom-top-gridsub {
+  /*	margin: 0 auto !important; 7 may*/
+  margin: 0 auto 10px auto !important;
+}
+
+.main-tbl-file .delete_button {
+  text-align: center;
+}
+.main-tbl-file [type="checkbox"].filled-in:not(:checked) + label:after,
+.main-tbl-file [type="checkbox"].filled-in:checked + label:after {
+  height: 18px;
+  width: 18px;
+}
+
+.main-tbl-file thead th {
+  cursor: pointer;
+  text-align: center;
+}
+.main-tbl-file .delete_checkbox {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.main-tbl-file [type="checkbox"].filled-in:checked + label:before {
+  left: 0px;
+  height: 12px !important;
+}
+.main-tbl-file
+  tr
+  th:last-child
+  [type="checkbox"].filled-in:checked
+  + label:before {
+  width: 8px !important;
+  height: 12px !important;
+  left: -2px !important;
+}
+.setPointer {
+  cursor: auto;
+}
+span.delete_checkbox {
+  top: 4px !important;
+  right: 3px !important;
+}
+.top-th-row {
+  line-height: 110%;
+}
+/* 12 Nov 2021*/
+
+.custom-table-displaygrid {
+  border-collapse: collapse;
+  border-spacing: 0;
+
+  /*  width: 100%!important; */
+}
+/* @media (min-width: 992px){
+  .container-displayGrid{
+      max-width: 960px;
+  }}
+  @media (min-width: 768px){
+  .container-displayGrid{
+      max-width: 720px
+  }
+  }
+  @media (min-width: 576px){
+  .container-displayGrid {
+      max-width: 540px;
+  }
+  }
+
+  .container-displayGrid{
+      width: 100%;
+      padding-right: 15px;
+      padding-left: 15px;
+      margin-right: auto;
+      margin-left: auto;
+  }
+  @media (min-width:1200px){
+          .container-displayGrid{
+              max-width: 1140px;
+          }
+      }  */
+.container-displayGrid {
+  /*  width: 100%; */
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+::ng-deep .dataTables_wrapper .dataTables_filter input {
+  border: 1px solid #aaa;
+  border-radius: 3px;
+  padding: 5px;
+  width: 94% !important;
+  background-color: transparent;
+  margin-left: 3px;
+  height: 1rem !important;
+}
+
+::ng-deep .dataTables_wrapper .dataTables_paginate .paginate_button.current,
+.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+  color: #fff !important;
+  border: 1px solid #26a69a;
+  background-color: white;
+  background: linear-gradient(to bottom, #26a69a 0%, #26a69a 100%);
+}
+
+::ng-deep .dataTables_wrapper .dataTables_paginate .paginate_button {
+  box-sizing: border-box;
+  display: inline-block;
+  min-width: 1.5em;
+  padding: 1px 1px;
+  margin-left: 2px;
+  text-align: center;
+  text-decoration: none !important;
+  cursor: pointer;
+}
+
+::ng-deep .input-field {
+  position: relative;
+  margin: 1rem auto 0 auto;
+  width: fit-content;
+}
+
+::ng-deep .dataTables_wrapper .dataTables_filter {
+  float: right;
+  margin-right: 5rem !important;
+  text-align: right;
+}
+
+::ng-deep .dataTables_wrapper .dataTables_paginate {
+  float: right;
+  text-align: right;
+  padding-top: 0.25em;
+  margin-right: 5rem !important;
+}
+
+::ng-deep .dataTables_wrapper .dataTables_info {
+  clear: both;
+  float: left;
+  margin-left: 5rem !important;
+  padding-top: 0.755em;
+}
+
+::ng-deep .dataTables_wrapper .dataTables_filter {
+  float: right;
+  margin-right: 5rem !important;
+  text-align: right;
+  display: none !important;
+}
+.client-navigation {
+  text-align: center;
+}

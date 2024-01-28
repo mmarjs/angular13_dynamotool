@@ -1,0 +1,35 @@
+.main-block {
+    margin-top: 40px;
+}
+a.close-icon {
+    color: red;
+    text-decoration: none;
+    float: right;
+    font-size: 20px;
+    position: relative;
+    top: -20px;
+}
+.pagin_nav {
+    display: none;
+    float: left;
+    margin-left: 15px;
+    margin-top: -12px;
+}
+.modal-overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow-x: auto;
+    overflow-y: auto;
+    left: 0;
+    top: 0;
+    background: rgba(0,0,0,.5);
+}
+div#modal11 {
+    top: 5%;
+    bottom: 2%;
+    width: 750px;
+    bottom: inherit;
+    position: absolute;
+    overflow: hidden;
+}

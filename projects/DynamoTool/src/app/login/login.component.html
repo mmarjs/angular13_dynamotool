@@ -1,0 +1,29 @@
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" />
+
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,300|Material+Icons" rel="stylesheet" type="text/css" />
+
+<!-- <app-message [messageResponse]="setmessage"></app-message> -->
+<!-- CODE TO HANDLE DIALOG HTML ON PAGE START -->
+
+<div class="main-block" *ngIf="showDialogHtmlPage">
+    <div [ngStyle]="{ display: showDialog, width: dialogPageWidth }" id="modal1112" class="modal">
+        <div class="top-heading buy_orders">{{ dialogTitle }}</div>
+        <div class="modal-content start_new_receipt">
+            <div class="col s12 m12">
+                <span [innerHTML]="dialogText"></span>
+            </div>
+            <div *ngIf="buttonresponse.length != 0" class="cst-report-page modal-footer">
+                <div *ngFor="let item of buttonresponse" class="footer-btn-col {{ item?.isEnabled ? '' : 'setDisableBtn' }}">
+                    <app-displayButton [getButtonResponse]="item" (click)="buttonAPICall(item.onPush)"></app-displayButton>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div [style.display]="loader" id="loader" class="loading"></div>
+
+<div class="loginMain" [ngStyle]="{ width: formWidth, margin: 'auto' }">
+    <login-page [setDataResponse]="setData" (sendLoginResponse)="getLoginResponse($event)"></login-page>
+</div>

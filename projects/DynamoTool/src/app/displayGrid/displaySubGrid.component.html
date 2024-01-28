@@ -1,0 +1,401 @@
+<!-- <div class="container-displayGrid" style="width: 94%;"> -->
+
+<div class="container-displayGrid" [ngStyle]="{ width: gridWidth }">
+  <!-- custom-top-gridsub   custom-table-displaygrid -->
+  <div>
+    <div *ngIf="showSearch">
+      <div _ngcontent-fvs-c144="" class="col input-field s12">
+        <input
+          class="Validate manage-search setValid ng-pristine ng-valid ng-touched"
+          type="text"
+          tabindex="10001"
+          placeholder="Search"
+          size="80"
+          (keyup)="searchByClient($event, 2)"
+          [(ngModel)]="filterText"
+          maxlength="80"
+          style="max-width: 209px; height: 6px; padding: 10px"
+        /><i _ngcontent-mmt-c144="" class="fa-search fas"></i>
+      </div>
+    </div>
+
+    <div *ngIf="datatable" style="overflow: auto">
+      <table
+        datatable
+        [dtOptions]="dtOptions"
+        class="custom-top-gridsub  custom-table-displaygrid  main-tbl-file {{ tableclass }}"
+        style="width: auto"
+      >
+        <thead>
+          <tr>
+            <th class="top" colspan="99">
+              <div [innerHTML]="inquiryTitle"></div>
+            </th>
+          </tr>
+          <tr>
+            <!-- <th class="top" *ngFor="let itemdatas of itemInquiryHead2">
+                {{itemdatas}}
+             </th> -->
+            <th class="top" *ngFor="let itemInquiryHeader of itemInquiryHead2">
+              <div class="top-th-row" [innerHTML]="itemInquiryHeader"></div>
+              <div class="sorting-col" *ngIf="itemInquiryHeader == imageOrder">
+                <span class="sort-up" [style.opacity]="!reverse ? '0.7' : '1'">▲</span>
+                <span class="sort-down" [style.opacity]="reverse ? '0.7' : '1'">▼</span>
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody *ngIf="itemInquiryBody">
+          <tr *ngFor="let itemdata of itemInquiryBody | paginate : { itemsPerPage: totalPage, currentPage: p }; let myIndex = index">
+            <ng-container *ngFor="let itemsubdata of itemdata.items">
+              <!--  <ng-container *ngIf="colspan==true || rowspan==true"> -->
+              <td
+                attr.rowspan="{{ itemsubdata.rowspan }}"
+                attr.colspan="{{ itemsubdata.colspan }}"
+                *ngIf="itemsubdata.name.valued != 'checkbox' && itemsubdata.name.type != 'hidden' && itemsubdata.type != 'radio'"
+                [ngClass]="itemsubdata.selected ? 'active' : ''"
+                class="{{ myIndex == selectedRow ? 'active' : '' }} {{ itemsubdata.cellclass }}"
+              >
+                <a *ngIf="itemsubdata.apicollink != undefined" (click)="getIventoryReceipt(itemsubdata.apicollink, itemsubdata.hexkey)">
+                  <div [innerHTML]="itemsubdata.name.value"></div>
+                </a>
+                <a *ngIf="itemsubdata.link != undefined" (click)="openUploadedFile(itemsubdata.link)">
+                  <div [innerHTML]="itemsubdata.name.value"></div>
+                </a>
+                <span
+                  *ngIf="itemsubdata.apiRowSelect != apiRowSelect && itemsubdata.apicollink == undefined"
+                  (click)="getIventoryReceipt(itemsubdata.apiRowSelect, itemsubdata.hexkey, myIndex)"
+                >
+                  <div [innerHTML]="itemsubdata.name.value"></div>
+                </span>
+                <span
+                  *ngIf="
+                    itemsubdata.link == undefined &&
+                    itemsubdata.apicollink == undefined &&
+                    itemsubdata.apiRowSelect == undefined &&
+                    itemsubdata.name.valued == undefined
+                  "
+                  class="setPointer"
+                  (click)="printReport(itemsubdata.name, itemsubdata.hexkey)"
+                >
+                  <div [innerHTML]="itemsubdata.name.value"></div>
+                </span>
+                <!-- colspan rowspan-->
+
+                <div
+                  *ngIf="
+                    itemsubdata.link == undefined &&
+                    itemsubdata.apicollink == undefined &&
+                    itemsubdata.apiRowSelect == undefined &&
+                    itemsubdata.name.value == ''
+                  "
+                  class="setPointer"
+                  style="width: 100%"
+                  (click)="printReport(itemsubdata.name, itemsubdata.hexkey)"
+                >
+                  <div style="width: 100%">&nbsp;</div>
+                </div>
+              </td>
+              <!-- </ng-container> -->
+              <!--  <ng-container *ngIf="colspan==false && rowspan == false">
+                        <td  *ngIf="itemsubdata.name.valued != 'checkbox' && itemsubdata.name.type != 'hidden' && itemsubdata.type != 'radio'" [ngClass]="itemsubdata.selected ? 'active' : ''"  class="{{myIndex == selectedRow ? 'active' : ''}} {{itemsubdata.cellclass}}" >
+                            <a *ngIf="itemsubdata.apicollink != undefined" (click)="getIventoryReceipt(itemsubdata.apicollink, itemsubdata.hexkey)">
+                                    <div [innerHTML]="itemsubdata.name.value"></div>
+                            </a>
+                            <a *ngIf="itemsubdata.link != undefined" (click)="openUploadedFile(itemsubdata.link)">
+                                <div [innerHTML]="itemsubdata.name.value"></div>
+                        </a>
+                            <span *ngIf="itemsubdata.apiRowSelect != apiRowSelect && itemsubdata.apicollink == undefined" (click)="getIventoryReceipt(itemsubdata.apiRowSelect, itemsubdata.hexkey, myIndex)">
+                                    <div [innerHTML]="itemsubdata.name.value"></div>
+                            </span>
+                            <span *ngIf="itemsubdata.link == undefined && itemsubdata.apicollink == undefined && itemsubdata.apiRowSelect == undefined && itemsubdata.name.valued == undefined"
+                              class="setPointer"  (click)="printReport(itemsubdata.name, itemsubdata.hexkey)">
+                                <div [innerHTML]="itemsubdata.name.value"></div>
+                            </span>
+
+                          <div *ngIf="itemsubdata.link == undefined && itemsubdata.apicollink == undefined && itemsubdata.apiRowSelect == undefined && itemsubdata.name.value == ''"
+                            class="setPointer" style="width:100%"  (click)="printReport(itemsubdata.name, itemsubdata.hexkey)">
+                           <div style="width:100%;">&nbsp;</div>
+                          </div>
+                        </td>
+                    </ng-container> -->
+
+              <!-- USE ROWSPAN -->
+              <!--  <ng-container *ngIf="colspan==true || rowspan == true"> -->
+              <td *ngIf="itemsubdata.name.valued == 'checkbox'" attr.rowspan="{{ itemsubdata.rowspan }}" attr.colspan="{{ itemsubdata.colspan }}">
+                <span class="align-check">
+                  <input
+                    disabled="{{ itemsubdata.name.readonly ? 'disabled' : '' }}"
+                    type="checkbox"
+                    checked="{{ itemsubdata.name.checked ? 'checked' : '' }}"
+                    value="{{ itemsubdata.hexkey }}"
+                    (change)="onCheckboxChange(itemsubdata, $event)"
+                    class="filled-in"
+                    id="filled-in-box{{ itemsubdata.hexkey }}"
+                  />
+                  <label for="filled-in-box{{ itemsubdata.hexkey }}"></label>
+                </span>
+              </td>
+
+              <!--  </ng-container> -->
+              <!-- <ng-container *ngIf="colspan==false && rowspan == false">
+                    <td *ngIf="itemsubdata.name.valued == 'checkbox'">
+                        <span class="align-check">
+
+                            <input disabled="{{itemsubdata.name.readonly ? 'disabled' : ''}}" type="checkbox" checked="{{itemsubdata.name.checked ? 'checked' : ''}}"
+                                value="{{itemsubdata.hexkey}}" (change)="onCheckboxChange(itemsubdata,$event)" class="filled-in"
+                                id="filled-in-box{{itemsubdata.hexkey}}" />
+                            <label for="filled-in-box{{itemsubdata.hexkey}}"></label>
+                     </span>
+                    </td>
+                </ng-container> -->
+              <!--  <ng-container *ngIf="colspan==true || rowspan == true"> -->
+              <td *ngIf="itemsubdata.type == 'radio'" attr.rowspan="{{ itemsubdata.rowspan }}" attr.colspan="{{ itemsubdata.colspan }}">
+                <span *ngIf="itemsubdata.radioButtonValue != ''" class="align-check align-radio">
+                  <input
+                    type="radio"
+                    class="filled-in"
+                    [(ngModel)]="practiceCode"
+                    id="{{ itemsubdata.radioButtonValue }}"
+                    value="{{ itemsubdata.radioButtonValue }}"
+                    name="practiceCode"
+                    (change)="onRadioChange(itemsubdata)"
+                  />
+                  <label class="customeCss" for="{{ itemsubdata.radioButtonValue }}"></label>
+                </span>
+              </td>
+              <!--  </ng-container> -->
+              <!--  <ng-container *ngIf="colspan==false && rowspan == false">
+                        <td *ngIf="itemsubdata.type == 'radio'">
+                            <span *ngIf="itemsubdata.radioButtonValue != ''" class="align-check align-radio">
+                                <input type="radio" class="filled-in" [(ngModel)]="practiceCode" id="{{itemsubdata.radioButtonValue}}"
+                                    value="{{itemsubdata.radioButtonValue}}" name="practiceCode" (change)="onRadioChange(itemsubdata)" />
+                                <label class="customeCss" for="{{itemsubdata.radioButtonValue}}"></label>
+                            </span>
+                        </td>
+                        </ng-container> -->
+            </ng-container>
+          </tr>
+          <tr *ngIf="itemInquiryBody.length == 0">
+            <td id="nodata_s8e" [attr.colspan]="itemInquiryHead.length">No records found</td>
+          </tr>
+          <tr *ngIf="showLoader">
+            <td id="nodata_s8e" [attr.colspan]="itemInquiryHead.length">
+              <div _ngcontent-htu-c187="" class="loading" *ngIf="showLoader"></div>
+            </td>
+          </tr>
+        </tbody>
+        <!-- <tfoot *ngIf="footer?.length > 0 ">
+            <tr>
+                <th class="top" colspan="99">
+                    <div [innerHTML]="footer"></div>
+                   </th>
+            </tr>
+          <tr>
+                <th colspan="99">
+                    <div [style.display]="Navigation" class="setInCenter">
+                        <app-naviagtion id="dynamo_home" *ngIf="Navigation" [naviresponse]="Navigation" ></app-naviagtion>
+                    </div>
+                   </th>
+            </tr>
+        </tfoot> -->
+      </table>
+    </div>
+    <div *ngIf="!datatable" style="overflow: auto">
+      <table class="custom-top-gridsub  custom-table-displaygrid  main-tbl-file {{ tableclass }}">
+        <thead>
+          <tr>
+            <th class="top" colspan="99">
+              <div [innerHTML]="inquiryTitle"></div>
+            </th>
+          </tr>
+          <tr>
+            <!-- <th class="top" *ngFor="let itemdatas of itemInquiryHead2">
+                {{itemdatas}}
+             </th> -->
+            <th class="top" *ngFor="let itemInquiryHeader of itemInquiryHead2; let i = index" (click)="dtOptions.ordering && sortByClient(itemInquiryHeader, i)">
+              <span class="top-th-row" [innerHTML]="itemInquiryHeader"></span>
+              <span class="sorting-col" *ngIf="itemInquiryHeader == imageOrder">
+                <span class="sort-up" [style.opacity]="!reverse ? '0.7' : '1'">▲</span>
+                <span class="sort-down" [style.opacity]="reverse ? '0.7' : '1'">▼</span>
+              </span>
+            </th>
+          </tr>
+        </thead>
+        <tbody *ngIf="bodyForShow">
+          <tr *ngFor="let itemdata of bodyForShow | paginate : { itemsPerPage: totalPage, currentPage: p }; let myIndex = index" [style.display]="itemdata.hidden == true ? 'none' : ''">
+            <ng-container *ngFor="let itemsubdata of itemdata.items">
+              <!--  <ng-container *ngIf="colspan==true || rowspan==true"> -->
+              <td
+                attr.rowspan="{{ itemsubdata.rowspan }}"
+                attr.colspan="{{ itemsubdata.colspan }}"
+                *ngIf="
+                  (itemsubdata.name.valued != 'checkbox' &&
+                    itemsubdata.name.type != 'hidden' &&
+                    itemsubdata.type != 'radio' &&
+                    itemsubdata.imageType == undefined) ||
+                  itemsubdata.imageType !== 'image'
+                "
+                [ngClass]="itemsubdata.selected ? 'active' : ''"
+                class="{{ myIndex == selectedRow ? 'active' : '' }} {{ itemsubdata.cellclass }}"
+              >
+                <a *ngIf="itemsubdata.apicollink != undefined" (click)="getIventoryReceipt(itemsubdata.apicollink, itemsubdata.hexkey)">
+                  <div [innerHTML]="itemsubdata.name.value"></div>
+                </a>
+                <a *ngIf="itemsubdata.link != undefined" (click)="openUploadedFile(itemsubdata.link)">
+                  <div [innerHTML]="itemsubdata.name.value"></div>
+                </a>
+                <span
+                  *ngIf="itemsubdata.apiRowSelect != apiRowSelect && itemsubdata.apicollink == undefined"
+                  (click)="getIventoryReceipt(itemsubdata.apiRowSelect, itemsubdata.hexkey, myIndex)"
+                >
+                  <div [innerHTML]="itemsubdata.name.value"></div>
+                </span>
+                <span
+                  *ngIf="
+                    itemsubdata.link == undefined &&
+                    itemsubdata.apicollink == undefined &&
+                    itemsubdata.apiRowSelect == undefined &&
+                    itemsubdata.name.valued == undefined
+                  "
+                  class="setPointer"
+                  (click)="printReport(itemsubdata.name, itemsubdata.hexkey)"
+                >
+                  <div [innerHTML]="itemsubdata.name.value"></div>
+                </span>
+                <!-- colspan rowspan-->
+
+                <div
+                  *ngIf="
+                    itemsubdata.link == undefined &&
+                    itemsubdata.apicollink == undefined &&
+                    itemsubdata.apiRowSelect == undefined &&
+                    itemsubdata.name.value == ''
+                  "
+                  class="setPointer"
+                  style="width: 100%"
+                  (click)="printReport(itemsubdata.name, itemsubdata.hexkey)"
+                >
+                  <div style="width: 100%">&nbsp;</div>
+                </div>
+              </td>
+
+              <td *ngIf="itemsubdata.imageType == 'image'">
+                <img src="{{ baseUrl }}{{ itemsubdata.imagePath }}" width="{{ itemsubdata.width }}" />
+              </td>
+
+              <!-- </ng-container> -->
+              <!--  <ng-container *ngIf="colspan==false && rowspan == false">
+                        <td  *ngIf="itemsubdata.name.valued != 'checkbox' && itemsubdata.name.type != 'hidden' && itemsubdata.type != 'radio'" [ngClass]="itemsubdata.selected ? 'active' : ''"  class="{{myIndex == selectedRow ? 'active' : ''}} {{itemsubdata.cellclass}}" >
+                            <a *ngIf="itemsubdata.apicollink != undefined" (click)="getIventoryReceipt(itemsubdata.apicollink, itemsubdata.hexkey)">
+                                    <div [innerHTML]="itemsubdata.name.value"></div>
+                            </a>
+                            <a *ngIf="itemsubdata.link != undefined" (click)="openUploadedFile(itemsubdata.link)">
+                                <div [innerHTML]="itemsubdata.name.value"></div>
+                        </a>
+                            <span *ngIf="itemsubdata.apiRowSelect != apiRowSelect && itemsubdata.apicollink == undefined" (click)="getIventoryReceipt(itemsubdata.apiRowSelect, itemsubdata.hexkey, myIndex)">
+                                    <div [innerHTML]="itemsubdata.name.value"></div>
+                            </span>
+                            <span *ngIf="itemsubdata.link == undefined && itemsubdata.apicollink == undefined && itemsubdata.apiRowSelect == undefined && itemsubdata.name.valued == undefined"
+                              class="setPointer"  (click)="printReport(itemsubdata.name, itemsubdata.hexkey)">
+                                <div [innerHTML]="itemsubdata.name.value"></div>
+                            </span>
+
+                          <div *ngIf="itemsubdata.link == undefined && itemsubdata.apicollink == undefined && itemsubdata.apiRowSelect == undefined && itemsubdata.name.value == ''"
+                            class="setPointer" style="width:100%"  (click)="printReport(itemsubdata.name, itemsubdata.hexkey)">
+                           <div style="width:100%;">&nbsp;</div>
+                          </div>
+                        </td>
+                    </ng-container> -->
+
+              <!-- USE ROWSPAN -->
+              <!--  <ng-container *ngIf="colspan==true || rowspan == true"> -->
+              <td *ngIf="itemsubdata.name.valued == 'checkbox'" attr.rowspan="{{ itemsubdata.rowspan }}" attr.colspan="{{ itemsubdata.colspan }}">
+                <span class="align-check">
+                  <input
+                    disabled="{{ itemsubdata.name.readonly ? 'disabled' : '' }}"
+                    type="checkbox"
+                    checked="{{ itemsubdata.name.checked ? 'checked' : '' }}"
+                    value="{{ itemsubdata.hexkey }}"
+                    (change)="onCheckboxChange(itemsubdata, $event)"
+                    class="filled-in"
+                    id="filled-in-box{{ itemsubdata.hexkey }}"
+                  />
+                  <label for="filled-in-box{{ itemsubdata.hexkey }}"></label>
+                </span>
+              </td>
+              <!--  </ng-container> -->
+              <!-- <ng-container *ngIf="colspan==false && rowspan == false">
+                    <td *ngIf="itemsubdata.name.valued == 'checkbox'">
+                        <span class="align-check">
+
+                            <input disabled="{{itemsubdata.name.readonly ? 'disabled' : ''}}" type="checkbox" checked="{{itemsubdata.name.checked ? 'checked' : ''}}"
+                                value="{{itemsubdata.hexkey}}" (change)="onCheckboxChange(itemsubdata,$event)" class="filled-in"
+                                id="filled-in-box{{itemsubdata.hexkey}}" />
+                            <label for="filled-in-box{{itemsubdata.hexkey}}"></label>
+                     </span>
+                    </td>
+                </ng-container> -->
+              <!--  <ng-container *ngIf="colspan==true || rowspan == true"> -->
+              <td *ngIf="itemsubdata.type == 'radio'" attr.rowspan="{{ itemsubdata.rowspan }}" attr.colspan="{{ itemsubdata.colspan }}">
+                <span *ngIf="itemsubdata.radioButtonValue != ''" class="align-check align-radio">
+                  <input
+                    type="radio"
+                    class="filled-in"
+                    [(ngModel)]="practiceCode"
+                    id="{{ itemsubdata.radioButtonValue }}"
+                    value="{{ itemsubdata.radioButtonValue }}"
+                    name="practiceCode"
+                    (change)="onRadioChange(itemsubdata)"
+                  />
+                  <label class="customeCss" for="{{ itemsubdata.radioButtonValue }}"></label>
+                </span>
+              </td>
+              <!--  </ng-container> -->
+              <!--  <ng-container *ngIf="colspan==false && rowspan == false">
+                        <td *ngIf="itemsubdata.type == 'radio'">
+                            <span *ngIf="itemsubdata.radioButtonValue != ''" class="align-check align-radio">
+                                <input type="radio" class="filled-in" [(ngModel)]="practiceCode" id="{{itemsubdata.radioButtonValue}}"
+                                    value="{{itemsubdata.radioButtonValue}}" name="practiceCode" (change)="onRadioChange(itemsubdata)" />
+                                <label class="customeCss" for="{{itemsubdata.radioButtonValue}}"></label>
+                            </span>
+                        </td>
+                        </ng-container> -->
+            </ng-container>
+          </tr>
+          <tr *ngIf="itemInquiryBody.length == 0">
+            <td id="nodata_s8e" [attr.colspan]="itemInquiryHead.length">No records found</td>
+          </tr>
+          <tr *ngIf="showLoader">
+            <td id="nodata_s8e" [attr.colspan]="itemInquiryHead.length">
+              <div _ngcontent-htu-c187="" class="loading" *ngIf="showLoader"></div>
+            </td>
+          </tr>
+        </tbody>
+        <!-- <tfoot *ngIf="footer?.length > 0 ">
+            <tr>
+                <th class="top" colspan="99">
+                    <div [innerHTML]="footer"></div>
+                   </th>
+            </tr>
+          <tr>
+                <th colspan="99">
+                    <div [style.display]="Navigation" class="setInCenter">
+                        <app-naviagtion id="dynamo_home" *ngIf="Navigation" [naviresponse]="Navigation" ></app-naviagtion>
+                    </div>
+                   </th>
+            </tr>
+        </tfoot> -->
+      </table>
+      <div *ngIf="dtOptions.paging == true" class="client-navigation">
+        <app-naviagtion
+          [naviresponse]="gridNavigation"
+          (navChanged)="clientPageChange($event)"
+        ></app-naviagtion>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <pagination-controls [ngStyle]="{'display': dispPagination}" *ngIf="itemInquiryBody" (pageChange)="p = $event"></pagination-controls>
+<div style="padding-bottom:2px;"></div> -->

@@ -1,0 +1,28 @@
+
+.required-ast {
+    display: inline-block;
+    margin-left: 3px;
+    color: red !important;
+}
+ label
+{
+    font-size: 1rem !important;
+}
+.invalid {
+    color: #f44336;
+    font-size: .8rem;
+}
+/* gourav 18-05-2020*/
+.skip-align-fix{
+    /*eight: auto !important;*/  /*17122020*/
+    height: 18px !important;  /*18122020*/
+    padding: 19px 0px 5px !important;
+}
+input
+{
+    margin: 0px 0px 0px 0px !important;
+}
+/**  ADDED 5 FEB 2021 */
+input:not([disabled]) + label {
+    color: #26a69a !important;
+}

@@ -1,0 +1,9 @@
+<div *ngIf="!templates.treeNodeWrapperTemplate" class="node-wrapper" [style.padding-left]="node.getNodePadding()">        
+    <tree-node-checkbox *ngIf="node.options.useCheckbox" [node]="node"></tree-node-checkbox>     
+    <tree-node-expander [node]="node"></tree-node-expander>     
+    <div class="node-content-wrapper"\n [class.node-content-wrapper-active]="node.isActive"\n [class.node-content-wrapper-focused]="node.isFocused\"\n (click)="node.mouseAction('click', $event)"\n (dblclick)="node.mouseAction('dblClick', $event)"\n (contextmenu)="node.mouseAction('contextMenu', $event)"\n (treeDrop)="node.onDrop($event)"\n          (treeDropDragOver)="node.mouseAction('dragOver', $event)"\n          (treeDropDragLeave)="node.mouseAction('dragLeave', $event)"\n          (treeDropDragEnter)="node.mouseAction('dragEnter', $event)"\n          [treeAllowDrop]="node.allowDrop"\n          [treeDrag]="node"\n          [treeDragEnabled]="node.allowDrag()">\n\n          
+    <tree-node-content [node]="node" [index]="index" [template]="templates.treeNodeTemplate"> </tree-node-content>     
+   </div>\n      
+  </div>\n      
+    <ng-container \n  [ngTemplateOutlet]="templates.treeNodeWrapperTemplate" \n [ngTemplateOutletContext]="{ $implicit: node, node: node, index: index, templates: templates }">\n      
+    </ng-container>

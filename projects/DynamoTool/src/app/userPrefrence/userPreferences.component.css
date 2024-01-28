@@ -1,0 +1,83 @@
+
+.preference-page {
+    font-weight: 400;
+}
+.preference-page .table-search {
+    margin-bottom: 15px;
+    margin-top: 0;
+}
+.preference-page .table-search a.btn-mini {
+    margin-top: 10px;
+}
+.preference-page .text-lg {
+    font-size: 23px;
+    color: rgba(0,0,0,.87);
+    font-weight: 400;
+}
+.preference-page .text-sm {
+    color: rgba(0,0,0,.87);
+    font-size: 14px;
+    font-weight: 400;
+}
+.preference-page .heading {
+    text-align: center;
+    color: rgba(0,0,0,.87);
+}
+#filter_div {
+    /* for reduce the scroll */
+    /* margin-top: 30px; */
+}
+#table-center{
+    margin: 0px auto;
+}
+.m-b-15{
+    margin-bottom: 15px;
+}
+/* .color-col {
+    margin:0 auto;
+    text-align: center;
+    width: 440px;
+} */
+.gu-color .custom-table table {
+    float:right;
+    margin-right: 10px;
+}
+.gu-color .top-head {
+    margin-top: 10px;
+}
+.filled-in {
+    cursor: pointer;
+}
+.customeCss {
+    pointer-events: visible !important;
+}
+#saveButton {
+    background: teal;
+}
+.container {
+    min-height: 600px;
+    /* padding: 5px 120px; */
+    background: #fff;
+    display: block;
+    width: 99%;
+    margin: 0 0;
+    max-width: 100%;
+}
+.radiocolor {
+    padding: 1px 2px !important;
+}
+@media (max-width:767px) {
+    .gu-color .color-col, .gu-color .custom-table {
+        width: 100%;
+    }
+    .gu-color .custom-table table {
+        float: none;
+        margin: 0 auto;
+    }
+}
+@media (max-width:480px) {
+    .preference-page .table-search tr td {
+        width: 100%;
+        display: block;
+    }
+}

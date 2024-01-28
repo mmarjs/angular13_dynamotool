@@ -1,0 +1,19 @@
+table tbody tr td.active {
+    background-color: #123456 !important;
+    color: white;
+}
+td {
+    cursor: pointer;
+}
+label.delete_checkbox {
+    margin-left: 24px;
+    margin-bottom: -2px;
+    width: 14px;
+    height: 14px;
+}
+.custom-top-gridsub{
+
+	margin: 0 auto !important;
+}
+
+

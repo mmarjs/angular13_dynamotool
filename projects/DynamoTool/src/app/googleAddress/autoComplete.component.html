@@ -1,0 +1,11 @@
+ <!-- {{setDivs.value}}  -->
+<input type="{{setDivs.type}}" id="{{setDivs.name}}" #autoInput name="autocompleteInput" tabindex="{{setDivs.tabindex}}"
+[required]="setDivs.required ? true : false" maxlength="{{setDivs.maxlength}}" [placeholder]="setDivs?.placeholder ? setDivs.placeholder : ''"
+    [(ngModel)]="autocompleteInput" (change)="getUserValue()"
+     class="{{setDivs.inputclass}} skip-align-fix" #addresstext="ngModel" [disabled]="setDivs.readonly ? true : false"
+    [ngStyle]="{'text-align':setDivs?.textalign}"/>
+ <!-- {{'The value is' + autocompleteInput }} -->
+<label for="{{setDivs.name}}">{{setDivs.label}}<span *ngIf="setDivs.required" class="required-ast">*</span></label>
+<span class="invalid" data-error="wrong" data-success="right" *ngIf="addresstext.errors?.required && addresstext.touched">This
+    field is required.</span>
+   

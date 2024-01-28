@@ -1,0 +1,41 @@
+a{cursor: pointer;}
+.pagination {
+    display: inline-block;
+    padding-left: 0;
+    margin: 5px 0 0;
+    border-radius: 4px;
+}
+.pagination>li {
+    display: inline;
+    padding: 0px 0;
+    line-height: 0px;
+}
+.pagination>li>a {
+    position: relative;
+    float: left;
+    color: #fff;
+    text-decoration: none;
+    background: #26a69a;
+    border: 1px solid #ddd;
+    border-right: 0px;
+    cursor: pointer;
+   /* margin-bottom: 5px;
+    padding: 5px 12px;*/
+}
+.pagination>li:last-child a {
+    border-right: 1px solid #ddd;
+}
+
+.pagination li:first-child i, .pagination li:last-child i {
+    font-weight: 600;
+   
+}
+.pagination li i {font-size: 22px;}
+.pagin_nav .pagination {
+    margin:2px 0px  0px;
+}
+
+.pagination li a {
+    line-height: 35px;
+    height: 32px;
+}

@@ -1,0 +1,78 @@
+<app-message [messageResponse]="setmessage"></app-message>
+<div class="main-block">
+    <div class="{{modelOverLay}}" [ngStyle]="{'display': displayPoup}">
+        <div [ngStyle]="{'display': displayPoup, 'z-index': zIndex}" class="modal" id="modal11">
+            <div class="modal-content">
+                <a (click)="closePopUp()" class="close-icon"><i class="fa fa-times-circle"></i></a>
+                <div [ngStyle]="{'display': dtForm_viewtable}" class="genralLedegrInfo" *ngIf="displayViewresponse">
+                    <app-displayview [setDisplayView]="displayViewresponse"></app-displayview>
+                </div>
+                <div [ngStyle]="{'display': dtForm_table}">
+                    <app-displaysubgrid [greetSubresponse]="displaySubGridresp" (sendData)="getDataByHexkey($event)"></app-displaysubgrid>
+                </div>
+                <div *ngIf="displayLookUpForm" [ngStyle]="{'display': lookupFormField}">
+                    <table>
+                        <tr>
+                            <td>
+                                Show
+                            </td>
+                            <td>
+                                {{displayLookUpForm.show}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Value
+                            </td>
+                            <td>
+                                {{displayLookUpForm.value}}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Type
+                            </td>
+                            <td>
+                                {{displayLookUpForm.type}}
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div [style.display]="navigationcsspopUp" class="pagin_nav">
+                    <app-naviagtion [naviresponse]="navigatinresponse" (navChanged)="navChangedHandler($event)"></app-naviagtion>
+                </div>
+                <div class="back_button">
+                    <a (click)="closePopUp()" class="waves-effect waves-light btn btn-mini">close</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="main-block">
+    <div [style.display]="loader" id="loader" class="loading"></div>
+    <div class="modal-content">
+        <div class="row">
+            <div class="col s12">
+                <div class="custom-page">
+                    <div class="col s12 custom-table">
+                        <div class="row">
+                            <div class="dt-inquiry-col">
+                                <app-displayview [setDisplayView]="displayViewresponse" *ngIf="displayViewresponse"></app-displayview>
+
+                                <app-displaysubgrid [greetSubresponse]="displaySubGridresp" *ngIf="displaySubGridresp"
+                                    (sendData)="getDataByHexkey($event)"></app-displaysubgrid>
+
+                                <div [style.display]="navigationcss">
+                                    <app-naviagtion [naviresponse]="navigatinresponse" *ngIf="navigatinresponse"
+                                        (navChanged)="navChangedHandler($event)"></app-naviagtion>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

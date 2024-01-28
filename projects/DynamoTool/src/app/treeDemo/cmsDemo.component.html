@@ -1,0 +1,52 @@
+<div *ngIf="showBusyText?.length > 0" class="setbusyText">{{showBusyText}}</div>
+ <div [style.display]="loader" class="loading"></div>
+<app-message [messageResponse]="setmessage"></app-message>
+ <div class="setOverflow">
+<app-displaydtForm *ngIf="mainContent.showMainContent=='true'" [getdtForm]="mainContent.data" (setExpanderFromApi)="setExpanderFromApi($event)"></app-displaydtForm>
+
+  <mat-accordion
+
+[multi]="true"
+#accordion="matAccordion"
+>
+  <mat-expansion-panel *ngFor="let panel of showExpansion"
+  #mapanel="matExpansionPanel" tabindex="{{panel.tabindex}}" class="setmatexp {{panel.hideContent !== undefined && panel.hideContent ? 'hideContent' : ''}}"
+  [disabled]="panel.isDisabled"
+  [expanded]="panel.isExpanded"
+  [hideToggle]="false"
+  (opened)="beforePanelOpened(panel,i,panel.updateApi)"
+  (closed)="beforePanelClosed(panel)"
+  (afterCollapse)="afterPanelClosed($event)"
+  (afterExpand)="afterPanelOpened($event)"
+  >
+  <!-- <mat-expansion-panel-header> -->
+   <mat-expansion-panel-header [class]="panel.titleColor">
+      <mat-panel-title>
+
+     <span [innerHTML]="panel.title" style="font-weight: bold;" class={{panel.titleColor}}></span>
+    </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div [style.display]="loader" class="loading"></div>
+   <!--  *ngIf="panel.isExpanded" -->
+    <app-displaydtForm [getdtForm]="panel.data"  (sendFiletoMultipart)="sendFileData($event)" (sendNofileOnSubmit)="sendNofileOnSubmit($event)"  [submitApiEntryGridMultipart]="submitApiEntryGridMultipart" [clearSignatureMultiPart]="clearSignature" (handleFormDataInParent)="handleMultiPartForm($event)"></app-displaydtForm>
+
+  </mat-expansion-panel>
+</mat-accordion>
+<br/>
+ <!--- ADDED TO HANDLE NAVIGATION INSIDE MULTIPART FORM   -->
+ <div [style.display]="formsNavigationCss" style="margin-left:8px;">
+  <app-naviagtion  *ngIf="formsNavigation" [naviresponse]="formsNavigation" (navChanged)="navChangedHandlerForm($event)"></app-naviagtion>
+</div>
+<div *ngIf="buttonresponsePage.length!=0" class="cst-report-page modal-footer buttonAlign">
+
+  <div *ngFor="let item of buttonresponsePage;" class="footer-btn-col {{item?.isEnabled ? '' : 'setDisableBtn'}}">
+     <app-displayButton *ngIf="item.buttonType=='submit'" [getButtonResponse]="item" (click)="submitAll(item.onPush,item.showMenu,item.action,item)" (keydown.space)="submitAll(item.onPush,item.showMenu,item.action,item)" (keydown.Tab)="setManualFocusForm(highestButtonTab,item)"></app-displayButton>
+     <!-- <app-displayButton *ngIf="item.buttonType=='submit'" [getButtonResponse]="item" (click)="submitAll(item.onPush,item.showMenu,item.action,item)" (keydown.space)="submitAll(item.onPush,item.showMenu,item.action,item)"></app-displayButton> -->
+     <app-displayButton *ngIf="item.buttonType=='cancel'" [getButtonResponse]="item" (click)="cancel(item.action,item.onPush,item.showMenu,item)" (keydown.space)="cancel(item.action,item.onPush,item.showMenu,item)" (keydown.Tab)="setManualFocusForm(highestButtonTab,item)"></app-displayButton>
+     <app-displayButton *ngIf="item.buttonType=='print'" [getButtonResponse]="item" (click)="print()" (keydown.space)="print()" (keydown.Tab)="setManualFocusForm(highestButtonTab,item)"></app-displayButton>
+     <app-displayButton *ngIf="item.buttonType=='button'" [getButtonResponse]="item" (click)="buttonAPICall(item.onPush,item.showMenu,item.action,item,datazIndex)" (keydown.space)="buttonAPICall(item.onPush,item.showMenu,item.action,item,datazIndex)" (keydown.Tab)="setManualFocusForm(highestButtonTab,item)"></app-displayButton>
+  </div>
+</div>
+ </div>
+
+

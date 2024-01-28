@@ -1,0 +1,41 @@
+<div [style.display]="loader" class="loading"></div>
+<app-message [messageResponse]="setmessage"></app-message>
+<!-- Handle Dialog Html -->
+<!-- <div *ngIf="showDialogHtmlPage" class="modal-content start_new_receipt" [ngStyle]="{'width': dialogPageWidth}">
+    <div class="input-field col s12 m12">
+        <span class="validate" [innerHTML]="dialogTitle"></span>
+        
+    </div>
+    <div *ngIf="dialogText" class="input-field col s12 m12">
+        <div class="validate" [innerHTML]="dialogText | safeHtml"></div>
+        
+    </div>
+</div> -->
+
+<div class="main-block">
+    <div [ngStyle]="{ display: showDialog, width: dialogWidth }" id="modal1112" class="modal">
+        <div class="top-heading buy_orders">{{ dialogTitle }}</div>
+        <div class="modal-content start_new_receipt">
+            <div class="col s12 m12">
+                <span [innerHTML]="dialogText | safeHtml"></span>
+            </div>
+            <div *ngIf="buttonresponse.length != 0" class="cst-report-page modal-footer">
+                <div *ngFor="let item of buttonresponse" class="footer-btn-col {{ item?.isEnabled ? '' : 'setDisableBtn' }}">
+                    <app-displayButton [getButtonResponse]="item" (click)="buttonAPICall(item.onPush, item.action)"></app-displayButton>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Login Form -->
+<div class="login-page" *ngIf="responseDtFormPage" [ngStyle]="{ width: formWidth, margin: 'auto' }">
+    <app-displaydtForm
+        *ngIf="responseDtFormPage"
+        [getdtForm]="responseDtFormPage"
+        (sendDtForm)="receiveDtForm($event)"
+        (buttonAPICallSendParent)="cancelInParent($event)"
+        [enableButton]="enableButton"
+    >
+    </app-displaydtForm>
+</div>

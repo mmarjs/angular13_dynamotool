@@ -1,0 +1,157 @@
+/* @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '@angular/material/theming'; */
+
+body { 
+  font-family: Roboto, Arial, sans-serif;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.columnset1 {
+ 
+  /*width: 2%;*/
+  padding: 10px;
+  /*height: 300px;*/ /* Should be removed. Only for demonstration */
+  height: 20px;
+}
+.columnset2 {
+  padding: 11px;
+  float: right;
+  margin-top: 60px;
+  /*width: 96%;*/
+ 
+}
+.buttonAlign {
+	
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px 15px;
+}
+.buttonAlign .footer-btn-col + .footer-btn-col{
+  margin-left:1rem;
+}
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.basic-container {
+  padding: 30px;
+}
+
+.version-info {
+  font-size: 8pt;
+  float: right;
+}
+
+/**
+ * TREE DRAG AND DROP STYLING
+ */
+
+.mat-tree-node {
+ /* background-color: rgb(66, 157, 253);*/
+ /* color: white;*/
+ max-height: 69px !important; /* 24 px*/
+  user-select: none;
+  cursor: pointer;
+  min-height: fit-content;
+
+ /*  &.cdk-drag-preview { // while dragging
+    @include mat-elevation(12);
+  }
+  &.cdk-drag-placeholder { // potential drop area
+    opacity: 0;
+  } */
+}
+
+/* items moving away to make room for drop */
+.cdk-drop-list-dragging .mat-tree-node:not(.cdk-drag-placeholder) {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+/* item being dropped */
+.cdk-drag-animating {
+  transition: transform 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+.matStyle {
+  width: 450px;
+}
+.setBtnStyle {
+  margin-left: 10px;
+  margin-bottom: 15px;
+}
+
+span.setCollUncoll{
+    cursor: pointer;
+    color: cornflowerblue;
+}
+
+.mat-icon-button {
+  width: 20px;
+    height: 20px;
+    line-height: 20px;
+}
+.mat-icon {
+  margin-left: -2px; 
+  height: 20px;
+  width: 20px;
+  line-height: 20px !important;
+}
+.columnset2 {
+  width: 67% !important;
+  padding-top: 0;
+}
+.columnset2 br {
+  display: none;
+}
+.modal-footer {
+  display: table;
+  width: 100%;
+ /*  border-top: 1px solid #ddd; */
+  padding: 10px 0;
+}
+.modal-footer .footer-btn-col {
+  float: right;
+}
+
+.footer-btn-col {
+  margin-right: 15px;
+}
+.setSelected {
+  font-weight: bold;
+}
+ 
+.setPaddingChild1 {
+  padding-left: 15px !important;
+} 
+.setPaddingChild2 {
+  padding-left: 30px !important;
+} 
+.setPaddingChild3 {
+  padding-left: 45px !important;
+} 
+.setPaddingChild4 {
+  padding-left: 60px !important;
+} 
+.setPaddingChild5 {
+  padding-left: 75px !important;
+} 
+.setPaddingChild6 {
+  padding-left: 90px !important;
+} 
+.setPaddingChild7 {
+  padding-left: 105px !important;
+} 
+.setPaddingChild9 {
+  padding-left: 120px !important;
+} 
+.setPaddingChild9 {
+  padding-left: 135px !important;
+} 
+.setPaddingChild10 {
+  padding-left: 150px !important;
+}

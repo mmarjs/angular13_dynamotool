@@ -1,0 +1,21 @@
+
+
+
+    <a *ngIf="buttonresponse.text=='Undelete'"
+        class="{{buttonresponse.icon}} {{buttonresponse.class}} {{ buttonLength <= 2 || buttonLength == undefined ? 'btn':'btn3'}} center  unDelete btnText"
+        [ngStyle]="{'background': buttonresponse.color}" tabindex="{{buttonresponse.tabindex}}"  (click)="buttonAPICall(buttonresponse.APICall)"
+        id="{{ buttonresponse.action}}"><span [ngClass]="buttonresponse.icon == undefined ? 'unsetMarginButton' : ''">{{buttonresponse.text}}</span>
+    </a>
+    
+    <a *ngIf="buttonresponse.text!=='Undelete'"
+        class="{{buttonresponse.icon}} {{buttonresponse.class}} {{ buttonLength <= 2 || buttonLength == undefined ? 'btn':'btn3'}} center {{ buttonresponse.isEnabled  ? '' : 'unDelete' }}"
+        [ngStyle]="{'background': buttonresponse.color}" tabindex="{{buttonresponse.tabindex}}" (click)="buttonAPICall(buttonresponse.APICall)"
+        id="{{ buttonresponse.action}}">
+        <div class="tooltip cst-font appfontSize">
+        <span *ngIf="buttonresponse.text !==undefined" [ngClass]="buttonresponse.icon == undefined ? 'unsetMarginButton' : ''">{{buttonresponse.text}}</span>
+        <span *ngIf="buttonresponse.tooltip!==undefined && buttonresponse.tooltip!==''" class="tooltiptext" innerHtml="{{buttonresponse.tooltip}}"></span> 
+      </div>
+    </a>
+        
+
+    
